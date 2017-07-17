@@ -65,7 +65,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['annualBonus_mon'] = CTCcalculation['annualBonus_an']/12;
 					CTCcalculation['advancebonus_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? 0: advanceBonus;
 					CTCcalculation['advancebonus_mon'] = CTCcalculation['advancebonus_an']/12;
-					CTCcalculation['exgratia_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? (10 * CTCcalculation['BasicSal_an'] )/100 : 0 ;
+					CTCcalculation['exgratia_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? parseFloat(10 * CTCcalculation['BasicSal_an'] )/100 : parseFloat(0) ;
 					CTCcalculation['exgratia_mon'] = CTCcalculation['exgratia_an'] /12;
 					CTCcalculation['gratuity_an'] = (CTCcalculation['BasicSal_an'] * 4.81)/100;
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;

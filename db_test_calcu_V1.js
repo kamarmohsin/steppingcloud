@@ -81,7 +81,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['total_A1_an'] = CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an'] + CTCcalculation['specialAllow_an'] + v10 + v11;
 					CTCcalculation['total_A1_mon'] = CTCcalculation['total_A1_an'] /12;
 
-					CTCcalculation['total_A2_an'] = CTCcalculation['annualbonus_an'] + CTCcalculation['exgratia_an'];
+					CTCcalculation['total_A2_an'] = parseFloat(CTCcalculation['annualbonus_an']) + parseFloat(CTCcalculation['exgratia_an']);
 					CTCcalculation['total_A2_mon'] = CTCcalculation['total_A2_an'] /12;
 					CTCcalculation['total_A1A2_an'] = CTCcalculation['total_A1_an'] + CTCcalculation['total_A2_an'];
 					CTCcalculation['total_A1A2_mon'] = CTCcalculation['total_A1A2_an'] /12;

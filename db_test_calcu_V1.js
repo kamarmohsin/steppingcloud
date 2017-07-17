@@ -65,7 +65,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['annualBonus_mon'] = CTCcalculation['annualBonus_an']/12;
 					CTCcalculation['advancebonus_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? 0: advanceBonus;
 					CTCcalculation['advancebonus_mon'] = CTCcalculation['advancebonus_an']/12;
-					CTCcalculation['exgratia_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? parseFloat(10 * CTCcalculation['BasicSal_an'] )/100 : parseFloat(0) ;
+					CTCcalculation['exgratia_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? (10 * CTCcalculation['BasicSal_an'] )/100 : 0;
 					CTCcalculation['exgratia_mon'] = CTCcalculation['exgratia_an'] /12;
 					CTCcalculation['gratuity_an'] = (CTCcalculation['BasicSal_an'] * 4.81)/100;
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
@@ -81,7 +81,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['total_A1_an'] = CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an'] + CTCcalculation['specialAllow_an'] + v10 + v11;
 					CTCcalculation['total_A1_mon'] = CTCcalculation['total_A1_an'] /12;
 
-					CTCcalculation['total_A2_an'] = CTCcalculation['annualbonus_an'];
+					CTCcalculation['total_A2_an'] = total_annual_bonus + CTCcalculation['exgratia_an'];
 					CTCcalculation['total_A2_mon'] = CTCcalculation['total_A2_an'] /12;
 					CTCcalculation['total_A1A2_an'] = CTCcalculation['total_A1_an'] + CTCcalculation['total_A2_an'];
 					CTCcalculation['total_A1A2_mon'] = CTCcalculation['total_A1A2_an'] /12;

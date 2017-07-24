@@ -82,7 +82,7 @@ var $mj = jQuery.noConflict();
 						'total_C_mon':0,
 						'total_C_an':0,
 						'total_B1B2_mon':0,
-						'total_B1B2_an':0
+						'total_B1B2_an':0,
 						'benifit_PLI_mon':0,
 						'benifit_PLI_an':0,
 						'benifit_driversalary_mon':0,

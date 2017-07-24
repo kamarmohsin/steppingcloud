@@ -58,7 +58,7 @@ var $mj = jQuery.noConflict();
 						'mobTel_mon':0,
 						'mobTel_an':0,
 						'carReimbursment_self_mon':0,
-						'carReimbursment_self_ann':0
+						'carReimbursment_self_ann':0,
 						'driverSalary_self_mon':0,
 						'driverSalary_self_an':0,
 						'emicardRental_lease_mon':0,

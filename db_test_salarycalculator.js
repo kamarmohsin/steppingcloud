@@ -171,37 +171,63 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['total_A1A2_an'] = CTCcalculation['total_A1_an'] + CTCcalculation['total_A2_an'];
 					CTCcalculation['total_A1A2_mon'] = CTCcalculation['total_A1A2_an'] /12;
 
-					var v1 = isNaN(parseFloat($mj('[name="LTA_an"]').val()))? 0 : parseFloat($mj('[name="LTA_an"]').val());
+					CTCcalculation['LTA_an'] = isNaN(parseFloat($mj('[name="LTA_an"]').val()))? 0 : parseFloat($mj('[name="LTA_an"]').val());
+					CTCcalculation['LTA_mon'] = CTCcalculation['LTA_an'] /12;
 
-					var v2 = isNaN(parseFloat($mj('[name="mobTel_an"]').val()))? 0 : parseFloat($mj('[name="mobTel_an"]').val());
+					CTCcalculation['mobTel_an'] = isNaN(parseFloat($mj('[name="mobTel_an"]').val()))? 0 : parseFloat($mj('[name="mobTel_an"]').val());
+					CTCcalculation['mobTel_mon'] = CTCcalculation['mobTel_an']/12;
 
-					var v3 = isNaN(parseFloat($mj('[name="carReimbursment_self_ann"]').val()))? 0 : parseFloat($mj('[name="carReimbursment_self_ann"]').val());
+					CTCcalculation['carReimbursment_self_ann'] = isNaN(parseFloat($mj('[name="carReimbursment_self_ann"]').val()))? 0 : parseFloat($mj('[name="carReimbursment_self_ann"]').val());
+					CTCcalculation['carReimbursment_self_mon'] = CTCcalculation['carReimbursment_self_ann']/12;
 
-					var v4 = isNaN(parseFloat($mj('[name="driverSalary_self_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_self_an"]').val());
+					CTCcalculation['driverSalary_self_an'] = isNaN(parseFloat($mj('[name="driverSalary_self_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_self_an"]').val());
+					CTCcalculation['driverSalary_self_mon'] = CTCcalculation['driverSalary_self_an']/12;
 
-					var v5 = isNaN(parseFloat($mj('[name="emicardRental_lease_an"]').val()))? 0 : parseFloat($mj('[name="emicardRental_lease_an"]').val());
+					CTCcalculation['emicardRental_lease_an'] = isNaN(parseFloat($mj('[name="emicardRental_lease_an"]').val()))? 0 : parseFloat($mj('[name="emicardRental_lease_an"]').val());
+					CTCcalculation['emicardRental_lease_mon'] = CTCcalculation['emicardRental_lease_an']/12;
 
-					var v6 = isNaN(parseFloat($mj('[name="fuelMaintenance_lease_an"]').val()))? 0 : parseFloat($mj('[name="fuelMaintenance_lease_an"]').val());
+					CTCcalculation['fuelMaintenance_lease_an'] = isNaN(parseFloat($mj('[name="fuelMaintenance_lease_an"]').val()))? 0 : parseFloat($mj('[name="fuelMaintenance_lease_an"]').val());
+					CTCcalculation['fuelMaintenance_lease_mon'] = CTCcalculation['fuelMaintenance_lease_an']/12;
 
-					var v6 = isNaN(parseFloat($mj('[name="driverSalary_lease_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_lease_an"]').val());
+					CTCcalculation['driverSalary_lease_an'] = isNaN(parseFloat($mj('[name="driverSalary_lease_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_lease_an"]').val());
+					CTCcalculation['driverSalary_lease_mon'] = CTCcalculation['driverSalary_lease_an']/12;
 
-					var v7 = isNaN(parseFloat($mj('[name="gift_an"]').val()))? 0 : parseFloat($mj('[name="gift_an"]').val());
+					CTCcalculation['gift_an'] = isNaN(parseFloat($mj('[name="gift_an"]').val()))? 0 : parseFloat($mj('[name="gift_an"]').val());
+					CTCcalculation['gift_mon'] = CTCcalculation['gift_an'] /12;
 
-					var v7 = isNaN(parseFloat($mj('[name="newspaper_an"]').val()))? 0 : parseFloat($mj('[name="newspaper_an"]').val());
+					CTCcalculation['newspaper_an'] = isNaN(parseFloat($mj('[name="newspaper_an"]').val()))? 0 : parseFloat($mj('[name="newspaper_an"]').val());
+					CTCcalculation['newspaper_mon'] = CTCcalculation['newspaper_an']/12;
 
-					var v8 = isNaN(parseFloat($mj('[name="sodexo_an"]').val()))? 0 : parseFloat($mj('[name="sodexo_an"]').val());
-					var v9 = isNaN(parseFloat($mj('[name="mediclaim_an"]').val()))? 0 : parseFloat($mj('[name="mediclaim_an"]').val());
+					CTCcalculation['sodexo_an'] = isNaN(parseFloat($mj('[name="sodexo_an"]').val()))? 0 : parseFloat($mj('[name="sodexo_an"]').val());
+					CTCcalculation['sodexo_mon'] = CTCcalculation['sodexo_an']/12;
+
+					CTCcalculation['mediclaim_an'] = isNaN(parseFloat($mj('[name="mediclaim_an"]').val()))? 0 : parseFloat($mj('[name="mediclaim_an"]').val());
+					CTCcalculation['mediclaim_mon'] = CTCcalculation['mediclaim_an']/12;
 					
-					
-					CTCcalculation['total_B1_an'] = v1+v2+v3+v4+v5+v6+v7+v8;
+					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'];
 					CTCcalculation['total_B1_mon'] = CTCcalculation['total_B1_an'] /12;
-					CTCcalculation['total_B2_an'] = v9;
+					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];
 					CTCcalculation['total_B1B2_mon'] = CTCcalculation['total_B1B2_an'] /12;
 					CTCcalculation['total_C_an'] = CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'];
 					CTCcalculation['total_C_mon'] = CTCcalculation['total_C_an']/12;
 
+					CTCcalculation['benifit_PLI_an'] = isNaN(parseFloat($mj('[name="benifit_PLI_an"]').val()))? 0 : parseFloat($mj('[name="benifit_PLI_an"]').val());
+					CTCcalculation['benifit_PLI_mon'] = CTCcalculation['benifit_PLI_an']/12;
+					CTCcalculation['benifit_driversalary_an'] = isNaN(parseFloat($mj('[name="benifit_driversalary_an"]').val()))? 0 : parseFloat($mj('[name="benifit_driversalary_an"]').val());
+					CTCcalculation['benifit_driversalary_mon'] = CTCcalculation['benifit_driversalary_an']/12;
+					CTCcalculation['benifit_mobTel_an'] = isNaN(parseFloat($mj('[name="benifit_mobTel_an"]').val()))? 0 : parseFloat($mj('[name="benifit_mobTel_an"]').val());
+					CTCcalculation['benifit_mobTel_mon'] = CTCcalculation['benifit_mobTel_an']/12;
+					CTCcalculation['benifit_additionalMob_an'] = isNaN(parseFloat($mj('[name="benifit_additionalMob_an"]').val()))? 0 : parseFloat($mj('[name="benifit_additionalMob_an"]').val());
+					CTCcalculation['benifit_additionalMob_mon'] = CTCcalculation['benifit_additionalMob_an']/12;
+					CTCcalculation['benifit_residenceTel_an'] = isNaN(parseFloat($mj('[name="benifit_residenceTel_an"]').val()))? 0 : parseFloat($mj('[name="benifit_residenceTel_an"]').val());
+					CTCcalculation['benifit_residenceTel_mon'] = CTCcalculation['benifit_residenceTel_an']/12;
+					CTCcalculation['benifit_airFare_an'] = isNaN(parseFloat($mj('[name="benifit_airFare_an"]').val()))? 0 : parseFloat($mj('[name="benifit_airFare_an"]').val());
+					CTCcalculation['benifit_airFare_mon'] = CTCcalculation['benifit_airFare_an']/12;
+					CTCcalculation['benifit_entertainment_an'] = isNaN(parseFloat($mj('[name="benifit_entertainment_an"]').val()))? 0 : parseFloat($mj('[name="benifit_entertainment_an"]').val());
+					CTCcalculation['benifit_entertainment_mon'] = CTCcalculation['benifit_entertainment_an']/12;
+					
 					
 					
 

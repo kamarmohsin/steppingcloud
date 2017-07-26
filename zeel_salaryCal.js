@@ -30,7 +30,7 @@ var $mj = jQuery.noConflict();
 						
 						'IC_1': (inputCTC_mon * 15)/100,
 						'IC_2': (inputCTC_mon * 15)/100,
-						'IC_3 :0,
+						'IC_3':0,
 						'PM_1': (inputCTC_mon * 15)/100,
 						'PM_2': (inputCTC_mon * 15)/100,
 						'MM_1': (inputCTC_mon * 20)/100,

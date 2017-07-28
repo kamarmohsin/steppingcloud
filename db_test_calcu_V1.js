@@ -111,15 +111,16 @@ var $mj = jQuery.noConflict();
 						
 						};
 					
-					var basic1 =  parseFloat((30 * inputCTC_an)/100);
-					var basic2_pm = (min_wage_pm < 7000) ? parseFloat((90 * min_wage_pm )/100) : parseFloat((min_wage_pm - (10 * min_wage_pm)/100 ));
-					var Basic2_an = basic2_pm * 12;
+					//var basic1 =  parseFloat((30 * inputCTC_an)/100);
+					//var basic2_pm = (min_wage_pm < 7000) ? parseFloat((90 * min_wage_pm )/100) : parseFloat((min_wage_pm - (10 * min_wage_pm)/100 ));
+					//var Basic2_an = basic2_pm * 12;
 					var total_annual_bonus =0;
 					var advanceBonus =0;
 					var Exgratia = 0;
 					var annual_bonus =0;
 
-					CTCcalculation['BasicSal_an'] = Math.max(basic1,Basic2_an);
+					//CTCcalculation['BasicSal_an'] = Math.max(basic1,Basic2_an);
+					CTCcalculation['BasicSal_an'] = (min_wage_pm * 12) < (30 * inputCTC_an)/100 ? (30 * inputCTC_an)/100 : (90 * (min_wage_pm * 12 ))/100;
 
 					 if(CTCcalculation['BasicSal_an'] < 84000)  // basic PM * 12
 					 {
@@ -133,7 +134,8 @@ var $mj = jQuery.noConflict();
 					 else if (CTCcalculation['BasicSal_an'] >= 84000) {
 
 					 	
-					 	total_annual_bonus = (min_wage_pm *12) > (7000 *12) ? (min_wage_pm *20) /100: (7000 *20)/100;
+					 	total_annual_bonus = (min_wage_pm *12) > (7000 *12) ? ((min_wage_pm * 12) *20) /100: ((7000 *12) *20)/100;
+					 	//total_annual_bonus = (CTCcalculation['BasicSal_an'] * 20)/100;
 					 	annual_bonus = (50 * total_annual_bonus)/100;
 					 	advanceBonus = (50 * total_annual_bonus)/100;
 					 	//Exgratia = 0;
@@ -141,7 +143,7 @@ var $mj = jQuery.noConflict();
 
 
 					CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an'] /12;
-					CTCcalculation['housingAllowance_an'] = (loc == 'metro') ?  (50 * CTCcalculation['BasicSal_an'])/100 : (loc == 'nonMetro')?  (40 * CTCcalculation['BasicSal_an']) : alert('Please select Metro or Non-Metro');
+					CTCcalculation['housingAllowance_an'] = (loc == 'metro') ?  (50 * CTCcalculation['BasicSal_an'])/100 : (loc == 'nonMetro')?  (40 * CTCcalculation['BasicSal_an'])/100 : alert('Please select Metro or Non-Metro');
 					CTCcalculation['housingAlMonthly'] = CTCcalculation['housingAllowance_an'] / 12;
 					CTCcalculation['medical_an'] = 15000;
 					CTCcalculation['medical_mon'] = CTCcalculation['medical_an'] /12;

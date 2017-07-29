@@ -211,6 +211,10 @@ var $mj = jQuery.noConflict();
 					
 					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'];
 					CTCcalculation['total_B1_mon'] = CTCcalculation['total_B1_an'] /12;
+
+							if (CTCcalculation['total_B1_an'] > ( 20 * inputCTC_an)/100)
+							 {alert(" Total of Part B1 should not more than 20 % CTC")};
+
 					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];

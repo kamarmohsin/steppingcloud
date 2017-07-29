@@ -12,12 +12,13 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(offerCtc, min_wage, loc){
+			var calcCTC =  function(offerCtc, min_wage, loc, grade){
 
 				var inputCTC_an = offerCtc;
 
 				var min_wage_pm = min_wage;
 				var loc = loc;
+				var Grade = grade;
 					
 					CTCcalculation = {
 					
@@ -110,6 +111,25 @@ var $mj = jQuery.noConflict();
 
 						
 						};
+
+					var mediclaim ={
+
+						'm0': 6000,
+						'm1': 6000,
+						'm2': 5400,
+						'm3': 4800.
+						'm4': 4800,
+						'm5': 3200,
+						'm6': 2500,
+						'm7': 2500,
+						'm8': 2500,
+						's':  2500,
+						'o':  2500,
+						'et': 2500,
+						'e1': 2500,
+						'e2': 2500,
+						'e3': 2500
+					}
 					
 					//var basic1 =  parseFloat((30 * inputCTC_an)/100);
 					//var basic2_pm = (min_wage_pm < 7000) ? parseFloat((90 * min_wage_pm )/100) : parseFloat((min_wage_pm - (10 * min_wage_pm)/100 ));
@@ -206,7 +226,8 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['sodexo_an'] = isNaN(parseFloat($mj('[name="sodexo_an"]').val()))? 0 : parseFloat($mj('[name="sodexo_an"]').val());
 					CTCcalculation['sodexo_mon'] = CTCcalculation['sodexo_an']/12;
 
-					CTCcalculation['mediclaim_an'] = isNaN(parseFloat($mj('[name="mediclaim_an"]').val()))? 0 : parseFloat($mj('[name="mediclaim_an"]').val());
+					
+					CTCcalculation['mediclaim_an'] =  ($mj("#mediclaim").val() =='yes' ) ? mediclaim[Grade] : 0 ;
 					CTCcalculation['mediclaim_mon'] = CTCcalculation['mediclaim_an']/12;
 					
 					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'];
@@ -214,8 +235,8 @@ var $mj = jQuery.noConflict();
 
 							if (CTCcalculation['total_B1_an'] > ( 20 * inputCTC_an)/100)
 							 {alert(" Total of Part B1 should not more than 20 % CTC")};
-
-					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
+yes
+: 					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];
 					CTCcalculation['total_B1B2_mon'] = CTCcalculation['total_B1B2_an'] /12;
@@ -267,11 +288,12 @@ var $mj = jQuery.noConflict();
 		var inputCTC = $mj("#inputCTC").val();
 		var inputMinvage = $mj("#minWages").val();
 		var loc = $mj("#location").val();
+		var grade = $mj("#grade").val();
 
     if($mj.isNumeric(inputCTC) )
 	{ 
 
-        var sal  = calcCTC(inputCTC, inputMinvage,loc);
+        var sal  = calcCTC(inputCTC, inputMinvage,loc, grade);
 
         for( var key in sal){
 

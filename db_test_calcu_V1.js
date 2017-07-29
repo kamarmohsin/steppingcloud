@@ -161,7 +161,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
 					CTCcalculation['PF_an'] = (CTCcalculation['BasicSal_an'] * 12)/100;
 					CTCcalculation['PF_mon'] = CTCcalculation['PF_an'] /12;
-					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an']);
+					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an']);
 					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
 
 					var v10 = isNaN(parseFloat($mj('[name="relocation_an"]').val()))? 0 : parseFloat($mj('[name="relocation_an"]').val());

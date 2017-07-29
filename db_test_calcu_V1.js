@@ -134,7 +134,7 @@ var $mj = jQuery.noConflict();
 					 else if (CTCcalculation['BasicSal_an'] >= 84000) {
 
 					 	
-					 	total_annual_bonus = (min_wage_pm *12) > (7000 *12) ? ((min_wage_pm * 12) *20) /100: ((7000 *12) *20)/100;
+					 	total_annual_bonus = (min_wage_pm *12) > CTCcalculation['BasicSal_an'] ? ((min_wage_pm * 12) *20) /100: (CTCcalculation['BasicSal_an'] *20)/100;
 					 	//total_annual_bonus = (CTCcalculation['BasicSal_an'] * 20)/100;
 					 	annual_bonus = (50 * total_annual_bonus)/100;
 					 	advanceBonus = (50 * total_annual_bonus)/100;
@@ -161,7 +161,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
 					CTCcalculation['PF_an'] = (CTCcalculation['BasicSal_an'] * 12)/100;
 					CTCcalculation['PF_mon'] = CTCcalculation['PF_an'] /12;
-					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']);
+					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an']);
 					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
 
 					var v10 = isNaN(parseFloat($mj('[name="relocation_an"]').val()))? 0 : parseFloat($mj('[name="relocation_an"]').val());

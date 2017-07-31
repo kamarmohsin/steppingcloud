@@ -271,9 +271,9 @@ yes
 					CTCcalculation['total_D_mon'] = CTCcalculation['total_D_an'] /12;
 					CTCcalculation['total_D1D1_an'] = CTCcalculation['benifit_PLI_an'] + CTCcalculation['total_D_an'];
 					CTCcalculation['total_D1D1_mon'] = CTCcalculation['total_D1D1_an'] /12;
-					CTCcalculation['total_CTC_an'] = inputCTC_an;
+					CTCcalculation['total_CTC_an'] = parseFloat(inputCTC_an);
 					CTCcalculation['total_CTC_mon'] = CTCcalculation['total_CTC_an'] /12;
-					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + CTCcalculation['benifit_PLI_an'];
+					CTCcalculation['total_CTCPLI_an'] = parseFloat(inputCTC_an) + CTCcalculation['benifit_PLI_an'];
 					CTCcalculation['total_CTCPLI_mon'] = CTCcalculation['total_CTCPLI_an'] /12;
 					
 

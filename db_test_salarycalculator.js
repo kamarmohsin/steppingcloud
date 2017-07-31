@@ -12,12 +12,13 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(offerCtc, min_wage, loc){
+			var calcCTC =  function(offerCtc, min_wage, loc, grade){
 
 				var inputCTC_an = offerCtc;
 
 				var min_wage_pm = min_wage;
 				var loc = loc;
+				var Grade = grade;
 					
 					CTCcalculation = {
 					
@@ -110,35 +111,59 @@ var $mj = jQuery.noConflict();
 
 						
 						};
+
+					var mediclaim ={
+
+						'm0': 6000,
+						'm1': 6000,
+						'm2': 5400,
+						'm3': 4800,
+						'm4': 4800,
+						'm5': 3200,
+						'm6': 2500,
+						'm7': 2500,
+						'm8': 2500,
+						's':  2500,
+						'o':  2500,
+						'et': 2500,
+						'e1': 2500,
+						'e2': 2500,
+						'e3': 2500
+					}
 					
-					var basic1 =  parseFloat((30 * inputCTC_an)/100);
-					var basic2_pm = (min_wage_pm < 7000) ? parseFloat((90 * min_wage_pm )/100) : parseFloat((min_wage_pm - (10 * min_wage_pm)/100 ));
-					var Basic2_an = basic2_pm * 12;
+					//var basic1 =  parseFloat((30 * inputCTC_an)/100);
+					//var basic2_pm = (min_wage_pm < 7000) ? parseFloat((90 * min_wage_pm )/100) : parseFloat((min_wage_pm - (10 * min_wage_pm)/100 ));
+					//var Basic2_an = basic2_pm * 12;
 					var total_annual_bonus =0;
 					var advanceBonus =0;
 					var Exgratia = 0;
+					var annual_bonus =0;
 
-					CTCcalculation['BasicSal_an'] = Math.max(basic1,Basic2_an);
+					//CTCcalculation['BasicSal_an'] = Math.max(basic1,Basic2_an);
+					CTCcalculation['BasicSal_an'] = (min_wage_pm * 12) < (30 * inputCTC_an)/100 ? (30 * inputCTC_an)/100 : (90 * (min_wage_pm * 12 ))/100;
 
 					 if(CTCcalculation['BasicSal_an'] < 84000)  // basic PM * 12
 					 {
 					 	total_annual_bonus = CTCcalculation['BasicSal_an'] * 0.20; 
-					 	advanceBonus = total_annual_bonus - (8.33 * CTCcalculation['BasicSal_an'])/100;
+					 	annual_bonus = (8.33 * CTCcalculation['BasicSal_an'])/100;
+					 	advanceBonus = total_annual_bonus - annual_bonus;
 					 	Exgratia =0;
 					 }
 					
 
 					 else if (CTCcalculation['BasicSal_an'] >= 84000) {
 
-					 	total_annual_bonus = CTCcalculation['BasicSal_an'];
+					 	
+					 	total_annual_bonus = (min_wage_pm *12) > CTCcalculation['BasicSal_an'] ? ((min_wage_pm * 12) *20) /100: (CTCcalculation['BasicSal_an'] *20)/100;
+					 	//total_annual_bonus = (CTCcalculation['BasicSal_an'] * 20)/100;
+					 	annual_bonus = (50 * total_annual_bonus)/100;
 					 	advanceBonus = (50 * total_annual_bonus)/100;
 					 	//Exgratia = 0;
 					 }
 
-					 
 
 					CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an'] /12;
-					CTCcalculation['housingAllowance_an'] = (loc == 'metro') ?  (50 * CTCcalculation['BasicSal_an'])/100 : (loc == 'nonMetro')?  (40 * CTCcalculation['BasicSal_an']) : alert('Please select Metro or Non-Metro');
+					CTCcalculation['housingAllowance_an'] = (loc == 'metro') ?  (50 * CTCcalculation['BasicSal_an'])/100 : (loc == 'nonMetro')?  (40 * CTCcalculation['BasicSal_an'])/100 : alert('Please select Metro or Non-Metro');
 					CTCcalculation['housingAlMonthly'] = CTCcalculation['housingAllowance_an'] / 12;
 					CTCcalculation['medical_an'] = 15000;
 					CTCcalculation['medical_mon'] = CTCcalculation['medical_an'] /12;
@@ -146,7 +171,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['childreenedu_mon'] = CTCcalculation['childreenedu_an'] /12;
 					CTCcalculation['conveyance_an'] = 19200;
 					CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an'] /12;
-					CTCcalculation['annualBonus_an'] = parseFloat(total_annual_bonus);
+					CTCcalculation['annualBonus_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? 0: parseFloat(annual_bonus);
 					CTCcalculation['annualBonus_mon'] = CTCcalculation['annualBonus_an']/12;
 					CTCcalculation['advancebonus_an'] = (CTCcalculation['BasicSal_an'] >= 252000) ? 0: advanceBonus;
 					CTCcalculation['advancebonus_mon'] = CTCcalculation['advancebonus_an']/12;
@@ -156,7 +181,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
 					CTCcalculation['PF_an'] = (CTCcalculation['BasicSal_an'] * 12)/100;
 					CTCcalculation['PF_mon'] = CTCcalculation['PF_an'] /12;
-					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']);
+					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an']);
 					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
 
 					var v10 = isNaN(parseFloat($mj('[name="relocation_an"]').val()))? 0 : parseFloat($mj('[name="relocation_an"]').val());
@@ -201,12 +226,26 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['sodexo_an'] = isNaN(parseFloat($mj('[name="sodexo_an"]').val()))? 0 : parseFloat($mj('[name="sodexo_an"]').val());
 					CTCcalculation['sodexo_mon'] = CTCcalculation['sodexo_an']/12;
 
-					CTCcalculation['mediclaim_an'] = isNaN(parseFloat($mj('[name="mediclaim_an"]').val()))? 0 : parseFloat($mj('[name="mediclaim_an"]').val());
+					CTCcalculation['fuelmaintenance_self_an'] = isNaN(parseFloat($mj('[name="fuelmaintenance_self_an"]').val()))? 0 : parseFloat($mj('[name="fuelmaintenance_self_an"]').val());
+					CTCcalculation['fuelmaintenance_self_mon'] = CTCcalculation['fuelmaintenance_self_an']/12;
+					
+					CTCcalculation['driverSalary_company_an'] = isNaN(parseFloat($mj('[name="driverSalary_company_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_company_an"]').val());
+					CTCcalculation['driverSalary_company_mon'] = CTCcalculation['driverSalary_company_an']/12;
+
+					CTCcalculation['professionaldev_an'] = isNaN(parseFloat($mj('[name="professionaldev_an"]').val()))? 0 : parseFloat($mj('[name="professionaldev_an"]').val());
+					CTCcalculation['professionaldev_mon'] = CTCcalculation['professionaldev_an']/12;
+					
+					
+					CTCcalculation['mediclaim_an'] =  ($mj("#mediclaim").val() =='yes' ) ? mediclaim[Grade] : 0 ;
 					CTCcalculation['mediclaim_mon'] = CTCcalculation['mediclaim_an']/12;
 					
-					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'];
+					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'] + CTCcalculation['fuelmaintenance_self_an']+CTCcalculation['driverSalary_company_an']+CTCcalculation['professionaldev_an'];
 					CTCcalculation['total_B1_mon'] = CTCcalculation['total_B1_an'] /12;
-					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
+
+							if (CTCcalculation['total_B1_an'] > ( 20 * inputCTC_an)/100)
+							 {alert(" Total of Part B1 should not more than 20 % CTC")};
+yes
+: 					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];
 					CTCcalculation['total_B1B2_mon'] = CTCcalculation['total_B1B2_an'] /12;
@@ -228,7 +267,14 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['benifit_entertainment_an'] = isNaN(parseFloat($mj('[name="benifit_entertainment_an"]').val()))? 0 : parseFloat($mj('[name="benifit_entertainment_an"]').val());
 					CTCcalculation['benifit_entertainment_mon'] = CTCcalculation['benifit_entertainment_an']/12;
 					
-					
+					CTCcalculation['total_D_an'] = CTCcalculation['benifit_driversalary_an'] + CTCcalculation['benifit_mobTel_an'] + CTCcalculation['benifit_additionalMob_an'] + CTCcalculation['benifit_residenceTel_an'] + CTCcalculation['benifit_airFare_an'] + CTCcalculation['benifit_entertainment_an'];
+					CTCcalculation['total_D_mon'] = CTCcalculation['total_D_an'] /12;
+					CTCcalculation['total_D1D1_an'] = CTCcalculation['benifit_PLI_an'] + CTCcalculation['total_D_an'];
+					CTCcalculation['total_D1D1_mon'] = CTCcalculation['total_D1D1_an'] /12;
+					CTCcalculation['total_CTC_an'] = inputCTC_an;
+					CTCcalculation['total_CTC_mon'] = CTCcalculation['total_CTC_an'] /12;
+					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + CTCcalculation['benifit_PLI_an'];
+					CTCcalculation['total_CTCPLI_mon'] = CTCcalculation['total_CTCPLI_an'] /12;
 					
 
  					
@@ -251,11 +297,12 @@ var $mj = jQuery.noConflict();
 		var inputCTC = $mj("#inputCTC").val();
 		var inputMinvage = $mj("#minWages").val();
 		var loc = $mj("#location").val();
+		var grade = $mj("#grade").val();
 
     if($mj.isNumeric(inputCTC) )
 	{ 
 
-        var sal  = calcCTC(inputCTC, inputMinvage,loc);
+        var sal  = calcCTC(inputCTC, inputMinvage,loc, grade);
 
         for( var key in sal){
 

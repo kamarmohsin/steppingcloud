@@ -273,7 +273,7 @@ yes
 					CTCcalculation['total_D1D1_mon'] = CTCcalculation['total_D1D1_an'] /12;
 					CTCcalculation['total_CTC_an'] = parseFloat(inputCTC_an);
 					CTCcalculation['total_CTC_mon'] = CTCcalculation['total_CTC_an'] /12;
-					CTCcalculation['total_CTCPLI_an'] = parseFloat(inputCTC_an) + CTCcalculation['benifit_PLI_an'];
+					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + parseFloat(CTCcalculation['benifit_PLI_an']);
 					CTCcalculation['total_CTCPLI_mon'] = CTCcalculation['total_CTCPLI_an'] /12;
 					
 

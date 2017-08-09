@@ -14,7 +14,7 @@ var $mj = jQuery.noConflict();
 
 			var calcCTC =  function(offerCtc,inputgrade){
 
-					var inputCTC_mon = offerCtc;
+					var inputCTC_mon = offerCtc/12;
 				var grade = inputgrade;
 
 					

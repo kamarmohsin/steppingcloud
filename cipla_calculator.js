@@ -1177,8 +1177,8 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['housingAlMonthly'] = 4000;
 						CTCComponents['housingAllowance_an'] = 4000 * 12;
 						
-						CTCComponents['fwr_mon'] = 5500 ;
-						CTCComponents['fwr_ann'] = 5500 *12;
+						CTCComponents['fwr_mon'] = 5000 ;
+						CTCComponents['fwr_ann'] = 5000 *12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon'] + CTCComponents['fwr_mon'] ;
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
 						CTCComponents['providentFundMonth'] = 960;

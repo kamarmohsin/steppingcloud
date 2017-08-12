@@ -1405,15 +1405,17 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				alert("Please enter a numeric value!");
 			}
       
-       });
+       
 
-	}
-	else
-	{
+		}
+		else
+		{
 		
 		alert("Please Select Field/Non-Field & Performance Bonus");
 			
-	}
+		}
+
+		});
 
 		// HardBound Calculated Value
 

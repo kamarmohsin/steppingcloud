@@ -35,7 +35,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				{
 
 					var inputctc = offerCtc/12;
-				 var perfomancePercantage = Math.float(perforamnceB);
+				 var perfomancePercantage = parseFloat(perforamnceB);
 				 var foodAllowance =600;
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
@@ -151,7 +151,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 					var inputctc = offerCtc/12;
-				 var perfomancePercantage = Math.float(perforamnceB);
+				 var perfomancePercantage = parseFloat(perforamnceB);
 				 var foodAllowance =0;
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			

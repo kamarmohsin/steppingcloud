@@ -162,7 +162,7 @@ var $mj = jQuery.noConflict();
 					var varSalary = isNaN(parseFloat($mj('[name="varSalary"]').val()))? 0 : parseFloat($mj('[name="varSalary"]').val());
 
 				
-					CTCcalculation['incrementPercent'] = ((fixedSalary + varSalary )/CTCcalculation['CTC_an']) * 100;
+					CTCcalculation['incrementPercent'] = ((fixedSalary + varSalary )/CTCcalculation['Total_CTC_an']) * 100;
 					
 
  					

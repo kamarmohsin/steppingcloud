@@ -194,7 +194,7 @@ var $mj = jQuery.noConflict();
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
 
 			 	var salComponent = (sal[key]);
-			 			var round = salComponent.toLocaleString('en-IN');
+			 			var round = salComponent;
 						$mj('[name="'+key+'"]').val(round);
 
 

@@ -14,7 +14,7 @@ var $mj = jQuery.noConflict();
 
 			var calcCTC =  function(offerCtc, inputgrade){
 
-				var inputeb_CTC_mon = offerCtc;
+				var inputeb_CTC_mon = offerCtc/12;    // Converted into monthly
 				var grade = inputgrade;
 
 					
@@ -174,6 +174,14 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
 					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'];
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+
+					var fixedSalary = isNaN(parseFloat($mj('[name="fixedSalary"]').val()))? 0 : parseFloat($mj('[name="fixedSalary"]').val());
+					var varSalary = isNaN(parseFloat($mj('[name="varSalary"]').val()))? 0 : parseFloat($mj('[name="varSalary"]').val());
+
+				
+					CTCcalculation['incrementPercent'] = ((fixedSalary + varSalary )/CTCcalculation['eb_Total_CTC_an']) * 100;
+					
+
 					
 
  					

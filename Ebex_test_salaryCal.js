@@ -12,160 +12,176 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(offerCtc,inputgrade){
+			var calcCTC =  function(offerCtc, inputgrade){
 
-				var inputCTC_mon = offerCtc/12;   // Amount converted into Monthly
+				var inputeb_CTC_mon = offerCtc;
 				var grade = inputgrade;
 
 					
 					CTCcalculation = {
 					
-						'BasicSal_mon': 0,
-						'BasicSal_an': 0,
+						'eb_BasicSal_mon': 0,
+						'eb_BasicSal_an': 0,
 						
 						};
 					
 					var paygrade ={
 
 						
-						'IC_1': (inputCTC_mon * 15)/100,
-						'IC_2': (inputCTC_mon * 15)/100,
-						'PM_1': (inputCTC_mon * 15)/100,
-						'PM_2': (inputCTC_mon * 15)/100,
-						'MM_1': (inputCTC_mon * 20)/100,
-						'MM_2': (inputCTC_mon * 20)/100,
-						'FM_1': (inputCTC_mon * 20)/100,
-						'FM_2': (inputCTC_mon * 20)/100,
-						'FM_3': (inputCTC_mon * 20)/100,
-						'SM_1': (inputCTC_mon * 25)/100,
-						'SM_2': (inputCTC_mon * 25)/100,
-						'SM3' : (inputCTC_mon * 25)/100,
+						'IC_1': (inputeb_CTC_mon * 15)/100,
+						'S':    0,
+						'E':    0,
+						'M_1': (inputeb_CTC_mon * 10)/100,
+						'M_2': (inputeb_CTC_mon * 10)/100,
+						'M_3': (inputeb_CTC_mon * 10)/100,
+						'M_4': (inputeb_CTC_mon * 10)/100,
+						'M_5': (inputeb_CTC_mon * 20)/100,
+						'M_6': (inputeb_CTC_mon * 20)/100,
+						'M_7': (inputeb_CTC_mon * 20)/100,
+						'M_8': (inputeb_CTC_mon * 25)/100,
+						'M_9': (inputeb_CTC_mon * 25)/100,
+						'M_10' : (inputeb_CTC_mon * 25)/100,
 					}
 
 					var CRE = {
 
 						'IC_1': 0,
-						'IC_2': 0,
-						'IC_3': 0,
-						'PM_1': 0,
-						'PM_2': 0,
-						'MM_1': 24658,
-						'MM_2': 32125,
-						'FM_1': 36125,
-						'FM_2': 41459,
-						'FM_3': 46446,
-						'SM_1': 48500,
-						'SM_2': 51791,
+						'S': 0,
+						'E': 0,
+						'M_1':  0,
+						'M_2':  0,
+						'M_3':  0,
+						'M_4':  0,
+						'M_5':  35000,
+						'M_6':  43000,
+						'M_7':  52000,
+						'M_8':  60000,
+						'M_9':  66000,
 				
-						'SM3' : 56000
+						'M_10' : 71500
 					}
 
 					var childrallowance = {
 
 						
 						'IC_1': 200,
-						'IC_2': 200,
-						'IC_3': 200,
-						'PM_1': 200,
-						'PM_2': 200,
-						'MM_1': 200,
-						'MM_2': 200,
-						'FM_1': 200,
-						'FM_2': 200,
-						'FM_3': 200,
-						'SM_1': 200,
-						'SM_2': 200,				
-						'SM3' : 200
+						'S': 200,
+						'E': 200,
+						'M_1': 200,
+						'M_2': 200,
+						'M_3': 200,
+						'M_4': 200,
+						'M_5': 200,
+						'M_6': 200,
+						'M_7': 200,
+						'M_8': 200,
+						'M_9': 200,				
+						'M_10' :200
 					}
 
 					var entertainment = {
 
 						
 						'IC_1': 0,
-						'IC_2': 0,
-						'IC_3': 0,
-						'PM_1': 0,
-						'PM_2': 0,
-						'MM_1': 10000,
-						'MM_2': 12000,
-						'FM_1': 13500,
-						'FM_2': 15000,
-						'FM_3': 18000,
-						'SM_1': 20000,
-						'SM_2': 20000,				
-						'SM3' : 25000
+						'S': 0,
+						'E': 0,
+						'M_1': 0,
+						'M_2': 1000,
+						'M_3': 2000,
+						'M_4': 5000,
+						'M_5': 10000,
+						'M_6': 12000,
+						'M_7': 15000,
+						'M_8': 18000,
+						'M_9': 20000,				
+						'M_10': 25000
 					}
 
-					CTCcalculation['variablePay_mon'] = paygrade[grade];
-					CTCcalculation['variablePay_an'] = CTCcalculation['variablePay_mon'] * 12;
-					CTCcalculation['CTC_mon'] = inputCTC_mon - CTCcalculation['variablePay_mon'];
-					CTCcalculation['CTC_an'] = CTCcalculation['CTC_mon'] * 12;
-					CTCcalculation['carrelated_expenses_mon'] = CRE[grade];
-					CTCcalculation['carrelated_expenses_an'] = CTCcalculation['carrelated_expenses_mon'] * 12;
-					CTCcalculation['grossSalary_mon'] = CTCcalculation['CTC_mon'] - CTCcalculation['carrelated_expenses_mon'];
-					CTCcalculation['grossSalary_an'] = CTCcalculation['grossSalary_mon'] * 12;
-					CTCcalculation['Total_CTC_mon'] = inputCTC_mon;
-					CTCcalculation['Total_CTC_an'] = CTCcalculation['Total_CTC_mon'] *12;
-					CTCcalculation['BasicSal_mon'] =  ((CTCcalculation['grossSalary_mon'] /2 ) % 100) >50 ? Math.round((CTCcalculation['grossSalary_mon']/2)/100) *100 : Math.floor((CTCcalculation['grossSalary_mon']/2)/100) *100; 
-					CTCcalculation['BasicSal_an'] = CTCcalculation['BasicSal_mon'] *12;
+					var conveyance ={
+
+						'IC_1': 0,
+						'S': 0,
+						'E': 0,
+						'M_1':  2500,
+						'M_2':  4000,
+						'M_3':  6000,
+						'M_4':  8000,
+						'M_5':  0,
+						'M_6':  0,
+						'M_7':  0,
+						'M_8':  0,
+						'M_9':  0,
+				
+						'M_10' : 0
+					
+					}
+
+					CTCcalculation['eb_variablePay_mon'] = paygrade[grade];
+					CTCcalculation['eb_variablePay_an'] = CTCcalculation['eb_variablePay_mon'] * 12;
+					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];
+					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
+					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_CTC_mon'] - CTCcalculation['eb_carrelated_expenses_mon'];
+					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
+					CTCcalculation['eb_Total_CTC_mon'] = inputeb_CTC_mon;
+					CTCcalculation['eb_Total_CTC_an'] = CTCcalculation['eb_Total_CTC_mon'] *12;
+					CTCcalculation['eb_BasicSal_mon'] =  ((CTCcalculation['eb_grossSalary_mon'] /2 ) % 100) >50 ? Math.round((CTCcalculation['eb_grossSalary_mon']/2)/100) *100 : Math.floor((CTCcalculation['eb_grossSalary_mon']/2)/100) *100; 
+					CTCcalculation['eb_BasicSal_an'] = CTCcalculation['eb_BasicSal_mon'] *12;
 					
 									var hra = {
 
-											'IC_1': (30  * CTCcalculation['BasicSal_mon'])/100,
-											'IC_2': (40  * CTCcalculation['BasicSal_mon'])/100,
-											'IC_3': (40  * CTCcalculation['BasicSal_mon'])/100,
-											'PM_1': (40  * CTCcalculation['BasicSal_mon'])/100,
-											'PM_2': (40  * CTCcalculation['BasicSal_mon'])/100,
-											'MM_1': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'MM_2': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'FM_1': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'FM_2': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'FM_3': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'SM_1': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'SM_2': (50  * CTCcalculation['BasicSal_mon'])/100,
-											'SM3': (50  * CTCcalculation['BasicSal_mon'])/100
+											'IC_1': (30  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'S': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'E':    (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_1': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_2': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_3': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_4': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_5': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_6': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_7': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_8': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_9': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+											'M_10': (50  * CTCcalculation['eb_BasicSal_mon'])/100
 
 										}
 					
 
-					CTCcalculation['housingAllow_mon'] = hra[grade];
-					CTCcalculation['housingAllow_an'] = CTCcalculation['housingAllow_mon'] * 12;
-					CTCcalculation['childreenAllow_mon'] = childrallowance[grade];
-					CTCcalculation['childreenAllow_ann'] = CTCcalculation['childreenAllow_mon'] * 12;
+					CTCcalculation['eb_housingAllow_mon'] = hra[grade];
+					CTCcalculation['eb_housingAllow_an'] = CTCcalculation['eb_housingAllow_mon'] * 12;
+					CTCcalculation['eb_childreenAllow_mon'] = childrallowance[grade];
+					CTCcalculation['eb_childreenAllow_ann'] = CTCcalculation['eb_childreenAllow_mon'] * 12;
 					
-					CTCcalculation['providentFund_mon'] =  (CTCcalculation['BasicSal_mon'] * 12) /100;
-					CTCcalculation['providentFund_an'] = CTCcalculation['providentFund_mon'] *12;
-					CTCcalculation['medicalreimbursement_mon'] = CTCcalculation['BasicSal_mon'] > 12500 ? 1250 : (CTCcalculation['BasicSal_mon'] *10) /100;
-					CTCcalculation['medicalreimbursement_ann'] = CTCcalculation['medicalreimbursement_mon'] * 12;
-					CTCcalculation['leaveTravelallowance_mon'] = (CTCcalculation['BasicSal_mon'] *10) /100;
-					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
-					CTCcalculation['entertainment_mon'] = entertainment[grade];
-					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
-					CTCcalculation['personalAllowance_mon'] = CTCcalculation['grossSalary_mon'] - (CTCcalculation['BasicSal_mon'] +CTCcalculation['housingAllow_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['providentFund_mon'] + CTCcalculation['medicalreimbursement_mon'] + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon']);
-					CTCcalculation['personalAllowance_an'] = CTCcalculation['personalAllowance_mon'] * 12;
-					CTCcalculation['subtotal_mon'] = CTCcalculation['BasicSal_mon'] + CTCcalculation['housingAllow_mon'] + CTCcalculation['personalAllowance_mon'] + CTCcalculation['childreenAllow_mon'];
-					CTCcalculation['subtotal_ann'] = CTCcalculation['subtotal_mon'] * 12;
-					CTCcalculation['grossSalary_mon'] = CTCcalculation['subtotal_mon'] + CTCcalculation['providentFund_mon'] + CTCcalculation['medicalreimbursement_mon'] + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'];
+					CTCcalculation['eb_providentFund_mon'] =  (CTCcalculation['eb_BasicSal_mon'] * 12) /100;
+					CTCcalculation['eb_providentFund_an'] = CTCcalculation['eb_providentFund_mon'] *12;
+					CTCcalculation['eb_medicalreimbursement_mon'] = CTCcalculation['eb_BasicSal_mon'] > 12500 ? 1250 : (CTCcalculation['eb_BasicSal_mon'] *10) /100;
+					CTCcalculation['eb_medicalreimbursement_ann'] = CTCcalculation['eb_medicalreimbursement_mon'] * 12;
+					CTCcalculation['eb_leaveTravelallowance_mon'] = (CTCcalculation['eb_BasicSal_mon'] *10) /100;
+					CTCcalculation['eb_leaveTravelallowance_an'] = CTCcalculation['eb_leaveTravelallowance_mon'] *12;
+					CTCcalculation['eb_conveyance_mon'] = conveyance[grade];
+					CTCcalculation['eb_conveyance_an'] = CTCcalculation['eb_conveyance_mon'] * 12;
+					CTCcalculation['eb_entertainment_mon'] = entertainment[grade];
+					CTCcalculation['eb_entertainment_an'] = CTCcalculation['eb_entertainment_mon'] * 12;
+					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyance_mon']);
+					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;
+					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'];
+					CTCcalculation['eb_subtotal_ann'] = CTCcalculation['eb_subtotal_mon'] * 12;
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'];
 
-					CTCcalculation['grossSalary_an'] = CTCcalculation['grossSalary_mon'] * 12;
-					CTCcalculation['carrelated_expenses_mon'] = CRE[grade];
-					CTCcalculation['carrelated_expenses_an'] = CTCcalculation['carrelated_expenses_mon'] * 12;
-					CTCcalculation['CTC_mon'] = CTCcalculation['grossSalary_mon'] + CTCcalculation['carrelated_expenses_mon'];
-					CTCcalculation['CTC_an'] = CTCcalculation['CTC_mon'] * 12;
-				
-					var fixedSalary = isNaN(parseFloat($mj('[name="fixedSalary"]').val()))? 0 : parseFloat($mj('[name="fixedSalary"]').val());
-					var varSalary = isNaN(parseFloat($mj('[name="varSalary"]').val()))? 0 : parseFloat($mj('[name="varSalary"]').val());
+					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
+					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
+					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
+					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'];
+					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+					
 
-				
-					CTCcalculation['incrementPercent'] = ((fixedSalary + varSalary )/CTCcalculation['CTC_an']) * 100;
-						
  					
 				return CTCcalculation;
 				
 
 				
 			}
-
 			
 
 
@@ -194,7 +210,7 @@ var $mj = jQuery.noConflict();
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
 
 			 	var salComponent = (sal[key]);
-			 			var round = salComponent;
+			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
 
 

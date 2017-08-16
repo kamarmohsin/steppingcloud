@@ -181,9 +181,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
 					CTCcalculation['PF_an'] = (CTCcalculation['BasicSal_an'] * 12)/100;
 					CTCcalculation['PF_mon'] = CTCcalculation['PF_an'] /12;
-					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an']);
-					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
-
+					
 					var v10 = isNaN(parseFloat($mj('[name="relocation_an"]').val()))? 0 : parseFloat($mj('[name="relocation_an"]').val());
 					var v11 = isNaN(parseFloat($mj('[name="cca_an"]').val()))? 0 : parseFloat($mj('[name="cca_an"]').val());
 
@@ -226,17 +224,29 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['sodexo_an'] = isNaN(parseFloat($mj('[name="sodexo_an"]').val()))? 0 : parseFloat($mj('[name="sodexo_an"]').val());
 					CTCcalculation['sodexo_mon'] = CTCcalculation['sodexo_an']/12;
 
+					CTCcalculation['fuelmaintenance_self_an'] = isNaN(parseFloat($mj('[name="fuelmaintenance_self_an"]').val()))? 0 : parseFloat($mj('[name="fuelmaintenance_self_an"]').val());
+					CTCcalculation['fuelmaintenance_self_mon'] = CTCcalculation['fuelmaintenance_self_an']/12;
+					
+					CTCcalculation['driverSalary_company_an'] = isNaN(parseFloat($mj('[name="driverSalary_company_an"]').val()))? 0 : parseFloat($mj('[name="driverSalary_company_an"]').val());
+					CTCcalculation['driverSalary_company_mon'] = CTCcalculation['driverSalary_company_an']/12;
+
+					CTCcalculation['professionaldev_an'] = isNaN(parseFloat($mj('[name="professionaldev_an"]').val()))? 0 : parseFloat($mj('[name="professionaldev_an"]').val());
+					CTCcalculation['professionaldev_mon'] = CTCcalculation['professionaldev_an']/12;
+					
 					
 					CTCcalculation['mediclaim_an'] =  ($mj("#mediclaim").val() =='yes' ) ? mediclaim[Grade] : 0 ;
 					CTCcalculation['mediclaim_mon'] = CTCcalculation['mediclaim_an']/12;
 					
-					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'];
+					CTCcalculation['total_B1_an'] = CTCcalculation['LTA_an']+CTCcalculation['mobTel_an']+CTCcalculation['carReimbursment_self_ann']+CTCcalculation['driverSalary_self_an']+CTCcalculation['emicardRental_lease_an']+CTCcalculation['fuelMaintenance_lease_an']+CTCcalculation['driverSalary_lease_an']+CTCcalculation['gift_an'] + CTCcalculation['newspaper_an'] + CTCcalculation['sodexo_an'] + CTCcalculation['fuelmaintenance_self_an']+CTCcalculation['driverSalary_company_an']+CTCcalculation['professionaldev_an'];
 					CTCcalculation['total_B1_mon'] = CTCcalculation['total_B1_an'] /12;
 
 							if (CTCcalculation['total_B1_an'] > ( 20 * inputCTC_an)/100)
 							 {alert(" Total of Part B1 should not more than 20 % CTC")};
-yes
-: 					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
+					
+					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an'] + CTCcalculation['total_B1_an'] + CTCcalculation['mediclaim_an'] +v10 + v11);
+					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
+
+					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];
 					CTCcalculation['total_B1B2_mon'] = CTCcalculation['total_B1B2_an'] /12;
@@ -262,9 +272,9 @@ yes
 					CTCcalculation['total_D_mon'] = CTCcalculation['total_D_an'] /12;
 					CTCcalculation['total_D1D1_an'] = CTCcalculation['benifit_PLI_an'] + CTCcalculation['total_D_an'];
 					CTCcalculation['total_D1D1_mon'] = CTCcalculation['total_D1D1_an'] /12;
-					CTCcalculation['total_CTC_an'] = inputCTC_an;
+					CTCcalculation['total_CTC_an'] = parseFloat(inputCTC_an);
 					CTCcalculation['total_CTC_mon'] = CTCcalculation['total_CTC_an'] /12;
-					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + CTCcalculation['benifit_PLI_an'];
+					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + parseFloat(CTCcalculation['benifit_PLI_an']);
 					CTCcalculation['total_CTCPLI_mon'] = CTCcalculation['total_CTCPLI_an'] /12;
 					
 
@@ -293,6 +303,11 @@ yes
     if($mj.isNumeric(inputCTC) )
 	{ 
 
+		if (loc != 'loc' && grade !=  'med') 
+		{
+
+
+
         var sal  = calcCTC(inputCTC, inputMinvage,loc, grade);
 
         for( var key in sal){
@@ -309,6 +324,13 @@ yes
 					$mj('[name="'+key+'"]').addClass('unsaved');
 					juic.fire(baseId_mon,"_onChange",event);
 			 }
+
+		}
+
+		else
+		{
+			alert("Please Select Location, Grade & mediclaim Premium");
+		}
 	
 
 	}		 

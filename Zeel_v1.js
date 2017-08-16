@@ -199,7 +199,7 @@ var $mj = jQuery.noConflict();
 
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
 
-			 	var salComponent = (sal[key]);
+			 	var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
 

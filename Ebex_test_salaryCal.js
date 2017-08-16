@@ -116,7 +116,13 @@ var $mj = jQuery.noConflict();
 					
 					}
 
-					CTCcalculation['eb_variablePay_mon'] = paygrade[grade];
+				
+
+					var variablePay_mon = isNaN(parseFloat($mj('[name="eb_variablePay_mon"]').val()))? paygrade[grade] : parseFloat($mj('[name="eb_variablePay_mon"]').val());
+
+
+					CTCcalculation['eb_variablePay_mon'] = variablePay_mon;
+					
 					CTCcalculation['eb_variablePay_an'] = CTCcalculation['eb_variablePay_mon'] * 12;
 					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;

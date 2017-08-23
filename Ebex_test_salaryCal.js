@@ -9,7 +9,7 @@ var $mj = jQuery.noConflict();
 
 	$mj(document).ready(function(){
 
-		var arrayOfElem = ['eb_variablePay_mon' 'eb_variablePay_an', 'eb_BasicSal_mon', 'eb_BasicSal_an', 'eb_personalAllowance_mon', 'eb_personalAllowance_an', 'eb_housingAllow_mon', 'eb_housingAllow_an', 'eb_childreenAllow_mon', 'eb_childreenAllow_ann', 'eb_subtotal_mon', 'eb_subtotal_ann', 'eb_providentFund_mon', 'eb_providentFund_an', 'eb_medicalreimbursement_mon', 'eb_medicalreimbursement_ann', 'eb_leaveTravelallowance_mon', 'eb_leaveTravelallowance_an', 'eb_conveyance_mon', 'eb_conveyance_an', 'eb_entertainment_mon', 'eb_entertainment_an', 'eb_grossSalary_mon', 'eb_grossSalary_an', 'eb_carrelated_expenses_mon', 'eb_carrelated_expenses_an', 'eb_CTC_mon', 'eb_CTC_an', 'eb_Total_CTC_mon', 'eb_Total_CTC_an', 'incrementPercent', 'fixedSalary', 'varSalary'];
+		var arrayOfElem = ['eb_variablePay_mon', 'eb_variablePay_an', 'eb_BasicSal_mon', 'eb_BasicSal_an', 'eb_personalAllowance_mon', 'eb_personalAllowance_an', 'eb_housingAllow_mon', 'eb_housingAllow_an', 'eb_childreenAllow_mon', 'eb_childreenAllow_ann', 'eb_subtotal_mon', 'eb_subtotal_ann', 'eb_providentFund_mon', 'eb_providentFund_an', 'eb_medicalreimbursement_mon', 'eb_medicalreimbursement_ann', 'eb_leaveTravelallowance_mon', 'eb_leaveTravelallowance_an', 'eb_conveyance_mon', 'eb_conveyance_an', 'eb_entertainment_mon', 'eb_entertainment_an', 'eb_grossSalary_mon', 'eb_grossSalary_an', 'eb_carrelated_expenses_mon', 'eb_carrelated_expenses_an', 'eb_CTC_mon', 'eb_CTC_an', 'eb_Total_CTC_mon', 'eb_Total_CTC_an', 'incrementPercent', 'fixedSalary', 'varSalary'];
 
 			for (var l=0; l < arrayOfElem.length; l++) {
 

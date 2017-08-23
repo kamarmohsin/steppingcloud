@@ -18,10 +18,11 @@ var $mj = jQuery.noConflict();
 				};
 
 
-			var calcCTC =  function(offerCtc, inputgrade){
+			var calcCTC =  function(offerCtc, inputgrade, inputvariablePay){
 
 				var inputeb_CTC_mon = offerCtc/12;    // Converted into monthly
 				var grade = inputgrade;
+				var VariablePay_pm = inputvariablePay;
 
 					
 					CTCcalculation = {
@@ -124,10 +125,10 @@ var $mj = jQuery.noConflict();
 
 				
 
-					var variablePay_mon = isNaN(($mj('[name="eb_variablePay_mon"]').val()))? paygrade[grade] : parseFloat($mj('[name="eb_variablePay_mon"]').val());
+					//var variablePay_mon = isNaN(parseFloat($mj('[name="eb_variablePay_mon"]').val()))? paygrade[grade] : parseFloat($mj('[name="eb_variablePay_mon"]').val());
                                         
 
-					CTCcalculation['eb_variablePay_mon'] = parseFloat(variablePay_mon);
+					CTCcalculation['eb_variablePay_mon'] = isNaN(VariablePay_pm) ? 0 :VariablePay_pm ;
 					
 					CTCcalculation['eb_variablePay_an'] = CTCcalculation['eb_variablePay_mon'] * 12;
 					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];
@@ -217,6 +218,7 @@ var $mj = jQuery.noConflict();
 		event.preventDefault();
 		var inputCTC = $mj("#inputCTC").val();
 		var inputgrade = $mj('#payGrade').val();
+		var inputvariablePay = $mj('#inputVariablePay').val();
 
     if($mj.isNumeric(inputCTC) )
 	{ 
@@ -226,7 +228,7 @@ var $mj = jQuery.noConflict();
 
 
 
-        var sal  = calcCTC(inputCTC, inputgrade);
+        var sal  = calcCTC(inputCTC, inputgrade, inputvariablePay);
 
         for( var key in sal){
 

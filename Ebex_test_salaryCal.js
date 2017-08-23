@@ -22,7 +22,7 @@ var $mj = jQuery.noConflict();
 
 				var inputeb_CTC_mon = offerCtc/12;    // Converted into monthly
 				var grade = inputgrade;
-				var VariablePay_pm = inputvariablePay;
+				var VariablePay_an = inputvariablePay;
 
 					
 					CTCcalculation = {
@@ -128,9 +128,11 @@ var $mj = jQuery.noConflict();
 					//var variablePay_mon = isNaN(parseFloat($mj('[name="eb_variablePay_mon"]').val()))? paygrade[grade] : parseFloat($mj('[name="eb_variablePay_mon"]').val());
                                         
 
-					CTCcalculation['eb_variablePay_mon'] = isNaN(VariablePay_pm)? paygrade[grade] :VariablePay_pm ;
 					
-					CTCcalculation['eb_variablePay_an'] = CTCcalculation['eb_variablePay_mon'] * 12;
+					
+					CTCcalculation['eb_variablePay_an'] = isNaN(VariablePay_an)? (paygrade[grade] * 12) : VariablePay_an;
+					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
+
 					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];

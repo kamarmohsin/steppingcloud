@@ -186,6 +186,9 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
 					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'];
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+					CTCcalculation['eb_Total_CTC_mon'] = CTCcalculation['eb_CTC_mon'] + CTCcalculation['eb_variablePay_mon'];
+					CTCcalculation['eb_Total_CTC_an'] = CTCcalculation['eb_CTC_an'] + CTCcalculation['eb_variablePay_an'];
+					
 
 					var fixedSalary = isNaN(parseFloat($mj('[name="fixedSalary"]').val()))? 0 : parseFloat($mj('[name="fixedSalary"]').val());
 					var varSalary = isNaN(parseFloat($mj('[name="varSalary"]').val()))? 0 : parseFloat($mj('[name="varSalary"]').val());

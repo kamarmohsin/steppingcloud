@@ -9,16 +9,25 @@ var $mj = jQuery.noConflict();
 
 	$mj(document).ready(function(){
 
+			var arrayOfElem = ['variablePay_mon', 'variablePay_an', 'BasicSal_mon', 'BasicSal_an', 'personalAllowance_mon', 'personalAllowance_an', 'housingAllow_mon', 'housingAllow_an', 'childreenAllow_mon', 'childreenAllow_ann', 'subtotal_mon', 'subtotal_ann', 'providentFund_mon', 'providentFund_an', 'medicalreimbursement_mon', 'medicalreimbursement_ann', 'leaveTravelallowance_mon', 'leaveTravelallowance_an', 'conveyance_mon', 'conveyance_an', 'entertainment_mon', 'entertainment_an', 'grossSalary_mon', 'grossSalary_an', 'carrelated_expenses_mon', 'carrelated_expenses_an', 'CTC_mon', 'CTC_an', 'Total_CTC_mon', 'Total_CTC_an', 'incrementPercent', 'fixedSalary', 'varSalary'];
+
+			for (var l=0; l < arrayOfElem.length; l++) {
+
+				$mj('[name="'+ arrayOfElem[l]+'"]').prop("readonly", true);
+
+				};
 
 
 
-			var calcCTC =  function(offerCtc,inputgrade){
+
+			var calcCTC =  function(offerCtc,inputgrade, inputvariablePay){
 
 
 
 				var inputCTC_mon = offerCtc/12;  // Entered Annual Amount converting to Monthly
 
 				var grade = inputgrade;
+				var VariablePay_an = inputvariablePay;
 
 					
 					CTCcalculation = {
@@ -99,8 +108,11 @@ var $mj = jQuery.noConflict();
 						'SM3' : 25000
 					}
 
-					CTCcalculation['variablePay_mon'] = paygrade[grade];
-					CTCcalculation['variablePay_an'] = CTCcalculation['variablePay_mon'] * 12;
+					
+					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : parseFloat(VariablePay_an);
+					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
+
+
 					CTCcalculation['CTC_mon'] = inputCTC_mon - CTCcalculation['variablePay_mon'];
 					CTCcalculation['CTC_an'] = CTCcalculation['CTC_mon'] * 12;
 					CTCcalculation['carrelated_expenses_mon'] = CRE[grade];
@@ -156,6 +168,9 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['CTC_mon'] = CTCcalculation['grossSalary_mon'] + CTCcalculation['carrelated_expenses_mon'];
 					CTCcalculation['CTC_an'] = CTCcalculation['CTC_mon'] * 12;
 
+					CTCcalculation['Total_CTC_mon'] = CTCcalculation['CTC_mon'] + CTCcalculation['eb_variablePay_mon'];
+					CTCcalculation['Total_CTC_an'] = CTCcalculation['CTC_an'] + CTCcalculation['eb_variablePay_an'];
+
 					
 
 					var fixedSalary = isNaN(parseFloat($mj('[name="fixedSalary"]').val()))? 0 : parseFloat($mj('[name="fixedSalary"]').val());
@@ -184,6 +199,8 @@ var $mj = jQuery.noConflict();
 		event.preventDefault();
 		var inputCTC = $mj("#inputCTC").val();
 		var inputgrade = $mj('#payGrade').val();
+		var inputvariablePay = $mj('#inputVariablePay').val();
+
 
     if($mj.isNumeric(inputCTC) )
 	{ 
@@ -193,7 +210,7 @@ var $mj = jQuery.noConflict();
 
 
 
-        var sal  = calcCTC(inputCTC, inputgrade);
+        var sal  = calcCTC(inputCTC, inputgrade, inputvariablePay);
 
         for( var key in sal){
 

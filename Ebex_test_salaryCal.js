@@ -130,7 +130,7 @@ var $mj = jQuery.noConflict();
 
 					
 					
-					CTCcalculation['eb_variablePay_an'] = isNaN(VariablePay_an)? (paygrade[grade] * 12) : VariablePay_an;
+					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : parseFloat(VariablePay_an);
 					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
 
 					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];

@@ -181,9 +181,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_an'] /12;
 					CTCcalculation['PF_an'] = (CTCcalculation['BasicSal_an'] * 12)/100;
 					CTCcalculation['PF_mon'] = CTCcalculation['PF_an'] /12;
-					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an']);
-					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
-
+					
 					var v10 = isNaN(parseFloat($mj('[name="relocation_an"]').val()))? 0 : parseFloat($mj('[name="relocation_an"]').val());
 					var v11 = isNaN(parseFloat($mj('[name="cca_an"]').val()))? 0 : parseFloat($mj('[name="cca_an"]').val());
 
@@ -244,8 +242,11 @@ var $mj = jQuery.noConflict();
 
 							if (CTCcalculation['total_B1_an'] > ( 20 * inputCTC_an)/100)
 							 {alert(" Total of Part B1 should not more than 20 % CTC")};
-yes
-: 					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
+					
+					CTCcalculation['specialAllow_an'] = inputCTC_an - (CTCcalculation['BasicSal_an'] + CTCcalculation['housingAllowance_an'] + CTCcalculation['medical_an'] + CTCcalculation['childreenedu_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['advancebonus_an']+ CTCcalculation['exgratia_an'] + CTCcalculation['gratuity_an'] + CTCcalculation['PF_an'] + CTCcalculation['annualBonus_an'] + CTCcalculation['total_B1_an'] + CTCcalculation['mediclaim_an'] +v10 + v11);
+					CTCcalculation['specialAllow_mon'] = CTCcalculation['specialAllow_an']/12;
+
+					CTCcalculation['total_B2_an'] = CTCcalculation['mediclaim_an'];
 					CTCcalculation['total_B2_mon'] = CTCcalculation['total_B2_an'] /12;
 					CTCcalculation['total_B1B2_an'] = CTCcalculation['total_B1_an'] + CTCcalculation['total_B2_an'];
 					CTCcalculation['total_B1B2_mon'] = CTCcalculation['total_B1B2_an'] /12;
@@ -275,6 +276,24 @@ yes
 					CTCcalculation['total_CTC_mon'] = CTCcalculation['total_CTC_an'] /12;
 					CTCcalculation['total_CTCPLI_an'] = CTCcalculation['total_CTC_an'] + parseFloat(CTCcalculation['benifit_PLI_an']);
 					CTCcalculation['total_CTCPLI_mon'] = CTCcalculation['total_CTCPLI_an'] /12;
+
+
+					var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+					num = inputCTC_an;
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    					str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    					CTCComponents['ctcinwords'] = str;
 					
 
  					
@@ -302,15 +321,29 @@ yes
     if($mj.isNumeric(inputCTC) )
 	{ 
 
+		if (loc != 'loc' && grade !=  'med') 
+		{
+
+
+
         var sal  = calcCTC(inputCTC, inputMinvage,loc, grade);
 
         for( var key in sal){
 
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
 
-			 	var salComponent = Math.round(sal[key]);
+			 		if(key =='ctcinwords'){
+
+        					$mj('[name="'+key+'"]').val(sal[key]);
+        				}
+        				else{
+
+			 			var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
+        				}
+
+			 			
 
 
 				var baseId_mon = $mj('[name="'+key+'"]').attr("id");
@@ -318,6 +351,13 @@ yes
 					$mj('[name="'+key+'"]').addClass('unsaved');
 					juic.fire(baseId_mon,"_onChange",event);
 			 }
+
+		}
+
+		else
+		{
+			alert("Please Select Location, Grade & mediclaim Premium");
+		}
 	
 
 	}		 

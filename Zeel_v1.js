@@ -178,6 +178,23 @@ var $mj = jQuery.noConflict();
 
 				
 					CTCcalculation['incrementPercent'] = ((fixedSalary + varSalary )/CTCcalculation['Total_CTC_an']) * 100;
+
+					var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+					num = offerCtc;
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    					str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    					CTCcalculation['ctcWords'] = str;
 					
 
  					
@@ -214,11 +231,21 @@ var $mj = jQuery.noConflict();
 
         for( var key in sal){
 
-			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
 
-			 	var salComponent = Math.round(sal[key]);
+        		if(key =='ctcWords'){
+
+        					$mj('[name="'+key+'"]').val(sal[key]);
+        				}
+        		else
+        		{
+
+			 			var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
+        		}
+
+			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
+
 
 
 				var baseId_mon = $mj('[name="'+key+'"]').attr("id");

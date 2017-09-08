@@ -116,7 +116,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['lta_an'] = (level == 'L7M' || level == 'L7O') ? ( 	(CTCcalculation['BasicSal_an'] / 12) * 1.5) : 0;
 					CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] /12;
 					CTCcalculation['pf_ann'] = ( 12 * CTCcalculation['BasicSal_an'])/100;
-					CTCcalculation['pf_mon'] = CTCcalculation['pf_ann'];
+					CTCcalculation['pf_mon'] = CTCcalculation['pf_ann']/12;
 					CTCcalculation['superannuation_an'] = ( CTCcalculation['BasicSal_an'] * superannuation[level] );
 					CTCcalculation['superannuation_mon'] = CTCcalculation['superannuation_an']/12;
 					CTCcalculation['gratuity_ann'] = ( CTCcalculation['BasicSal_an'] * 4.81)/100;

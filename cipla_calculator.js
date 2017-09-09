@@ -29,12 +29,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				};
 		
 
-			var calcCTC =  function(offerCtc){
+			var calcCTC =  function(offerCtc, perforamnceB, fieldoption){
 
+				if (fieldoption =='nonfield')
+				{
 
-				
-				var inputctc = offerCtc/12;
-				 var perfomancePercantage = 10;
+					var inputctc = offerCtc/12;
+				 var perfomancePercantage = parseFloat(perforamnceB);
 				 var foodAllowance =600;
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
@@ -92,7 +93,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 						}
-CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
+						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
 						CTCComponents['fixedSalary_ann'] = 12 * CTCComponents['fixedSalary_mon'];
 						CTCComponents['vPay_mon'] = Math.round(CTCComponents['fixedSalary_mon'] * perfomancePercantage/100);
@@ -144,6 +145,123 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						return CTCComponents;
 
 
+				} 
+
+				else if(fieldoption =='field'){
+
+
+					var inputctc = offerCtc/12;
+				 var perfomancePercantage = parseFloat(perforamnceB);
+				 var foodAllowance =0;
+				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
+			
+				var CTCComponents = {
+
+							
+							//'BasicSal_an': 0,
+							'perfomance':0,
+							'fixedSalary_mon':0,
+							'fixedSalary_ann':0,
+							'vPay_mon':0,
+							'vPay_ann':0,
+							'adjustment_mon':0,
+							'CTC_mon':0,
+							
+							'BasicSal_mon': 0,
+							'BasicSal_an':0,
+							'housingAlMonthly':0,
+							'housingAllowance_an': 0,
+							'conveyance_mon':0,
+							'conveyance_an':0,
+							'education_mon':0,
+							'education_an':0,
+							'medical_mon':0,
+							'medical_an': 0,
+							'city_mon':0,
+							'city_an': 0,
+							'foodAllowance_mon':0,
+							'foodAllowance_an':0,
+							'LTA_mon':0,
+							'RLA_mon':0,
+							'RLA_an':0,
+							'LTA_an':0,							
+							'fwr_mon':0,
+							'fwr_ann':0,
+							'additionalAllow_mon':0,
+							'additionalAllow_an':0,
+							'exgratia1_mon':0,
+							'exgratia1_ann':0,
+							'totalA_mon':0,
+							'totalA_an': 0,
+							'providentFundMonth':0,
+							'providentFund_an':0,
+							'exgratia2_mon':0,
+							'exgratia2_ann':0,
+							//'JoiningBonus_mon':0,
+							'totalB_mon':0,
+							'totalB_an':0,
+							'HRATotalB_mon':0,
+							'adjustmentHRA_mon':0,
+							'performaneBonus_mon':0,
+							'performanceBonus_an':0,
+							'totalC_mon':0,
+							'totalC_an':0
+
+
+						}
+						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
+						CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
+						CTCComponents['fixedSalary_ann'] = 12 * CTCComponents['fixedSalary_mon'];
+						CTCComponents['vPay_mon'] = Math.round(CTCComponents['fixedSalary_mon'] * perfomancePercantage/100);
+						CTCComponents['vPay_ann'] = 12 * CTCComponents['vPay_mon'];
+						CTCComponents['adjustment_mon'] = Math.round((CTCComponents['fixedSalary_mon'] * 44.1 )/100 <= 21000 ? 2200 : 15/100 * ((CTCComponents['fixedSalary_mon'] * 44.1 )/100 ));
+						CTCComponents['CTC_mon'] = Math.round(CTCComponents['fixedSalary_mon'] - CTCComponents['adjustment_mon']);
+						CTCComponents['BasicSal_mon'] = Math.round(( 47.17/100 * CTCComponents['CTC_mon'] )/5)* 5;
+						CTCComponents['BasicSal_an']  = 12 * CTCComponents['BasicSal_mon'];
+						CTCComponents['housingAlMonthly'] = Math.round((40 /100 * CTCComponents['BasicSal_mon'] - foodAllowance)/5) *5 ;
+						CTCComponents['conveyance_mon'] = Math.round((25/100 * CTCComponents['BasicSal_mon'])/5)*5;
+						CTCComponents['conveyance_an'] = 12 * CTCComponents['conveyance_mon'];
+						CTCComponents['education_mon'] = Math.round((10/100 * CTCComponents['BasicSal_mon'])/5)*5;
+						CTCComponents['education_an'] = 12 * CTCComponents['education_mon'];
+						CTCComponents['medical_mon'] = Math.round((8/100 * CTCComponents['BasicSal_mon'])/5)*5;
+						CTCComponents['medical_an'] = 12 * CTCComponents['medical_mon'];
+						CTCComponents['city_mon'] = Math.round((7/100 * CTCComponents['BasicSal_mon'])/5)*5;
+						CTCComponents['city_an'] = 12 * CTCComponents['city_mon'];
+						CTCComponents['foodAllowance_mon'] = foodAllowance;
+						CTCComponents['foodAllowance_an'] = 12 * CTCComponents['foodAllowance_mon'] ;
+						CTCComponents['LTA_mon'] = Math.round((10/100 * CTCComponents['BasicSal_mon'])/5)*5;
+						CTCComponents['LTA_an'] = 12 * CTCComponents['LTA_mon'];
+						CTCComponents['exgratia1_mon'] = inputctc >=83333 ? Math.round(CTCComponents['BasicSal_mon'] >=21000 ? 15/100 *CTCComponents['BasicSal_mon'] : 2200 ) : 0;
+						CTCComponents['exgratia1_ann'] = CTCComponents['exgratia1_mon'] * 12 ;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+						
+						CTCComponents['providentFundMonth'] = Math.round(12/100 * CTCComponents['BasicSal_mon']);
+						CTCComponents['providentFund_an'] = 12 * CTCComponents['providentFundMonth'];
+						CTCComponents['exgratia2_mon'] = inputctc < 83333 ? Math.round(CTCComponents['BasicSal_mon'] >=21000 ? 15/100 *CTCComponents['BasicSal_mon'] : 2200 ) :0;
+						CTCComponents['exgratia2_ann'] = 12 * CTCComponents['exgratia2_mon'];
+						//CTCComponents['JoiningBonus_mon'] = joinBonus;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'] ;
+						
+						// Adjsutment with HRA in Total B
+						CTCComponents['HRATotalB_mon'] = CTCComponents['fixedSalary_mon'] - CTCComponents['totalB_mon'];
+						
+						//  Adjustment with HRA 
+						CTCComponents['adjustmentHRA_mon'] = CTCComponents['housingAlMonthly'] + CTCComponents['HRATotalB_mon'];
+						CTCComponents['housingAllowance_an'] = 12 * CTCComponents['adjustmentHRA_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['BasicSal_an'] + CTCComponents['housingAllowance_an'] + CTCComponents['conveyance_an'] + CTCComponents['education_an'] + CTCComponents['medical_an'] + CTCComponents['city_an'] + CTCComponents['foodAllowance_an'] + CTCComponents['LTA_an'] + CTCComponents['exgratia1_ann'];
+						
+						CTCComponents['totalB_an'] = CTCComponents['totalA_an'] + CTCComponents['providentFund_an'] + CTCComponents['exgratia2_ann'];
+
+						CTCComponents['performaneBonus_mon'] = Math.round((CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] )* perfomancePercantage/100) ;
+						CTCComponents['performanceBonus_an'] = 12 * CTCComponents['performaneBonus_mon'];
+						CTCComponents['totalC_mon'] = CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] + CTCComponents['performaneBonus_mon'] ;
+						CTCComponents['totalC_an'] = 12 * CTCComponents['totalC_mon'];
+
+
+						return CTCComponents;
+				}
+				
+				
 			}
 
 			var calculateCTC = function(loc,qualf,design){
@@ -182,6 +300,8 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 							'LTA_an':0,
 							'additionalAllow_mon':0,
 							'additionalAllow_an':0,
+							'baddialAllow_mon':0,
+							'baddialAllow_an':0,
 
 							'fwr_mon':0,
 							'fwr_ann':0,
@@ -207,150 +327,43 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						}
 
 			
-			if(loc == 'exceptsikkim' && qualf == 'diploma' && design =='management' ){
+			
 
-						CTCComponents['BasicSal_mon'] = 6500;
-						CTCComponents['BasicSal_an'] = 6500 *12;
+
+				 if(loc == 'sikkim' && qualf == 'sdp_trainee' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6400;
+						CTCComponents['BasicSal_an'] = 6400 *12;
 						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 * 12;
-						CTCComponents['medical_mon'] = 520;
-						CTCComponents['BasicSal_mon'] = 520 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1630;
-						CTCComponents['conveyance_an'] = 1630 *12;
-						CTCComponents['education_mon'] = 650;
-						CTCComponents['education_an'] = 650 *12;
-						CTCComponents['city_mon'] = 500;
-						CTCComponents['city_an'] = 500 * 12;
-						CTCComponents['LTA_mon'] = 600;
-						CTCComponents['LTA_an'] = 600 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 780;
-						CTCComponents['providentFund_an'] = 780 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] *12;
-						
-				}
-
-			else if (loc == 'exceptsikkim' && qualf == 'diploma' && design == 'trainee') {
-
-						CTCComponents['BasicSal_mon'] = 5500;
-						CTCComponents['BasicSal_an'] = 5500 * 12;
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 *12;
-						CTCComponents['medical_mon'] = 0;
-						CTCComponents['medical_an'] = 0*12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 900;
-						CTCComponents['conveyance_an'] =900 * 12;
-						//CTCComponents['education_mon'] = 650;
-						//CTCComponents['city_mon'] = 500;
-						//CTCComponents['LTA_mon'] = 600;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 660;
-						CTCComponents['providentFund_an'] = 660 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] *12;
-			}
-				else if(loc == 'exceptsikkim' && qualf == 'diplomaChemical' && design =='management' ){
-
-						CTCComponents['BasicSal_mon'] = 6750;
-						CTCComponents['BasicSal_an'] = 6750 *12;
-						CTCComponents['housingAlMonthly'] = 2100;
-						CTCComponents['housingAllowance_an'] = 2100 *12;
-						CTCComponents['medical_mon'] = 500;
-						CTCComponents['medical_an'] = 500 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1700;
-						CTCComponents['conveyance_an'] = 1700 *12 ;
-						CTCComponents['education_mon'] = 750;
-						CTCComponents['education_an'] = 750 *12;
-						CTCComponents['city_mon'] = 500;
-						CTCComponents['city_an'] = 500 *12;
-						CTCComponents['LTA_mon'] = 600;
-						CTCComponents['LTA_an'] = 600 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 810;
-						CTCComponents['providentFund_an'] = 810 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = 12 * CTCComponents['totalB_mon'];
-						
-				}
-
-				else if(loc == 'exceptsikkim' && qualf == 'diplomaChemical' && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 5500;
-						CTCComponents['BasicSal_an'] = 5500 * 12;
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 *12;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
 						CTCComponents['medical_mon'] = 0;
 						CTCComponents['foodAllowance_mon'] = 600;
 						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 1400 * 12;
-						//CTCComponents['education_mon'] = 750;
-						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['conveyance_mon'] = 200;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
 						//CTCComponents['LTA_mon'] = 600;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 660;
-						CTCComponents['providentFund_an'] = 660 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12 ;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-						
-				}
-
-
-				else if(loc == 'sikkim' && qualf == 'diploma' && design =='management' ){
-
-						CTCComponents['BasicSal_mon'] = 6500;
-						CTCComponents['BasicSal_an'] = 6500 * 12;
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 *12;
-						CTCComponents['medical_mon'] = 520;
-						CTCComponents['medical_an'] = 520 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 1630;
-						CTCComponents['conveyance_an'] = 1630 *12;
-						CTCComponents['education_mon'] = 650;
-						CTCComponents['education_an'] = 650 *12;
-						CTCComponents['city_mon'] = 500;
-						CTCComponents['city_an'] = 500 * 12;
-						CTCComponents['LTA_mon'] = 600;
-						CTCComponents['LTA_an'] = 600 * 12;
 						CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['RLA_an'] = 4500 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'] + CTCComponents['RLA_mon'] ;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['RLA_mon']  ;
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 780;
-						CTCComponents['providentFund_an'] = 780 *12;
+						CTCComponents['providentFundMonth'] = 768;
+						CTCComponents['providentFund_an'] = 768 * 12;
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = 700 *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-						
-				}
+					}
 
-				else if(loc == 'sikkim' && qualf == 'diploma' && design =='trainee' ){
+				else if(loc == 'sikkim' && qualf == 'sdp' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8100;
+						CTCComponents['BasicSal_an'] = 8100 *12;
+						
+					}
+					
+
+				else if(loc == 'sikkim' && qualf == 'diplomaExceptChemical' && design =='trainee' ){
 
 						CTCComponents['BasicSal_mon'] = 5800;
 						CTCComponents['BasicSal_an'] = 5800 * 12;
@@ -379,105 +392,1269 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						
 				}
 
-				else if(loc == 'sikkim' && qualf == 'diplomaChemical' && design =='management' ){
+				else if(loc == 'sikkim' && qualf == 'mPharma' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 6800;
-						CTCComponents['BasicSal_an'] = 6800 * 12;
-						CTCComponents['housingAlMonthly'] = 2200;
-						CTCComponents['housingAllowance_an'] = 2200 * 12;
-						CTCComponents['medical_mon'] = 530;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['conveyance_mon'] = 1600;
-						CTCComponents['education_mon'] = 670;
-						CTCComponents['city_mon'] = 500;
-						CTCComponents['LTA_mon'] = 600;
-						CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'] + CTCComponents['RLA_mon'] ;
-						CTCComponents['providentFundMonth'] = 816;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-
-						
-				}
-
-				else if(loc == 'sikkim' && qualf == 'diplomaChemical' && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 5500;
-						CTCComponents['BasicSal_an'] = 5500 * 12;
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 * 12;
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
 						CTCComponents['medical_mon'] = 0;
 						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 1400 *12 ;
-						//CTCComponents['education_mon'] = 670;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						//CTCComponents['conveyance_mon'] = 1400;
+						//CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
 						//CTCComponents['city_mon'] = 500;
 						//CTCComponents['LTA_mon'] = 600;
-						CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['RLA_an'] = 4500 * 12;
-						CTCComponents['additionalAllow_mon'] = 1000;
-						CTCComponents['additionalAllow_an'] = 1000 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +  CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon']  + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 660;
-						CTCComponents['providentFund_an'] = 660 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12; 
-						
-				}
-				
-
-				else if(loc == 'baddi' && qualf == 'iti' && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 6000;
-						CTCComponents['BasicSal_an'] = 6000 *12;
-						CTCComponents['housingAlMonthly'] = 900;
-						CTCComponents['housingAllowance_an'] = 900 *12;
-						CTCComponents['medical_mon'] = 0;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						//CTCComponents['conveyance_mon'] = 1300;
-						//CTCComponents['education_mon'] = 500;
-						//CTCComponents['city_mon'] = 300;
-						//CTCComponents['LTA_mon'] = 500;
-						//CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 720;
-						CTCComponents['providentFund_an'] = 720 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
-						
-				}
-				else if(loc == 'ptg' && qualf == 'iti' && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 7000;
-						CTCComponents['BasicSal_an'] = 7000 *12;
-						CTCComponents['housingAlMonthly'] = 3400;
-						CTCComponents['housingAllowance_an'] = 3400 * 12;
-						CTCComponents['medical_mon'] = 0;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						//CTCComponents['conveyance_mon'] = 800;
-						//CTCComponents['education_mon'] = 500;
-						//CTCComponents['city_mon'] = 300;
-						//CTCComponents['LTA_mon'] = 700;
-						//CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 840;
-						CTCComponents['providentFund_an'] = 840 *12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = 700 * 12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
+
+				else if(loc == 'sikkim' && qualf == 'gradEngineer' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = 700 * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+
+				else if(loc == 'sikkim' && (qualf == 'gradBPharmacist' || qualf == 'msc' )&& design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+				else if(loc == 'sikkim' && qualf == 'pgdca' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 7000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] * 12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 840;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+				else if(loc == 'sikkim' && qualf == 'gradGeneral' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+				else if(loc == 'sikkim' && (qualf == 'gradScience' || qualf == 'bsc') && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+				else if(loc == 'sikkim' && (qualf == 'gradSecurity') && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 0;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+				else if(loc == 'sikkim' && (qualf == 'mba') && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] * 12;
+						CTCComponents['housingAlMonthly'] = 4000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 650;
+						//CTCComponents['city_mon'] = 500;
+						//CTCComponents['LTA_mon'] = 600;
+						CTCComponents['RLA_mon'] = 6500;
+						CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12; 
+						CTCComponents['additionalAllow_mon'] = 0;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['RLA_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						
+				}
+
+
+
+				else if(loc == 'ptg' && qualf == 'sdp_trainee' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 7000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3400;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						//CTCComponents['conveyance_mon'] = 200;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 840;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+				/*
+				else if(loc == 'ptg' && qualf == 'sdp' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 10000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+
+						
+					}
+
+				*/
+
+				else if(loc == 'ptg' && qualf == 'doctorate' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						//CTCComponents['conveyance_mon'] = 200;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 0;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && qualf == 'gradEngineer' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && qualf == 'mba' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 4000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 0
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 0;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'mPharma' || qualf == 'exDefence' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'gradBPharmacist' || qualf == 'msc' || qualf == 'IIP' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'pgdca'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 7000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 840;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'BscBaBcom'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'diplomaChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'ptg' && (qualf == 'diplomaExceptChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 900;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+
+					//KKB
+
+					else if(loc == 'kkb' && qualf == 'gradEngineer' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && qualf == 'mba' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 4000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 0
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 0;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && (qualf == 'mPharma' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+					else if(loc == 'kkb' && ( qualf == 'exDefence' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 0;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 0;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+
+					else if(loc == 'kkb' && (qualf == 'gradBPharmacist' || qualf == 'msc' || qualf == 'IIP' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && (qualf == 'pgdca'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 7000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 840;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && (qualf == 'BscBaBcom'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && (qualf == 'diplomaChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'kkb' && (qualf == 'diplomaExceptChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 900;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+
+				else if(loc == 'baddi' && qualf == 'sdp' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						
+				}
+
+
+
+
+				else if(loc == 'baddi' && (qualf == 'iti' || qualf == 'sdp_trainee') && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 900;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						//CTCComponents['conveyance_mon'] = 1300;
+						//CTCComponents['education_mon'] = 500;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['baddialAllow_mon'] ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 720;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+
+				else if(loc == 'baddi' && (qualf == 'BscBaBcom' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+
+				else if(loc == 'baddi' && (qualf == 'gradBPharmacist' || qualf == 'msc' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+				
+				else if(loc == 'baddi' && (qualf == 'dipPharma' || qualf == 'dipEngg' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 900;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+
+				else if(loc == 'baddi' && (qualf == 'gradEngineer'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+
+				else if(loc == 'baddi' && (qualf == 'mPharma'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}	
+				
+				else if(loc == 'baddi' && (qualf == 'gradSecurity'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 0;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}
+
+				else if(loc == 'baddi' && (qualf == 'mba'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 4000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] * 12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['city_mon'] = 300;
+						CTCComponents['additionalAllow_mon'] = 0;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						
+				}	
+
+				else if(loc == 'banglore' && qualf == 'gradEngineer' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && qualf == 'mba' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 10500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3700;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 800;
+						CTCComponents['medical_an'] = CTCComponents['medical_mon'] * 12;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 2600;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 0
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['education_mon'] = 1100;
+						CTCComponents['education_an'] = CTCComponents['education_mon'] * 12;
+						CTCComponents['city_mon'] = 700;
+						CTCComponents['city_an'] = CTCComponents['city_mon'] * 12;
+						CTCComponents['LTA_mon'] = 1600;
+						CTCComponents['LTA_an'] = CTCComponents['LTA_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1260;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 1575;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && (qualf == 'exDefence' ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 11500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 4200;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 1000;
+						CTCComponents['medical_an'] = CTCComponents['medical_mon'] * 12;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 2800;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 0
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['education_mon'] = 1200;
+						CTCComponents['education_an'] = CTCComponents['education_mon'] * 12;
+						CTCComponents['city_mon'] = 800;
+						CTCComponents['city_an'] = CTCComponents['city_mon'] * 12;
+						CTCComponents['LTA_mon'] = 1500;
+						CTCComponents['LTA_an'] = CTCComponents['LTA_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['education_mon'] + CTCComponents['city_mon'] + CTCComponents['LTA_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1380;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 1725;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+						}
+
+
+					else if(loc == 'banglore' && (qualf == 'mPharma'   ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+	
+
+					else if(loc == 'banglore' && (qualf == 'gradBPharmacist' || qualf == 'msc'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && (qualf == 'pgdca'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 7000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 840;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && (qualf == 'BscBaBcom'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && (qualf == 'diplomaChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'banglore' && (qualf == 'diplomaExceptChemical'  ) && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 900;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['education_mon'] = 200;
+						//CTCComponents['city_mon'] = 100;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+						//CTCComponents['RLA_an'] = CTCComponents['RLA_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'];
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
 
 				else if(loc == 'ptgEou' && qualf == 'iti' && design =='trainee' ){
 
@@ -504,32 +1681,7 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						
 				}
 
-				else if(loc == 'sikkim' && qualf == 'iti' && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 6400;
-						CTCComponents['BasicSal_an'] = 6400 * 12; 
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 *12; 
-						CTCComponents['medical_mon'] = 0;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12; 
-						//CTCComponents['conveyance_mon'] = 1300;
-						//CTCComponents['education_mon'] = 550;
-						//CTCComponents['city_mon'] = 300;
-						//CTCComponents['LTA_mon'] = 600;
-						CTCComponents['RLA_mon'] = 4500;
-						CTCComponents['RLA_an'] = 4500 *12; 
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon']  + CTCComponents['RLA_mon'] ;
-						CTCComponents['totalA_an'] =  CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 768;
-						CTCComponents['providentFund_an'] = 768 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-						
-				}
-
+				
 				else if(loc == 'kurkumbh' && qualf == 'iti' && design =='trainee' ){
 
 						CTCComponents['BasicSal_mon'] = 5700;
@@ -554,7 +1706,7 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 					}
 
-					else if(loc == 'indore' && qualf == 'iti' && design =='trainee' ){
+					else if(loc == 'indore' && qualf == 'sdp_trainee' && design =='trainee' ){
 
 						CTCComponents['BasicSal_mon'] = 6550;
 						CTCComponents['BasicSal_an'] = 6550 *12;
@@ -577,8 +1729,137 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 					}
+					else if(loc == 'indore' && qualf == 'sdp' && design =='trainee' ){
 
-					else if(loc == 'goa' && qualf == 'iti' && design =='trainee' ){
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = 8000 *12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = 700 *12;
+						
+					}
+					else if(loc == 'indore' && qualf == 'diplomaExceptChemical' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 5500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2000;
+						CTCComponents['housingAllowance_an'] = 2000 *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = 600 *12;
+						CTCComponents['conveyance_mon'] = 900;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 660;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'indore' && (qualf == 'gradBPharmacist' || qualf == 'msc') && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'indore' && qualf == 'BscBaBcom' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 6500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 1500;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 780;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'indore' && qualf == 'mPharma' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 12000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 0;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2000;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1440;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+					else if(loc == 'indore' && qualf == 'gradEngineer' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 9000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 3000;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1400;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 1080;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
+
+
+
+					else if(loc == 'goa' && qualf == 'sdp_trainee' && design =='trainee' ){
 
 						CTCComponents['BasicSal_mon'] = 5500;
 						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
@@ -604,6 +1885,13 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12; 
+					}
+
+					else if(loc == 'goa' && qualf == 'sdp' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8500;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						 
 					}
 					else if(loc == 'goa' && qualf == 'dipEngg' && design =='trainee' ){
 
@@ -858,299 +2146,8 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12; 
 					}
-					else if(loc == 'allLocation' && (qualf == 'gradGeneral' || qualf == 'gradScience') && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 6500;
-						CTCComponents['BasicSal_an'] =  78000;
-						CTCComponents['housingAlMonthly'] = 1500;
-						CTCComponents['housingAllowance_an'] = 18000;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 7200;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 16800;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] =24000;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly']  + CTCComponents['foodAllowance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['conveyance_mon'] ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 780;
-						CTCComponents['providentFund_an'] = 9360;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 8400
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] *12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'pgOthers' || qualf == 'pgAnalytical' || qualf == 'pgTechnical') && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 7000;
-						CTCComponents['BasicSal_an'] = 7000 * 12;
-						CTCComponents['housingAlMonthly'] = 2000;
-						CTCComponents['housingAllowance_an'] = 2000 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 1400* 12;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 840;
-						CTCComponents['providentFund_an'] = 840 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'msc' || qualf == 'gradBPharmacist' ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 8000;
-						CTCComponents['BasicSal_an'] = 8000 * 12;
-						CTCComponents['housingAlMonthly'] = 2100;
-						CTCComponents['housingAllowance_an'] = 2100 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 1300;
-						CTCComponents['conveyance_an'] = 1300 *12;
-						CTCComponents['additionalAllow_mon'] = 2500;
-						CTCComponents['additionalAllow_an'] = 2500 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 960;
-						CTCComponents['providentFund_an'] = 960 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'msc' || qualf == 'gradBPharmacist' ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 8000;
-						CTCComponents['BasicSal_an'] = 8000 *12; 
-						CTCComponents['housingAlMonthly'] = 2100;
-						CTCComponents['housingAllowance_an'] = 2100 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 1300;
-						CTCComponents['conveyance_an'] = 1300 *12;
-						CTCComponents['additionalAllow_mon'] = 2500;
-						CTCComponents['additionalAllow_an'] = 2500 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] *12;
-						CTCComponents['providentFundMonth'] = 960;
-						CTCComponents['providentFund_an'] = 960 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'gradEngineer' || qualf == 'mscClinical' ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 9000;
-						CTCComponents['BasicSal_an'] = 9000 * 12;
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 1400 * 12;
-						CTCComponents['additionalAllow_mon'] = 2500;
-						CTCComponents['additionalAllow_an'] = 2500 *12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] *12;
-						CTCComponents['providentFundMonth'] = 1080;
-						CTCComponents['providentFund_an'] = 1080 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-
-					else if(loc == 'allLocation' && (qualf == 'masterEngg'  ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 *12;
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] *12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] *12;
-					}
-
-					else if(loc == 'exceptMubaiPTG' && (qualf == 'pharmacy'  ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 *12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 * 12;
- 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] *12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'MubaiPTG' && (qualf == 'pharmacy'  ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12;
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 1400;
-						CTCComponents['conveyance_an'] = 1400 * 12;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'MubaiPTG' && (qualf == 'gradSecurity'  ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 15000;
-						CTCComponents['BasicSal_an'] = 15000 * 12;
-						CTCComponents['housingAlMonthly'] = 5000;
-						CTCComponents['housingAllowance_an'] = 5000 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 0;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1800;
-						CTCComponents['providentFund_an'] = 1800 * 12
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-					else if(loc == 'exceptMubaiPTG' && (qualf == 'gradSecurity'  ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12;
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 0;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 * 12;
-						CTCComponents['exgratia2_mon'] = 0;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'masterEngg' ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12;
-						CTCComponents['housingAlMonthly'] = 3000;
-						CTCComponents['housingAllowance_an'] = 3000 *12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 2000;
-						CTCComponents['additionalAllow_an'] = 2000 * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] *12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-
-					else if(loc == 'allLocation' && (qualf == 'mba' || qualf == 'others' ) && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12;
-						CTCComponents['housingAlMonthly'] = 4000;
-						CTCComponents['housingAllowance_an'] = 4000 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 0;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12; 
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'masters') && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 12000;
-						CTCComponents['BasicSal_an'] = 12000 * 12;
-						CTCComponents['housingAlMonthly'] = 4000;
-						CTCComponents['housingAllowance_an'] = 4000 * 12;
-						CTCComponents['foodAllowance_mon'] = 600;
-						CTCComponents['foodAllowance_an'] = 600 * 12;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 0;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1440;
-						CTCComponents['providentFund_an'] = 1440 * 12;
-						CTCComponents['exgratia2_mon'] = 0;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
-					else if(loc == 'allLocation' && (qualf == 'medicine') && design =='trainee' ){
-
-						CTCComponents['BasicSal_mon'] = 13000;
-						CTCComponents['BasicSal_an'] = 13000 * 12;
-						CTCComponents['housingAlMonthly'] = 5000;
-						CTCComponents['housingAllowance_an'] = 5000 * 12;
-						CTCComponents['foodAllowance_mon'] = 0;
-						CTCComponents['conveyance_mon'] = 0;
-						CTCComponents['additionalAllow_mon'] = 0;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] +CTCComponents['additionalAllow_mon']  ;
-						CTCComponents['totalA_an'] =  CTCComponents['totalA_mon'] * 12;
-						CTCComponents['providentFundMonth'] = 1560;
-						CTCComponents['providentFund_an'] = 1560 *12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 * 12;
-						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
-					}
-
+					
 					else if(loc == 'mtMetro'  && design =='mt' ){
 
 						CTCComponents['BasicSal_mon'] = 8000;
@@ -1246,13 +2243,21 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
         
       	event.preventDefault();
       	var offerCtc = $mj("#inputCTC").val();
-      	//var joinBonus = $mj('[name="joiningBonus"]').val();
+      	var fieldoption = $mj('#fieldOption').val();
+      	var perforamnceB = $mj('#peformanceBonus').val();
   
+      	
+      	if(fieldoption != 'select' && perforamnceB != 'select')
+
+      	{
+
+      		
+
       	if($mj.isNumeric(offerCtc) ){
 
 
 
-        var sal  = calcCTC(offerCtc);
+        var sal  = calcCTC(offerCtc, perforamnceB, fieldoption);
 
         for (var key in sal) {
 
@@ -1279,7 +2284,17 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 				alert("Please enter a numeric value!");
 			}
       
-       });
+       
+
+		}
+		else
+		{
+		
+		alert("Please Select Field/Non-Field & Performance Bonus");
+			
+		}
+
+		});
 
 		// HardBound Calculated Value
 
@@ -1291,16 +2306,19 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 			var designation = $mj('#designation').val();
 
 
+			if( location != 'loc' && qualification !='qualif' && designation != 'desig')
+			{
 			
-
 
 			var sal = calculateCTC(location,qualification,designation); 
 
 			 for( var key in sal){
 
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
-
-
+				
+				
+				
+				
 
 				//var salComponent = Math.round(sal[key]);
 				var salComponent = Math.round(sal[key]);
@@ -1313,13 +2331,167 @@ CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 					
 					$mj('[name="'+key+'"]').addClass('unsaved');
 					juic.fire(baseId_mon,"_onChange",event);
-
+				
 
 			 }
 		
-		
+			}
+			
+			else
+			{
+			alert("Please Select Location, Qualification & Designation");
+			}
 
 
 		});
+		
+		$mj('#location').on('change', function(){
+				   //console.log($mj('#typeOfGlass').val());
+				    $mj('#qualification').html('');
+				    if($mj('#location').val()=='goa'){
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	$mj('#qualification').append('<option value="sdp">SDP</option>');
+				        $mj('#qualification').append('<option value="sdp_trainee">SDP to Trainee</option>');
+				        $mj('#qualification').append('<option value="dipEngg">Diploma in Engineering</option>');
+				        $mj('#qualification').append('<option value="dipPharma">Diploma Pharma</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				        $mj('#qualification').append('<option value="BscPgdca">B.sc+PGDCA</option>');
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="mba">MBA</option>');
+				        $mj('#qualification').append('<option value="doctorate">Doctorate(Phd)</option>');
+				   
+				    }
+				    else if ($mj('#location').val()=='fieldTM') {
+				        $mj('#qualification').append('<option value="tm">Field-TM</option>');
+				        
+				    }
+
+				    else if ($mj('#location').val()=='mtMetro') {
+				    	$mj('#qualification').append('<option value="mt">Field-MT</option>');
+				    }
+
+				    else if ($mj('#location').val()=='mtminiMetro') {
+				    	$mj('#qualification').append('<option value="mt">Field-MT</option>');
+				    }
+				    else if ($mj('#location').val()=='mtnonMetro') {
+				    	$mj('#qualification').append('<option value="mt">Field-MT</option>');
+				    }
+				    else if ($mj('#location').val()=='indore') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	$mj('#qualification').append('<option value="sdp">SDP</option>');
+				        $mj('#qualification').append('<option value="sdp_trainee">SDP to Trainee</option>');
+				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				    }
+				    
+				    else if ($mj('#location').val()=='sikkim') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	$mj('#qualification').append('<option value="sdp">SDP/IIT</option>');
+				        $mj('#qualification').append('<option value="sdp_trainee">SDP to Trainee</option>');
+				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
+				         $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>'); 
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="pgdca">PGDAC</option>');
+				        $mj('#qualification').append('<option value="gradGeneral">Graduate General</option>');
+				        $mj('#qualification').append('<option value="gradScience">Graduate Science</option>');
+				        $mj('#qualification').append('<option value="bsc">B.sc</option>');
+				        $mj('#qualification').append('<option value="gradSecurity">Security</option>');
+				        $mj('#qualification').append('<option value="mba">MBA</option>');
+				       
+				        
+				    }
+
+				   else if ($mj('#location').val()=='ptg') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	$mj('#qualification').append('<option value="sdp">SDP/IIT</option>');
+				        $mj('#qualification').append('<option value="sdp_trainee">SDP to Trainee</option>');
+				        $mj('#qualification').append('<option value="doctorate">Doctorate(Phd)</option>');
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				        $mj('#qualification').append('<option value="mba">MBA</option>');
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="exDefence">Ex-Defence</option>');
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="IIP">IIP</option>');
+				        $mj('#qualification').append('<option value="pgdca">PGDCA</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				        $mj('#qualification').append('<option value="diplomaChemical">Diploma in Chemical</option>');
+				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
+				        
+				        
+				    }
+
+				   else if ($mj('#location').val()=='kkb') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				        $mj('#qualification').append('<option value="mba">MBA</option>');
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="exDefence">Ex-Defence</option>');
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="IIP">IIP</option>');
+				        $mj('#qualification').append('<option value="pgdca">PGDCA</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				        $mj('#qualification').append('<option value="diplomaChemical">Diploma in Chemical</option>');
+				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
+				       				        
+				    }
+
+				   else if ($mj('#location').val()=='baddi') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	$mj('#qualification').append('<option value="sdp">SDP</option>');
+				        $mj('#qualification').append('<option value="sdp_trainee">SDP to Trainee</option>');
+				        $mj('#qualification').append('<option value="iti">ITI</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				         $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        $mj('#qualification').append('<option value="dipPharma">D.Pharma</option>');
+				        $mj('#qualification').append('<option value="dipEngg">Diploma Engineering</option>');		        
+				        
+				    	
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				       
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				         $mj('#qualification').append('<option value="mba">MBA</option>');
+
+				        $mj('#qualification').append('<option value="gradSecurity">Security</option>');
+				      		        
+				        
+				    }
+
+				   else if ($mj('#location').val()=='banglore') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+				    	
+				        $mj('#qualification').append('<option value="gradEngineer">Graduate Engineer(BE/ B.Tech/ B.Sc (Tech) )</option>');
+				        $mj('#qualification').append('<option value="mba">MBA</option>');
+				        $mj('#qualification').append('<option value="mPharma">M.Pharm</option>');
+				        $mj('#qualification').append('<option value="exDefence">Ex-Defence</option>');
+				        $mj('#qualification').append('<option value="gradBPharmacist">Graduate Pharmacist(B Pharma)</option>');
+				        $mj('#qualification').append('<option value="msc">M.sc</option>');
+				        
+				        $mj('#qualification').append('<option value="pgdca">PGDCA</option>');
+				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+				        $mj('#qualification').append('<option value="diplomaChemical">Diploma in Chemical</option>');
+				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
+				        
+				        
+				    }
+				    
+				     
+				    
+				    
+
+				});
+
 
 	});

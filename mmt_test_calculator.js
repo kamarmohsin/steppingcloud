@@ -12,10 +12,12 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(offerCtc, inputlevel){
+			var calcCTC =  function(offerCtc, inputlevel, variable){
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
+
+				var variablePer = isNaN(parseFloat(variable))? 0 : parseFloat(variable);	;
 
 					
 					CTCcalculation = {
@@ -23,14 +25,21 @@ var $mj = jQuery.noConflict();
 						
 						
 						};
+
+			
 					
 					var variablePay ={
 
-						'executive_with_variable': (10 * inputCTC_an)/100,
-						'executive_without_variable':0,
-						'settodm_with_variable': (10 * inputCTC_an)/100,
-						'settodm_without_variable':0,
-						'manager': (10 * inputCTC_an)/100
+						'executive_with_variable': (variablePer * inputCTC_an)/100,
+						'executive_without_variable':(variablePer * inputCTC_an)/100,
+						'settodm_with_variable': (variablePer * inputCTC_an)/100,
+						'settodm_without_variable':(variablePer * inputCTC_an)/100,
+						'manager': (variablePer * inputCTC_an)/100,
+						'srmanager': (variablePer * inputCTC_an)/100,
+						'assDirector':(variablePer * inputCTC_an)/100,
+						'Director':(variablePer * inputCTC_an)/100,
+						'vicePresident':(variablePer * inputCTC_an)/100,
+						'SrvicePresident':(variablePer * inputCTC_an)/100,
 					}
 
 					var carAllowacne ={
@@ -39,7 +48,12 @@ var $mj = jQuery.noConflict();
 						'executive_without_variable': 0,
 						'settodm_with_variable': 0,	
 						'settodm_without_variable':0,
-						'manager': 225000
+						'manager': 225000,
+						'srmanager': 300000,
+						'assDirector': 450000,
+						'Director':450000,
+						'vicePresident':650000,
+						'SrvicePresident':650000,
 					}
 
 					var conveyance = {
@@ -47,7 +61,12 @@ var $mj = jQuery.noConflict();
 						'executive_without_variable': 19200,
 						'settodm_with_variable':19200,
 						'settodm_without_variable': 19200,
-						'manager':19200
+						'manager':19200,						
+						'srmanager': 19200,
+						'assDirector': 19200,
+						'Director':19200,
+						'vicePresident':19200,
+						'SrvicePresident':19200,
 					}
 
 					var medical = {
@@ -55,7 +74,13 @@ var $mj = jQuery.noConflict();
 						'executive_without_variable': 15000,
 						'settodm_with_variable':15000,
 						'settodm_without_variable':15000,
-						'manager':15000
+						'manager':15000,
+						'srmanager': 15000,
+						'assDirector': 15000,
+						'Director':15000,
+						'vicePresident':15000,
+						'SrvicePresident':15000,
+
 					}
 
 					var food = {
@@ -63,7 +88,12 @@ var $mj = jQuery.noConflict();
 						'executive_without_variable':0,
 						'settodm_with_variable':15600,
 						'settodm_without_variable':15600,
-						'manager': 15600
+						'manager': 15600,
+						'srmanager': 15600,
+						'assDirector': 15600,
+						'Director':15600,
+						'vicePresident':15600,
+						'SrvicePresident':15600,
 					}
 
 					var gift = {
@@ -71,7 +101,12 @@ var $mj = jQuery.noConflict();
 						'executive_without_variable':0,
 						'settodm_with_variable':5000,
 						'settodm_without_variable':5000,
-						'manager':5000
+						'manager':5000,
+						'srmanager': 5000,
+						'assDirector': 5000,
+						'Director':5000,
+						'vicePresident':5000,
+						'SrvicePresident':5000,
 					}
 
 
@@ -114,6 +149,9 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['mmt_baseSalary_A_mon'] = CTCcalculation['mmt_specialAllowance_mon'] +CTCcalculation['mmt_leaveTravelallowance_mon']+ CTCcalculation['mmt_giftVouchers_mon'] + CTCcalculation['mmt_foodVouchers_mon'] + CTCcalculation['mmt_medicalreimbursement_mon'] + CTCcalculation['mmt_conveyanceAllow_mon']  + CTCcalculation['mmt_carAllowance_mon']+ CTCcalculation['mmt_housingAllow_mon'] + CTCcalculation['mmt_BasicSal_mon'];
 
 					
+					var current_CTC = isNaN(parseFloat($mj('[name="currentCTC"]').val()))? 0 : parseFloat($mj('[name="currentCTC"]').val());
+					CTCcalculation['incrementPercent'] = ((current_CTC )/CTCcalculation['mmt_totalfixedComp_AB_an']) * 100;
+					
 
  					
 				return CTCcalculation;
@@ -135,6 +173,7 @@ var $mj = jQuery.noConflict();
 
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#selectLevel').val();
+		var variable = $mj('#variablePer').val();
 		
     if($mj.isNumeric(inputCTC) )
 	{ 
@@ -143,7 +182,7 @@ var $mj = jQuery.noConflict();
 
 
 
-        var sal  = calcCTC(inputCTC,inputlevel);
+        var sal  = calcCTC(inputCTC,inputlevel, variable);
 
         for( var key in sal){
 

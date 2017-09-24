@@ -196,6 +196,10 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCcalculation['QuartvarialbePay_an'] = QuartVariable;
 						CTCcalculation['MonthvarialbePay_an'] = monthVariable;
 						CTCcalculation['totalCompensation_an'] = inputCTC_an;
+					
+						var current_CTC = isNaN(parseFloat($mj('[name="currentCTC"]').val()))? 0 : parseFloat($mj('[name="currentCTC"]').val());
+						CTCcalculation['hike'] = ((current_CTC )/CTCcalculation['totalCompensation_an']) * 100;
+					
 
 				
 			     return CTCcalculation;

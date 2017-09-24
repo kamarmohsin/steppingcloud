@@ -150,7 +150,7 @@ var $mj = jQuery.noConflict();
 
 					
 					var current_CTC = isNaN(parseFloat($mj('[name="currentCTC"]').val()))? 0 : parseFloat($mj('[name="currentCTC"]').val());
-					CTCcalculation['hike'] = ((current_CTC )/CTCcalculation['mmt_totalfixedComp_AB_an']) * 100;
+					CTCcalculation['hike'] = ((current_CTC )/CTCcalculation['mmt_Total_CTC_an']) * 100;
 					
 
  					

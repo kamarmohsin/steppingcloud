@@ -99,7 +99,12 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10c': 0,
 							'l7m': (20 * inputCTC_an) /100,
 							'l5m' : (20 * inputCTC_an) /100,
-							'l6m' :(20 * inputCTC_an) /100
+							'l6m' :(20 * inputCTC_an) /100,
+							'l5dh' :(20 * inputCTC_an) /100,
+							'l4dh' :(20 * inputCTC_an) /100,
+							'l3dh' :(20 * inputCTC_an) /100,
+							'l3e' :(20 * inputCTC_an) /100,
+							'l2e' :(20 * inputCTC_an) /100,
 
 
 						}
@@ -131,7 +136,12 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10c': 0,
 							'l7m': ( 10 * ( inputCTC_an * .30 ))/100,
 							'l5m' :(12 * (( 24 * inputCTC_an)/100) ) /100,
-							'l6m' : (10 * (( 24 * inputCTC_an)/100) ) /100
+							'l6m' : (10 * (( 24 * inputCTC_an)/100) ) /100,
+							'l5dh' : (12 * (( 24 * inputCTC_an)/100) ) /100,
+							'l4dh' : (15 * (( 24 * inputCTC_an)/100) ) /100,
+							'l3dh' : (15 * (( 24 * inputCTC_an)/100) ) /100,
+							'l3e' : (15 * (( 24 * inputCTC_an)/100) ) /100,
+							'l2e' : (15 * (( 24 * inputCTC_an)/100) ) /100
 
 						}
 
@@ -146,7 +156,12 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10c': ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l7m': ( ( inputCTC_an * .30 ) /12) * 15 / 26,
 							'l5m' : ( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l6m' :( 4.81 * ( inputCTC_an * .24 ))/100
+							'l6m' :( 4.81 * ( inputCTC_an * .24 ))/100,
+							'l5dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
+							'l4dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
+							'l3dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
+							'l3e' :( 4.81 * ( inputCTC_an * .24 ))/100,
+							'l2e' :( 4.81 * ( inputCTC_an * .24 ))/100
 						}
 
 						var carvalue = {
@@ -164,39 +179,59 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						}
 
-						if (level == 'l5m' || level == 'l6m' ) 
+						if (level == 'l5m' || level == 'l6m' || level == 'l5dh' || level == 'l4dh' || level == 'l3dh' || level == 'l3e' || level == 'l2e') 
 						{
 							CTCcalculation['fixedPay_ann'] = ( 24 * inputCTC_an)/100;
 							CTCcalculation['fixedPay_mon'] = CTCcalculation['fixedPay_ann'] / 12;
+							
+							/*
 							CTCcalculation['hra_an'] =  0 ;
 							CTCcalculation['hra_mon'] = CTCcalculation['hra_an'] /12;
 							CTCcalculation['conveyance_an'] = 0 ;
 							CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an'] /12;
 							CTCcalculation['medicalReimbursment_ann'] = medical[level];
 							CTCcalculation['medicalReimbursment_mon'] = CTCcalculation['medicalReimbursment_ann'] /12;
+
+							*/
+
 							CTCcalculation['pf_ann'] = ( 12* CTCcalculation['fixedPay_ann'])/100;
 							CTCcalculation['pf_mon'] =  CTCcalculation['pf_ann'] /12;
 							CTCcalculation['gratuity_ann'] = gratuity[level];
 							CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann'] /12;
 							CTCcalculation['superannuation_an'] = superannuation[level];
 							CTCcalculation['superannuation_mon'] = CTCcalculation['superannuation_an'] /12;
+							
+							/*
 							CTCcalculation['lta_an'] = lta[level];
 							CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] / 12;
 							CTCcalculation['grossFixedCTC_an'] = grossfixed[level];
 							CTCcalculation['grossFixedCTC_mon'] = CTCcalculation['grossFixedCTC_an'] /12;
-							CTCcalculation['flexi_an'] = ( inputCTC_an - ( CTCcalculation['fixedPay_ann'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann'] + pp[level] + carvalue[level]) );
+							*/
+
+							CTCcalculation['flexi_an'] = ( inputCTC_an - ( CTCcalculation['fixedPay_ann'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann'] + pp[level] ) );
 							CTCcalculation['flexi_mon'] = CTCcalculation['flexi_an'] / 12;
+							
+							/*
+
 							CTCcalculation['personalAllowance_ann'] = 0;
 							CTCcalculation['personalAllowance_mon'] = CTCcalculation['personalAllowance_ann'] /12;
 							CTCcalculation['annualGross_ann'] =  0;
 
 							CTCcalculation['annualGross_mon'] = CTCcalculation['annualGross_ann'] /12;
+
+							*/
+
 							CTCcalculation['performancePay_an'] = pp[level];
 							CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] /12;
+							
+							/*
 							CTCcalculation['carValue_an'] = carvalue[level];
 							CTCcalculation['carValue_mon'] = CTCcalculation['carValue_an'] /12;
+
+							*/
+
 							CTCcalculation['ctc_an'] = inputCTC_an;
-							CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an'] /12;
+							CTCcalculation['ctc_mon'] =  ( CTCcalculation['ctc_an'] - CTCcalculation['performancePay_an']) /12;
 
 							
 
@@ -263,7 +298,12 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 						}
-					
+							
+							var fixedSalary = isNaN(parseFloat($mj('[name="currentFixed"]').val()))? 0 : parseFloat($mj('[name="currentFixed"]').val());
+							var varSalary = isNaN(parseFloat($mj('[name="currentVariable"]').val()))? 0 : parseFloat($mj('[name="currentVariable"]').val());
+
+				
+							CTCcalculation['percentHike'] = ((fixedSalary + varSalary )/inputCTC_an ) * 100;
 						
 				return CTCcalculation;
 				

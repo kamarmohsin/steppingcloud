@@ -15,17 +15,36 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
 				var selectMode = inputfieldBakoff;
+
+				CTCcalculation = {
+					
+						'BasicSal_mon':0,
+						'hra_mon':0,
+						'conveyance_mon':0,
+						'medicalReimbursment_mon':0,
+						'personalAllowance_mon':0,
+						'fixedPay_mon':0,
+						'fixedPay_ann':0,
+						'pf_ann':0,
+						'lta_mon':0,
+						'annualCTC_an':0,
+						'gratuity_mon':0,
+						'AnnualCTCgratuity_mon':0,
+						'performancePay_mon':0,
+						'half_performancePay_mon':0,
+						'retirals_mon':0,
+						'flexi_mon':0,
+						'ctc_mon':0
+						
+						
+						
+						}
 				
 
 
 				if (selectMode == 'field') {
 
-					CTCcalculation = {
-					
-						'BasicSal_mon':0,
-						'BasicSal_an':0,
 						
-						}	
 
 					var basic = {
 
@@ -127,7 +146,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					//CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann']/12;
 					CTCcalculation['ctc_mon'] = inputCTC_an;
 					//CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
-					return CTCcalculation;
+					
 				
 				}
 
@@ -136,12 +155,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 
-					CTCcalculation = {
-					
-						'BasicSal_mon':0,
-						'BasicSal_an':0,
 						
-						}	
 
 					var performance = {
 
@@ -260,21 +274,84 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['performancePay_mon'] = performance[level];
 					CTCcalculation['ctc_mon'] = inputCTC_an;
 					//CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
-					return CTCcalculation;
+					
 				
 				
 
 				}
 
-				
+				else if (level =='L6M' || level =='L5M' || level =='L5DH' || level =='L4DH' || level =='L3E' || level =='L2E' || level =='L2S' || level =='L1S') {
+
+
+					var annualPP = {
+
+						'L6M': 12/100,
+						'L5M': 12/ 100,
+						'L5DH': 12/ 100,
+						'L4DH': 12 /100,
+						'L3DH': 12/100,
+						'L3E': 12/100,
+						'L2E': 25/100,
+						'L2S': 20/100,
+						'L1S': 20/100
+					}
+
+					var halfPP ={
+
+						'L6M': 8/100,
+						'L5M': 8/100,
+						'L5DH': 8/100,
+						'L4DH': 8/100,
+						'L3DH': 8/100,
+						'L3E': 10/100,
+						'L2E': 0,
+						'L2S': 0,
+						'L1S': 0
+					}
+
+					var basic ={
+
+						'L6M': 24/100,
+						'L5M': 24/100,
+						'L5DH': 24/100,
+						'L4DH': 24/100,
+						'L3DH': 24/100,
+						'L3E': 24/100,
+						'L2E': 22/100,
+						'L2S': 22/100,
+						'L1S': 22/100
+
+					}
+
+
+
+					CTCcalculation['BasicSal_mon'] = Math.round( basic[level] * inputCTC_an);
+					CTCcalculation['pf_ann'] = Math.round( 12 * CTCcalculation['BasicSal_mon']) /100;
+					CTCcalculation['gratuity_mon'] = Math.round( CTCcalculation['BasicSal_mon'] / 12 /26 * 15 );
+					CTCcalculation['retirals_mon'] = CTCcalculation['pf_ann'] + CTCcalculation['gratuity_mon'];
+					CTCcalculation['performancePay_mon'] = (inputCTC_an * annualPP[level]);
+					CTCcalculation['half_performancePay_mon'] = (inputCTC_an  * halfPP[level]);
+					CTCcalculation['flexi_mon'] = inputCTC_an - ( CTCcalculation['half_performancePay_mon'] + CTCcalculation['performancePay_mon'] + CTCcalculation['retirals_mon'] + CTCcalculation['BasicSal_mon']);
+					CTCcalculation['ctc_mon'] = inputCTC_an;
+
+				};
+
+
+							var fixedSalary = isNaN(parseFloat($mj('[name="currentFixed"]').val()))? 0 : parseFloat($mj('[name="currentFixed"]').val());
+							var varSalary = isNaN(parseFloat($mj('[name="currentVariable"]').val()))? 0 : parseFloat($mj('[name="currentVariable"]').val());
 
 				
+							CTCcalculation['percentHike'] = ((inputCTC_an  - (fixedSalary + varSalary ))/(fixedSalary + varSalary ) ) * 100;
+
+				
+
+				return CTCcalculation;
 			
 				
 
 				
 			}
-			
+				
    
 			
 
@@ -342,6 +419,59 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 	
 
 	
+		$mj('#Level').on('change', function(){
+   //console.log($('#typeOfGlass').val());
+  		  $mj('#filedBackoffice').html('');
+   		 if($mj('#Level').val()=='L7O' || $mj('#Level').val()=='L8O' || $mj('#Level').val()=='L9O'){
+
+   		   $mj('#filedBackoffice').append('<option value="select">Select Level</option>');	
+     	   $mj('#filedBackoffice').append('<option value="field">Field</option>');
+     	   $mj('#filedBackoffice').append('<option value="backOffice">Back Office</option>');
+     	   
+   		 }
+   		 else if ($mj('#Level').val()=='L6M') {
+       		 $mj('#filedBackoffice').append('<option value="L6M">L6M</option>');
+       		 
+    		}
+
+    	else if ($mj('#Level').val()=='L5M') {
+       		 $mj('#filedBackoffice').append('<option value="L5M">L5M</option>');
+       		 
+    		}
+
+    	else if ($mj('#Level').val()=='L5DH') {
+       		 $mj('#filedBackoffice').append('<option value="L5DH">L5DH</option>');
+       		 
+    		}
+
+    	else if ($mj('#Level').val()=='L4DH') {
+       		 $mj('#filedBackoffice').append('<option value="L4DH">L4DH</option>');
+       		 
+    		}
+    	else if ($mj('#Level').val()=='L3DH') {
+       		 $mj('#filedBackoffice').append('<option value="L3DH">L3DH</option>');
+       		 
+    		}	
+
+    	else if ($mj('#Level').val()=='L3E') {
+       		 $mj('#filedBackoffice').append('<option value="L3E">L3E</option>');
+       		 
+    		}
+
+    	else if ($mj('#Level').val()=='L2E') {
+       		 $mj('#filedBackoffice').append('<option value="L2E">L2E</option>');
+       		 
+    		}	
+    	else if ($mj('#Level').val()=='L2S') {
+       		 $mj('#filedBackoffice').append('<option value="L2S">L2S</option>');
+       		 
+    		}
+    	else if ($mj('#Level').val()=='L1S') {
+       		 $mj('#filedBackoffice').append('<option value="L1S">L1S</option>');
+       		 
+    		}	
+    			
+		});
 
 
 		

@@ -128,10 +128,18 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 				}
+			
+					var fixedSalary = isNaN(parseFloat($mj('[name="currentFixed"]').val()))? 0 : parseFloat($mj('[name="currentFixed"]').val());
+							
+					var varSalary = isNaN(parseFloat($mj('[name="currentVariable"]').val()))? 0 : parseFloat($mj('[name="currentVariable"]').val());
+
+				
+							
+					CTCcalculation['percentHike'] = ((inputCTC_an  - (fixedSalary + varSalary ))/(fixedSalary + varSalary ) ) * 100;
 
 				return CTCcalculation;
 				
-
+				
 				
 			}
 

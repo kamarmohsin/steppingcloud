@@ -31,6 +31,24 @@ var $mj = jQuery.noConflict();
 						'eb_BasicSal_an': 0,
 						
 						};
+				
+					var statutoryBonus = {
+						
+						'S': offerCtc < 506133 ? 7000 :0,
+						'E': offerCtc < 506133 ? 7000 :0,
+						'M_1':  offerCtc < 561334 ? 7000 :0,
+						'M_2':  0,
+						'M_3':  0,
+						'M_4':  0,
+						'M_5':  0,
+						'M_6':  0,
+						'M_7':  0,
+						'M_8':  0,
+						'M_9':  0,
+				
+						'M_10' : 0
+					
+					}	
 					
 					var paygrade ={
 
@@ -38,7 +56,7 @@ var $mj = jQuery.noConflict();
 						'IC_1': (inputeb_CTC_mon * 15)/100,
 						'S':    0,
 						'E':    0,
-						'M_1': (inputeb_CTC_mon * 10)/100,
+						'M_1': statutoryBonus[grade] <7001 ? ( (inputeb_CTC_mon * 10)/100 - statutoryBonus[grade] /12) : (inputeb_CTC_mon * 10)/100,
 						'M_2': (inputeb_CTC_mon * 10)/100,
 						'M_3': (inputeb_CTC_mon * 10)/100,
 						'M_4': (inputeb_CTC_mon * 10)/100,
@@ -91,7 +109,7 @@ var $mj = jQuery.noConflict();
 						
 						'IC_1': 1250,
 						'S': 0,
-						'E': 1250,
+						'E': 0,
 						'M_1': 1250,
 						'M_2': 1250,
 						'M_3': 1250,
@@ -161,23 +179,7 @@ var $mj = jQuery.noConflict();
 					
 					}
 					
-					var statutoryBonus = {
-						
-						'S': offerCtc < 506133 ? 7000 :0,
-						'E': offerCtc < 506133 ? 7000 :0,
-						'M_1':  offerCtc < 561334 ? 7000 :0,
-						'M_2':  0,
-						'M_3':  0,
-						'M_4':  0,
-						'M_5':  0,
-						'M_6':  0,
-						'M_7':  0,
-						'M_8':  0,
-						'M_9':  0,
-				
-						'M_10' : 0
 					
-					}
 
 				
 

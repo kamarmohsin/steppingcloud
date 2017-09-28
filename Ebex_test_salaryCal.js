@@ -160,6 +160,24 @@ var $mj = jQuery.noConflict();
 						'M_10' : 0
 					
 					}
+					
+					var statutoryBonus = {
+						
+						'S': offerCtc < 506133 ? 7000 :0,
+						'E': offerCtc < 506133 ? 7000 :0,
+						'M_1':  offerCtc < 561334 ? 7000 :0,
+						'M_2':  0,
+						'M_3':  0,
+						'M_4':  0,
+						'M_5':  0,
+						'M_6':  0,
+						'M_7':  0,
+						'M_8':  0,
+						'M_9':  0,
+				
+						'M_10' : 0
+					
+					}
 
 				
 
@@ -171,7 +189,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : parseFloat(VariablePay_an);
 					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
 
-					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'];
+					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'] - statutoryBonus[grade]/12;
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
@@ -224,6 +242,8 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'];
 
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
+					CTCcalculation['eb_statutory_mon'] = statutoryBonus[grade]/12;
+					CTCcalculation['eb_statutory_an'] = CTCcalculation['eb_statutory_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
 					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'];

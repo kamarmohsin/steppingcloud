@@ -231,7 +231,27 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_providentFund_an'] = CTCcalculation['eb_providentFund_mon'] *12;
 					CTCcalculation['eb_medicalreimbursement_mon'] = medical[grade];
 					CTCcalculation['eb_medicalreimbursement_ann'] = CTCcalculation['eb_medicalreimbursement_mon'] * 12;
-					CTCcalculation['eb_leaveTravelallowance_mon'] = (CTCcalculation['eb_BasicSal_mon'] *10) /100;
+					
+					
+					var lta ={
+
+						
+						'S': 0,
+						'E': 0,
+						'M_1':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_2':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_3':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_4':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_5':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_6':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_7':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_8':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_9':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+				
+						'M_10' : (CTCcalculation['eb_BasicSal_mon'] *10) /100
+					
+					}
+					CTCcalculation['eb_leaveTravelallowance_mon'] = lta[grade];
 					CTCcalculation['eb_leaveTravelallowance_an'] = CTCcalculation['eb_leaveTravelallowance_mon'] *12;
 					CTCcalculation['eb_conveyanceAllowance_mon'] = conveyance[grade];
 					CTCcalculation['eb_conveyanceAllowance_an'] = CTCcalculation['eb_conveyanceAllowance_mon'] * 12;
@@ -248,7 +268,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_statutory_an'] = CTCcalculation['eb_statutory_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
-					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'];
+					CTCcalculation['eb_CTC_mon'] = CTCcalculation['eb_grossSalary_mon'] + CTCcalculation['eb_carrelated_expenses_mon'] + CTCcalculation['eb_statutory_mon'];
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
 					CTCcalculation['eb_Total_CTC_mon'] = CTCcalculation['eb_CTC_mon'] + CTCcalculation['eb_variablePay_mon'];
 					CTCcalculation['eb_Total_CTC_an'] = CTCcalculation['eb_CTC_an'] + CTCcalculation['eb_variablePay_an'];

@@ -151,7 +151,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 					var inputctc = offerCtc/12;
-				 var perfomancePercantage = parseFloat(perforamnceB);
+				 var perfomancePercantage = isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =0;
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			

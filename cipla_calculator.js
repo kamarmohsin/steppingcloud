@@ -159,6 +159,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							
 							//'BasicSal_an': 0,
+							'stipend':0,
 							'perfomance':0,
 							'fixedSalary_mon':0,
 							'fixedSalary_ann':0,
@@ -272,6 +273,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							
 							//'BasicSal_an': 0,
+							'stipend':0,
 							'perfomance':0,
 							'fixedSalary_mon':0,
 							'fixedSalary_ann':0,

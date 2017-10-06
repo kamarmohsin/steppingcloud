@@ -135,7 +135,151 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 
 
-			};		
+			}
+
+			else if (company == '1001') {
+
+					var fixedPer = {
+
+						'exl2': (25/100) * inputCTC_an,
+						'exl3': (25/100) * inputCTC_an,
+						'dhl3': (28/100) * inputCTC_an,
+						'dhl4': (30/100) * inputCTC_an,
+						'dhl5': (35/100) * inputCTC_an,
+						'ml5' : (40/100) * inputCTC_an,
+						'ml6' : (48/100) * inputCTC_an,
+						'ml7' : (50/100) * inputCTC_an,
+						'ol7' : (50/100) * inputCTC_an,
+						'ol8' : (50/100) * inputCTC_an,
+						'ol9' : (50/100) * inputCTC_an,
+						'ol10': (50/100) * inputCTC_an
+
+
+					}
+
+					var fixed = fixedPer[level];
+
+					var pfbase = {
+
+						'exl2': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,						
+						'exl3': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl3': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl4': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl5': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml5' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml6' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml7' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ol7' : Math.round( (fixed / (1+((17.56)/100)))/12 ) * 12,
+						'ol8' : Math.round( (fixed / (1+((17.56)/100)))/12 ) * 12,
+						'ol9' : Math.round( (fixed / (1+((17.56)/100)))/12 ) * 12,
+						'ol10': Math.round( (fixed / (1+((17.56)/100)))/12 ) * 12
+
+
+					}
+
+					var bonusExgratia = {
+
+						'exl2' : 0,
+
+						'exl3': 0,
+						'dhl3': 0,
+						'dhl4': 0,
+						'dhl5': 0,
+						'ml5' : 0,
+						'ml6' : 0,
+						'ml7' : 0,
+						'ol7' : 36000,
+						'ol8' : 36000,
+						'ol9' : 36000,
+						'ol10': 36000
+					}
+					
+					var performanceP ={
+
+						'exl2': 22/100,
+						'exl3': 20/100,
+						'dhl3': 20/100,
+						'dhl4': 18/100,
+						'dhl5': 15/100,
+						'ml5' : 15/100,
+						'ml6' : 12/100,
+						'ml7' : 10/100,
+						'ol7' : 10/100,
+						'ol8' : 8/100,
+						'ol9' : 7/100,
+						'ol10': 6/100
+
+					}
+
+					var retirals = {
+
+						'exl2': 32.56,
+						'exl3': 32.56,
+						'dhl3': 32.56,
+						'dhl4': 32.56,
+						'dhl5': 32.56,
+						'ml5' : 32.56,
+						'ml6' : 32.56,
+						'ml7' : 32.56,
+						'ol7' : 17.56,
+						'ol8' : 17.56,
+						'ol9' : 17.56,
+						'ol10': 17.56
+					}
+
+					var basic = {
+
+						'exl2': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,						
+						'exl3': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl3': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl4': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'dhl5': Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml5' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml6' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ml7' : Math.round( (fixed / (1+((32.56)/100)))/12 ) * 12,
+						'ol7' : 16800,
+						'ol8' : 15600,
+						'ol9' : 14400,
+						'ol10': 13200
+					}
+					
+					CTCcalculation['pfBase_an'] = pfbase[level];
+					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
+					CTCcalculation['BasicSal_an'] = basic[level];
+					CTCcalculation['BasicSal_mon'] =  CTCcalculation['BasicSal_an'] /12;
+					CTCcalculation['adhocPay_an'] =  Math.round(( CTCcalculation['pfBase_an'] - CTCcalculation['BasicSal_an'] )/12 ) * 12 ;
+					CTCcalculation['adhocPay_mon'] = CTCcalculation['adhocPay_an'] /12;
+					CTCcalculation['pf_ann'] = 	(0.12 * CTCcalculation['pfBase_an'] );
+					CTCcalculation['pf_mon'] =	CTCcalculation['pf_ann'] /12;
+					CTCcalculation['gratuity_ann'] = Math.round(0.0556 * CTCcalculation['pfBase_an']);
+					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann'] /12;
+					
+					CTCcalculation['retirals_ann'] = Math.round( (retirals[level] * CTCcalculation['pfBase_an'])/100 );
+					CTCcalculation['retirals_mon'] = CTCcalculation['retirals_ann'] /12;
+
+					CTCcalculation['superannuation_ann'] = Math.round(CTCcalculation['retirals_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] );
+					CTCcalculation['superannuation_mon'] =	CTCcalculation['superannuation_ann'] / 12;
+
+					CTCcalculation['totalFixed_ann'] = CTCcalculation['pfBase_an'] + CTCcalculation['retirals_ann'];
+					CTCcalculation['totalFixed_mon'] = CTCcalculation['totalFixed_ann'] / 12;
+					CTCcalculation['bonusExgratia_an'] = bonusExgratia[level];
+					CTCcalculation['bonusExgratia_mon'] = CTCcalculation['bonusExgratia_an'] /12;
+					CTCcalculation['performancePay_an'] = Math.round( (performanceP[level] * inputCTC_an) * 100) /100;
+					CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] /12;
+					CTCcalculation['flexiPay_an'] = inputCTC_an - CTCcalculation['pfBase_an'] - CTCcalculation['retirals_ann'] - CTCcalculation['performancePay_an'] - CTCcalculation['bonusExgratia_an'];
+					CTCcalculation['flexiPay_mon'] = CTCcalculation['flexiPay_an'] /12;
+					CTCcalculation['totalGuaranteed_an'] = CTCcalculation['pfBase_an'] + CTCcalculation['retirals_ann'] + CTCcalculation['flexiPay_an'] + CTCcalculation['bonusExgratia_an'];
+					CTCcalculation['totalGuaranteed_mon'] = CTCcalculation['totalGuaranteed_an'] /12;
+					CTCcalculation['ctc_an'] = CTCcalculation['pfBase_an'] + CTCcalculation['retirals_ann'] + CTCcalculation['flexiPay_an'] + CTCcalculation['bonusExgratia_an'] + CTCcalculation['performancePay_an'];
+					CTCcalculation['ctc_mon']  = CTCcalculation['ctc_an'] /12;
+					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] + CTCcalculation['superannuation_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
+
+					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+
+
+
+
+			}		
 
 
 

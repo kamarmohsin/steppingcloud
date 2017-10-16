@@ -54,13 +54,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				{	
 
 
-					if (inputPP_per =='selectPP_Per') {
-
-						alert('Please Select Annual PP (%)')
-					}
-
-					else
-					{
+					if (inputPP_per !='selectPP_Per') {
 
 					var superannuation = {
 
@@ -92,9 +86,15 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
 
+					}
+
+					else
+					{
+
+						alert('Please select Annual PP(%) \n It is applicable for Level L6M - L1S ')
 
 
-				}
+					}
 
 
 

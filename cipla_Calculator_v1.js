@@ -43,6 +43,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							
 							//'BasicSal_an': 0,
+							'stipend_pm':0,
+							'stipend_an':0,
 							'perfomance':0,
 							'fixedSalary_mon':0,
 							'fixedSalary_ann':0,
@@ -159,6 +161,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							
 							//'BasicSal_an': 0,
+							'stipend_pm':0,
+							'stipend_an':0,
 							'perfomance':0,
 							'fixedSalary_mon':0,
 							'fixedSalary_ann':0,
@@ -272,6 +276,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							
 							//'BasicSal_an': 0,
+							'stipend_pm':0,
+							'stipend_an':0,
 							'perfomance':0,
 							'fixedSalary_mon':0,
 							'fixedSalary_ann':0,
@@ -357,8 +363,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 				else if(loc == 'sikkim' && qualf == 'sdp' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 8100;
-						CTCComponents['BasicSal_an'] = 8100 *12;
+						CTCComponents['stipend_pm'] = 8100;
+						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
+						
 						
 					}
 					
@@ -652,18 +659,19 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 					}
 
-				/*
+				
 				else if(loc == 'ptg' && qualf == 'sdp' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 10000;
-						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['stipend_pm'] = 10000;
+						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
+						
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 
 						
 					}
 
-				*/
+				
 
 				else if(loc == 'ptg' && qualf == 'doctorate' && design =='trainee' ){
 
@@ -1172,8 +1180,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 				else if(loc == 'baddi' && qualf == 'sdp' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 6500;
-						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['stipend_pm'] = 6500;
+						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
+						
 						
 				}
 
@@ -1192,9 +1201,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['conveyance_mon'] = 1300;
 						//CTCComponents['education_mon'] = 500;
 						//CTCComponents['city_mon'] = 300;
-						CTCComponents['baddialAllow_mon'] = 500;
-						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['baddialAllow_mon'] ;
+						CTCComponents['additionalAllow_mon'] = 500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['additionalAllow_mon'] ;
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
 						CTCComponents['providentFundMonth'] = 720;
 						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
@@ -1731,8 +1740,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					}
 					else if(loc == 'indore' && qualf == 'sdp' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 8000;
-						CTCComponents['BasicSal_an'] = 8000 *12;
+						CTCComponents['stipend_pm'] = 8000;
+						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = 700 *12;
 						
@@ -1889,8 +1898,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 					else if(loc == 'goa' && qualf == 'sdp' && design =='trainee' ){
 
-						CTCComponents['BasicSal_mon'] = 8500;
-						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['stipend_pm'] = 8500;
+						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
+						
 						 
 					}
 					else if(loc == 'goa' && qualf == 'dipEngg' && design =='trainee' ){

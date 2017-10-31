@@ -305,9 +305,20 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							
 							var fixedSalary = isNaN(parseFloat($mj('[name="currentFixed"]').val()))? 0 : parseFloat($mj('[name="currentFixed"]').val());
 							var varSalary = isNaN(parseFloat($mj('[name="currentVariable"]').val()))? 0 : parseFloat($mj('[name="currentVariable"]').val());
+							var totalCurrentSalary = isNaN(parseFloat($mj('[name="totalCurrentCTC"]').val()))? 0 : parseFloat($mj('[name="totalCurrentCTC"]').val());
 
-				
+
+							CTCcalculation['est_CurrenFixedCTC'] = fixedSalary;
+							CTCcalculation['est_proposedFixedCTC'] = CTCcalculation['ctc_an'] - CTCcalculation['performancePay_an'];
+							CTCcalculation['est_currentVariableCTC'] = varSalary;
+							CTCcalculation['est_proposedVariableCTC'] = CTCcalculation['performancePay_an'];
+							CTCcalculation['est_totalCurrentCTC'] = totalCurrentSalary;
+							CTCcalculation['est_totalproposedCTC'] = CTCcalculation['ctc_an'];
+							CTCcalculation['est_hikeFixedCTC'] = ( ( CTCcalculation['est_proposedFixedCTC'] - CTCcalculation['est_CurrenFixedCTC'] )/ CTCcalculation['est_CurrenFixedCTC'] ) * 100; 
+							CTCcalculation['est_hikeVariableCTC'] = ( ( CTCcalculation['est_proposedVariableCTC'] - CTCcalculation['est_currentVariableCTC'] )/ CTCcalculation['est_currentVariableCTC'] ) * 100; 
+
 							CTCcalculation['percentHike'] = ( (inputCTC_an - (fixedSalary + varSalary ))/ (fixedSalary + varSalary ) ) * 100;
+							CTCcalculation['est_totalProposedHike'] = CTCcalculation['percentHike'];
 						
 				return CTCcalculation;
 				

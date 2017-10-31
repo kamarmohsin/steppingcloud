@@ -1201,7 +1201,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['conveyance_mon'] = 1300;
 						//CTCComponents['education_mon'] = 500;
 						//CTCComponents['city_mon'] = 300;
-						CTCComponents['additionalAllow_mon'] = 500;
+						CTCComponents['additionalAllow_mon'] = 0;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['additionalAllow_mon'] ;
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1228,7 +1228,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 2000;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1255,7 +1255,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 2500;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1282,7 +1282,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 2000;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1309,7 +1309,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 2500;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1336,7 +1336,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 2000;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1363,7 +1363,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 0;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
@@ -1390,7 +1390,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						//CTCComponents['city_mon'] = 300;
 						CTCComponents['additionalAllow_mon'] = 0;
 						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
-						CTCComponents['baddialAllow_mon'] = 500;
+						CTCComponents['baddialAllow_mon'] = 0;
 						CTCComponents['baddialAllow_an'] = CTCComponents['baddialAllow_mon'] * 12;
 						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon'] + CTCComponents['baddialAllow_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;

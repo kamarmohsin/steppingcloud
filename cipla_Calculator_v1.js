@@ -1210,7 +1210,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 
@@ -1237,7 +1237,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 
@@ -1264,7 +1264,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 				
@@ -1291,7 +1291,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 
@@ -1318,7 +1318,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 
@@ -1345,7 +1345,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}	
 				
@@ -1372,7 +1372,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}
 
@@ -1399,7 +1399,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['exgratia2_mon'] = 700;
 						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
-						CTCComponents['totalB_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 						
 				}	
 

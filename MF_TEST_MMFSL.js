@@ -208,8 +208,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							CTCcalculation['grossFixedCTC_mon'] = CTCcalculation['grossFixedCTC_an'] /12;
 							*/
 
-							CTCcalculation['flexi_an'] = ( inputCTC_an - ( CTCcalculation['fixedPay_ann'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann'] + pp[level] ) );
-							CTCcalculation['flexi_mon'] = CTCcalculation['flexi_an'] / 12;
 							
 							/*
 
@@ -225,6 +223,10 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							CTCcalculation['performancePay_an'] =  isNaN(parseFloat($mj("#PP_Perc").val()))? pp[level] : (parseFloat($mj("#PP_Perc").val()) * inputCTC_an)/100 ;
 							CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] /12;
+
+							CTCcalculation['flexi_an'] = ( inputCTC_an - ( CTCcalculation['fixedPay_ann'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann'] + CTCcalculation['performancePay_an'] ) );
+							CTCcalculation['flexi_mon'] = CTCcalculation['flexi_an'] / 12;
+							
 							
 							/*
 							CTCcalculation['carValue_an'] = carvalue[level];

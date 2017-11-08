@@ -207,7 +207,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCcalculation['TMLCompaRatio'] = (level == 'L5' || level == 'L6') ? ( CTCcalculation['AnnualtargetPerformance'] / 100000) / TMLCompa[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLCompa[level];
 						CTCcalculation['MarketCompaRatio'] = (level == 'L5' || level == 'L6') ? ( inputCTC_an) / TMLMarket[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLMarket[level];
 						CTCcalculation['OfferdGrade'] = level;
-						
+
 			     return CTCcalculation;
 				
 
@@ -247,13 +247,21 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 
-        		if (key == 'TMLCompaRatio' || key == 'MarketCompaRatio' || key == 'OfferdGrade' ) {
+        		if (key == 'TMLCompaRatio' || key == 'MarketCompaRatio'  ) {
 
 
 			 	
 
 			 			var salComponent = (sal[key]);
 			 			var round = salComponent.toFixed(2);
+						$mj('[name="'+key+'"]').val(round);
+
+        		}
+
+        		else if (key == 'OfferdGrade') {
+
+        				var salComponent = (sal[key]);
+			 			var round = salComponent;
 						$mj('[name="'+key+'"]').val(round);
         		}
 

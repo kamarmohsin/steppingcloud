@@ -187,6 +187,8 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['totalCompensation_mon'] = CTCcalculation['baseSalary_mon'] + CTCcalculation['retirals_mon'] + CTCcalculation['variablePay_mon'];
 						CTCcalculation['totalCompensation_an'] = CTCcalculation['totalCompensation_mon'] * 12;
 						
+						var current_CTC = isNaN(parseFloat($mj('[name="currentCTC"]').val()))? 0 : parseFloat($mj('[name="currentCTC"]').val());
+						CTCcalculation['hike'] = ((current_CTC )/CTCcalculation['totalCompensation_an']) * 100;
 
 			     return CTCcalculation;
 				

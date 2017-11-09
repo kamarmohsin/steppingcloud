@@ -231,7 +231,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['CTC_mon'] = Math.round(CTCComponents['fixedSalary_mon'] - CTCComponents['adjustment_mon']);
 						CTCComponents['BasicSal_mon'] = Math.round(( 47.17/100 * CTCComponents['CTC_mon'] )/5)* 5;
 						CTCComponents['BasicSal_an']  = 12 * CTCComponents['BasicSal_mon'];
-						CTCComponents['housingAlMonthly'] = Math.round((40 /100 * CTCComponents['BasicSal_mon'] - foodAllowance)/5) *5 ;
+						CTCComponents['housingAlMonthly'] = (Math.round((40 /100 * CTCComponents['BasicSal_mon'] )/5)*5) - foodAllowance ;
 						CTCComponents['conveyance_mon'] = Math.round((25/100 * CTCComponents['BasicSal_mon'])/5)*5;
 						CTCComponents['conveyance_an'] = 12 * CTCComponents['conveyance_mon'];
 						CTCComponents['education_mon'] = Math.round((10/100 * CTCComponents['BasicSal_mon'])/5)*5;
@@ -260,10 +260,22 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						
 						//  Adjustment with HRA 
 						CTCComponents['adjustmentHRA_mon'] = CTCComponents['housingAlMonthly'] + CTCComponents['HRATotalB_mon'];
+
+
+						
+						
+						// As requested, Final value of HRA would be Adjumnet of HRA
+						CTCComponents['housingAlMonthly'] = CTCComponents['adjustmentHRA_mon'];
+
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'] ;
+
 						CTCComponents['housingAllowance_an'] = 12 * CTCComponents['adjustmentHRA_mon'];
 						CTCComponents['totalA_an'] = CTCComponents['BasicSal_an'] + CTCComponents['housingAllowance_an'] + CTCComponents['conveyance_an'] + CTCComponents['education_an'] + CTCComponents['medical_an'] + CTCComponents['city_an'] + CTCComponents['foodAllowance_an'] + CTCComponents['LTA_an'] + CTCComponents['exgratia1_ann'];
 						
 						CTCComponents['totalB_an'] = CTCComponents['totalA_an'] + CTCComponents['providentFund_an'] + CTCComponents['exgratia2_ann'];
+						CTCComponents['HRATotalB_mon'] = CTCComponents['fixedSalary_mon'] - CTCComponents['totalB_mon'];
 
 						CTCComponents['performaneBonus_mon'] = Math.round((CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] )* perfomancePercantage/100) ;
 						CTCComponents['performanceBonus_an'] = 12 * CTCComponents['performaneBonus_mon'];

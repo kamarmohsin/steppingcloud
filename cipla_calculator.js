@@ -104,7 +104,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['CTC_mon'] = Math.round(CTCComponents['fixedSalary_mon'] - CTCComponents['adjustment_mon']);
 						CTCComponents['BasicSal_mon'] = Math.round(( 47.17/100 * CTCComponents['CTC_mon'] )/5)* 5;
 						CTCComponents['BasicSal_an']  = 12 * CTCComponents['BasicSal_mon'];
-						CTCComponents['housingAlMonthly'] = Math.round((40 /100 * CTCComponents['BasicSal_mon'] - foodAllowance)/5) *5 ;
+						CTCComponents['housingAlMonthly'] = (Math.round((40 /100 * CTCComponents['BasicSal_mon'] )/5)*5) - foodAllowance ;
 						CTCComponents['conveyance_mon'] = Math.round((25/100 * CTCComponents['BasicSal_mon'])/5)*5;
 						CTCComponents['conveyance_an'] = 12 * CTCComponents['conveyance_mon'];
 						CTCComponents['education_mon'] = Math.round((10/100 * CTCComponents['BasicSal_mon'])/5)*5;

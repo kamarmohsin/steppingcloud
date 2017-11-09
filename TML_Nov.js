@@ -39,7 +39,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'nonPraAllowance':0,
 						'conveyance_mon':0,
 						'conveyance_an':0,
-						'PPAnnualAmount_max'
+						'PPAnnualAmount_max':0,
 						'PAnnualAmmount':0,
 						'PerquisiteCar_mon':0,
 						'PerquisiteCar_an':0,

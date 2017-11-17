@@ -22,12 +22,14 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(offerCtc, inputlevel, variable){
+			var calcCTC =  function(offerCtc, inputlevel, variable, car){
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
 
-				var variablePer = isNaN(parseFloat(variable))? 0 : parseFloat(variable);	;
+				var inputCar = car;
+
+				var variablePer = isNaN(parseFloat(variable))? 0 : parseFloat(variable);	
 
 					
 					CTCcalculation = {
@@ -133,7 +135,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['mmt_BasicSal_mon'] = CTCcalculation['mmt_BasicSal_an'] /12;
 					CTCcalculation['mmt_housingAllow_an'] = ( 50 * CTCcalculation['mmt_BasicSal_an'] )/100;
 					CTCcalculation['mmt_housingAllow_mon'] = CTCcalculation['mmt_housingAllow_an'] /12;
-					CTCcalculation['mmt_carAllowance_ann'] = carAllowacne[level];
+					CTCcalculation['mmt_carAllowance_ann'] = (inputCar == 'yes') ? carAllowacne[level] : 0;
 					CTCcalculation['mmt_carAllowance_mon'] = CTCcalculation['mmt_carAllowance_ann'] /12;
 					CTCcalculation['mmt_conveyanceAllow_ann'] = conveyance[level];
 					CTCcalculation['mmt_conveyanceAllow_mon'] = CTCcalculation['mmt_conveyanceAllow_ann'] /12;
@@ -184,6 +186,7 @@ var $mj = jQuery.noConflict();
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#selectLevel').val();
 		var variable = $mj('#variablePer').val();
+		var car = $mj('#CarAllowance').val();
 		
     if($mj.isNumeric(inputCTC) )
 	{ 
@@ -192,7 +195,7 @@ var $mj = jQuery.noConflict();
 
 
 
-        var sal  = calcCTC(inputCTC,inputlevel, variable);
+        var sal  = calcCTC(inputCTC,inputlevel, variable, car);
 
         for( var key in sal){
 

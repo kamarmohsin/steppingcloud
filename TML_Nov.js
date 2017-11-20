@@ -15,6 +15,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
+				var text = $mj("#Level option:selected").text(); 	
 				
 						
 				CTCcalculation = {
@@ -220,7 +221,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCcalculation['AnnualtargetPerformance_carbenifit_max'] = (level == 'L5' || level == 'L6') ? 0 :  CTCcalculation['AnnualtargetPerformance_max'] + CTCcalculation['PerquisiteCar_an'] + CTCcalculation['driversalary_an'] + CTCcalculation['fuelReimbersment_an'];
 						CTCcalculation['TMLCompaRatio'] = (level == 'L5' || level == 'L6') ? ( CTCcalculation['AnnualtargetPerformance'] / 100000) / TMLCompa[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLCompa[level];
 						CTCcalculation['MarketCompaRatio'] = (level == 'L5' || level == 'L6') ? ( inputCTC_an) / TMLMarket[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLMarket[level];
-						CTCcalculation['OfferdGrade'] = level;
+						CTCcalculation['OfferdGrade'] = text;
 
 			     return CTCcalculation;
 				

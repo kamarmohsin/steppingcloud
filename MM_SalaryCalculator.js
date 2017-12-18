@@ -10,7 +10,13 @@ var $mj = jQuery.noConflict();
 	$mj(document).ready(function(){
 
 
-		
+		var arrayOfElem = ['calculateForGrade', 'BasicSal_mon', 'BasicSal_an', 'adhocPay_mon', 'adhocPay_an', 'pfBase_mon', 'pfBase_an', 'pf_mon', 'pf_ann', 'gratuity_mon', 'gratuity_ann', 'superannuation_mon', 'superannuation_ann', 'retirals_mon', 'retirals_ann', 'totalFixed_mon', 'totalFixed_ann', 'flexiPay_mon', 'flexiPay_an', 'bonusExgratia_mon', 'bonusExgratia_an', 'totalGuaranteed_mon', 'totalGuaranteed_an', 'performancePay_mon', 'performancePay_an', 'ctc_mon', 'ctc_an', 'grossPay_mon', 'grossPay_an','ctcIncrementPA', 'ctcPercent'  ];
+
+			for (var l=0; l < arrayOfElem.length; l++) {
+
+				$mj('[name="'+ arrayOfElem[l]+'"]').prop("readonly", true);
+
+				};
 
 
 

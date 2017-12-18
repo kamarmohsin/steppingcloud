@@ -19,6 +19,7 @@ var $mj = jQuery.noConflict();
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
 				var company = inputcompany;
+				var selectedGrade = $mj("#selectLevel option:selected").text();
 
 				CTCcalculation = {
 					
@@ -177,6 +178,8 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
+					
 
 
 			}		
@@ -319,6 +322,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] + CTCcalculation['superannuation_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
 
 
 
@@ -490,6 +494,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] + CTCcalculation['superannuation_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
 
 
 
@@ -635,6 +640,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] + CTCcalculation['superannuation_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
 
 
 
@@ -748,6 +754,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon'] + CTCcalculation['superannuation_mon'] +  CTCcalculation['flexiPay_mon'] + CTCcalculation['bonusExgratia_mon'];
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
 
 
 
@@ -906,6 +913,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['grossPay_mon'] = CTCcalculation['pfBase_mon']  +  CTCcalculation['hra_mon'] + CTCcalculation['conveyance_mon'] + CTCcalculation['bonusExgratia_mon'] + CTCcalculation['medical_mon'] + CTCcalculation['education_mon'] + CTCcalculation['field_mon']  ;
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
+					CTCcalculation['calculateForGrade'] = selectedGrade;
 
 
 
@@ -949,9 +957,26 @@ var $mj = jQuery.noConflict();
 
         for( var key in sal){
 
+
+        	if(key == 'calculateForGrade')
+
+        	{
+
+			 	var salComponent = (sal[key]);
+			 			var round = salComponent;
+						$mj('[name="'+key+'"]').val(round);
+
+        	}
+
+        	else
+        	{
+        		
 			 	var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
+
+        	}
+
 
 
 				var baseId_mon = $mj('[name="'+key+'"]').attr("id");

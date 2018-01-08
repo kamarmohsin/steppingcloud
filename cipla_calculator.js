@@ -37,6 +37,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var inputctc = offerCtc/12;
 				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =600;
+				 var rla = $mj('#rla_sikkim').val();
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
 				var CTCComponents = {
@@ -119,7 +120,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['LTA_an'] = 12 * CTCComponents['LTA_mon'];
 						CTCComponents['exgratia1_mon'] = inputctc >=83333 ? Math.round(CTCComponents['BasicSal_mon'] >=21000 ? 15/100 *CTCComponents['BasicSal_mon'] : 2200 ) : 0;
 						CTCComponents['exgratia1_ann'] = CTCComponents['exgratia1_mon'] * 12 ;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+						CTCComponents['RLA_an'] = rla;
+						CTCComponents['RLA_mon'] = Math.round(CTCComponents['RLA_an']/12);
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon']+ CTCComponents['RLA_mon'];
 						
 						CTCComponents['providentFundMonth'] = Math.round(12/100 * CTCComponents['BasicSal_mon']);
 						CTCComponents['providentFund_an'] = 12 * CTCComponents['providentFundMonth'];
@@ -137,7 +140,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						// As requested, Final value of HRA would be Adjumnet of HRA
 						CTCComponents['housingAlMonthly'] = CTCComponents['adjustmentHRA_mon'];
 
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon']+ CTCComponents['RLA_mon'];
 
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'] ;
 
@@ -164,6 +167,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					var inputctc = offerCtc/12;
 				 var perfomancePercantage = isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =0;
+				 var rla = $mj('#rla_sikkim').val();
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
 				var CTCComponents = {
@@ -246,7 +250,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['LTA_an'] = 12 * CTCComponents['LTA_mon'];
 						CTCComponents['exgratia1_mon'] = inputctc >=83333 ? Math.round(CTCComponents['BasicSal_mon'] >=21000 ? 15/100 *CTCComponents['BasicSal_mon'] : 2200 ) : 0;
 						CTCComponents['exgratia1_ann'] = CTCComponents['exgratia1_mon'] * 12 ;
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+						CTCComponents['RLA_an'] = rla;
+						CTCComponents['RLA_mon'] = Math.round(CTCComponents['RLA_an']/12);
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'] + CTCComponents['RLA_mon'];
 						
 						CTCComponents['providentFundMonth'] = Math.round(12/100 * CTCComponents['BasicSal_mon']);
 						CTCComponents['providentFund_an'] = 12 * CTCComponents['providentFundMonth'];
@@ -267,7 +273,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						// As requested, Final value of HRA would be Adjumnet of HRA
 						CTCComponents['housingAlMonthly'] = CTCComponents['adjustmentHRA_mon'];
 
-						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'];
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon'] + CTCComponents['housingAlMonthly'] + CTCComponents['conveyance_mon'] + CTCComponents['education_mon'] + CTCComponents['medical_mon'] + CTCComponents['city_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['LTA_mon'] + CTCComponents['exgratia1_mon'] + CTCComponents['RLA_mon'];
 
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'] ;
 
@@ -2549,7 +2555,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				     
 				    else if ($mj('#location').val()=='vikhroli') {
 				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
-					$mj('#qualification').append('<option value="phd">P.HD</option>');
+						$mj('#qualification').append('<option value="phd">P.HD</option>');
 				    	
 				        
 				        

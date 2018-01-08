@@ -34,7 +34,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				if (fieldoption =='nonfield')
 				{
 				
-				var rla = $mj('#rla_sikkim').val();
+				var rla = parseFloat($mj('#rla_sikkim').val());
 				
 				var inputctc = (offerCtc - rla)/12;
 				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
@@ -147,7 +147,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'] ;
 
 						CTCComponents['housingAllowance_an'] = 12 * CTCComponents['adjustmentHRA_mon'];
-						CTCComponents['totalA_an'] = CTCComponents['BasicSal_an'] + CTCComponents['housingAllowance_an'] + CTCComponents['conveyance_an'] + CTCComponents['education_an'] + CTCComponents['medical_an'] + CTCComponents['city_an'] + CTCComponents['foodAllowance_an'] + CTCComponents['LTA_an'] + CTCComponents['exgratia1_ann']+CTCComponents['RLA_an'];
+						CTCComponents['totalA_an'] = CTCComponents['BasicSal_an'] + CTCComponents['housingAllowance_an'] + CTCComponents['conveyance_an'] + CTCComponents['education_an'] + CTCComponents['medical_an'] + CTCComponents['city_an'] + CTCComponents['foodAllowance_an'] + CTCComponents['LTA_an'] + CTCComponents['exgratia1_ann']+ CTCComponents['RLA_an'];
 						
 						CTCComponents['totalB_an'] = CTCComponents['totalA_an'] + CTCComponents['providentFund_an'] + CTCComponents['exgratia2_ann'];
 						CTCComponents['HRATotalB_mon'] = CTCComponents['fixedSalary_mon'] - CTCComponents['totalB_mon'];
@@ -166,7 +166,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				else if(fieldoption =='field'){
 
 
-				var rla = $mj('#rla_sikkim').val();				
+				var rla = parseFloat($mj('#rla_sikkim').val());				
 				var inputctc = (offerCtc - rla)/12;
 				 var perfomancePercantage = isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =0;

@@ -33,11 +33,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 				if (fieldoption =='nonfield')
 				{
-
-				var inputctc = offerCtc/12;
+				
+				var rla = $mj('#rla_sikkim').val();
+				
+				var inputctc = (offerCtc - rla)/12;
 				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =600;
-				 var rla = $mj('#rla_sikkim').val();
+				 
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
 				var CTCComponents = {
@@ -164,10 +166,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				else if(fieldoption =='field'){
 
 
-					var inputctc = offerCtc/12;
+				var rla = $mj('#rla_sikkim').val();				
+				var inputctc = (offerCtc - rla)/12;
 				 var perfomancePercantage = isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =0;
-				 var rla = $mj('#rla_sikkim').val();
+				 
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
 				var CTCComponents = {

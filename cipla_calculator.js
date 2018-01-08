@@ -2260,6 +2260,34 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 					}
+					
+					else if(loc == 'vikhroli' &&  qualf == 'phd'  && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 16900;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 8450;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						CTCComponents['medical_mon'] = 0;
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = 600 *12;
+						CTCComponents['conveyance_mon'] = 4165;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						//CTCComponents['education_mon'] = 500;
+						//CTCComponents['city_mon'] = 300;
+						//CTCComponents['LTA_mon'] = 600;
+						//CTCComponents['RLA_mon'] = 4500;
+
+						CTCComponents['additionalAllow_mon'] = 3685;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] *12;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['medical_mon'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 2028;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] *12;
+						CTCComponents['exgratia2_mon'] = 700;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] * 12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12; 
+					}
 
 
 					
@@ -2519,7 +2547,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				    }
 				    
 				     
-				    
+				    else if ($mj('#location').val()=='vikhroli') {
+				    	$mj('#qualification').append('<option value="qualif">Qualification</option>');
+					$mj('#qualification').append('<option value="phd">P.HD</option>');
+				    	
+				        
+				        
+				    }
 				    
 
 				});

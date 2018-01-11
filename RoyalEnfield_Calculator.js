@@ -84,7 +84,7 @@ var $mj = jQuery.noConflict();
 
 						//var prop_speclAllow = isNaN(parseFloat($mj('[name="proposed_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="proposed_specialAllowances_an"]').val());
 
-						CTCcalculation['proposed_IncreasedPer_specialAllowances_an'] = ((CTCcalculation['proposed_specialAllowances_an'] - curr_specialAllow )/CTCcalculation['proposed_specialAllowances_an']) * 100;
+						CTCcalculation['proposed_IncreasedPer_specialAllowances_an'] = 0;
 					
 						// Fixed CTC
 

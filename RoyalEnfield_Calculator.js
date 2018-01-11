@@ -63,6 +63,7 @@ var $mj = jQuery.noConflict();
 
 
 						//Current Salary Components
+
 						var curr_basic = isNaN(parseFloat($mj('[name="current_basic_an"]').val()))? 0 : parseFloat($mj('[name="current_basic_an"]').val());
 						var curr_specialAllow = isNaN(parseFloat($mj('[name="current_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="current_specialAllowances_an"]').val());
 						var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
@@ -73,17 +74,17 @@ var $mj = jQuery.noConflict();
 
 						CTCcalculation['proposed_basic_an'] = CTCcalculation['RR_fixedBasic_an'];
 
-						var prop_basic = isNaN(parseFloat($mj('[name="proposed_basic_an"]').val()))? 0 : parseFloat($mj('[name="proposed_basic_an"]').val());
+						//var prop_basic = isNaN(parseFloat($mj('[name="proposed_basic_an"]').val()))? 0 : parseFloat($mj('[name="proposed_basic_an"]').val());
 
-						CTCcalculation['proposed_IncreasedPer_basic_an'] = ((prop_basic - curr_basic )/prop_basic) * 100;
+						CTCcalculation['proposed_IncreasedPer_basic_an'] = ((CTCcalculation['proposed_basic_an'] - curr_basic )/CTCcalculation['proposed_basic_an']) * 100;
 					
 						// Speciall Allowance
 
 						CTCcalculation['proposed_specialAllowances_an'] = 0;
 
-						var prop_speclAllow = isNaN(parseFloat($mj('[name="proposed_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="proposed_specialAllowances_an"]').val());
+						//var prop_speclAllow = isNaN(parseFloat($mj('[name="proposed_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="proposed_specialAllowances_an"]').val());
 
-						CTCcalculation['proposed_IncreasedPer_specialAllowances_an'] = ((prop_speclAllow - curr_specialAllow )/prop_speclAllow) * 100;
+						CTCcalculation['proposed_IncreasedPer_specialAllowances_an'] = ((CTCcalculation['proposed_specialAllowances_an'] - curr_specialAllow )/CTCcalculation['proposed_specialAllowances_an']) * 100;
 					
 						// Fixed CTC
 
@@ -91,7 +92,7 @@ var $mj = jQuery.noConflict();
 
 						var prop_fixedCTC = isNaN(parseFloat($mj('[name="proposed_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="proposed_fixedCTC_an"]').val());
 
-						CTCcalculation['proposed_IncreasedPer_fixedCTC_an'] = ((prop_fixedCTC - curr_fixedCTC )/prop_fixedCTC) * 100;
+						CTCcalculation['proposed_IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - curr_fixedCTC )/CTCcalculation['proposed_fixedCTC_an']) * 100;
 					
 
 				

@@ -34,7 +34,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				if (fieldoption =='nonfield')
 				{
 				
-				var rla = parseFloat($mj('#rla_sikkim').val());
+				var rla = isNaN(parseFloat($mj('#rla_sikkim').val()))?0:parseFloat($mj('#rla_sikkim').val());
 				
 				var inputctc = (offerCtc)/12;
 				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
@@ -166,7 +166,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				else if(fieldoption =='field'){
 
 
-				var rla = parseFloat($mj('#rla_sikkim').val());				
+				var rla = isNaN(parseFloat($mj('#rla_sikkim').val()))?0:parseFloat($mj('#rla_sikkim').val());			
 				var inputctc = (offerCtc)/12;
 				 var perfomancePercantage = isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
 				 var foodAllowance =0;

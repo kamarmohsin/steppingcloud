@@ -154,7 +154,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						CTCComponents['performaneBonus_mon'] = Math.round((CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] )* perfomancePercantage/100) ;
 						CTCComponents['performanceBonus_an'] = 12 * CTCComponents['performaneBonus_mon'];
-						CTCComponents['totalC_mon'] = CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] + CTCComponents['performaneBonus_mon'] + rla;
+						CTCComponents['totalC_mon'] = CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] + CTCComponents['performaneBonus_mon'] + rla/12;
 						CTCComponents['totalC_an'] = 12 * CTCComponents['totalC_mon'];
 
 
@@ -288,7 +288,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						CTCComponents['performaneBonus_mon'] = Math.round((CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] )* perfomancePercantage/100) ;
 						CTCComponents['performanceBonus_an'] = 12 * CTCComponents['performaneBonus_mon'];
-						CTCComponents['totalC_mon'] = CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] + CTCComponents['performaneBonus_mon'] + rla;
+						CTCComponents['totalC_mon'] = CTCComponents['totalB_mon'] + CTCComponents['HRATotalB_mon'] + CTCComponents['performaneBonus_mon'] + rla/12;
 						CTCComponents['totalC_an'] = 12 * CTCComponents['totalC_mon'];
 
 

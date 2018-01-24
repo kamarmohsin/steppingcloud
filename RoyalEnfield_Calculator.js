@@ -53,20 +53,76 @@ var $mj = jQuery.noConflict();
 
 
 						
-						CTCcalculation['RR_variablePay_an'] = variablePay[level];						
+						CTCcalculation['RR_variablePay_an'] = variablePay[level];
+						CTCcalculation['RR_variablePay_pm'] = CTCcalculation['RR_variablePay_an'] /12;						
 						CTCcalculation['RR_fixedBasic_an'] = fixedBasic[level];
+						CTCcalculation['RR_fixedBasic_pm'] = CTCcalculation['RR_fixedBasic_an'] / 12;
 						CTCcalculation['RR_providentFund_an'] = (fixedBasic[level] * 12 )/100;
+						CTCcalculation['RR_providentFund_pm'] = CTCcalculation['RR_providentFund_an'] /12;
 						CTCcalculation['RR_gratuity_an'] = gratuity[level];
+						CTCcalculation['RR_gratuity_pm'] = CTCcalculation['RR_gratuity_an'] /12;
 						CTCcalculation['RR_flexiBenefitpay_an'] = inputfixedCTC - (CTCcalculation['RR_fixedBasic_an'] + CTCcalculation['RR_providentFund_an'] + CTCcalculation['RR_gratuity_an']);
+						CTCcalculation['RR_flexiBenefitpay_pm'] = CTCcalculation['RR_flexiBenefitpay_an']/12;
 						CTCcalculation['RR_fixedCTC_an'] = inputfixedCTC;
+						CTCcalculation['RR_fixedCTC_pm'] = CTCcalculation['RR_fixedCTC_an'] /12;
 						CTCcalculation['RR_totalCompensation_an'] = CTCcalculation['RR_variablePay_an'] + CTCcalculation['RR_fixedBasic_an'] + CTCcalculation['RR_providentFund_an'] + CTCcalculation['RR_flexiBenefitpay_an'] + CTCcalculation['RR_gratuity_an'];
+						CTCcalculation['RR_totalCompensation_pm'] = CTCcalculation['RR_totalCompensation_an']/12;
 
 
 						//Current Salary Components
 
 						var curr_basic = isNaN(parseFloat($mj('[name="current_basic_an"]').val()))? 0 : parseFloat($mj('[name="current_basic_an"]').val());
+						CTCcalculation['current_basic_pm'] = curr_basic /12;
 						var curr_specialAllow = isNaN(parseFloat($mj('[name="current_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="current_specialAllowances_an"]').val());
+						CTCcalculation['current_specialAllowances_pm'] = curr_specialAllow/12;
+						var curr_personalAllow = isNaN(parseFloat($mj('[name="current_personalAllowances_an"]').val()))? 0 : parseFloat($mj('[name="current_personalAllowances_an"]').val());
+						CTCcalculation['current_personalAllowances_pm'] = curr_personalAllow/12;
+						var curr_fpa = isNaN(parseFloat($mj('[name="current_FPA_an"]').val()))? 0 : parseFloat($mj('[name="current_FPA_an"]').val());
+						CTCcalculation['current_FPA_pm'] = curr_fpa/12;
+						var curr_hra = isNaN(parseFloat($mj('[name="current_HRA_an"]').val()))? 0 : parseFloat($mj('[name="current_HRA_an"]').val());
+						CTCcalculation['current_HRA_pm'] = curr_hra/12;
+						var curr_conveyance = isNaN(parseFloat($mj('[name="current_conveyance_an"]').val()))? 0 : parseFloat($mj('[name="current_conveyance_an"]').val());
+						CTCcalculation['current_conveyance_pm'] = curr_conveyance/12;
+						var curr_gradeAllow = isNaN(parseFloat($mj('[name="current_GradeAllowance_an"]').val()))? 0 : parseFloat($mj('[name="current_GradeAllowance_an"]').val());
+						CTCcalculation['current_GradeAllowance_pm'] = curr_gradeAllow/12;
+						var curr_childEdu = isNaN(parseFloat($mj('[name="current_chilEducationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_chilEducationAllow_an"]').val());
+						CTCcalculation['current_chilEducationAllow_pm'] = curr_childEdu /12;
+
 						var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
+						CTCcalculation['current_fixedCTC_pm'] = curr_fixedCTC/12;
+						var curr_medicalAllow = isNaN(parseFloat($mj('[name="current_medicalAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalAllow_an"]').val());
+						CTCcalculation['current_medicalAllow_pm'] = curr_medicalAllow/12;
+						var curr_education = isNaN(parseFloat($mj('[name="current_educationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_educationAllow_an"]').val());
+						CTCcalculation['current_educationAllow_pm'] = curr_education/12;
+						var curr_safety = isNaN(parseFloat($mj('[name="current_safety_an"]').val()))? 0 : parseFloat($mj('[name="current_safety_an"]').val());
+						CTCcalculation['current_safety_pm'] = curr_safety/12;
+
+						var curr_lta = isNaN(parseFloat($mj('[name="current_lta_an"]').val()))? 0 : parseFloat($mj('[name="current_lta_an"]').val());
+						CTCcalculation['current_lta_pm'] = curr_lta/12;				
+						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
+						CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
+						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
+						CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
+						var curr_bonusExgratia = isNaN(parseFloat($mj('[name="current_BonusExgratia_an"]').val()))? 0 : parseFloat($mj('[name="current_BonusExgratia_an"]').val());
+						CTCcalculation['current_BonusExgratia_pm'] = curr_bonusExgratia/12;
+						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_medicalReimburment_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalReimburment_an"]').val());
+						CTCcalculation['current_medicalReimburment_pm'] = curr_medicalReim/12;
+						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_deputation_an"]').val()))? 0 : parseFloat($mj('[name="current_deputation_an"]').val());
+						CTCcalculation['current_deputation_pm'] = curr_medicalReim/12;
+						var curr_saf = isNaN(parseFloat($mj('[name="current_saf_an"]').val()))? 0 : parseFloat($mj('[name="current_saf_an"]').val());
+						CTCcalculation['current_saf_pm'] = curr_saf/12;						
+						var curr_pf = isNaN(parseFloat($mj('[name="current_pf_an"]').val()))? 0 : parseFloat($mj('[name="current_pf_an"]').val());
+						CTCcalculation['current_pf_pm'] = curr_pf/12;						
+						var curr_gratuity = isNaN(parseFloat($mj('[name="current_gratuity_an"]').val()))? 0 : parseFloat($mj('[name="current_gratuity_an"]').val());
+						CTCcalculation['current_gratutity_pm'] = curr_gratuity/12;
+						var curr_grandTotal = isNaN(parseFloat($mj('[name="current_grandTotal_an"]').val()))? 0 : parseFloat($mj('[name="current_grandTotal_an"]').val());
+						CTCcalculation['current_grandTotal_pm'] = curr_grandTotal/12;
+
+
+
+
+
+
 
 						//Proposed Salary Components
 

@@ -695,8 +695,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['stipend_pm'] = 10000;
 						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
 						
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						//CTCComponents['exgratia2_mon'] = 700;
+						//CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
 
 						
 					}
@@ -1772,8 +1772,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						CTCComponents['stipend_pm'] = 8000;
 						CTCComponents['stipend_an'] = CTCComponents['stipend_pm'] * 12;
-						CTCComponents['exgratia2_mon'] = 700;
-						CTCComponents['exgratia2_ann'] = 700 *12;
+						//CTCComponents['exgratia2_mon'] = 700;
+						//CTCComponents['exgratia2_ann'] = 700 *12;
 						
 					}
 					else if(loc == 'indore' && qualf == 'diplomaExceptChemical' && design =='trainee' ){

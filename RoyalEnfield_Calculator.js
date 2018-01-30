@@ -88,8 +88,11 @@ var $mj = jQuery.noConflict();
 						var curr_childEdu = isNaN(parseFloat($mj('[name="current_chilEducationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_chilEducationAllow_an"]').val());
 						CTCcalculation['current_chilEducationAllow_pm'] = curr_childEdu /12;
 
-						var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
-						CTCcalculation['current_fixedCTC_pm'] = curr_fixedCTC/12;
+						//var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
+						CTCcalculation['current_fixedCTC_an'] = curr_childEdu + curr_gradeAllow + curr_conveyance + curr_hra + curr_fpa + curr_personalAllow + curr_specialAllow + curr_basic;
+						CTCcalculation['current_fixedCTC_pm'] = CTCcalculation['current_fixedCTC_an']/12;
+						
+
 						var curr_medicalAllow = isNaN(parseFloat($mj('[name="current_medicalAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalAllow_an"]').val());
 						CTCcalculation['current_medicalAllow_pm'] = curr_medicalAllow/12;
 						var curr_education = isNaN(parseFloat($mj('[name="current_educationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_educationAllow_an"]').val());
@@ -97,6 +100,11 @@ var $mj = jQuery.noConflict();
 						var curr_safety = isNaN(parseFloat($mj('[name="current_safety_an"]').val()))? 0 : parseFloat($mj('[name="current_safety_an"]').val());
 						CTCcalculation['current_safety_pm'] = curr_safety/12;
 
+
+						CTCcalculation['current_totalBasic_fpa_an'] = CTCcalculation['current_fixedCTC_an'] + curr_medicalAllow + curr_education + curr_safety;
+						CTCcalculation['current_totalBasic_fpa_pm'] = CTCcalculation['current_totalBasic_fpa_an'] /12;
+
+						
 						var curr_lta = isNaN(parseFloat($mj('[name="current_lta_an"]').val()))? 0 : parseFloat($mj('[name="current_lta_an"]').val());
 						CTCcalculation['current_lta_pm'] = curr_lta/12;				
 						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
@@ -107,16 +115,23 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['current_BonusExgratia_pm'] = curr_bonusExgratia/12;
 						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_medicalReimburment_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalReimburment_an"]').val());
 						CTCcalculation['current_medicalReimburment_pm'] = curr_medicalReim/12;
-						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_deputation_an"]').val()))? 0 : parseFloat($mj('[name="current_deputation_an"]').val());
-						CTCcalculation['current_deputation_pm'] = curr_medicalReim/12;
+						var curr_deputation = isNaN(parseFloat($mj('[name="current_deputation_an"]').val()))? 0 : parseFloat($mj('[name="current_deputation_an"]').val());
+						CTCcalculation['current_deputation_pm'] = curr_deputation/12;
 						var curr_saf = isNaN(parseFloat($mj('[name="current_saf_an"]').val()))? 0 : parseFloat($mj('[name="current_saf_an"]').val());
 						CTCcalculation['current_saf_pm'] = curr_saf/12;						
 						var curr_pf = isNaN(parseFloat($mj('[name="current_pf_an"]').val()))? 0 : parseFloat($mj('[name="current_pf_an"]').val());
 						CTCcalculation['current_pf_pm'] = curr_pf/12;						
 						var curr_gratuity = isNaN(parseFloat($mj('[name="current_gratuity_an"]').val()))? 0 : parseFloat($mj('[name="current_gratuity_an"]').val());
 						CTCcalculation['current_gratutity_pm'] = curr_gratuity/12;
+
+
+						CTCcalculation['current_totalRetBenifit_an'] = curr_lta + curr_pmpBonus + curr_bonusExgratia + curr_medicalReim + curr_deputation +curr_saf + curr_pf + curr_gratuity;
+						CTCcalculation['current_totalRetBenifit_pm'] = CTCcalculation['current_totalRetBenifit_an'] / 12;
+						
+
 						var curr_grandTotal = isNaN(parseFloat($mj('[name="current_grandTotal_an"]').val()))? 0 : parseFloat($mj('[name="current_grandTotal_an"]').val());
-						CTCcalculation['current_grandTotal_pm'] = curr_grandTotal/12;
+						CTCcalculation['current_grandTotal_an'] = CTCcalculation['current_totalBasic_fpa_an'] + CTCcalculation['current_totalRetBenifit_an'];
+						CTCcalculation['current_grandTotal_pm'] = CTCcalculation['current_grandTotal_an']/12;
 
 
 
@@ -129,27 +144,148 @@ var $mj = jQuery.noConflict();
 						// Basic
 
 						CTCcalculation['proposed_basic_an'] = CTCcalculation['RR_fixedBasic_an'];
+						CTCcalculation['proposed_basic_pm'] = CTCcalculation['proposed_basic_an'] / 12;
 
 						//var prop_basic = isNaN(parseFloat($mj('[name="proposed_basic_an"]').val()))? 0 : parseFloat($mj('[name="proposed_basic_an"]').val());
 
-						CTCcalculation['proposed_IncreasedPer_basic_an'] = ((CTCcalculation['proposed_basic_an'] - curr_basic )/CTCcalculation['proposed_basic_an']) * 100;
+						CTCcalculation['IncreasedPer_basic_an'] = ((CTCcalculation['proposed_basic_an'] - curr_basic )/curr_basic) * 100;
 					
 						// Speciall Allowance
 
 						CTCcalculation['proposed_specialAllowances_an'] = 0;
+						CTCcalculation['proposed_specialAllowances_pm'] = CTCcalculation['proposed_specialAllowances_an']/12;
 
-						//var prop_speclAllow = isNaN(parseFloat($mj('[name="proposed_specialAllowances_an"]').val()))? 0 : parseFloat($mj('[name="proposed_specialAllowances_an"]').val());
+						CTCcalculation['IncreasedPer_specialAllowances_an'] = 0;
 
-						CTCcalculation['proposed_IncreasedPer_specialAllowances_an'] = 0;
-					
+						// Personal Allowance
+						CTCcalculation['proposed_personalAllowances_an'] = 0;
+						CTCcalculation['proposed_personalAllowances_pm'] = CTCcalculation['proposed_personalAllowances_an']/12;
+
+						CTCcalculation['IncreasedPer_personalAllowances_an'] = 0;
+
+						//FPA
+
+						CTCcalculation['proposed_FPA_an'] = 0;
+						CTCcalculation['proposed_FPA_pm'] = CTCcalculation['proposed_FPA_an']/12;
+
+						CTCcalculation['IncreasedPer_FPA_an'] = 0;
+
+						// HRA
+
+						CTCcalculation['proposed_HRA_an'] = 0;
+						CTCcalculation['proposed_HRA_pm'] = CTCcalculation['proposed_HRA_an']/12;
+
+						CTCcalculation['IncreasedPer_HRA_an'] = 0;
+
+						// Conveyance Allowance
+
+						CTCcalculation['proposed_conveyance_an'] = 0;
+						CTCcalculation['proposed_conveyance_pm'] = CTCcalculation['proposed_conveyance_an']/12;
+
+						CTCcalculation['IncreasedPer_conveyance_an'] = 0;
+
+						//Grade Allowance
+						CTCcalculation['proposed_GradeAllowance_an'] = 0;
+						CTCcalculation['proposed_GradeAllowance_pm'] = CTCcalculation['proposed_GradeAllowance_an']/12;
+
+						CTCcalculation['IncreasedPer_GradeAllowance_an'] = 0;
+
+						//Child Edu Allowance
+						CTCcalculation['proposed_chilEducationAllow_an'] = 0;
+						CTCcalculation['proposed_chilEducationAllow_pm'] = CTCcalculation['proposed_chilEducationAllow_an']/12;
+
+						CTCcalculation['IncreasedPer_chilEducationAllow_an'] = 0;
+
+
 						// Fixed CTC
 
 						CTCcalculation['proposed_fixedCTC_an'] = CTCcalculation['RR_fixedCTC_an'];
 
-						var prop_fixedCTC = isNaN(parseFloat($mj('[name="proposed_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="proposed_fixedCTC_an"]').val());
+						CTCcalculation['IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - curr_fixedCTC )/curr_fixedCTC) * 100;
 
-						CTCcalculation['proposed_IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - curr_fixedCTC )/CTCcalculation['proposed_fixedCTC_an']) * 100;
-					
+						//Medical Allowance
+						CTCcalculation['proposed_medicalAllow_an'] = 0;
+						CTCcalculation['proposed_medicalAllow_pm'] = CTCcalculation['proposed_medicalAllow_an']/12;
+
+						CTCcalculation['IncreasedPer_medicalAllow_an'] = 0;
+
+
+						//Education Allowance
+						CTCcalculation['proposed_educationAllow_an'] = 0;
+						CTCcalculation['proposed_educationAllow_pm'] = CTCcalculation['proposed_educationAllow_an']/12;
+
+						CTCcalculation['IncreasedPer_educationAllow_an'] = 0;
+
+						//Safety Allowance
+						CTCcalculation['proposed_safety_an'] = 0;
+						CTCcalculation['proposed_safety_pm'] = CTCcalculation['proposed_safety_an']/12;
+
+						CTCcalculation['IncreasedPer_safety_an'] = 0;
+
+						//LTA Allowance
+						CTCcalculation['proposed_lta_an'] = 0;
+						CTCcalculation['proposed_lta_pm'] = CTCcalculation['proposed_lta_an']/12;
+
+						CTCcalculation['IncreasedPer_lta_an'] = 0;
+
+
+						//PMP Bonus
+						CTCcalculation['proposed_pmpBonus_an'] = 0;
+						CTCcalculation['proposed_pmpBonus_pm'] = CTCcalculation['proposed_pmpBonus_an']/12;
+
+						CTCcalculation['IncreasedPer_pmpBonus_an'] = 0;
+
+						// Bonus Exgratia
+						CTCcalculation['proposed_BonusExgratia_an'] = 0;
+						CTCcalculation['proposed_BonusExgratia_pm'] = CTCcalculation['proposed_BonusExgratia_an']/12;
+
+						CTCcalculation['IncreasedPer_BonusExgratia_an'] = 0;
+
+						// Bonus Exgratia
+						CTCcalculation['proposed_medicalReimburment_an'] = 0;
+						CTCcalculation['proposed_medicalReimburment_pm'] = CTCcalculation['proposed_medicalReimburment_an']/12;
+
+						CTCcalculation['IncreasedPer_medicalReimburment_an'] = 0;
+
+						// Deputation
+						CTCcalculation['proposed_deputation_an'] = 0;
+						CTCcalculation['proposed_deputation_pm'] = CTCcalculation['proposed_deputation_an']/12;
+
+						CTCcalculation['IncreasedPer_deputation_an'] = 0;
+
+						//SAF
+						CTCcalculation['proposed_saf_an'] = 0;
+						CTCcalculation['proposed_saf_pm'] = CTCcalculation['proposed_saf_an']/12;
+
+						CTCcalculation['IncreasedPer_saf_an'] = 0;
+
+						//PF
+						CTCcalculation['proposed_pf_an'] = CTCcalculation['RR_providentFund_an'];
+						CTCcalculation['proposed_saf_pm'] = CTCcalculation['proposed_pf_an']/12;
+
+						CTCcalculation['IncreasedPer_pf_an'] = ((CTCcalculation['proposed_pf_an'] - curr_pf )/curr_pf) * 100;
+
+						//Gratuity
+						CTCcalculation['proposed_gratuity_an'] = CTCcalculation['RR_gratuity_an'];
+						CTCcalculation['proposed_gratutity_pm'] = CTCcalculation['proposed_gratuity_an']/12;
+
+						CTCcalculation['IncreasedPer_gratuity_an'] = ((CTCcalculation['proposed_gratuity_an'] - curr_gratuity )/curr_gratuity) * 100;
+
+						// Total RetBenifit
+						CTCcalculation['proposed_totalRetBenifit_an'] = 0;
+						CTCcalculation['proposed_totalRetBenifit_pm'] = CTCcalculation['proposed_totalRetBenifit_an']/12;
+
+						CTCcalculation['IncreasedPer_totalRetBenifit_an'] = 0;
+
+
+						// Proposed Grand Total
+						CTCcalculation['proposed_grandTotal_an'] = CTCcalculation['proposed_basic_an'] + CTCcalculation['proposed_fixedCTC_an']+ CTCcalculation['proposed_pf_an'] + CTCcalculation['proposed_gratuity_an'];
+						CTCcalculation['proposed_grandTotal_pm'] = CTCcalculation['proposed_grandTotal_an']/12;
+
+						CTCcalculation['IncreasedPer_grandTotal_an'] = 0;
+
+
+
 
 				
 			     return CTCcalculation;

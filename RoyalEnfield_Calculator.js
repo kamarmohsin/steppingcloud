@@ -200,6 +200,7 @@ var $mj = jQuery.noConflict();
 						// Fixed CTC
 
 						CTCcalculation['proposed_fixedCTC_an'] = CTCcalculation['RR_fixedCTC_an'];
+						CTCcalculation['proposed_fixedCTC_pm'] = CTCcalculation['proposed_fixedCTC_an'] /12;
 
 						CTCcalculation['IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - CTCcalculation['current_fixedCTC_an'] )/CTCcalculation['current_fixedCTC_an']) * 100;
 
@@ -241,7 +242,7 @@ var $mj = jQuery.noConflict();
 
 						CTCcalculation['IncreasedPer_BonusExgratia_an'] = 0;
 
-						// Bonus Exgratia
+						// Bonus Medical Reimbursement
 						CTCcalculation['proposed_medicalReimburment_an'] = 0;
 						CTCcalculation['proposed_medicalReimburment_pm'] = CTCcalculation['proposed_medicalReimburment_an']/12;
 
@@ -261,7 +262,7 @@ var $mj = jQuery.noConflict();
 
 						//PF
 						CTCcalculation['proposed_pf_an'] = CTCcalculation['RR_providentFund_an'];
-						CTCcalculation['proposed_saf_pm'] = CTCcalculation['proposed_pf_an']/12;
+						CTCcalculation['proposed_pf_pm'] = CTCcalculation['proposed_pf_an']/12;
 
 						CTCcalculation['IncreasedPer_pf_an'] = ((CTCcalculation['proposed_pf_an'] - curr_pf )/curr_pf) * 100;
 
@@ -279,7 +280,7 @@ var $mj = jQuery.noConflict();
 
 
 						// Proposed Grand Total
-						CTCcalculation['proposed_grandTotal_an'] = CTCcalculation['proposed_basic_an'] + CTCcalculation['proposed_fixedCTC_an']+ CTCcalculation['proposed_pf_an'] + CTCcalculation['proposed_gratuity_an'];
+						CTCcalculation['proposed_grandTotal_an'] = parseFloat(CTCcalculation['proposed_basic_an']) + parseFloat(CTCcalculation['proposed_fixedCTC_an'])+ parseFloat(CTCcalculation['proposed_pf_an']) + parseFloat(CTCcalculation['proposed_gratuity_an']);
 						CTCcalculation['proposed_grandTotal_pm'] = CTCcalculation['proposed_grandTotal_an']/12;
 
 						CTCcalculation['IncreasedPer_grandTotal_an'] = 0;

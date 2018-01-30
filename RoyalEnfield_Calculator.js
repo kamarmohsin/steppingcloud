@@ -201,7 +201,7 @@ var $mj = jQuery.noConflict();
 
 						CTCcalculation['proposed_fixedCTC_an'] = CTCcalculation['RR_fixedCTC_an'];
 
-						CTCcalculation['IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - curr_fixedCTC )/curr_fixedCTC) * 100;
+						CTCcalculation['IncreasedPer_fixedCTC_an'] = ((CTCcalculation['proposed_fixedCTC_an'] - CTCcalculation['current_fixedCTC_an'] )/CTCcalculation['current_fixedCTC_an']) * 100;
 
 						//Medical Allowance
 						CTCcalculation['proposed_medicalAllow_an'] = 0;

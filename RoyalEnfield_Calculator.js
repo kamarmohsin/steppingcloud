@@ -223,6 +223,14 @@ var $mj = jQuery.noConflict();
 
 						CTCcalculation['IncreasedPer_safety_an'] = 0;
 
+						// Total (Basic+FPA)
+
+						CTCcalculation['proposed_totalBasic_fpa_an'] = CTCcalculation['proposed_fixedCTC_an'];
+						CTCcalculation['proposed_totalBasic_fpa_pm'] = CTCcalculation['proposed_totalBasic_fpa_an']/12;
+
+						
+
+
 						//LTA Allowance
 						CTCcalculation['proposed_lta_an'] = 0;
 						CTCcalculation['proposed_lta_pm'] = CTCcalculation['proposed_lta_an']/12;

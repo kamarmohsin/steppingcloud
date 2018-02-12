@@ -30,7 +30,8 @@ var $mj = jQuery.noConflict();
 
 						
 						CTCcalculation['BasicSal_an'] = parseFloat(inputBasic);	
-						CTCcalculation['pfBase_an']	= 	CTCcalculation['BasicSal_an'];
+						CTCcalculation['adhocPay_an'] = isNaN(parseFloat($mj('[name="adhocPay_an"]').val()))? 0 : parseFloat($mj('[name="adhocPay_an"]').val());
+						CTCcalculation['pfBase_an']	= 	CTCcalculation['BasicSal_an'] + CTCcalculation['adhocPay_an'];
 						CTCcalculation['gratuity_ann'] = ( CTCcalculation['BasicSal_an']	 * 5.56) / 100;
 						CTCcalculation['pf_ann']	= ( CTCcalculation['BasicSal_an']	 * 12) / 100;
 						CTCcalculation['superannuationContri_ann'] = parseFloat(0);

@@ -300,10 +300,10 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['proposed_totalBasic_fpa_pm'] = CTCcalculation['proposed_totalBasic_fpa_an']/12;
 
 
-						CTCcalculation['IncreasedPer_totalRetBenifit_an'] = ((CTCcalculation['proposed_totalBasic_fpa_an'] - CTCcalculation['current_totalBasic_fpa_an'])/CTCcalculation['current_totalBasic_fpa_an']) * 100;
+						CTCcalculation['IncreasedPer_totalBasic_fpa_an'] = ((CTCcalculation['proposed_totalBasic_fpa_an'] - CTCcalculation['current_totalBasic_fpa_an'])/CTCcalculation['current_totalBasic_fpa_an']) * 100;
 
 						// Total RetBenifit
-						CTCcalculation['proposed_totalRetBenifit_an'] = CTCcalculation['RR_providentFund_an'] + CTCcalculation['proposed_gratuity_an'];
+						CTCcalculation['proposed_totalRetBenifit_an'] = CTCcalculation['RR_providentFund_an'] + CTCcalculation['RR_gratuity_an'];
 						CTCcalculation['proposed_totalRetBenifit_pm'] = CTCcalculation['proposed_totalRetBenifit_an']/12;
 
 						CTCcalculation['IncreasedPer_totalRetBenifit_an'] = ((CTCcalculation['proposed_totalRetBenifit_an'] - CTCcalculation['current_totalRetBenifit_an'])/CTCcalculation['current_totalRetBenifit_an']) * 100;

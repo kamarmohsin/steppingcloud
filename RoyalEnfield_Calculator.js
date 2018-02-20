@@ -10,10 +10,28 @@ var $mj = jQuery.noConflict();
 
 
 
-				var calcCTC =  function(offerCtc, inputlevel){
+				var calcCTC =  function(offerCtc, inputlevel, inputCountry){
 
 				var inputfixedCTC = offerCtc;
 				var level = inputlevel;
+				var country = inputCountry;
+				
+				CTCcalculation = {
+					
+						'us_totalCompensation':0,
+						'us_fixedCompensation':0,
+						'us_variablePayBonus':0,
+						'uk_totalPay':0,
+						'uk_basicPay':0,
+						'uk_variablePay':0
+												
+						
+						}
+						
+				
+				if (country == 'india')
+				{		
+
 
 				var inputVariable = $mj('#variablePer').val();
 
@@ -302,6 +320,42 @@ var $mj = jQuery.noConflict();
 						
 
 
+					}
+					else if (country == 'uk') {
+
+					var variablePay = {
+
+						'tillManager': 0,
+						'tm': (inputfixedCTC * 11)/100,
+						'gmAbove': (inputfixedCTC * 12)/100,
+
+
+					}
+					 
+					CTCcalculation['uk_basicPay'] = inputfixedCTC;
+					CTCcalculation['uk_totalPay'] = CTCcalculation['uk_basicPay'];
+					CTCcalculation['uk_variablePay'] = variablePay[level];
+
+				}
+
+				else if (country == 'us') {
+
+					var variablePay = {
+
+						'grpManagerAbove': (inputfixedCTC * 12)/100,
+						'managerTeamManager': (inputfixedCTC * 11)/100,
+						'uptoDeputyManager': (inputfixedCTC * 9)/100,
+
+
+					}
+
+					 
+					CTCcalculation['us_fixedCompensation'] = inputfixedCTC;
+					CTCcalculation['us_totalCompensation'] = CTCcalculation['us_fixedCompensation'];
+					CTCcalculation['us_variablePayBonus'] = variablePay[level];
+
+				}
+
 
 
 				
@@ -324,10 +378,12 @@ var $mj = jQuery.noConflict();
 
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#Level').val();
+		var inputCountry = $mj('#country').val();
 		
 		
 
 		
+	if (inputCountry != 'selectCountry') {
 	
 		
     if($mj.isNumeric(inputCTC) )
@@ -338,7 +394,7 @@ var $mj = jQuery.noConflict();
 
 		
 
-        var sal  = calcCTC(inputCTC,inputlevel);
+        var sal  = calcCTC(inputCTC,inputlevel, inputCountry);
 
         for( var key in sal){
 
@@ -377,9 +433,50 @@ var $mj = jQuery.noConflict();
 		{
 			alert("Please enter a numeric value!");
 		}
+		
+}
+
+else
+	{
+		alert("Please Select Country");
+	}
 			
       
        });
+	   
+	   
+		$mj('#country').on('change', function(){
+
+			$mj('#Level').html('');
+				    
+			 if ($mj('#country').val()=='uk') {
+			 			$mj('#Level').append('<option value="selectlevel">Select Level</option>');
+				        $mj('#Level').append('<option value="tillManager">Till Manager</option>');
+				        $mj('#Level').append('<option value="tm">TM</option>');
+				        $mj('#Level').append('<option value="gmAbove">GM & Above</option>');
+				        
+				    }
+
+			else if ($mj('#country').val()=='us') {
+						$mj('#Level').append('<option value="selectlevel">Select Level</option>');
+				        $mj('#Level').append('<option value="grpManagerAbove">Group Manager & Above</option>');
+				        $mj('#Level').append('<option value="managerTeamManager">Manager & Team Manager</option>');
+				        $mj('#Level').append('<option value="uptoDeputyManager">Upto Deputy Manager</option>');
+				        
+				    }
+
+			else if ($mj('#country').val()=='india') {
+						$mj('#Level').append('<option value="selectlevel">Select Level</option>');
+				        $mj('#Level').append('<option value="grpManagerAbove">Group Manager & Above</option>');
+				        $mj('#Level').append('<option value="managerTeamManager">Manager & Team Manager</option>');
+				        $mj('#Level').append('<option value="uptoDeputyManager">Upto Deputy Manager</option>');
+				        
+				    }	    
+
+
+
+
+		});
 	
 
 	

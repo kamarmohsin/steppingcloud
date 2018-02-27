@@ -1134,7 +1134,7 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 
-        	if(key == 'calculateForGrade')
+        	if(key == 'calculateForGrade' || key == 'graduityPercent')
 
         	{
 

@@ -23,11 +23,38 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						}
 						
 				var basic = isNaN(parseFloat($mj('[name="basic"]').val()))? 0 : parseFloat($mj('[name="basic"]').val());
+				var TravelAllowance = isNaN(parseFloat($mj('[name="TravelAllowance"]').val()))? 0 : parseFloat($mj('[name="TravelAllowance"]').val());
 				
-				var travelAllowance = isNaN(parseFloat($mj('[name="TravelAllowance"]').val()))? 0 : parseFloat($mj('[name="TravelAllowance"]').val());
+				var fuelCardestimate = isNaN(parseFloat($mj('[name="fuelCardestimate"]').val()))? 0 : parseFloat($mj('[name="fuelCardestimate"]').val());
+				var vehicleInsurance = isNaN(parseFloat($mj('[name="vehicleInsurance"]').val()))? 0 : parseFloat($mj('[name="vehicleInsurance"]').val());
+				var maintenanceAllow = isNaN(parseFloat($mj('[name="maintenanceAllow"]').val()))? 0 : parseFloat($mj('[name="maintenanceAllow"]').val());
+				var dailyAllow = isNaN(parseFloat($mj('[name="dailyAllow"]').val()))? 0 : parseFloat($mj('[name="dailyAllow"]').val());
+				var cellAllowance = isNaN(parseFloat($mj('[name="cellAllowance"]').val()))? 0 : parseFloat($mj('[name="cellAllowance"]').val());
+				var cellReimbusement = isNaN(parseFloat($mj('[name="cellReimbusement"]').val()))? 0 : parseFloat($mj('[name="cellReimbusement"]').val());
+				var computerAllowance = isNaN(parseFloat($mj('[name="computerAllowance"]').val()))? 0 : parseFloat($mj('[name="computerAllowance"]').val());
+				
 		
 						
-				CTCComponents['subtotal'] = basic + travelAllowance;
+				CTCComponents['subtotal'] = basic + TravelAllowance+ fuelCardestimate+ vehicleInsurance+maintenanceAllow+dailyAllow+cellAllowance+cellReimbusement+computerAllowance;
+				CTCComponents['groupLife'] = (basic * 0.43)/100;
+				CTCComponents['disability'] = (basic * 0.56)/100;
+				CTCComponents['admedGap'] = 47;
+				CTCComponents['funeral'] = 16.05;
+				CTCComponents['pensionFund'] = (basic * 7.5)/100;
+				CTCComponents['medicalAid'] = 2109.50;
+				CTCComponents['ded_admedGap'] = 47;
+				CTCComponents['uif'] = 148.72;
+				CTCComponents['fuelCardEstimate'] = fuelCardestimate;
+				CTCComponents['InsuranceEstimate'] = vehicleInsurance;
+				CTCComponents['netSalary'] = CTCComponents['subtotal'] - CTCComponents['pensionFund'] - CTCComponents['medicalAid'] - CTCComponents['ded_admedGap'] - CTCComponents['uif'] - CTCComponents['fuelCardEstimate'] - CTCComponents['InsuranceEstimate'];
+				CTCComponents['earning'] = CTCComponents['subtotal'] - fuelCardestimate - vehicleInsurance;
+				CTCComponents['companymedAid'] = CTCComponents['medicalAid'];
+				CTCComponents['companyPensFund'] = (basic * 6.51)/100;
+				CTCComponents['companyContribution'] = CTCComponents['groupLife'] + CTCComponents['disability'] + CTCComponents['admedGap']+ CTCComponents['funeral'];
+				CTCComponents['insurance'] = cellReimbusement;
+				CTCComponents['costTocompany'] = CTCComponents['earning']+ CTCComponents['companymedAid']+ CTCComponents['companyPensFund']+ CTCComponents['companyContribution']+CTCComponents['insurance'];
+				
+				
 						
 						return CTCComponents;
 

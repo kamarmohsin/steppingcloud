@@ -33,7 +33,10 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var cellReimbusement = isNaN(parseFloat($mj('[name="cellReimbusement"]').val()))? 0 : parseFloat($mj('[name="cellReimbusement"]').val());
 				var computerAllowance = isNaN(parseFloat($mj('[name="computerAllowance"]').val()))? 0 : parseFloat($mj('[name="computerAllowance"]').val());
 				
-		
+				
+				var ded_vitality = isNaN(parseFloat($mj('[name="ded_vitality"]').val()))? 0 : parseFloat($mj('[name="ded_vitality"]').val());
+				
+				var vitality = isNaN(parseFloat($mj('[name="vitality"]').val()))? 0 : parseFloat($mj('[name="vitality"]').val());
 						
 				CTCComponents['subtotal'] = basic + TravelAllowance+ fuelCardestimate+ vehicleInsurance+maintenanceAllow+dailyAllow+cellAllowance+cellReimbusement+computerAllowance;
 				CTCComponents['groupLife'] = (basic * 0.43)/100;
@@ -46,11 +49,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				CTCComponents['uif'] = 148.72;
 				CTCComponents['fuelCardEstimate'] = fuelCardestimate;
 				CTCComponents['InsuranceEstimate'] = vehicleInsurance;
-				CTCComponents['netSalary'] = CTCComponents['subtotal'] - CTCComponents['pensionFund'] - CTCComponents['medicalAid'] - CTCComponents['ded_admedGap'] - CTCComponents['uif'] - CTCComponents['fuelCardEstimate'] - CTCComponents['InsuranceEstimate'];
+				CTCComponents['netSalary'] = CTCComponents['subtotal'] - CTCComponents['pensionFund'] - CTCComponents['medicalAid'] -  ded_vitality - CTCComponents['ded_admedGap'] - CTCComponents['uif'] - CTCComponents['fuelCardEstimate'] - CTCComponents['InsuranceEstimate'];
 				CTCComponents['earning'] = CTCComponents['subtotal'] - fuelCardestimate - vehicleInsurance;
 				CTCComponents['companymedAid'] = CTCComponents['medicalAid'];
 				CTCComponents['companyPensFund'] = (basic * 6.51)/100;
-				CTCComponents['companyContribution'] = CTCComponents['groupLife'] + CTCComponents['disability'] + CTCComponents['admedGap']+ CTCComponents['funeral'];
+				CTCComponents['companyContribution'] = CTCComponents['groupLife'] + CTCComponents['disability'] + CTCComponents['admedGap']+ CTCComponents['funeral'] + vitality;
 				CTCComponents['insurance'] = cellReimbusement;
 				CTCComponents['costTocompany'] = CTCComponents['earning']+ CTCComponents['companymedAid']+ CTCComponents['companyPensFund']+ CTCComponents['companyContribution']+CTCComponents['insurance'];
 				
@@ -87,7 +90,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
         for (var key in sal) {
 
 
-				var salComponent = Math.round(sal[key]);
+				var salComponent = (sal[key]);
 			 	var round = salComponent.toLocaleString('en-IN');
 				$mj('[name="'+key+'"]').val(round);
 

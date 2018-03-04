@@ -155,6 +155,147 @@ var $mj = jQuery.noConflict();
 
 					}
 					
+					var business ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 50,
+						'dhl4': 40,
+						'dhl5': 40,
+						'ml5' : 20,
+						'ml6' : 20,
+						'ml7' : 20,
+						'ol7' : 20,
+						'ol8' : 20,
+						'ol9' : 20,
+						'ol10': 20
+
+					}
+					
+					var individual ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 60,
+						'dhl4': 60,
+						'dhl5': 60,
+						'ml5' : 80,
+						'ml6' : 80,
+						'ml7' : 80,
+						'ol7' : 80,
+						'ol8' : 80,
+						'ol9' : 80,
+						'ol10': 80
+
+					}
+					
+					ASFDGRID_MIN = {
+
+
+						'exl2': 6400000,
+						'exl3': 4800000,
+						'dhl3': 3200000,
+						'dhl4': 2500000,
+						'dhl5': 1900000,
+						'ml5' : 1600000,	
+						'ml6' : 1200000,
+						'ml7' : 900000,
+						'ol7' : 700000,
+						'ol8' : 550000,
+						'ol9' : 400000,
+						'ol10': 330000
+
+					}
+
+					ASFDGRID_MAX = {
+
+
+						'exl2': 8500000,
+						'exl3': 6300000,
+						'dhl3': 4900000,
+						'dhl4': 3600000,
+						'dhl5': 2900000,
+						'ml5' : 2400000,
+						'ml6' : 1800000,
+						'ml7' : 1500000,
+						'ol7' : 1150000,
+						'ol8' : 900000,
+						'ol9' : 590000,
+						'ol10': 450000
+
+					}
+
+					
+
+
+					TH_MIN = {
+
+
+						'exl2': 6700000,
+						'exl3': 5050000,
+						'dhl3': 3350000,
+						'dhl4': 2650000,
+						'dhl5': 2000000,
+						'ml5' : 1700000,
+						'ml6' : 1250000,
+						'ml7' : 950000,
+						
+					}
+
+					TH_MAX = {
+
+
+						'exl2': 9775000,
+						'exl3': 7250000,
+						'dhl3': 5750000,
+						'dhl4': 4250000,
+						'dhl5': 3350000,
+						'ml5' : 2750000,
+						'ml6' : 2050000,
+						'ml7' : 1750000,
+						
+					}
+
+					PT_MIN = {
+
+
+						'exl2': 7050000,
+						'exl3': 5300000,
+						'dhl3': 3500000,
+						'dhl4': 2750000,
+						'dhl5': 2100000,
+						'ml5' : 1750000,
+						'ml6' : 1300000,
+						'ml7' : 1000000,
+						
+
+					}
+
+					PT_MAX = {
+
+
+						'exl2': 10625000,
+						'exl3': 7900000,
+						'dhl3': 6250000,
+						'dhl4': 4650000,
+						'dhl5': 3650000,
+						'ml5' : 3000000,
+						'ml6' : 2250000,
+						'ml7' : 1900000,
+						
+					}
+
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
+					
+					
 					CTCcalculation['pfBase_an'] = pfbase[level];
 					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
 					CTCcalculation['BasicSal_an'] = CTCcalculation['pfBase_an'];
@@ -185,6 +326,10 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = business[level];
+					CTCcalculation['individualScore'] = individual[level];
+					CTCcalculation['graduityPercent'] = 4.81;
+					CTCcalculation['level5PP']= Math.round( (( CTCcalculation['performancePay_an'] * 170)/100) * 100)/100;
 					
 
 
@@ -296,6 +441,301 @@ var $mj = jQuery.noConflict();
 						'ol10': 13200
 					}
 					
+					var business ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 50,
+						'dhl4': 40,
+						'dhl5': 40,
+						'ml5' : 20,
+						'ml6' : 20,
+						'ml7' : 20,
+						'ol7' : 20,
+						'ol8' : 20,
+						'ol9' : 20,
+						'ol10': 20
+
+					}
+					
+					var individual ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 60,
+						'dhl4': 60,
+						'dhl5': 60,
+						'ml5' : 80,
+						'ml6' : 80,
+						'ml7' : 80,
+						'ol7' : 80,
+						'ol8' : 80,
+						'ol9' : 80,
+						'ol10': 80
+
+					}
+					
+					SDAPPLIGRID_MIN = {
+
+
+						'exl2': 5900000,
+						'exl3': 4425000,
+						'dhl3': 2950000,
+						'dhl4': 2300000,
+						'dhl5': 1750000,
+						'ml5' : 1475000,
+						'ml6' : 1100000,
+						'ml7' : 825000,
+						'ol7' : 650000,
+						'ol8' : 500000,
+						'ol9' : 375000,
+						'ol10': 300000
+
+					}
+
+					SDAPPLIGRID_MAX = {
+
+
+						'exl2': 7825000,
+						'exl3': 5800000,
+						'dhl3': 4500000,
+						'dhl4': 3300000,
+						'dhl5': 2675000,
+						'ml5' : 2200000,
+						'ml6' : 1650000,
+						'ml7' : 1375000,
+						'ol7' : 1050000,
+						'ol8' : 825000,
+						'ol9' : 550000,
+						'ol10': 400000
+
+					}
+
+					AGFDMTWLGRID_MIN = {
+
+
+						'exl2': 6150000,
+						'exl3': 4600000,
+						'dhl3': 3075000,
+						'dhl4': 2400000,
+						'dhl5': 1825000,
+						'ml5' : 1525000,
+						'ml6' : 1150000,
+						'ml7' : 875000,
+						'ol7' : 675000,
+						'ol8' : 525000,
+						'ol9' : 375000,
+						'ol10': 325000
+
+					}
+
+					AGFDMTWLGRID_MAX = {
+
+
+						'exl2': 8150000,
+						'exl3': 6050000,
+						'dhl3': 4700000,
+						'dhl4': 3450000,
+						'dhl5': 2775000,
+						'ml5' : 2300000,
+						'ml6' : 1725000,
+						'ml7' : 1450000,
+						'ol7' : 1100000,
+						'ol8' : 875000,
+						'ol9' : 575000,
+						'ol10': 400000
+
+					}
+
+
+					ADMINGRID_MIN = {
+
+
+						'exl2': 5125000,
+						'exl3': 3850000,
+						'dhl3': 2550000,
+						'dhl4': 2000000,
+						'dhl5': 1525000,
+						'ml5' : 1275000,
+						'ml6' : 950000,
+						'ml7' : 725000,
+						'ol7' : 550000,
+						'ol8' : 450000,
+						'ol9' : 325000,
+						'ol10': 275000
+
+					}
+
+					ADMINGRID_MAX = {
+
+
+						'exl2': 6800000,
+						'exl3': 5050000,
+						'dhl3': 3925000,
+						'dhl4': 2875000,
+						'dhl5': 2325000,
+						'ml5' : 1925000,
+						'ml6' : 1450000,
+						'ml7' : 1200000,
+						'ol7' : 925000,
+						'ol8' : 725000,
+						'ol9' : 475000,
+						'ol10': 350000
+
+					}
+
+
+
+					ASFDGRID_MIN = {
+
+
+						'exl2': 6400000,
+						'exl3': 4800000,
+						'dhl3': 3200000,
+						'dhl4': 2500000,
+						'dhl5': 1900000,
+						'ml5' : 1600000,	
+						'ml6' : 1200000,
+						'ml7' : 900000,
+						'ol7' : 700000,
+						'ol8' : 550000,
+						'ol9' : 400000,
+						'ol10': 330000
+
+					}
+
+					ASFDGRID_MAX = {
+
+
+						'exl2': 8500000,
+						'exl3': 6300000,
+						'dhl3': 4900000,
+						'dhl4': 3600000,
+						'dhl5': 2900000,
+						'ml5' : 2400000,
+						'ml6' : 1800000,
+						'ml7' : 1500000,
+						'ol7' : 1150000,
+						'ol8' : 900000,
+						'ol9' : 590000,
+						'ol10': 425000
+
+					}
+
+					
+
+
+					TH_MIN = {
+
+
+						'exl2': 6725000,
+						'exl3': 5050000,
+						'dhl3': 3350000,
+						'dhl4': 2625000,
+						'dhl5': 2000000,
+						'ml5' : 1675000,
+						'ml6' : 1250000,
+						'ml7' : 950000,
+						
+					}
+
+					TH_MAX = {
+
+
+						'exl2': 9775000,
+						'exl3': 7250000,
+						'dhl3': 5625000,
+						'dhl4': 4150000,
+						'dhl5': 3325000,
+						'ml5' : 2750000,
+						'ml6' : 2075000,
+						'ml7' : 1725000,
+						
+					}
+
+					PT_MIN = {
+
+
+						'exl2': 7050000,
+						'exl3': 5275000,
+						'dhl3': 3525000,
+						'dhl4': 2750000,
+						'dhl5': 2100000,
+						'ml5' : 1750000,
+						'ml6' : 1325000,
+						'ml7' : 1000000,
+						
+
+					}
+
+					PT_MAX = {
+
+
+						'exl2': 10625000,
+						'exl3': 7875000,
+						'dhl3': 6125000,
+						'dhl4': 4500000,
+						'dhl5': 3625000,
+						'ml5' : 3000000,
+						'ml6' : 2250000,
+						'ml7' : 1875000,
+						
+					}
+
+
+
+
+
+					if (inputBU == 'SwarajDivision' || inputBU == 'ImplemntBusiness' || inputBU == 'SwarajEngines') {
+
+						var Normal_min = SDAPPLIGRID_MIN[level];
+						var Normal_max = SDAPPLIGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+					}
+
+					else if (inputBU == 'FarmDivision' || inputBU == 'MahindraUsa' || inputBU == 'MYYTCL' || inputBU == 'FesPresidentOffice' || inputBU == 'precisionFarming') {
+
+						var Normal_min = AGFDMTWLGRID_MIN[level];
+						var Normal_max = AGFDMTWLGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+					}
+
+					else if (inputBU == 'administration' ) {
+
+						var Normal_min = ADMINGRID_MIN[level];
+						var Normal_max = ADMINGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+					}
+
+					else
+					{
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
+					}
+
+					
 					CTCcalculation['pfBase_an'] = pfbase[level];
 					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
 					CTCcalculation['BasicSal_an'] = basic[level];
@@ -329,6 +769,11 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = business[level];
+					CTCcalculation['individualScore'] = individual[level];
+					CTCcalculation['graduityPercent'] = 5.56;
+					CTCcalculation['level5PP']= Math.round( (( CTCcalculation['performancePay_an'] * 170)/100) * 100)/100;
+					
 
 
 
@@ -466,6 +911,149 @@ var $mj = jQuery.noConflict();
 						'ol10': 0
 					}
 					
+					
+					var business ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 50,
+						'dhl4': 40,
+						'dhl5': 40,
+						'ml5' : 20,
+						'ml6' : 20,
+						'ml7' : 20,
+						'ol7' : 20,
+						'ol8' : 20,
+						'ol9' : 20,
+						'ol10': 20
+
+					}
+					
+					var individual ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 60,
+						'dhl4': 60,
+						'dhl5': 60,
+						'ml5' : 80,
+						'ml6' : 80,
+						'ml7' : 80,
+						'ol7' : 80,
+						'ol8' : 80,
+						'ol9' : 80,
+						'ol10': 80
+
+					}
+					
+					ASFDGRID_MIN = {
+
+
+						'exl2': 6150000,
+						'exl3': 4600000,
+						'dhl3': 3050000,
+						'dhl4': 2400000,
+						'dhl5': 1800000,
+						'ml5' : 1550000,	
+						'ml6' : 1150000,
+						'ml7' : 850000,
+						'ol7' : 650000,
+						'ol8' : 550000,
+						'ol9' : 400000,
+						'ol10': 330000
+
+					}
+
+					ASFDGRID_MAX = {
+
+
+						'exl2': 8150000,
+						'exl3': 6500000,
+						'dhl3': 4800000,
+						'dhl4': 3550000,
+						'dhl5': 2800000,
+						'ml5' : 2300000,
+						'ml6' : 1750000,
+						'ml7' : 1450000,
+						'ol7' : 1100000,
+						'ol8' : 850000,
+						'ol9' : 550000,
+						'ol10': 400000
+
+					}
+
+					
+
+
+					TH_MIN = {
+
+
+						'exl2': 6700000,
+						'exl3': 5050000,
+						'dhl3': 3350000,
+						'dhl4': 2625000,
+						'dhl5': 2000000,
+						'ml5' : 1700000,
+						'ml6' : 1250000,
+						'ml7' : 950000,
+						
+					}
+
+					TH_MAX = {
+
+
+						'exl2': 9775000,
+						'exl3': 7250000,
+						'dhl3': 5750000,
+						'dhl4': 4250000,
+						'dhl5': 3325000,
+						'ml5' : 2750000,
+						'ml6' : 2075000,
+						'ml7' : 1750000,
+						
+					}
+
+					PT_MIN = {
+
+
+						'exl2': 7050000,
+						'exl3': 5300000,
+						'dhl3': 3500000,
+						'dhl4': 2750000,
+						'dhl5': 2100000,
+						'ml5' : 1750000,
+						'ml6' : 1300000,
+						'ml7' : 1000000,
+						
+
+					}
+
+					PT_MAX = {
+
+
+						'exl2': 10625000,
+						'exl3': 7900000,
+						'dhl3': 6250000,
+						'dhl4': 4650000,
+						'dhl5': 3650000,
+						'ml5' : 3000000,
+						'ml6' : 2250000,
+						'ml7' : 1900000,
+						
+					}
+
+
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
+
+					
 					CTCcalculation['pfBase_an'] = pfbase[level];
 					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
 					CTCcalculation['BasicSal_an'] = CTCcalculation['pfBase_an'];
@@ -501,6 +1089,11 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = business[level];
+					CTCcalculation['individualScore'] = individual[level];
+					CTCcalculation['graduityPercent'] = 0;
+					CTCcalculation['level5PP']= Math.round( (( CTCcalculation['performancePay_an'] * 170)/100) * 100)/100;
+					
 
 
 
@@ -614,6 +1207,145 @@ var $mj = jQuery.noConflict();
 
 					*/
 					
+					var business ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 50,
+						'dhl4': 40,
+						'dhl5': 40,
+						'ml5' : 20,
+						'ml6' : 20,
+						'ml7' : 20,
+						'ol7' : 20,
+						'ol8' : 20,
+						'ol9' : 20,
+						'ol10': 20
+
+					}
+					
+					var individual ={
+
+						'exl2': 50,
+						'exl3': 50,
+						'dhl3': 60,
+						'dhl4': 60,
+						'dhl5': 60,
+						'ml5' : 80,
+						'ml6' : 80,
+						'ml7' : 80,
+						'ol7' : 80,
+						'ol8' : 80,
+						'ol9' : 80,
+						'ol10': 80
+
+					}
+					
+					ASFDGRID_MIN = {
+
+
+						'DL1': 6400000,
+						'DL2': 4800000,
+						'DL3': 3200000,
+						'TL1': 2500000,
+						'TL2': 1900000,
+						'TL3' : 1600000,	
+						'TL4' : 1200000,
+						'TM1' : 700000,
+						'TM2' : 550000,
+						'TM3' : 400000,
+						'TM4': 330000
+
+					}
+
+					ASFDGRID_MAX = {
+
+
+						'DL1': 8500000,
+						'DL2': 6300000,
+						'DL3': 4900000,
+						'TL1': 3600000,
+						'TL2': 2900000,
+						'TL3' : 2400000,
+						'TL4' : 1800000,
+						'TM1' : 1150000,
+						'TM2' : 900000,
+						'TM3' : 590000,
+						'TM4': 425000
+
+					}
+
+					
+
+
+					TH_MIN = {
+
+
+						'DL1': 6700000,
+						'DL2': 5050000,
+						'DL3': 3350000,
+						'TL1': 2625000,
+						'TL2': 2000000,
+						'TL3' : 1700000,
+						'TL4' : 1250000,
+						
+						
+					}
+
+					TH_MAX = {
+
+
+						'DL1': 9750000,
+						'DL2': 7250000,
+						'DL3': 5750000,
+						'TL1': 4250000,
+						'TL2': 3325000,
+						'TL3' : 2750000,
+						'TL4' : 2075000,
+						
+						
+					}
+
+					PT_MIN = {
+
+
+						'DL1': 7050000,
+						'DL2': 5300000,
+						'DL3': 3525000,
+						'TL1': 2750000,
+						'TL2': 2100000,
+						'TL3' : 1750000,
+						'TL4' : 1300000,
+						
+						
+
+					}
+
+					PT_MAX = {
+
+
+						'DL1': 10625000,
+						'DL2': 7900000,
+						'DL3': 6250000,
+						'TL1': 4650000,
+						'TL2': 3650000,
+						'TL3' : 3000000,
+						'TL4' : 2250000,
+						
+						
+					}
+
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
+					
+					
 					CTCcalculation['pfBase_an'] = pfbase[level];
 					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
 					CTCcalculation['BasicSal_an'] = CTCcalculation['pfBase_an'];
@@ -647,6 +1379,11 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = business[level];
+					CTCcalculation['individualScore'] = individual[level];
+					CTCcalculation['graduityPercent'] = 5.56;
+					CTCcalculation['level5PP']= Math.round( (( CTCcalculation['performancePay_an'] * 170)/100) * 100)/100;
+					
 
 
 
@@ -728,6 +1465,91 @@ var $mj = jQuery.noConflict();
 
 					*/
 					
+					ASFDGRID_MIN = {
+
+
+						'Band1' : 3000000,
+						'Band2': 2000000,
+						'Band3': 1200000,
+						'Band4': 600000,
+						'Band5': 300000,
+						
+					}
+
+					ASFDGRID_MAX = {
+
+
+						'Band1': 4500000,
+						'Band2': 3500000,
+						'Band3': 2500000,
+						'Band4': 1400000,
+						'Band5': 700000,
+						
+					}
+
+					
+
+
+					TH_MIN = {
+
+
+						'Band1': 3000000,
+						'Band2': 2000000,
+						'Band3': 1200000,
+						'Band4': 600000,
+						'Band5': 300000,
+						
+						
+					}
+
+					TH_MAX = {
+
+
+						'Band1': 4500000,
+						'Band2': 3500000,
+						'Band3': 2500000,
+						'Band4': 1400000,
+						'Band5': 700000,
+						
+						
+					}
+
+					PT_MIN = {
+
+
+						'Band1': 3000000,
+						'Band2': 2000000,
+						'Band3': 1200000,
+						'Band4': 600000,
+						'Band5': 300000,
+						
+						
+
+					}
+
+					PT_MAX = {
+
+
+						'Band1': 4500000,
+						'Band2': 3500000,
+						'Band3': 2500000,
+						'Band4': 1400000,
+						'Band5': 700000,
+						
+						
+						
+					}
+
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
+					
 					CTCcalculation['pfBase_an'] = pfbase[level];
 					CTCcalculation['pfBase_mon'] = CTCcalculation['pfBase_an'] / 12;
 					CTCcalculation['BasicSal_an'] = CTCcalculation['pfBase_an'];
@@ -761,6 +1583,11 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = 0;
+					CTCcalculation['individualScore'] = 0;
+					CTCcalculation['graduityPercent'] = 4.81;
+					CTCcalculation['level5PP']= Math.round( (( CTCcalculation['performancePay_an'] * 170)/100) * 100)/100;
+					
 
 
 
@@ -866,7 +1693,130 @@ var $mj = jQuery.noConflict();
 
 					}
 
+					ASFDGRID_MIN = {
+
+						
+						'jr_Officer': 350000,
+						'Officer': 350000,
+						'sr_Officer': 350000,
+						'executive': 350000,
+						'sr_executive': 350000,
+						'manager': 350000,
+						'sr_Manager': 350000,
+						'dgm': 390000,
+						'gm': 500000,
+						'asst_VP': 600000,
+						'VP': 660000,
+						'sr_VP': 960000,
+					}
+
+					ASFDGRID_MAX = {
+
+
+						
+						'jr_Officer': 500000,
+						'Officer': 500000,
+						'sr_Officer': 500000,
+						'executive': 500000,
+						'sr_executive': 500000,
+						'manager': 500000,
+						'sr_Manager': 500000,
+						'dgm': 550000,
+						'gm': 660000,
+						'asst_VP': 840000,
+						'VP': 980000,
+						'sr_VP': 1400000,
+					}
+
 					
+
+
+					TH_MIN = {
+
+
+						
+						'jr_Officer': 350000,
+						'Officer': 350000,
+						'sr_Officer': 350000,
+						'executive': 350000,
+						'sr_executive': 350000,
+						'manager': 350000,
+						'sr_Manager': 350000,
+						'dgm': 390000,
+						'gm': 500000,
+						'asst_VP': 600000,
+						'VP': 660000,
+						'sr_VP': 960000,
+						
+					}
+
+					TH_MAX = {
+
+
+						
+						'jr_Officer': 500000,
+						'Officer': 500000,
+						'sr_Officer': 500000,
+						'executive': 500000,
+						'sr_executive': 500000,
+						'manager': 500000,
+						'sr_Manager': 500000,
+						'dgm': 550000,
+						'gm': 660000,
+						'asst_VP': 840000,
+						'VP': 980000,
+						'sr_VP': 1400000,
+						
+					}
+
+					PT_MIN = {
+
+
+						
+						'jr_Officer': 350000,
+						'Officer': 350000,
+						'sr_Officer': 350000,
+						'executive': 350000,
+						'sr_executive': 350000,
+						'manager': 350000,
+						'sr_Manager': 350000,
+						'dgm': 390000,
+						'gm': 500000,
+						'asst_VP': 600000,
+						'VP': 660000,
+						'sr_VP': 960000,
+												
+
+					}
+
+					PT_MAX = {
+
+
+						
+						'jr_Officer': 500000,
+						'Officer': 500000,
+						'sr_Officer': 500000,
+						'executive': 500000,
+						'sr_executive': 500000,
+						'manager': 500000,
+						'sr_Manager': 500000,
+						'dgm': 550000,
+						'gm': 660000,
+						'asst_VP': 840000,
+						'VP': 980000,
+						'sr_VP': 1400000,
+						
+					}
+
+						var Normal_min = ASFDGRID_MIN[level];
+						var Normal_max = ASFDGRID_MAX[level];
+						var THP_min = (inputTHP == 'Normal') ? Normal_min : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MIN [level] :  PT_MIN[level];
+						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
+						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
+
+							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+
 				
 					
 					CTCcalculation['pfBase_an'] = fixedPer[level];
@@ -920,6 +1870,11 @@ var $mj = jQuery.noConflict();
 
 					CTCcalculation['grossPay_an'] = CTCcalculation['grossPay_mon'] *12;
 					CTCcalculation['calculateForGrade'] = selectedGrade;
+					CTCcalculation['sectorBusinessXMatrix'] = 0;
+					CTCcalculation['individualScore'] = 0;
+					CTCcalculation['graduityPercent'] = 4.81;
+					CTCcalculation['level5PP']= 0;
+					
 
 
 
@@ -964,7 +1919,7 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 
-        	if(key == 'calculateForGrade')
+        	if(key == 'calculateForGrade' || key == 'graduityPercent' || key == 'gridmatrix')
 
         	{
 
@@ -1023,6 +1978,19 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="TM2">TM-2</option>');
 				    	$mj('#selectLevel').append('<option value="TM3">TM-3</option>');
 				    	$mj('#selectLevel').append('<option value="TM4">TM-4</option>');
+						
+						
+						// Sector 
+
+				    	$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="agricultureSector">Agriculture Sector</option>');
+
+				    	// Business Unit
+				    	$mj('#businessUnit').html('');
+				    	$mj('#businessUnit').append('<option value="agricultureSectorPresident">Agriculture Sector President Office</option>');				    	
+				    	$mj('#businessUnit').append('<option value="epc">EPC</option>');
+				    	$mj('#businessUnit').append('<option value="mahindraAgriSolution">Mahindra Agri Solution</option>');
+
 
 				    }
 
@@ -1040,6 +2008,82 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
 				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
 				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+						
+						
+						$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="selectsector">Select Sector</option>');
+				    	$mj('#sector').append('<option value="automotiveSector">Automotive Sector</option>');
+				    	$mj('#sector').append('<option value="commonServices">Common Services</option>');
+				    	$mj('#sector').append('<option value="farmEquipemnentSector">Farm Equipment Sector</option>');
+				    	$mj('#sector').append('<option value="otherBusiness">Other Business</option>');
+
+
+				    		$mj('#sector').on('change', function(){
+
+				    			$mj('#businessUnit').html('');
+
+				    			if($mj('#sector').val()=='farmEquipemnentSector'){
+
+				    				
+				    				$mj('#businessUnit').append('<option value="selectbusinessUnit">Select Business Unit</option>');
+				    				$mj('#businessUnit').append('<option value="SwarajDivision">Swaraj Division</option>');
+				    				$mj('#businessUnit').append('<option value="FarmDivision">Farm Division</option>');
+				    				$mj('#businessUnit').append('<option value="MahindraUsa">Mahindra USA (MUSA)</option>');
+				    				$mj('#businessUnit').append('<option value="MYYTCL">MYYTCL</option>');
+				    				$mj('#businessUnit').append('<option value="FesPresidentOffice">FES - President Office</option>');
+				    				$mj('#businessUnit').append('<option value="precisionFarming">Precision Farming</option>');
+				    				$mj('#businessUnit').append('<option value="ImplemntBusiness">Implement Business</option>');
+				    				$mj('#businessUnit').append('<option value="SwarajEngines">Swaraj Engines</option>');
+
+				    			}
+
+				    			else if ($mj('#sector').val()=='automotiveSector') {
+
+				    				$mj('#businessUnit').append('<option value="selectbusinessUnit">Select Business Unit</option>');
+				    				$mj('#businessUnit').append('<option value="automotiveDivision">Automotive Division</option>');
+				    				$mj('#businessUnit').append('<option value="heavyEngines">Heavy Engines</option>');
+				    				$mj('#businessUnit').append('<option value="aspresidentOffice">As President Office</option>');
+				    				$mj('#businessUnit').append('<option value="constructionEquipment">Construction Equipment</option>');
+				    				$mj('#businessUnit').append('<option value="newBusinessSolution">New Business Solution</option>');
+				    				$mj('#businessUnit').append('<option value="truckandBuses">Truck and Busess</option>');
+				    			
+				    				
+				    			}
+
+				    		 else if ($mj('#sector').val()=='commonServices') {
+
+				    		 		$mj('#businessUnit').append('<option value="selectbusinessUnit">Select Business Unit</option>');
+				    				$mj('#businessUnit').append('<option value="informationTechnology">Information Technology</option>');
+				    				$mj('#businessUnit').append('<option value="excise">Excise</option>');
+				    				$mj('#businessUnit').append('<option value="humanResources">Human Resources</option>');
+				    				$mj('#businessUnit').append('<option value="businessExcellence">Business Exccellence</option>');
+				    				$mj('#businessUnit').append('<option value="inovationCell">Inovation Cell</option>');
+				    				$mj('#businessUnit').append('<option value="administration">Administration</option>');
+				    				$mj('#businessUnit').append('<option value="sustainability">Sustainability</option>');
+				    				$mj('#businessUnit').append('<option value="mrvCommonServices">MRV Common Services</option>');
+				    			
+				    				
+				    			}
+
+				    		else if ($mj('#sector').val()=='otherBusiness') {
+
+				    				$mj('#businessUnit').append('<option value="selectbusinessUnit">Select Business Unit</option>');
+				    				$mj('#businessUnit').append('<option value="powerol">Powerol</option>');
+				    				$mj('#businessUnit').append('<option value="excise">Excise</option>');
+				    				$mj('#businessUnit').append('<option value="ssangyong">Ssangyong</option>');
+				    				$mj('#businessUnit').append('<option value="spareBusiness">Spare Business</option>');
+				    				$mj('#businessUnit').append('<option value="internationalOperation">International operation M&M</option>');
+				    				
+				    			
+				    				
+				    			}		
+
+
+
+
+				    		});
+				    	
+
 				    	
 
 				    }
@@ -1058,6 +2102,17 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
 				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
 				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+						
+						//Sector
+
+				    	$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="otherBusiness">Other Business</option>');
+
+				    	// Business Unit
+				    	$mj('#businessUnit').html('');
+				    	$mj('#businessUnit').append('<option value="twoWheelers">Two Wheelers</option>');
+				    	
+
 				    	
 
 				    }
@@ -1076,6 +2131,16 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
 				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
 				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+						
+						//Sector
+
+				    	$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="automotiveSector">Automotive Sector</option>');
+
+				    	// Business Unit
+				    	$mj('#businessUnit').html('');
+				    	$mj('#businessUnit').append('<option value="electricMobility">Electric Mobility</option>');
+
 				    	
 				    }
 
@@ -1086,6 +2151,16 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="Band3">Band-3</option>');
 				    	$mj('#selectLevel').append('<option value="Band4">Band-4</option>');
 				    	$mj('#selectLevel').append('<option value="Band5">Band-5</option>');
+						
+						//Sector
+
+				    	$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="notRequired">Not Required</option>');
+
+				    	// Business Unit
+				    	$mj('#businessUnit').html('');
+				    	$mj('#businessUnit').append('<option value="smartShift">Smart Shift</option>');
+				    	
 				    	
 
 				    }
@@ -1104,6 +2179,16 @@ var $mj = jQuery.noConflict();
 				    	$mj('#selectLevel').append('<option value="asst_VP">Asst.VP</option>');
 				    	$mj('#selectLevel').append('<option value="VP">VP</option>');
 				    	$mj('#selectLevel').append('<option value="sr_VP">Sr.VP</option>');
+						
+						//Sector
+
+				    	$mj('#sector').html('');
+				    	$mj('#sector').append('<option value="notRequired">Not Required</option>');
+
+				    	// Business Unit
+				    	$mj('#businessUnit').html('');
+				    	$mj('#businessUnit').append('<option value="trringo">Trringo</option>');
+				    	
 				    	
 
 				    }

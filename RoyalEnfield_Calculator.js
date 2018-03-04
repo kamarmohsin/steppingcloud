@@ -330,7 +330,7 @@ var $mj = jQuery.noConflict();
 					       var min = isNaN(parseFloat($mj('[name="salary_min"]').val()))? 0 : parseFloat($mj('[name="salary_min"]').val());
 					       var max = isNaN(parseFloat($mj('[name="salary_max"]').val()))? 0 : parseFloat($mj('[name="salary_max"]').val());
 					
-					     CTCcalculation['percentile'] = CTCcalculation['RR_totalCompensation_an'] > max ? CTCcalculation['RR_totalCompensation_an'] / max : ((CTCcalculation['RR_fixedCTC_an'] - min)/ ( max - min)) * 100;
+					     CTCcalculation['percentile'] = CTCcalculation['RR_totalCompensation_an'] > max ? (CTCcalculation['RR_totalCompensation_an'] / max) * 100 : ((CTCcalculation['RR_fixedCTC_an'] - min)/ ( max - min)) * 100;
 						
 
 

@@ -26,6 +26,8 @@ var $mj = jQuery.noConflict();
 				var level = inputlevel;
 				var company = inputcompany;
 				var selectedGrade = $mj("#selectLevel option:selected").text();
+				var inputBU = $mj('#businessUnit').val();
+				var inputTHP = $mj('#THP').val();
 
 				CTCcalculation = {
 					

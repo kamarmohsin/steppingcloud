@@ -295,7 +295,10 @@ var $mj = jQuery.noConflict();
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
 						}
-
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
+						}
 					
 					
 					CTCcalculation['pfBase_an'] = pfbase[level];
@@ -698,6 +701,10 @@ var $mj = jQuery.noConflict();
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
 						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
+						}
 					}
 
 					else if (inputBU == 'FarmDivision' || inputBU == 'MahindraUsa' || inputBU == 'MYYTCL' || inputBU == 'FesPresidentOffice' || inputBU == 'precisionFarming') {
@@ -709,6 +716,11 @@ var $mj = jQuery.noConflict();
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+						
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
 						}
 					}
 
@@ -722,6 +734,10 @@ var $mj = jQuery.noConflict();
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
 						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
+						}
 					}
 
 					else
@@ -733,6 +749,10 @@ var $mj = jQuery.noConflict();
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
 						}
 
 					}
@@ -1053,6 +1073,10 @@ var $mj = jQuery.noConflict();
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
 						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
+						}
 
 
 					
@@ -1342,6 +1366,10 @@ var $mj = jQuery.noConflict();
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
 						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
+						}
 
 					
 					
@@ -1546,6 +1574,10 @@ var $mj = jQuery.noConflict();
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
 						}
 
 					
@@ -1814,6 +1846,11 @@ var $mj = jQuery.noConflict();
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
 							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+						}
+						
+						else
+						{
+							CTCcalculation['gridmatrix'] = "Within Hiring Grid";
 						}
 
 				

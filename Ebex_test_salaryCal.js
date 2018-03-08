@@ -371,7 +371,7 @@ var $mj = jQuery.noConflict();
 
         for( var key in sal){
 
-			 	if(key =='ctcWords'){
+			 	if(key =='ctcWords'|| key =='grossInWords'||key =='variableInWords'){
 
         					$mj('[name="'+key+'"]').val(sal[key]);
         				}

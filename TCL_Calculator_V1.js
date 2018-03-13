@@ -111,19 +111,19 @@ var calcCTC =  function(InputOTE,inputcountry,InputBand ,InputselectedPlan)
 			
 			var transportAllowance_qatar ={
 
-				'B1_1':2400,
-				'B2_1':2400,
-				'B2_2':2400,
-				'B3_1':3600,
-				'B3_2':3600,
-				'B4_1':4800,
-				'B4_2':4800,
-				'B5_1':4800,
-				'B5_2':6000,
-				'B6_1':6000,
-				'B7_1':8400,
-				'B8_1':8400,
-				'B8_2':8400
+				'B1_1':24000,
+				'B2_1':24000,
+				'B2_2':24000,
+				'B3_1':36000,
+				'B3_2':36000,
+				'B4_1':48000,
+				'B4_2':48000,
+				'B5_1':48000,
+				'B5_2':60000,
+				'B6_1':60000,
+				'B7_1':84000,
+				'B8_1':84000,
+				'B8_2':84000
 
 			}
 			var lta_uae ={
@@ -1263,36 +1263,37 @@ $mj("#octcBreak").click(function(event) {
 				{
 					alert('Please Select the country and PayPlan and then hit on calculate Button');
 				}
-				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='FullSIP_GCS' || selectedPayplan =='FullSIP_GMS' ))
-				{
-					alert('Plan Applicable only for India & Sri Lanka');
-				}
-
-				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='FullSIP_GVS'  ))
-				{
-					alert(' Plan Applicable only for GVS India')
-				}
 				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='FullSIP_TCTS'  ))
 				{
-					alert(' Plan Applicable only for TCTS BU in India')
+					alert(' Plan Applicable only for India & Sri Lanka')
 				}
-
-				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='TLVP'  ))
+				
+				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='FullSIP_GVS'  ))
 				{
-					alert(' Plan Applicable for TCPSL BU in India')
+					alert(' Plan Applicable only for India & Sri Lanka')
 				}
-
+				
 				else if((selectedCountry == 'INDIA' || selectedCountry == 'SriLanka') && selectedPayplan =='FullSIP')
 				{
 					alert('Plan Applicable outside India and Sri Lanka');
 				}
-
-				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && selectedPayplan=='PartSIP'  )
+				
+				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && selectedPayplan=='FullSIP_GDMS'  )
 				{
-					alert('Plan Applicable only for India & Sri Lanka from B5-1 & Above Level');
+					alert('Plan Applicable only for India & Sri Lanka from B1-1 to B4-2');
+				}
+				
+				else if( ( selectedCountry != 'SriLanka' && selectedCountry != 'INDIA' ) && ( selectedPayplan =='TLVP' || selectedPayplan =='Part_TLVP'  ))
+				{
+					alert(' Plan Applicable for India & Sri Lanka')
+				}
+				
+				else if( ( selectedCountry != 'INDIA' ) && selectedPayplan=='TAIP'  )
+				{
+					alert('Plan Applicable only for India');
 				}
 
-				else if( (selectedCountry == 'INDIA' || selectedCountry == 'SriLanka') && selectedPayplan =='PartSIP' &&  (selectedSubBand =='B1_1' || selectedSubBand =='B2_1' ||selectedSubBand =='B2_2' || selectedSubBand =='B3_1' || selectedSubBand =='B3_2' || selectedSubBand =='B4_2' || selectedSubBand =='B4_1' ))
+				else if( (selectedCountry != 'INDIA' || selectedCountry != 'SriLanka') && selectedPayplan =='PartSIP' &&  (selectedSubBand =='B1_1' || selectedSubBand =='B2_1' ||selectedSubBand =='B2_2' || selectedSubBand =='B3_1' || selectedSubBand =='B3_2' || selectedSubBand =='B4_2' || selectedSubBand =='B4_1' ))
 					{
 					alert('Plan Applicable only for India & Sri Lanka from B5-1 & Above Level');
 				}

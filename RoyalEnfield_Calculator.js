@@ -135,7 +135,7 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['current_OtherswithFPA_pm'] = curr_OtherswithFPA/12;				
 						
 						CTCcalculation['current_totalFPA_an'] = curr_medicalReim + curr_educationReimbursment + curr_lta+ curr_OtherswithFPA;
-						CTCcalculation['current_totalFPA_pm'] = curr_totalFPA/12;
+						CTCcalculation['current_totalFPA_pm'] = CTCcalculation['current_totalFPA_an']/12;
 
 
 						CTCcalculation['current_totalBasic_fpa_an'] = CTCcalculation['current_fixedCTC_an'] + CTCcalculation['current_totalFPA_an'];

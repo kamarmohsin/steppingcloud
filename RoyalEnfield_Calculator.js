@@ -106,35 +106,56 @@ var $mj = jQuery.noConflict();
 						var curr_childEdu = isNaN(parseFloat($mj('[name="current_chilEducationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_chilEducationAllow_an"]').val());
 						CTCcalculation['current_chilEducationAllow_pm'] = curr_childEdu /12;
 
-						//var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
-						CTCcalculation['current_fixedCTC_an'] = curr_childEdu + curr_gradeAllow + curr_conveyance + curr_hra + curr_fpa + curr_personalAllow + curr_specialAllow + curr_basic;
-						CTCcalculation['current_fixedCTC_pm'] = CTCcalculation['current_fixedCTC_an']/12;
-						
 
 						var curr_medicalAllow = isNaN(parseFloat($mj('[name="current_medicalAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalAllow_an"]').val());
 						CTCcalculation['current_medicalAllow_pm'] = curr_medicalAllow/12;
 						var curr_education = isNaN(parseFloat($mj('[name="current_educationAllow_an"]').val()))? 0 : parseFloat($mj('[name="current_educationAllow_an"]').val());
 						CTCcalculation['current_educationAllow_pm'] = curr_education/12;
+
+						var curr_OtherswithFCTC = isNaN(parseFloat($mj('[name="current_OtherswithFCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_OtherswithFCTC_an"]').val());
+						CTCcalculation['current_OtherswithFCTC_pm'] = curr_OtherswithFCTC/12;
+
+
+						//var curr_fixedCTC = isNaN(parseFloat($mj('[name="current_fixedCTC_an"]').val()))? 0 : parseFloat($mj('[name="current_fixedCTC_an"]').val());
+						CTCcalculation['current_fixedCTC_an'] = curr_OtherswithFCTC+curr_education+curr_medicalAllow+curr_childEdu + curr_gradeAllow + curr_conveyance + curr_hra + curr_fpa + curr_personalAllow + curr_specialAllow + curr_basic;
+						CTCcalculation['current_fixedCTC_pm'] = CTCcalculation['current_fixedCTC_an']/12;
+						
+
 						var curr_safety = isNaN(parseFloat($mj('[name="current_safety_an"]').val()))? 0 : parseFloat($mj('[name="current_safety_an"]').val());
 						CTCcalculation['current_safety_pm'] = curr_safety/12;
 
+						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_medicalReimburment_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalReimburment_an"]').val());
+						CTCcalculation['current_medicalReimburment_pm'] = curr_medicalReim/12;
+						var curr_educationReimbursment = isNaN(parseFloat($mj('[name="current_educationReimbursment_an"]').val()))? 0 : parseFloat($mj('[name="current_educationReimbursment_an"]').val());
+						CTCcalculation['current_educationReimbursment_pm'] = curr_educationReimbursment/12;
+						
+						var curr_lta = isNaN(parseFloat($mj('[name="current_lta_an"]').val()))? 0 : parseFloat($mj('[name="current_lta_an"]').val());
+						CTCcalculation['current_lta_pm'] = curr_lta/12;	
+						var curr_OtherswithFPA = isNaN(parseFloat($mj('[name="current_OtherswithFPA_an"]').val()))? 0 : parseFloat($mj('[name="current_OtherswithFPA_an"]').val());
+						CTCcalculation['current_OtherswithFPA_pm'] = curr_OtherswithFPA/12;				
+						
+						CTCcalculation['current_totalFPA_an'] = curr_medicalReim + curr_educationReimbursment + curr_lta+ curr_OtherswithFPA;
+						CTCcalculation['current_totalFPA_pm'] = curr_totalFPA/12;
 
-						CTCcalculation['current_totalBasic_fpa_an'] = CTCcalculation['current_fixedCTC_an'] + curr_medicalAllow + curr_education + curr_safety;
+
+						CTCcalculation['current_totalBasic_fpa_an'] = CTCcalculation['current_fixedCTC_an'] + CTCcalculation['current_totalFPA_an'];
 						CTCcalculation['current_totalBasic_fpa_pm'] = CTCcalculation['current_totalBasic_fpa_an'] /12;
 
 						
-						var curr_lta = isNaN(parseFloat($mj('[name="current_lta_an"]').val()))? 0 : parseFloat($mj('[name="current_lta_an"]').val());
-						CTCcalculation['current_lta_pm'] = curr_lta/12;				
-						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
-						CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
 						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
 						CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
 						var curr_bonusExgratia = isNaN(parseFloat($mj('[name="current_BonusExgratia_an"]').val()))? 0 : parseFloat($mj('[name="current_BonusExgratia_an"]').val());
 						CTCcalculation['current_BonusExgratia_pm'] = curr_bonusExgratia/12;
-						var curr_medicalReim = isNaN(parseFloat($mj('[name="current_medicalReimburment_an"]').val()))? 0 : parseFloat($mj('[name="current_medicalReimburment_an"]').val());
-						CTCcalculation['current_medicalReimburment_pm'] = curr_medicalReim/12;
+
+						CTCcalculation['current_totalVpay_an'] = curr_pmpBonus + curr_bonusExgratia;
+						CTCcalculation['current_totalVpay_pm'] = CTCcalculation['current_totalVpay_an'] /12;
+
+
+
 						var curr_deputation = isNaN(parseFloat($mj('[name="current_deputation_an"]').val()))? 0 : parseFloat($mj('[name="current_deputation_an"]').val());
 						CTCcalculation['current_deputation_pm'] = curr_deputation/12;
+
+
 						var curr_saf = isNaN(parseFloat($mj('[name="current_saf_an"]').val()))? 0 : parseFloat($mj('[name="current_saf_an"]').val());
 						CTCcalculation['current_saf_pm'] = curr_saf/12;						
 						var curr_pf = isNaN(parseFloat($mj('[name="current_pf_an"]').val()))? 0 : parseFloat($mj('[name="current_pf_an"]').val());
@@ -143,12 +164,12 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['current_gratutity_pm'] = curr_gratuity/12;
 
 
-						CTCcalculation['current_totalRetBenifit_an'] = curr_lta + curr_pmpBonus + curr_bonusExgratia + curr_medicalReim + curr_deputation +curr_saf + curr_pf + curr_gratuity;
+						CTCcalculation['current_totalRetBenifit_an'] = curr_saf + curr_pf + curr_gratuity;
 						CTCcalculation['current_totalRetBenifit_pm'] = CTCcalculation['current_totalRetBenifit_an'] / 12;
 						
 
-						var curr_grandTotal = isNaN(parseFloat($mj('[name="current_grandTotal_an"]').val()))? 0 : parseFloat($mj('[name="current_grandTotal_an"]').val());
-						CTCcalculation['current_grandTotal_an'] = CTCcalculation['current_totalBasic_fpa_an'] + CTCcalculation['current_totalRetBenifit_an'];
+						
+						CTCcalculation['current_grandTotal_an'] = CTCcalculation['current_totalBasic_fpa_an'] + CTCcalculation['current_totalVpay_an'] + CTCcalculation['current_totalRetBenifit_an'];
 						CTCcalculation['current_grandTotal_pm'] = CTCcalculation['current_grandTotal_an']/12;
 
 
@@ -314,7 +335,7 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['proposed_totalVariablePay_an'] = CTCcalculation['RR_variablePay_an'];
 						CTCcalculation['proposed_totalVariablePay_pm'] = CTCcalculation['proposed_totalVariablePay_an']/12;
 
-						CTCcalculation['IncreasedPer_totalVariablePay_an'] = ((CTCcalculation['proposed_totalVariablePay_an'] - curr_pmpBonus)/curr_pmpBonus) * 100;
+						CTCcalculation['IncreasedPer_totalVariablePay_an'] = ((CTCcalculation['proposed_totalVariablePay_an'] - CTCcalculation['current_totalVpay_an'])/CTCcalculation['current_totalVpay_an']) * 100;
 
 
 

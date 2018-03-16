@@ -363,6 +363,99 @@ var $mj = jQuery.noConflict();
 					       var max = isNaN(parseFloat($mj('[name="salary_max"]').val()))? 0 : parseFloat($mj('[name="salary_max"]').val());
 					
 					     CTCcalculation['percentile'] = CTCcalculation['RR_totalCompensation_an'] > max ? (CTCcalculation['RR_totalCompensation_an'] / max) * 100 : ((CTCcalculation['RR_totalCompensation_an'] - min)/ ( max - min)) * 100;
+
+
+					var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+					// totalCompensationInword
+
+					num = CTCcalculation['RR_totalCompensation_an'];
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    				 str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    				 str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    				CTCcalculation['totalCompensationInword'] = str;
+
+
+    				// fixedCTCInword
+
+
+					num = CTCcalculation['RR_fixedCTC_an'];
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    				 str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    				 str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    				CTCcalculation['fixedCTCInword'] = str;
+
+
+
+    				// basicInword
+
+
+					num = CTCcalculation['RR_fixedBasic_an'];
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    				 str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    				 str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    				CTCcalculation['basicInword'] = str;
+
+
+
+    				// pfInword
+
+
+					num = CTCcalculation['RR_providentFund_an'];
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    				 str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    				 str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    				CTCcalculation['pfInword'] = str;
+					
+					// fpaInword
+
+
+					num = CTCcalculation['RR_flexiBenefitpay_an'];
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    				 str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    				 str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    				CTCcalculation['fpaInword'] = str;
 						
 
 
@@ -446,20 +539,34 @@ var $mj = jQuery.noConflict();
 
 
 
+        		if (key == 'totalCompensationInword' || key == 'fixedCTCInword' || key == 'basicInword' || key == 'pfInword' || key == 'fpaInword') {
+
+        			var salComponent = (sal[key]);
+			 			var round = salComponent.toLocaleString('en-IN');
+						$mj('[name="'+key+'"]').val(round);       				
+	 			
+
+        		}
+
+        		else 
+        		{
+
 
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]).toLocaleString('en-IN');
 
 			 			var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
-						$mj('[name="'+key+'"]').val(round);
-        				
+						$mj('[name="'+key+'"]').val(round);       				
 	 			
+					
 
+				}
 
-					var baseId_mon = $mj('[name="'+key+'"]').attr("id");
+				var baseId_mon = $mj('[name="'+key+'"]').attr("id");
 					
 					$mj('[name="'+key+'"]').addClass('unsaved');
 					juic.fire(baseId_mon,"_onChange",event);
+
 
 			 			
 			 

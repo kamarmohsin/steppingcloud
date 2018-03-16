@@ -152,7 +152,8 @@ var $mj = jQuery.noConflict();
 
 						
 						var curr_pmpBonus = isNaN(parseFloat($mj('[name="current_pmpBonus_an"]').val()))? 0 : parseFloat($mj('[name="current_pmpBonus_an"]').val());
-						CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
+						CTCcalculation['current_pmpBonus_an'] = curr_pmpBonus;
+					        CTCcalculation['current_pmpBonus_pm'] = curr_pmpBonus /12;
 						var curr_bonusExgratia = isNaN(parseFloat($mj('[name="current_BonusExgratia_an"]').val()))? 0 : parseFloat($mj('[name="current_BonusExgratia_an"]').val());
 						CTCcalculation['current_BonusExgratia_pm'] = curr_bonusExgratia/12;
 

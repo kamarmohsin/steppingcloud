@@ -1976,7 +1976,7 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 
-        	if(key == 'calculateForGrade' || key == 'graduityPercent' || key == 'gridmatrix' || key == 'selecteddomain')
+        	if(key == 'calculateForGrade' || key == 'graduityPercent' || key == 'gridmatrix' || key == 'calculateForDomain')
 
         	{
 

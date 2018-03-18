@@ -299,7 +299,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -709,7 +709,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -758,7 +758,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -1086,7 +1086,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -1382,7 +1382,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -1592,7 +1592,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						else
 						{
@@ -1865,7 +1865,7 @@ var $mj = jQuery.noConflict();
 						var THP_max = (inputTHP == 'Normal') ? Normal_max : (inputTHP == 'Technical' || inputTHP == 'HotSkills')? TH_MAX[level] :  PT_MAX[level];
 						if (inputCTC_an < Normal_min || inputCTC_an > THP_max ) {
 
-							CTCcalculation['gridmatrix'] = "Outside Hiring Grid";
+							CTCcalculation['gridmatrix'] = "Additional Approver Required-Outside Hiring Grid";
 						}
 						
 						else

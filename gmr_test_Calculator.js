@@ -12,7 +12,7 @@ var $mj = jQuery.noConflict();
 
 
 
-			var calcCTC =  function(inputStr, offerCtc, inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputmedicalAllow, inputComp ){
+			var calcCTC =  function(inputStr, offerCtc, inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan,  inputComp ){
 
 				var company = inputComp;
 				var inputstructure =  inputStr;
@@ -25,7 +25,7 @@ var $mj = jQuery.noConflict();
 				var lta = inputlta
 				var gift = inputgift;
 				var mediclaim = inputmediclaim;
-				var medicalAlow = inputmedicalAllow;
+				//var medicalAlow = inputmedicalAllow;
 				var superann = inputSuperan;
 					
 					CTCcalculation = {
@@ -106,16 +106,16 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_BasicSal_mon'] = CTCcalculation['gmr_BasicSal_an'] /12;
 				CTCcalculation['gmr_housingAllow_an'] = (hra * CTCcalculation['gmr_BasicSal_an'] )/100;
 				CTCcalculation['gmr_housingAllow_mon'] = CTCcalculation['gmr_housingAllow_an'] /12;
-				CTCcalculation['gmr_transport_ann'] =  19200;
-				CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
+				//CTCcalculation['gmr_transport_ann'] =  19200;
+				//CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
 				CTCcalculation['gmr_childreenEdu_ann'] = child =='1'? 1200 : child =='2' ? 2400 : 0;
 				CTCcalculation['gmr_childreenEdu_mon'] = CTCcalculation['gmr_childreenEdu_ann'] /12;
 				//CTCcalculation['gmr_foodCoupons_ann'] = food =='yes' ? 30000 : 0;
 				//CTCcalculation['gmr_foodCoupons_mon'] = CTCcalculation['gmr_foodCoupons_ann'] /12;
 				//CTCcalculation['gmr_petrolMaint_ann'] = petrol == 'yes' ? obj_Petrol[grade]: 0;
 				//CTCcalculation['gmr_petrolMaint_mon'] = CTCcalculation['gmr_petrolMaint_ann'] / 12;
-				CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
-				CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
+				//CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
+				//CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
 				CTCcalculation['gmr_leaveTravelallowance_an'] = parseFloat(inputlta);
 				CTCcalculation['gmr_leaveTravelallowance_mon'] = CTCcalculation['gmr_leaveTravelallowance_an'] / 12;
 				//CTCcalculation['gmr_giftVoucher_an'] = parseFloat(inputgift);
@@ -150,10 +150,10 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_variablePay_an'] = variablePay[grade];
 				CTCcalculation['gmr_variablePay_mon'] = CTCcalculation['gmr_variablePay_an'] /12;
 
-				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann'] + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an']);
+				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an']);
 				CTCcalculation['gmr_specialAllowance_mon'] = CTCcalculation['gmr_specialAllowance_an'] /12;
 
-				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann'] + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_specialAllowance_an'];
+				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_specialAllowance_an'];
 				CTCcalculation['gmr_subTotalA_mon']  = CTCcalculation['gmr_subTotalA_ann'] / 12;
 
 				CTCcalculation['gmr_costCompany_ABC_an'] = CTCcalculation['gmr_subTotalA_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an'];
@@ -187,22 +187,22 @@ var $mj = jQuery.noConflict();
 
 				var obj_GTA = {
 
-					'LX' : 18998,
-					'LA' : 18998,
-					'PA' : 18998,
-					'PB' : 13750,
-					'LB' : 13750,
-					'PC' : 6785,
-					'LC' : 6785,
-					'PD' : 5428,
-					'LD' : 5428,
-					'LE' : 5428,
-					'PE' : 5428, 
-					'LF' : 5428,
-					'LG' : 5428,
-					'LH' : 4071,
-					'LI' : 1018,
-					'LJ' : 679
+					'LX' : 19989,
+					'LA' : 19989,
+					'PA' : 19989,
+					'PB' : 14278,
+					'LB' : 14278,
+					'PC' : 7139,
+					'LC' : 7139,
+					'PD' : 5711,
+					'LD' : 5711,
+					'LE' : 5711,
+					'PE' : 5711, 
+					'LF' : 5711,
+					'LG' : 5711,
+					'LH' : 4283,
+					'LI' : 1071,
+					'LJ' : 714
 					
 						
 										
@@ -219,9 +219,9 @@ var $mj = jQuery.noConflict();
 
 				var obj_variable = {
 
-					'LX' : 0,
-					'LA' : 0,
-					'PA' : 0,
+					'LX' : 18.4,
+					'LA' : 18.4,
+					'PA' : 18.4,
 					'PB' : 18.4,
 					'LB' : 18.4,
 					'PC' : 13.8,
@@ -246,16 +246,16 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_BasicSal_mon'] = CTCcalculation['gmr_BasicSal_an'] /12;
 				CTCcalculation['gmr_housingAllow_an'] = (hra * CTCcalculation['gmr_BasicSal_an'] )/100;
 				CTCcalculation['gmr_housingAllow_mon'] = CTCcalculation['gmr_housingAllow_an'] /12;
-				CTCcalculation['gmr_transport_ann'] =  petrol =='yes' ? 0 : 19200;;
-				CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
+				//CTCcalculation['gmr_transport_ann'] =  petrol =='yes' ? 0 : 19200;;
+				//CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
 				//CTCcalculation['gmr_childreenEdu_ann'] = child =='1'? 1200 : child =='2' ? 2400 : 0;
 				//CTCcalculation['gmr_childreenEdu_mon'] = CTCcalculation['gmr_childreenEdu_ann'] /12;
 				CTCcalculation['gmr_foodCoupons_ann'] = food =='yes' ? 30000 : 0;
 				CTCcalculation['gmr_foodCoupons_mon'] = CTCcalculation['gmr_foodCoupons_ann'] /12;
 				CTCcalculation['gmr_petrolMaint_ann'] = petrol == 'yes' ? obj_Petrol[grade]: 0;
 				CTCcalculation['gmr_petrolMaint_mon'] = CTCcalculation['gmr_petrolMaint_ann'] / 12;
-				CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
-				CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
+				//CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
+				//CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
 				CTCcalculation['gmr_leaveTravelallowance_an'] = parseFloat(inputlta);
 				CTCcalculation['gmr_leaveTravelallowance_mon'] = CTCcalculation['gmr_leaveTravelallowance_an'] / 12;
 				//CTCcalculation['gmr_giftVoucher_an'] = parseFloat(inputgift);
@@ -267,7 +267,7 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_BonusExgratia_an'] = (CTCcalculation['gmr_BasicSal_an'] * 10)/100;
 				CTCcalculation['gmr_BonusExgratia_mon'] = CTCcalculation['gmr_BonusExgratia_an'] /12;
 				
-				CTCcalculation['gmr_SubTotalB_an'] = CTCcalculation['gmr_foodCoupons_ann'] + CTCcalculation['gmr_petrolMaint_ann'] + CTCcalculation['gmr_medicalReimb_an'] + CTCcalculation['gmr_leaveTravelallowance_an']  + CTCcalculation['gmr_groupMediclaim_an'] + CTCcalculation['gmr_grouptermAssurance_an'] + CTCcalculation['gmr_BonusExgratia_an'];
+				CTCcalculation['gmr_SubTotalB_an'] = CTCcalculation['gmr_foodCoupons_ann'] + CTCcalculation['gmr_petrolMaint_ann']  + CTCcalculation['gmr_leaveTravelallowance_an']  + CTCcalculation['gmr_groupMediclaim_an'] + CTCcalculation['gmr_grouptermAssurance_an'] + CTCcalculation['gmr_BonusExgratia_an'];
 				CTCcalculation['gmr_SubTotalB_mon'] = CTCcalculation['gmr_SubTotalB_an'] / 12;
 
 				
@@ -281,10 +281,10 @@ var $mj = jQuery.noConflict();
 				//CTCcalculation['gmr_SubTotal_C_mon'] = CTCcalculation['gmr_SubTotal_C_an'] / 12;
 
 
-				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann']  + CTCcalculation['gmr_SubTotalB_an'] );
+				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']   + CTCcalculation['gmr_SubTotalB_an'] );
 				CTCcalculation['gmr_specialAllowance_mon'] = CTCcalculation['gmr_specialAllowance_an'] /12;
 
-				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann']  + CTCcalculation['gmr_specialAllowance_an'];
+				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_specialAllowance_an'];
 				CTCcalculation['gmr_subTotalA_mon']  = CTCcalculation['gmr_subTotalA_ann'] / 12;
 
 				CTCcalculation['gmr_SubTotal_C_an'] = CTCcalculation['gmr_subTotalA_ann'] + CTCcalculation['gmr_SubTotalB_an'];
@@ -303,7 +303,146 @@ var $mj = jQuery.noConflict();
 
 				}
 
-				else
+				else if (inputstructure == 'principalAssociate_NonCritical') {
+
+
+					var obj_Petrol = {
+
+					'LX' : 192000,
+					'LA' : 192000,
+					'LB' : 192000,
+					'LC' : 144000,
+					'LD' : 144000,
+					'LE' : 144000,
+					'LF' : 72000,
+					'LG' : 72000,
+					'LH' : 72000,
+					'PA' : 192000,
+					'PB' : 192000,
+					'PC' : 144000,
+					'PD' : 144000,
+					'PE' : 144000 
+				}
+
+				var obj_GTA = {
+
+					'LX' : 19989,
+					'LA' : 19989,
+					'PA' : 19989,
+					'PB' : 14278,
+					'LB' : 14278,
+					'PC' : 7139,
+					'LC' : 7139,
+					'PD' : 5711,
+					'LD' : 5711,
+					'LE' : 5711,
+					'PE' : 5711, 
+					'LF' : 5711,
+					'LG' : 5711,
+					'LH' : 4283,
+					'LI' : 1071,
+					'LJ' : 714
+					
+						
+										
+				}
+
+				var variablePay = {
+
+					'LI' : 22500,
+					'LJ' : 13500
+					
+						
+										
+				}
+
+				var obj_variable = {
+
+					'LX' : 0,
+					'LA' : 0,
+					'PA' : 0,
+					'PB' : 0,
+					'LB' : 0,
+					'PC' : 0,
+					'LC' : 0,
+					'PD' : 0,
+					'LD' : 0,
+					'LE' : 0,
+					'PE' : 0, 
+					'LF' : 0,
+					'LG' : 0,
+					'LH' : 0,
+					'LI' : 0,
+					'LJ' : 0
+					
+						
+										
+				}
+
+							 
+				 	
+				CTCcalculation['gmr_BasicSal_an'] = (inputCTC * 40 )/100;
+				CTCcalculation['gmr_BasicSal_mon'] = CTCcalculation['gmr_BasicSal_an'] /12;
+				CTCcalculation['gmr_housingAllow_an'] = (hra * CTCcalculation['gmr_BasicSal_an'] )/100;
+				CTCcalculation['gmr_housingAllow_mon'] = CTCcalculation['gmr_housingAllow_an'] /12;
+				//CTCcalculation['gmr_transport_ann'] =  petrol =='yes' ? 0 : 19200;;
+				//CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
+				//CTCcalculation['gmr_childreenEdu_ann'] = child =='1'? 1200 : child =='2' ? 2400 : 0;
+				//CTCcalculation['gmr_childreenEdu_mon'] = CTCcalculation['gmr_childreenEdu_ann'] /12;
+				CTCcalculation['gmr_foodCoupons_ann'] = food =='yes' ? 30000 : 0;
+				CTCcalculation['gmr_foodCoupons_mon'] = CTCcalculation['gmr_foodCoupons_ann'] /12;
+				CTCcalculation['gmr_petrolMaint_ann'] = petrol == 'yes' ? obj_Petrol[grade]: 0;
+				CTCcalculation['gmr_petrolMaint_mon'] = CTCcalculation['gmr_petrolMaint_ann'] / 12;
+				//CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
+				//CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
+				CTCcalculation['gmr_leaveTravelallowance_an'] = parseFloat(inputlta);
+				CTCcalculation['gmr_leaveTravelallowance_mon'] = CTCcalculation['gmr_leaveTravelallowance_an'] / 12;
+				//CTCcalculation['gmr_giftVoucher_an'] = parseFloat(inputgift);
+				//CTCcalculation['gmr_giftVoucher_mon'] = CTCcalculation['gmr_giftVoucher_an'] / 12;
+				CTCcalculation['gmr_groupMediclaim_an'] = parseFloat(mediclaim);
+				CTCcalculation['gmr_groupMediclaim_mon'] = CTCcalculation['gmr_groupMediclaim_an'] /12;
+				CTCcalculation['gmr_grouptermAssurance_an'] = obj_GTA[grade];
+				CTCcalculation['gmr_grouptermAssurance_mon'] = CTCcalculation['gmr_grouptermAssurance_an'] /12;
+				CTCcalculation['gmr_BonusExgratia_an'] = (CTCcalculation['gmr_BasicSal_an'] * 10)/100;
+				CTCcalculation['gmr_BonusExgratia_mon'] = CTCcalculation['gmr_BonusExgratia_an'] /12;
+				
+				CTCcalculation['gmr_SubTotalB_an'] = CTCcalculation['gmr_foodCoupons_ann'] + CTCcalculation['gmr_petrolMaint_ann']  + CTCcalculation['gmr_leaveTravelallowance_an']  + CTCcalculation['gmr_groupMediclaim_an'] + CTCcalculation['gmr_grouptermAssurance_an'] + CTCcalculation['gmr_BonusExgratia_an'];
+				CTCcalculation['gmr_SubTotalB_mon'] = CTCcalculation['gmr_SubTotalB_an'] / 12;
+
+				
+				//CTCcalculation['gmr_providentFund_an'] = CTCcalculation['gmr_BasicSal_an'] > 15000 ? (15000 * 12 )/100 : (12 * CTCcalculation['gmr_BasicSal_an'] )/ 100;
+				//CTCcalculation['gmr_providentFund_mon'] = CTCcalculation['gmr_providentFund_an'] /12;
+				//CTCcalculation['gmr_SuperAnuation_an'] = superann =='yes' ? ( CTCcalculation['gmr_BasicSal_an'] * 8 ) /100 : 0;
+				//CTCcalculation['gmr_SuperAnuation_mon'] = CTCcalculation['gmr_SuperAnuation_an']/12;
+
+				
+				//CTCcalculation['gmr_SubTotal_C_an'] = CTCcalculation['gmr_providentFund_an'] + CTCcalculation['gmr_SuperAnuation_an'];
+				//CTCcalculation['gmr_SubTotal_C_mon'] = CTCcalculation['gmr_SubTotal_C_an'] / 12;
+
+
+				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']   + CTCcalculation['gmr_SubTotalB_an'] );
+				CTCcalculation['gmr_specialAllowance_mon'] = CTCcalculation['gmr_specialAllowance_an'] /12;
+
+				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_specialAllowance_an'];
+				CTCcalculation['gmr_subTotalA_mon']  = CTCcalculation['gmr_subTotalA_ann'] / 12;
+
+				CTCcalculation['gmr_SubTotal_C_an'] = CTCcalculation['gmr_subTotalA_ann'] + CTCcalculation['gmr_SubTotalB_an'];
+				CTCcalculation['gmr_SubTotal_C_mon'] = CTCcalculation['gmr_SubTotal_C_an'] / 12;
+
+
+				CTCcalculation['gmr_variablePay_an'] = (obj_variable[grade] * CTCcalculation['gmr_SubTotal_C_an'] )/100;
+				CTCcalculation['gmr_variablePay_mon'] = CTCcalculation['gmr_variablePay_an'] /12;
+
+				//CTCcalculation['gmr_costCompany_ABC_an'] = CTCcalculation['gmr_subTotalA_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an'];
+				//CTCcalculation['gmr_costCompany_ABC_mon'] = CTCcalculation['gmr_costCompany_ABC_an'] /12;
+
+				CTCcalculation['gmr_Total_CTC_an'] = CTCcalculation['gmr_variablePay_an'] + CTCcalculation['gmr_SubTotal_C_an'];
+				CTCcalculation['gmr_Total_CTC_mon'] = CTCcalculation['gmr_Total_CTC_an'] /12;
+ 					
+
+				}
+
+				else if (inputstructure == 'LXLH_PAPE') 
 
 				{
 					var obj_Petrol = {
@@ -326,22 +465,22 @@ var $mj = jQuery.noConflict();
 
 				var obj_GTA = {
 
-					'LX' : 18998,
-					'LA' : 18998,
-					'PA' : 18998,
-					'PB' : 13750,
-					'LB' : 13750,
-					'PC' : 6785,
-					'LC' : 6785,
-					'PD' : 5428,
-					'LD' : 5428,
-					'LE' : 5428,
-					'PE' : 5428, 
-					'LF' : 5428,
-					'LG' : 5428,
-					'LH' : 4071,
-					'LI' : 1018,
-					'LJ' : 679
+					'LX' : 19989,
+					'LA' : 19989,
+					'PA' : 19989,
+					'PB' : 14278,
+					'LB' : 14278,
+					'PC' : 7139,
+					'LC' : 7139,
+					'PD' : 5711,
+					'LD' : 5711,
+					'LE' : 5711,
+					'PE' : 5711, 
+					'LF' : 5711,
+					'LG' : 5711,
+					'LH' : 4283,
+					'LI' : 1071,
+					'LJ' : 714
 					
 						
 										
@@ -349,9 +488,9 @@ var $mj = jQuery.noConflict();
 
 				var obj_variable = {
 
-					'LX' : 0,
-					'LA' : 0,
-					'PA' : 0,
+					'LX' : 18.4,
+					'LA' : 18.4,
+					'PA' : 18.4,
 					'PB' : 18.4,
 					'LB' : 18.4,
 					'PC' : 13.8,
@@ -376,16 +515,16 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_BasicSal_mon'] = CTCcalculation['gmr_BasicSal_an'] /12;
 				CTCcalculation['gmr_housingAllow_an'] = (hra * CTCcalculation['gmr_BasicSal_an'] )/100;
 				CTCcalculation['gmr_housingAllow_mon'] = CTCcalculation['gmr_housingAllow_an'] /12;
-				CTCcalculation['gmr_transport_ann'] = petrol =='yes' ? 0 : 19200;
-				CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
+				//CTCcalculation['gmr_transport_ann'] = petrol =='yes' ? 0 : 19200;
+				//CTCcalculation['gmr_transport_mon'] = CTCcalculation['gmr_transport_ann'] /12;
 				CTCcalculation['gmr_childreenEdu_ann'] = child =='1'? 1200 : child =='2' ? 2400 : 0;
 				CTCcalculation['gmr_childreenEdu_mon'] = CTCcalculation['gmr_childreenEdu_ann'] /12;
 				CTCcalculation['gmr_foodCoupons_ann'] = food =='yes' ? 30000 : 0;
 				CTCcalculation['gmr_foodCoupons_mon'] = CTCcalculation['gmr_foodCoupons_ann'] /12;
 				CTCcalculation['gmr_petrolMaint_ann'] = petrol == 'yes' ? obj_Petrol[grade]: 0;
 				CTCcalculation['gmr_petrolMaint_mon'] = CTCcalculation['gmr_petrolMaint_ann'] / 12;
-				CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
-				CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
+				//CTCcalculation['gmr_medicalReimb_an'] = medicalAlow == 'yes'? 15000: 0 ;
+				//CTCcalculation['gmr_medicalReimb_mon'] = CTCcalculation['gmr_medicalReimb_an'] /12;
 				CTCcalculation['gmr_leaveTravelallowance_an'] = parseFloat(inputlta);
 				CTCcalculation['gmr_leaveTravelallowance_mon'] = CTCcalculation['gmr_leaveTravelallowance_an'] / 12;
 				CTCcalculation['gmr_giftVoucher_an'] = parseFloat(inputgift);
@@ -397,7 +536,7 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_BonusExgratia_an'] = (CTCcalculation['gmr_BasicSal_an'] * 10)/100;
 				CTCcalculation['gmr_BonusExgratia_mon'] = CTCcalculation['gmr_BonusExgratia_an'] /12;
 				
-				CTCcalculation['gmr_SubTotalB_an'] = CTCcalculation['gmr_foodCoupons_ann'] + CTCcalculation['gmr_petrolMaint_ann'] + CTCcalculation['gmr_medicalReimb_an'] + CTCcalculation['gmr_leaveTravelallowance_an'] + CTCcalculation['gmr_giftVoucher_an'] + CTCcalculation['gmr_groupMediclaim_an'] + CTCcalculation['gmr_grouptermAssurance_an'] + CTCcalculation['gmr_BonusExgratia_an'];
+				CTCcalculation['gmr_SubTotalB_an'] = CTCcalculation['gmr_foodCoupons_ann'] + CTCcalculation['gmr_petrolMaint_ann']  + CTCcalculation['gmr_leaveTravelallowance_an'] + CTCcalculation['gmr_giftVoucher_an'] + CTCcalculation['gmr_groupMediclaim_an'] + CTCcalculation['gmr_grouptermAssurance_an'] + CTCcalculation['gmr_BonusExgratia_an'];
 				CTCcalculation['gmr_SubTotalB_mon'] = CTCcalculation['gmr_SubTotalB_an'] / 12;
 
 				
@@ -408,17 +547,26 @@ var $mj = jQuery.noConflict();
 				CTCcalculation['gmr_SuperAnuation_an'] = ( CTCcalculation['gmr_BasicSal_an'] * parseFloat(superann) ) /100;
 				CTCcalculation['gmr_SuperAnuation_mon'] = CTCcalculation['gmr_SuperAnuation_an']/12;
 
+				// Calculation for ESIC
+
+				CTCcalculation['gmr_subTotalA_ann'] = ((inputCTC - CTCcalculation['gmr_SubTotalB_an'] - CTCcalculation['gmr_providentFund_an'] - CTCcalculation['gmr_SuperAnuation_an'] ) * 100 )/104.75;
+
+				CTCcalculation['gmr_subTotalA_mon']  = CTCcalculation['gmr_subTotalA_ann'] / 12;
+				CTCcalculation['gmr_esic_mon'] = CTCcalculation['gmr_subTotalA_mon'] < 21000 ? ( CTCcalculation['gmr_subTotalA_mon'] * 4.75 )/100 :0 ;
+				CTCcalculation['gmr_esic_an'] = CTCcalculation['gmr_esic_mon'] * 12;
+
+
 				
-				CTCcalculation['gmr_SubTotal_C_an'] = CTCcalculation['gmr_providentFund_an'] + CTCcalculation['gmr_SuperAnuation_an'];
+				CTCcalculation['gmr_SubTotal_C_an'] = CTCcalculation['gmr_providentFund_an'] + CTCcalculation['gmr_SuperAnuation_an']+ CTCcalculation['gmr_esic_an'];
 				CTCcalculation['gmr_SubTotal_C_mon'] = CTCcalculation['gmr_SubTotal_C_an'] / 12;
 
 				CTCcalculation['gmr_variablePay_an'] = (obj_variable[grade] * inputCTC )/100;
 				CTCcalculation['gmr_variablePay_mon'] = CTCcalculation['gmr_variablePay_an'] /12;
 
-				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann'] + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an']);
+				CTCcalculation['gmr_specialAllowance_an'] = parseFloat(inputCTC) - (CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an']);
 				CTCcalculation['gmr_specialAllowance_mon'] = CTCcalculation['gmr_specialAllowance_an'] /12;
 
-				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an'] + CTCcalculation['gmr_transport_ann'] + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_specialAllowance_an'];
+				CTCcalculation['gmr_subTotalA_ann'] = CTCcalculation['gmr_BasicSal_an'] + CTCcalculation['gmr_housingAllow_an']  + CTCcalculation['gmr_childreenEdu_ann'] + CTCcalculation['gmr_specialAllowance_an'];
 				CTCcalculation['gmr_subTotalA_mon']  = CTCcalculation['gmr_subTotalA_ann'] / 12;
 
 				CTCcalculation['gmr_costCompany_ABC_an'] = CTCcalculation['gmr_subTotalA_ann'] + CTCcalculation['gmr_SubTotalB_an'] + CTCcalculation['gmr_SubTotal_C_an'];
@@ -461,7 +609,7 @@ var $mj = jQuery.noConflict();
 		var inputlta = $mj('#selectLta').val();
 		var inputgift = $mj('#selectGiftVoucher').val();
 		var inputmediclaim = $mj('#selectGroupMediclaim').val();
-		var inputmedicalAllow = $mj('#medicalAllowance').val();
+		//var inputmedicalAllow = $mj('#medicalAllowance').val();
 
 		var inputSuperan = $mj('#selectSuperannuation').val();
 
@@ -472,7 +620,7 @@ if (inputComp != 'selCompany')
 {
 		
   
-	if( inputStr == 'LXLH_PAPE' || inputStr == 'LI_LJ' || inputStr == 'principalAssociate_Critical' ) 
+	if( inputStr == 'LXLH_PAPE' || inputStr == 'LI_LJ' || inputStr == 'principalAssociate_Critical' || inputStr == 'principalAssociate_NonCritical' ) 
 
 	{
 
@@ -486,9 +634,9 @@ if (inputComp != 'selCompany')
 		if (inputStr == "LXLH_PAPE") {
 
 
-			if ( inputgrade != 'selectgra' && inputhra != 'selectHra' && inputPetrol != 'selPetrol' && inputchild != 'selChildreen' && inputfood != 'selFoodCoupon' && inputlta != 'selLta' && inputgift !='selGift' && inputmediclaim != 'selMediclaim' && inputmedicalAllow != 'selmedical' && inputSuperan !='selSuperannuation')
+			if ( inputgrade != 'selectgra' && inputhra != 'selectHra' && inputPetrol != 'selPetrol' && inputchild != 'selChildreen' && inputfood != 'selFoodCoupon' && inputlta != 'selLta' && inputgift !='selGift' && inputmediclaim != 'selMediclaim'  && inputSuperan !='selSuperannuation')
 			{
-			 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputmedicalAllow, inputComp);
+			 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputComp);
 
         		for( var key in sal){
 
@@ -497,21 +645,27 @@ if (inputComp != 'selCompany')
         				
 						$mj('[name="'+key+'"]').val(sal[key]);
 
+						
         			}
         			else
         			{
+
+
         				var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
 
+						
 
 						
         			}
 
-        			var baseId_mon = $mj('[name="'+key+'"]').attr("id");
+        				var baseId_mon = $mj('[name="'+key+'"]').attr("id");
 					
 						$mj('[name="'+key+'"]').addClass('unsaved');
 						juic.fire(baseId_mon,"_onChange",event);
+
+
 
 			 	
 				}
@@ -520,7 +674,7 @@ if (inputComp != 'selCompany')
 			}
 			else
 				{
-				alert('Please Select "GRADE" | "HRA" | "PETROL" | "CHILDREEN ALLOWANCE" | "FOODCOUPON" | "LTA" | "GIFT ALLOWANCE" | "MEDICLAIM" | "MEDICAL ALLOWANCE" | "SUPPERANNUATION" ');
+				alert('Please Select "GRADE" | "HRA" | "PETROL" | "CHILDREEN ALLOWANCE" | "FOODCOUPON" | "LTA" | "GIFT ALLOWANCE" | "MEDICLAIM" | "SUPPERANNUATION" ');
 				}
 
 
@@ -528,23 +682,23 @@ if (inputComp != 'selCompany')
 
 			else if (inputStr == 'LI_LJ') {
 
-				if ( inputgrade != 'selectgra' && inputhra != 'selectHra'  && inputchild != 'selChildreen'  && inputlta != 'selLta'  && inputmediclaim != 'selMediclaim' &&  inputmedicalAllow != 'selmedical' && inputSuperan !='selSuperannuation')
+				if ( inputgrade != 'selectgra' && inputhra != 'selectHra'  && inputchild != 'selChildreen'  && inputlta != 'selLta'  && inputmediclaim != 'selMediclaim'  && inputSuperan !='selSuperannuation')
 				{
-				 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputmedicalAllow, inputComp);
+				 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan,  inputComp);
 
         		for( var key in sal){
 
 			 		if (key == 'gmr_grade') {
 
         				$mj('[name="'+key+'"]').val(sal[key]);
-
+        				
         			}
         			else
         			{
         				var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
-
+						
         			}
 
         				var baseId_mon = $mj('[name="'+key+'"]').attr("id");
@@ -559,7 +713,7 @@ if (inputComp != 'selCompany')
 				}
 				else
 				{
-				alert('Please Select "GRADE" | "HRA" | "CHILDREEN ALLOWANCE" |  "LTA" | "MEDICLAIM" | "MEDICAL ALLOWANCE" | "SUPPERANNUATION" ');
+				alert('Please Select "GRADE" | "HRA" | "CHILDREEN ALLOWANCE" |  "LTA" | "MEDICLAIM" |  "SUPPERANNUATION" ');
 				}
 
 			}
@@ -567,10 +721,10 @@ if (inputComp != 'selCompany')
 			else if (inputStr == "principalAssociate_Critical") {
 
 
-			if ( inputgrade != 'selectgra' && inputhra != 'selectHra' && inputPetrol != 'selPetrol'  && inputfood != 'selFoodCoupon' && inputlta != 'selLta'  && inputmediclaim != 'selMediclaim' && inputmedicalAllow != 'selmedical' )
+			if ( inputgrade != 'selectgra' && inputhra != 'selectHra' && inputPetrol != 'selPetrol'  && inputfood != 'selFoodCoupon' && inputlta != 'selLta'  && inputmediclaim != 'selMediclaim' )
 				{
 
-				 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputmedicalAllow,inputComp);
+				 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputComp);
 
         		for( var key in sal){
 
@@ -578,12 +732,15 @@ if (inputComp != 'selCompany')
 
         				$mj('[name="'+key+'"]').val(sal[key]);
 
+        				
         			}
         			else
         			{
         				var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
+
+						
         			}
         			
         			
@@ -597,11 +754,55 @@ if (inputComp != 'selCompany')
 			}
 			else
 				{
-				alert('Please Select "GRADE" | "HRA" | "PETROL" | "FOODCOUPON" | "LTA"  | "MEDICLAIM" | "MEDICAL ALLOWANCE"  ');
+				alert('Please Select "GRADE" | "HRA" | "PETROL" | "FOODCOUPON" | "LTA"  | "MEDICLAIM"   ');
 				}
 
 
 			}
+
+
+			else if (inputStr == "principalAssociate_NonCritical") {
+
+
+			if ( inputgrade != 'selectgra' && inputhra != 'selectHra' && inputPetrol != 'selPetrol'  && inputfood != 'selFoodCoupon' && inputlta != 'selLta'  && inputmediclaim != 'selMediclaim' )
+				{
+
+				 var sal  = calcCTC(inputStr,inputCTC,inputgrade, inputhra, inputPetrol, inputchild, inputfood, inputlta, inputgift, inputmediclaim, inputSuperan, inputComp);
+
+        		for( var key in sal){
+
+			 		if (key == 'gmr_grade') {
+
+        				$mj('[name="'+key+'"]').val(sal[key]);
+
+        				
+        			}
+        			else
+        			{
+        				var salComponent = Math.round(sal[key]);
+			 			var round = salComponent.toLocaleString('en-IN');
+						$mj('[name="'+key+'"]').val(round);
+
+						
+        			}
+        			
+        			
+        				var baseId_mon = $mj('[name="'+key+'"]').attr("id");
+					
+						$mj('[name="'+key+'"]').addClass('unsaved');
+						juic.fire(baseId_mon,"_onChange",event);
+				}
+	
+
+			}
+			else
+				{
+				alert('Please Select "GRADE" | "HRA" | "PETROL" | "FOODCOUPON" | "LTA"  | "MEDICLAIM"  ');
+				}
+
+
+			}
+
 
 
 				
@@ -635,6 +836,59 @@ alert("Please select Company");
 });
 	
 
+		$mj('#structure').on('change', function(){
+
+			$mj('#selectgrade').html('');
+				    
+			 if ($mj('#structure').val()=='LXLH_PAPE') {
+			 			$mj('#selectgrade').append('<option value="selectgra">Select Grade</option>');
+				        $mj('#selectgrade').append('<option value="LX">LX</option>');
+				        $mj('#selectgrade').append('<option value="LA">LA</option>');
+				        $mj('#selectgrade').append('<option value="LB">LB</option>');
+				        $mj('#selectgrade').append('<option value="LC">LC</option>');
+				        $mj('#selectgrade').append('<option value="LD">LD</option>');
+				        $mj('#selectgrade').append('<option value="LE">LE</option>');
+				        $mj('#selectgrade').append('<option value="LF">LF</option>');
+				        $mj('#selectgrade').append('<option value="LG">LG</option>');
+				        $mj('#selectgrade').append('<option value="LH">LH</option>');
+				        $mj('#selectgrade').append('<option value="PA">PA</option>');
+				        $mj('#selectgrade').append('<option value="PB">PB</option>');
+				        $mj('#selectgrade').append('<option value="PC">PC</option>');
+				        $mj('#selectgrade').append('<option value="PD">PD</option>');
+				        $mj('#selectgrade').append('<option value="PE">PE</option>');
+				        
+				        
+				    }
+
+			else if ($mj('#structure').val()=='LI_LJ') {
+						$mj('#selectgrade').append('<option value="selectgra">Select Grade</option>');
+				        $mj('#selectgrade').append('<option value="LI">LI</option>');
+				        $mj('#selectgrade').append('<option value="LJ">LJ</option>');
+				        
+				    }
+
+			else if ($mj('#structure').val()=='principalAssociate_Critical' || $mj('#structure').val()=='principalAssociate_NonCritical') {
+						$mj('#selectgrade').append('<option value="selectgra">Select Grade</option>');
+				        $mj('#selectgrade').append('<option value="LX">LX</option>');
+				        $mj('#selectgrade').append('<option value="LA">LA</option>');
+				        $mj('#selectgrade').append('<option value="LB">LB</option>');
+				        $mj('#selectgrade').append('<option value="LC">LC</option>');
+				        $mj('#selectgrade').append('<option value="LD">LD</option>');
+				        $mj('#selectgrade').append('<option value="LE">LE</option>');
+				        $mj('#selectgrade').append('<option value="LF">LF</option>');
+				        $mj('#selectgrade').append('<option value="LG">LG</option>');
+				        $mj('#selectgrade').append('<option value="LH">LH</option>');
+				        $mj('#selectgrade').append('<option value="PA">PA</option>');
+				        $mj('#selectgrade').append('<option value="PB">PB</option>');
+				        $mj('#selectgrade').append('<option value="PC">PC</option>');
+				        $mj('#selectgrade').append('<option value="PD">PD</option>');
+				        $mj('#selectgrade').append('<option value="PE">PE</option>');
+				    }	    
+
+
+
+
+		});
 	
 
 		

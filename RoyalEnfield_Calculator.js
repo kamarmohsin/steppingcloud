@@ -345,7 +345,7 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['proposed_totalVariablePay_an'] = CTCcalculation['RR_variablePay_an'];
 						CTCcalculation['proposed_totalVariablePay_pm'] = CTCcalculation['proposed_totalVariablePay_an']/12;
 
-						CTCcalculation['IncreasedPer_totalVariablePay_an'] = ((CTCcalculation['proposed_totalVariablePay_an'] - curr_pmpBonus)/curr_pmpBonus) * 100;
+						CTCcalculation['IncreasedPer_totalVariablePay_an'] = (curr_pmpBonus == 0) ? 0 : ((CTCcalculation['proposed_totalVariablePay_an'] - curr_pmpBonus)/curr_pmpBonus) * 100;
 					        CTCcalculation['current_pmpBonus_an'] = curr_pmpBonus;
 
 
@@ -426,7 +426,7 @@ var $mj = jQuery.noConflict();
     				// pfInword
 
 
-					num = CTCcalculation['RR_providentFund_an'];
+					num = CTCcalculation['RR_variablePay_an'];
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);

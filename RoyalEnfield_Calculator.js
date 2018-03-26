@@ -539,7 +539,7 @@ var $mj = jQuery.noConflict();
 
 
 
-        		if (key == 'totalCompensationInword' || key == 'fixedCTCInword' || key == 'basicInword' || key == 'pfInword' || key == 'fpaInword') {
+        		if (key == 'totalCompensationInword' || key == 'fixedCTCInword' || key == 'basicInword' || key == 'variableInword' || key == 'fpaInword') {
 
         			var salComponent = (sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');

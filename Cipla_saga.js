@@ -62,7 +62,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var tax_medical = ( CTCComponents['medicalAid']);
 				var tax_pensionFund = ( CTCComponents['pensionFund']);
 				
-				Var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_vehicleInsurance  +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
+				var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_vehicleInsurance  +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
 				
 				var range1 = taxableIncome > 189880 ? 0 : (taxableIncome - 0 );
 				var range_A = range1 > 0 ? ((taxableIncome - 0 ) * 0.18 ) + 0 : 0;

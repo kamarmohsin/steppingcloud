@@ -345,7 +345,7 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['proposed_totalVariablePay_an'] = CTCcalculation['RR_variablePay_an'];
 						CTCcalculation['proposed_totalVariablePay_pm'] = CTCcalculation['proposed_totalVariablePay_an']/12;
 
-						CTCcalculation['IncreasedPer_totalVariablePay_an'] = (curr_pmpBonus == 0) ? 0 : ((CTCcalculation['proposed_totalVariablePay_an'] - curr_pmpBonus)/curr_pmpBonus) * 100;
+						CTCcalculation['IncreasedPer_totalVariablePay_an'] =  ((CTCcalculation['proposed_totalVariablePay_an'] - curr_pmpBonus)/curr_pmpBonus) * 100;
 					        CTCcalculation['current_pmpBonus_an'] = curr_pmpBonus;
 
 

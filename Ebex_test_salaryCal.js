@@ -307,7 +307,7 @@ var $mj = jQuery.noConflict();
 					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
 	
 						
-					num = CTCcalculation['eb_grossSalary_an'];
+					num = Math.round(CTCcalculation['eb_grossSalary_an']);
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
@@ -324,7 +324,7 @@ var $mj = jQuery.noConflict();
 					//	grossInWords	Monthly
 						
 						
-					num = CTCcalculation['grossSalary_mon'];
+					num = Math.round(CTCcalculation['grossSalary_mon']);
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
@@ -347,7 +347,7 @@ var $mj = jQuery.noConflict();
 					var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
 					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
 
-					num = CTCcalculation['eb_variablePay_an'];
+					num = Math.round(CTCcalculation['eb_variablePay_an']);
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);

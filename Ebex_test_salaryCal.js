@@ -324,7 +324,7 @@ var $mj = jQuery.noConflict();
 					//	grossInWords	Monthly
 						
 						
-					num = Math.round(CTCcalculation['grossSalary_mon']);
+					num = Math.round(CTCcalculation['eb_grossSalary_mon']);
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);

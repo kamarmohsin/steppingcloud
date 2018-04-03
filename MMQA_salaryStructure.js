@@ -2024,17 +2024,17 @@ var $mj = jQuery.noConflict();
 				    $mj('#selectLevel').html('');
 				    if($mj('#company').val()=='1049' || $mj('#company').val()=='1054' || $mj('#company').val()=='1055'){
 				    	$mj('#selectLevel').append('<option value="selectlevel">Select Level</option>');
-				    	$mj('#selectLevel').append('<option value="DL1">DL-1</option>');
-				    	$mj('#selectLevel').append('<option value="DL2">DL-2</option>');
-				    	$mj('#selectLevel').append('<option value="DL3">DL-3</option>');
-				    	$mj('#selectLevel').append('<option value="TL1">TL-1</option>');
-				    	$mj('#selectLevel').append('<option value="TL2">TL-2</option>');
-				    	$mj('#selectLevel').append('<option value="TL3">TL-3</option>');
-				    	$mj('#selectLevel').append('<option value="TL4">TL-4</option>');
-				    	$mj('#selectLevel').append('<option value="TM1">TM-1</option>');
-				    	$mj('#selectLevel').append('<option value="TM2">TM-2</option>');
-				    	$mj('#selectLevel').append('<option value="TM3">TM-3</option>');
-				    	$mj('#selectLevel').append('<option value="TM4">TM-4</option>');
+				    	$mj('#selectLevel').append('<option value="DL1">Division Leader-DL1</option>');
+				    	$mj('#selectLevel').append('<option value="DL2">Division Leader-DL2</option>');
+				    	$mj('#selectLevel').append('<option value="DL3">Division Leader-DL3</option>');
+				    	$mj('#selectLevel').append('<option value="TL1">Team Leader-TL 1</option>');
+				    	$mj('#selectLevel').append('<option value="TL2">Team Leader-TL 2</option>');
+				    	$mj('#selectLevel').append('<option value="TL3">Team Leader-TL 3</option>');
+				    	$mj('#selectLevel').append('<option value="TL4">Team Leader-TL 4</option>');
+				    	$mj('#selectLevel').append('<option value="TM1">Team Member-TM 1</option>');
+				    	$mj('#selectLevel').append('<option value="TM2">Team Member-TM 2</option>');
+				    	$mj('#selectLevel').append('<option value="TM3">Team Member-TM 3</option>');
+				    	$mj('#selectLevel').append('<option value="TM4">Team Member-TM 4</option>');
 						
 						
 						// Sector 
@@ -2053,18 +2053,18 @@ var $mj = jQuery.noConflict();
 
 				    else if ($mj('#company').val()=='1001' || $mj('#company').val()=='1019' || $mj('#company').val()=='1020' || $mj('#company').val()=='1021') {
 				    	$mj('#selectLevel').append('<option value="selectlevel">Select Level</option>');
-				    	$mj('#selectLevel').append('<option value="exl2">EX-L2</option>');
-				    	$mj('#selectLevel').append('<option value="exl3">EX-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl3">DH-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl4">DH-L4</option>');
-				    	$mj('#selectLevel').append('<option value="dhl5">DH-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml5">M-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml6">M-L6</option>');
-				    	$mj('#selectLevel').append('<option value="ml7">M-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol7">O-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
-				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
-				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+				    	$mj('#selectLevel').append('<option value="exl2">L2-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="exl3">L3-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="dhl3">L3-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl4">L4-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl5">L5-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="ml5">L5-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml6">L6-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml7">L7-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ol7">L7-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol8">L8-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol9">L9-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol10">L10-Operational</option>');
 						
 						
 						$mj('#sector').html('');
@@ -2147,18 +2147,18 @@ var $mj = jQuery.noConflict();
 
 				    else if ($mj('#company').val()=='1024' ) {
 				    	$mj('#selectLevel').append('<option value="selectlevel">Select Level</option>');
-				    	$mj('#selectLevel').append('<option value="exl2">EX-L2</option>');
-				    	$mj('#selectLevel').append('<option value="exl3">EX-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl3">DH-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl4">DH-L4</option>');
-				    	$mj('#selectLevel').append('<option value="dhl5">DH-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml5">M-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml6">M-L6</option>');
-				    	$mj('#selectLevel').append('<option value="ml7">M-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol7">O-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
-				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
-				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+				    	$mj('#selectLevel').append('<option value="exl2">L2-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="exl3">L3-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="dhl3">L3-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl4">L4-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl5">L5-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="ml5">L5-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml6">L6-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml7">L7-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ol7">L7-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol8">L8-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol9">L9-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol10">L10-Operational</option>');
 						
 						//Sector
 
@@ -2176,18 +2176,18 @@ var $mj = jQuery.noConflict();
 
 				    else if ($mj('#company').val()=='1037' ) {
 				    	$mj('#selectLevel').append('<option value="selectlevel">Select Level</option>');
-				    	$mj('#selectLevel').append('<option value="exl2">EX-L2</option>');
-				    	$mj('#selectLevel').append('<option value="exl3">EX-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl3">DH-L3</option>');
-				    	$mj('#selectLevel').append('<option value="dhl4">DH-L4</option>');
-				    	$mj('#selectLevel').append('<option value="dhl5">DH-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml5">M-L5</option>');
-				    	$mj('#selectLevel').append('<option value="ml6">M-L6</option>');
-				    	$mj('#selectLevel').append('<option value="ml7">M-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol7">O-L7</option>');
-				    	$mj('#selectLevel').append('<option value="ol8">O-L8</option>');
-				    	$mj('#selectLevel').append('<option value="ol9">O-L9</option>');
-				    	$mj('#selectLevel').append('<option value="ol10">O-L10</option>');
+				    	$mj('#selectLevel').append('<option value="exl2">L2-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="exl3">L3-Executive</option>');
+				    	$mj('#selectLevel').append('<option value="dhl3">L3-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl4">L4-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="dhl5">L5-Department Head</option>');
+				    	$mj('#selectLevel').append('<option value="ml5">L5-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml6">L6-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ml7">L7-Managerial</option>');
+				    	$mj('#selectLevel').append('<option value="ol7">L7-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol8">L8-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol9">L9-Operational</option>');
+				    	$mj('#selectLevel').append('<option value="ol10">L10-Operational</option>');
 						
 						//Sector
 
@@ -2224,18 +2224,18 @@ var $mj = jQuery.noConflict();
 
 				    else if ($mj('#company').val()=='1065') {
 				    	$mj('#selectLevel').append('<option value="selectlevel">Select Level</option>');
-				    	$mj('#selectLevel').append('<option value="jr_Officer">Jr.Officer</option>');
+				    	$mj('#selectLevel').append('<option value="jr_Officer">Jr. Officer</option>');
 				    	$mj('#selectLevel').append('<option value="Officer">Officer</option>');
-				    	$mj('#selectLevel').append('<option value="sr_Officer">Sr.Officer</option>');
+				    	$mj('#selectLevel').append('<option value="sr_Officer">Sr. Officer</option>');
 				    	$mj('#selectLevel').append('<option value="executive">Executive</option>');
-				    	$mj('#selectLevel').append('<option value="sr_executive">Sr.Executive</option>');
+				    	$mj('#selectLevel').append('<option value="sr_executive">Sr. Executive</option>');
 				    	$mj('#selectLevel').append('<option value="manager">Manager</option>');
-				    	$mj('#selectLevel').append('<option value="sr_Manager">Sr.Manager</option>');
-				    	$mj('#selectLevel').append('<option value="dgm">DGM</option>');
-				    	$mj('#selectLevel').append('<option value="gm">GM</option>');
-				    	$mj('#selectLevel').append('<option value="asst_VP">Asst.VP</option>');
+				    	$mj('#selectLevel').append('<option value="sr_Manager">Sr. Manager</option>');
+				    	$mj('#selectLevel').append('<option value="dgm">Deputy Gen Manager</option>');
+				    	$mj('#selectLevel').append('<option value="gm">Gen. Manager</option>');
+				    	$mj('#selectLevel').append('<option value="asst_VP">Asst VP</option>');
 				    	$mj('#selectLevel').append('<option value="VP">VP</option>');
-				    	$mj('#selectLevel').append('<option value="sr_VP">Sr.VP</option>');
+				    	$mj('#selectLevel').append('<option value="sr_VP">Sr. VP</option>');
 						
 						//Sector
 

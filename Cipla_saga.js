@@ -59,8 +59,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var tax_vehicleInsurance = (vehicleInsurance * 12 );
 				var tax_allowance = ((maintenanceAllow + dailyAllow + cellAllowance + computerAllowance) * 12 );
 				var tax_compContrib = ((CTCComponents['groupLife'] + CTCComponents['disability'] + vitality + CTCComponents['admedGap']) * 12 );
-				var tax_medical = ( CTCComponents['medicalAid']);
-				var tax_pensionFund = ( CTCComponents['pensionFund']);
+				var tax_medical = ( CTCComponents['medicalAid'] * 12);
+				var tax_pensionFund = ( CTCComponents['pensionFund'] * 12);
 				
 				var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_vehicleInsurance  +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
 				
@@ -88,19 +88,23 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var D24 = (((708310 - 555600 ) * 0.39) + D23)
 				var range_F = range6 > 0 ? ((taxableIncome - 708311 ) * 0.41 ) + D24 : 0;
 				
-				var range7 = (taxableIncome - 708311 );
+				var range7 = (taxableIncome - 1500001 );
 				var D25 = (((1500000 - 708310 ) * 0.41) + D24)
 				var range_G = range7 > 0 ? ((taxableIncome - 1500001 ) * 0.45 ) + D25 : 0;
 				
 				
 				var sum_taxableIncome =range_A + range_B + range_C + range_D + range_E + range_F + range_G;
 				
-				var primary_rebate = 7459;
+				var primary_rebate = 13500;
+
+
 				
 				
 				var medicalTaxcredit = (3-2) *192 + (2 * 286);
 				
 				var payeCalculated = (( sum_taxableIncome - primary_rebate)/12 ) - medicalTaxcredit;
+
+				alert(range_G);
 				
 				CTCComponents['paye'] = payeCalculated;
 				

@@ -26,29 +26,30 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var TravelAllowance = isNaN(parseFloat($mj('[name="TravelAllowance"]').val()))? 0 : parseFloat($mj('[name="TravelAllowance"]').val());
 				
 				var fuelCardestimate = isNaN(parseFloat($mj('[name="fuelCardestimate"]').val()))? 0 : parseFloat($mj('[name="fuelCardestimate"]').val());
-				var vehicleInsurance = isNaN(parseFloat($mj('[name="vehicleInsurance"]').val()))? 0 : parseFloat($mj('[name="vehicleInsurance"]').val());
+				//var vehicleInsurance = isNaN(parseFloat($mj('[name="vehicleInsurance"]').val()))? 0 : parseFloat($mj('[name="vehicleInsurance"]').val());
 				var maintenanceAllow = isNaN(parseFloat($mj('[name="maintenanceAllow"]').val()))? 0 : parseFloat($mj('[name="maintenanceAllow"]').val());
 				var dailyAllow = isNaN(parseFloat($mj('[name="dailyAllow"]').val()))? 0 : parseFloat($mj('[name="dailyAllow"]').val());
 				var cellAllowance = isNaN(parseFloat($mj('[name="cellAllowance"]').val()))? 0 : parseFloat($mj('[name="cellAllowance"]').val());
-				var cellReimbusement = isNaN(parseFloat($mj('[name="cellReimbusement"]').val()))? 0 : parseFloat($mj('[name="cellReimbusement"]').val());
-				var computerAllowance = isNaN(parseFloat($mj('[name="computerAllowance"]').val()))? 0 : parseFloat($mj('[name="computerAllowance"]').val());
+				//var cellReimbusement = isNaN(parseFloat($mj('[name="cellReimbusement"]').val()))? 0 : parseFloat($mj('[name="cellReimbusement"]').val());
+				//var computerAllowance = isNaN(parseFloat($mj('[name="computerAllowance"]').val()))? 0 : parseFloat($mj('[name="computerAllowance"]').val());
+				var medicalAid = isNaN(parseFloat($mj('[name="medicalAid"]').val()))? 0 : parseFloat($mj('[name="medicalAid"]').val());
 				
 				
 				var ded_vitality = isNaN(parseFloat($mj('[name="ded_vitality"]').val()))? 0 : parseFloat($mj('[name="ded_vitality"]').val());
 				
 				var vitality = isNaN(parseFloat($mj('[name="vitality"]').val()))? 0 : parseFloat($mj('[name="vitality"]').val());
 						
-				CTCComponents['subtotal'] = basic + TravelAllowance+ fuelCardestimate+ vehicleInsurance+maintenanceAllow+dailyAllow+cellAllowance+cellReimbusement+computerAllowance;
+				CTCComponents['subtotal'] = basic + TravelAllowance+ fuelCardestimate+maintenanceAllow+dailyAllow+cellAllowance;
 				CTCComponents['groupLife'] = (basic * 0.43)/100;
 				CTCComponents['disability'] = (basic * 0.56)/100;
 				CTCComponents['admedGap'] = 47;
 				CTCComponents['funeral'] = 16.05;
 				CTCComponents['pensionFund'] = (basic * 7.5)/100;
-				CTCComponents['medicalAid'] = 2109.50;
+				//CTCComponents['medicalAid'] = 2109.50;
 				CTCComponents['ded_admedGap'] = 47;
 				CTCComponents['uif'] = 148.72;
 				CTCComponents['fuelCardEstimate'] = fuelCardestimate;
-				CTCComponents['InsuranceEstimate'] = vehicleInsurance;
+				//CTCComponents['InsuranceEstimate'] = vehicleInsurance;
 				
 				
 				// TaX Calculator
@@ -56,13 +57,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var tax_basic = (basic * 12);
 				var tax_travel = (TravelAllowance * 12 * 0.8);
 				var tax_fuelCardEstimate = (fuelCardestimate * 12 * 0.8);
-				var tax_vehicleInsurance = (vehicleInsurance * 12 );
-				var tax_allowance = ((maintenanceAllow + dailyAllow + cellAllowance + computerAllowance) * 12 );
+				//var tax_vehicleInsurance = (vehicleInsurance * 12 );
+				var tax_allowance = ((maintenanceAllow + dailyAllow + cellAllowance ) * 12 );
 				var tax_compContrib = ((CTCComponents['groupLife'] + CTCComponents['disability'] + vitality + CTCComponents['admedGap']) * 12 );
-				var tax_medical = ( CTCComponents['medicalAid'] * 12);
+				var tax_medical = ( medicalAid * 12);
 				var tax_pensionFund = ( CTCComponents['pensionFund'] * 12);
 				
-				var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_vehicleInsurance  +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
+				var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
 				
 				var range1 = taxableIncome > 189880 ? 0 : (taxableIncome - 0 );
 				var range_A = range1 > 0 ? ((taxableIncome - 0 ) * 0.18 ) + 0 : 0;
@@ -108,13 +109,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				
 				CTCComponents['paye'] = payeCalculated;
 				
-				CTCComponents['netSalary'] = CTCComponents['subtotal'] - CTCComponents['pensionFund'] - CTCComponents['medicalAid'] -  ded_vitality - CTCComponents['ded_admedGap'] - CTCComponents['paye'] - CTCComponents['uif'] - CTCComponents['fuelCardEstimate'] - CTCComponents['InsuranceEstimate'];
-				CTCComponents['earning'] = CTCComponents['subtotal'] - fuelCardestimate - vehicleInsurance;
-				CTCComponents['companymedAid'] = CTCComponents['medicalAid'];
+				CTCComponents['netSalary'] = CTCComponents['subtotal'] - CTCComponents['pensionFund'] - medicalAid -  ded_vitality - CTCComponents['ded_admedGap'] - CTCComponents['paye'] - CTCComponents['uif'] - CTCComponents['fuelCardEstimate'];
+				CTCComponents['earning'] = CTCComponents['subtotal'] - fuelCardestimate; 
+				CTCComponents['companymedAid'] = medicalAid;
 				CTCComponents['companyPensFund'] = (basic * 6.51)/100;
 				CTCComponents['companyContribution'] = CTCComponents['groupLife'] + CTCComponents['disability'] + CTCComponents['admedGap']+ CTCComponents['funeral'] + vitality;
-				CTCComponents['insurance'] = vehicleInsurance;
-				CTCComponents['costTocompany'] = CTCComponents['earning']+ CTCComponents['companymedAid']+ CTCComponents['companyPensFund']+ CTCComponents['companyContribution']+CTCComponents['insurance'];
+				//CTCComponents['insurance'] = vehicleInsurance;
+				CTCComponents['costTocompany'] = CTCComponents['earning']+ CTCComponents['companymedAid']+ CTCComponents['companyPensFund']+ CTCComponents['companyContribution'];
 				
 				
 				

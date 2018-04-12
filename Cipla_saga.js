@@ -46,7 +46,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				CTCComponents['funeral'] = 16.05;
 				CTCComponents['pensionFund'] = (basic * 7.5)/100;
 				//CTCComponents['medicalAid'] = 2109.50;
-				CTCComponents['ded_admedGap'] = 47;
+				CTCComponents['ded_admedGap'] = CTCComponents['admedGap'];
 				CTCComponents['uif'] = 148.72;
 				CTCComponents['fuelCardEstimate'] = fuelCardestimate;
 				//CTCComponents['InsuranceEstimate'] = vehicleInsurance;

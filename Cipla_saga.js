@@ -65,24 +65,24 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				
 				var taxableIncome = tax_basic  + tax_travel + tax_fuelCardEstimate +tax_allowance  + tax_compContrib +tax_medical  - tax_pensionFund;
 				
-				var range1 = taxableIncome > 189880 ? 0 : (taxableIncome - 0 );
+				var range1 = taxableIncome > 195850 ? 0 : (taxableIncome - 0 );
 				var range_A = range1 > 0 ? ((taxableIncome - 0 ) * 0.18 ) + 0 : 0;
 				
-				var range2 = taxableIncome > 296540 ? 0 : (taxableIncome - 189881 );
-				var D20 = (189880 * 0.18);
-				var range_B = range2 > 0 ? ((taxableIncome - 189881 ) * 0.26 ) + D20 : 0;
+				var range2 = taxableIncome > 305850 ? 0 : (taxableIncome - 195851 );
+				var D20 = (195850 * 0.18);
+				var range_B = range2 > 0 ? ((taxableIncome - 195851 ) * 0.26 ) + D20 : 0;
 				
 				
-				var range3 = taxableIncome > 410460 ? 0 : (taxableIncome - 296541 );
-				var D21 = (((296540 - 189880 ) * 0.26) + D20);
-				var range_C = range3 > 0 ? ((taxableIncome - 296541 ) * 0.31 ) + D21 : 0;
+				var range3 = taxableIncome > 423300 ? 0 : (taxableIncome - 305851 );
+				var D21 = (((305850 - 195850 ) * 0.26) + D20);
+				var range_C = range3 > 0 ? ((taxableIncome - 305851 ) * 0.31 ) + D21 : 0;
 				
-				var range4 = taxableIncome > 555600 ? 0 : (taxableIncome - 410461 );
-				var D22 = (((410460 - 296540 ) * 0.31) + D21)
-				var range_D = range4 > 0 ? ((taxableIncome - 410461 ) * 0.36 ) + D22 : 0;
+				var range4 = taxableIncome > 555600 ? 0 : (taxableIncome - 423301 );
+				var D22 = (((423300 - 305850 ) * 0.31) + D21)
+				var range_D = range4 > 0 ? ((taxableIncome - 423301 ) * 0.36 ) + D22 : 0;
 				
 				var range5 = taxableIncome > 708310 ? 0 : (taxableIncome - 555601 );
-				var D23 = (((555600 - 410460 ) * 0.36) + D22)
+				var D23 = (((555600 - 423300 ) * 0.36) + D22)
 				var range_E = range5 > 0 ? ((taxableIncome - 555601 ) * 0.39 ) + D23 : 0;
 				
 				var range6 = taxableIncome > 1500000 ? 0 : (taxableIncome - 708311 );
@@ -96,12 +96,15 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				
 				var sum_taxableIncome =range_A + range_B + range_C + range_D + range_E + range_F + range_G;
 				
-				var primary_rebate = 13500;
+				var primary_rebate = 14067;
 
 
+				var numDependent = isNaN(parseFloat($mj('[name="dependents"]').val()))? 0 : parseFloat($mj('[name="dependents"]').val());
+								
+				var medicalTaxcredit = numDependent <2 ? numDependent * 310 : (numDependent-2) * 209 + (2 * 310);
+
+				//var medicalTaxcredit =   (3-2) * 209 + (2 * 310);
 				
-				
-				var medicalTaxcredit = (3-2) *192 + (2 * 286);
 				
 				var payeCalculated = (( sum_taxableIncome - primary_rebate)/12 ) - medicalTaxcredit;
 

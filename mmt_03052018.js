@@ -25,9 +25,7 @@ var $mj = jQuery.noConflict();
 			var calcCTC =  function(offerCtc, variable){
 
 				var inputCTC_an = offerCtc;
-				var level = inputlevel;
-
-				var inputCar = car;
+				
 
 				var variablePer = isNaN(parseFloat(variable))? 0 : parseFloat(variable);	
 

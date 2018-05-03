@@ -56,7 +56,25 @@ var $mj = jQuery.noConflict();
 
 						}
 
-						
+						// Not in use
+
+						var conveyance = {
+							'ctc_lt_282000': 1600,
+							'ctc_lt_700000': 1600,
+							'ctc_gt_700000': 1600,
+													
+						}
+
+						// Not in use
+
+						var medical = {
+
+							'ctc_lt_282000': Math.round(fixedCtc_Mon[level] > 20000 ? 1250 : fixedCtc_Mon[level] > 12500 ? 1000 : 0 ),
+							'ctc_lt_700000': Math.round(fixedCtc_Mon[level] > 20000 ? 1250 : 1000 ),
+							
+							'ctc_gt_700000': Math.round(fixedCtc_Mon[level] > 20000 ? 1250 : 1000 ),
+							
+						}
 
 						var lta = {
 
@@ -85,9 +103,26 @@ var $mj = jQuery.noConflict();
 						}
 
 
+						//Not in use
+
+						var baseSalary = {
+
+							'ctc_lt_282000': Math.round((( fixedCtc_Mon[level] - pf[level] ) * 100 ) /104.75),
+							'ctc_lt_700000': Math.round((( fixedCtc_Mon[level] - pf[level] ) ) ),
+							
+							'ctc_gt_700000': Math.round((( fixedCtc_Mon[level] - pf[level] ) ) ),
+							
+						}
 
 
-						
+						var esic = {
+
+							'ctc_lt_282000': Math.round( baseSalary[level] < 21001 ? (baseSalary[level] * 4.75)/100 : 0),
+							'ctc_lt_700000': 0,
+							
+							'ctc_gt_700000': 0,
+
+						}
 
 						var retirals = {
 
@@ -124,15 +159,6 @@ var $mj = jQuery.noConflict();
 							
 							'ctc_gt_700000': (basicsalary[level] + hra[level] + lta[level] + telephone[level] + specialAllowance[level] ),
 							
-
-						}
-						
-						var esic = {
-
-							'ctc_lt_282000': Math.round( baseSalary_A[level] < 21001 ? (baseSalary_A[level] * 4.75)/100 : 0),
-							'ctc_lt_700000': 0,
-							
-							'ctc_gt_700000': 0,
 
 						}
 

@@ -211,7 +211,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_providentFund_mon'] =  (CTCcalculation['eb_BasicSal_mon'] * 12) /100;
 					CTCcalculation['eb_providentFund_an'] = CTCcalculation['eb_providentFund_mon'] *12;
 					CTCcalculation['eb_bookPeriodical_mon'] = CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :bookPeriodicals[grade];
-					CTCcalculation['eb_bookPeriodical_ann'] = CTCcalculation['eb_medicalreimbursement_mon'] * 12;
+					CTCcalculation['eb_bookPeriodical_ann'] = CTCcalculation['eb_bookPeriodical_mon'] * 12;
 					
 					
 					var lta ={
@@ -219,17 +219,17 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
-						'M_1':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'IC_2':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_3':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_4':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_5':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_6':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_7':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_8':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_9':  CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_2':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_3':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_4':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_5':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_6':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_7':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_8':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'M_9':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 				
-						'M_10' : CTCcalculation['eb_grossSalary_mon'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100
+						'M_10' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100
 					
 					}
 					CTCcalculation['eb_leaveTravelallowance_mon'] = lta[grade];
@@ -238,11 +238,11 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_conveyanceAllowance_an'] = CTCcalculation['eb_conveyanceAllowance_mon'] * 12;
 					CTCcalculation['eb_entertainment_mon'] = entertainment[grade];
 					CTCcalculation['eb_entertainment_an'] = CTCcalculation['eb_entertainment_mon'] * 12;
-					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] );
+					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon']  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_bookPeriodical_mon']);
 					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;
-					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_transportAllow_mon'];
+					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_bookPeriodical_mon'];
 					CTCcalculation['eb_subtotal_ann'] = CTCcalculation['eb_subtotal_mon'] * 12;
-					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'];
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] +  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'];
 
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
 					CTCcalculation['eb_statutory_mon'] = statutoryBonus[grade]/12;

@@ -36,6 +36,7 @@ var $mj = jQuery.noConflict();
 						
 						'S': offerCtc < 505000 ? 9500 :0,
 						'E': offerCtc < 505000 ? 9500 :0,
+						'IC':  offerCtc < 505000 ? 9500 :0,
 						'IC_1':  offerCtc < 505000 ? 9500 :0,
 						'IC_2':  offerCtc < 505000 ? 9500 :0,
 						'IC_3':  offerCtc < 505000 ? 9500 :0,
@@ -62,6 +63,7 @@ var $mj = jQuery.noConflict();
 						
 						'S': (inputeb_CTC_mon * 10)/100,
 						'E': (inputeb_CTC_mon * 10)/100,
+						'IC':  (inputeb_CTC_mon * 10)/100,
 						'IC_1':  (inputeb_CTC_mon * 10)/100,
 						'IC_2':  (inputeb_CTC_mon * 10)/100,
 						'IC_3':  (inputeb_CTC_mon * 10)/100,
@@ -86,6 +88,7 @@ var $mj = jQuery.noConflict();
 
 						'S': 0,
 						'E': 0,
+						'IC':  0,
 						'IC_1':  0,
 						'IC_2':  0,
 						'IC_3':  0,
@@ -111,6 +114,7 @@ var $mj = jQuery.noConflict();
 						
 						'S': 200,
 						'E': 200,
+						'IC':  200,
 						'IC_1':  200,
 						'IC_2':  200,
 						'IC_3':  200,
@@ -136,6 +140,7 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
+						'IC':  1000,
 						'IC_1':  1000,
 						'IC_2':  1000,
 						'IC_3':  2000,
@@ -161,6 +166,7 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
+						'IC':  0,
 						'IC_1':  0,
 						'IC_2':  1000,
 						'IC_3':  2000,
@@ -185,6 +191,7 @@ var $mj = jQuery.noConflict();
 
 						'S': 0,
 						'E': 0,
+						'IC':  2500,
 						'IC_1':  2500,
 						'IC_2':  4000,
 						'IC_3':  6000,
@@ -234,6 +241,7 @@ var $mj = jQuery.noConflict();
 
 						'S': (20  * CTCcalculation['eb_BasicSal_mon'])/100,
 						'E': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'IC':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
 						'IC_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
 						'IC_2':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
 						'IC_3':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
@@ -272,6 +280,8 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
+						'IC':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						
 						'IC_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 						'IC_2':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 						'IC_3':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,

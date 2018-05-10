@@ -34,35 +34,36 @@ var $mj = jQuery.noConflict();
 				
 					var statutoryBonus = {
 						
-						'S': offerCtc < 505000 ? 9500 :0,
-						'E': offerCtc < 505000 ? 9500 :0,
-						'IC':  offerCtc < 505000 ? 9500 :0,
-						'IC_1':  offerCtc < 505000 ? 9500 :0,
-						'IC_2':  offerCtc < 505000 ? 9500 :0,
-						'IC_3':  offerCtc < 505000 ? 9500 :0,
-						'PM_1':  offerCtc < 505000 ? 9500 :0,
-						'SP_1':  offerCtc < 505000 ? 9500 :0,
-						'PM_2':  offerCtc < 505000 ? 9500 :0,
-						'SP_2':  offerCtc < 505000 ? 9500 :0,
-						'MM_1':  offerCtc < 505000 ? 9500 :0,
-						'SME_1':  offerCtc< 505000 ? 9500 :0,
+						'S': offerCtc < 506133 ? 9500 :0,
+						'E': offerCtc < 506133 ? 9500 :0,
+						'IC':  offerCtc < 561334 ? 9500 :0,
+						'IC_1':  offerCtc < 561334 ? 9500 :0,
+						'IC_2':  offerCtc < 561334 ? 9500 :0,
+						'IC_3':  offerCtc < 561334 ? 9500 :0,
+						'PM_1':  offerCtc < 561334 ? 9500 :0,
+						'SP_1':  offerCtc < 561334 ? 9500 :0,
+						'PM_2':  offerCtc < 561334 ? 9500 :0,
+						'SP_2':  offerCtc < 506133 ? 9500 :0,
+						'MM_1':  0,
+						'SME_1':  0,
 				
-						'MM_2' : offerCtc < 505000 ? 9500 :0,
-						'SME_2' : offerCtc< 505000?  9500 :0,
-						'FM_1' : offerCtc < 505000 ? 9500 :0,
-						'FM_2' : offerCtc < 505000 ? 9500 :0,
-						'FM_3' : offerCtc < 505000 ? 9500 :0,
-						'SM_1' : offerCtc < 505000 ? 9500 :0,
-						'SM_2' : offerCtc < 505000 ? 9500 :0,
-						'SM_3' : offerCtc < 505000 ? 9500 :0
+						'MM_2' : 0,
+						'SME_2' : 0,
+						'FM_1' : 0,
+						'FM_2' : 0,
+						'FM_3' : 0,
+						'SM_1' : 0,
+						'SM_2' : 0,
+						'SM_3' : 0
+
 					
 					}	
 					
 					var paygrade ={
 
 						
-						'S': (inputeb_CTC_mon * 10)/100,
-						'E': (inputeb_CTC_mon * 10)/100,
+						'S': 0,
+						'E': 0,
 						'IC':  (inputeb_CTC_mon * 10)/100,
 						'IC_1':  (inputeb_CTC_mon * 10)/100,
 						'IC_2':  (inputeb_CTC_mon * 10)/100,
@@ -71,17 +72,17 @@ var $mj = jQuery.noConflict();
 						'SP_1':  (inputeb_CTC_mon * 10)/100,
 						'PM_2':  (inputeb_CTC_mon * 10)/100,
 						'SP_2':  (inputeb_CTC_mon * 10)/100,
-						'MM_1':  (inputeb_CTC_mon * 10)/100,
-						'SME_1':  (inputeb_CTC_mon * 10)/100,
+						'MM_1':  (inputeb_CTC_mon * 20)/100,
+						'SME_1':  (inputeb_CTC_mon * 20)/100,
 				
-						'MM_2' : (inputeb_CTC_mon * 10)/100,
-						'SME_2' : (inputeb_CTC_mon * 10)/100,
-						'FM_1' : (inputeb_CTC_mon * 10)/100,
-						'FM_2' : (inputeb_CTC_mon * 10)/100,
-						'FM_3' : (inputeb_CTC_mon * 10)/100,
-						'SM_1' : (inputeb_CTC_mon * 10)/100,
-						'SM_2' : (inputeb_CTC_mon * 10)/100,
-						'SM_3' : (inputeb_CTC_mon * 10)/100
+						'MM_2' : (inputeb_CTC_mon * 20)/100,
+						'SME_2' : (inputeb_CTC_mon * 20)/100,
+						'FM_1' : (inputeb_CTC_mon * 20)/100,
+						'FM_2' : (inputeb_CTC_mon * 20)/100,
+						'FM_3' : (inputeb_CTC_mon * 20)/100,
+						'SM_1' : (inputeb_CTC_mon * 25)/100,
+						'SM_2' : (inputeb_CTC_mon * 25)/100,
+						'SM_3' : (inputeb_CTC_mon * 20)/100
 					}
 
 					var CRE = {
@@ -226,11 +227,11 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : parseFloat(VariablePay_an);
 					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
 
-					//CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'] - statutoryBonus[grade]/12;
-					//CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'] - statutoryBonus[grade]/12;
+					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
-					CTCcalculation['eb_grossSalary_mon'] = inputeb_CTC_mon - CTCcalculation['eb_carrelated_expenses_mon'] - CTCcalculation['eb_variablePay_mon'];
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_CTC_mon'];
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
 					CTCcalculation['eb_Total_CTC_mon'] = inputeb_CTC_mon;
 					CTCcalculation['eb_Total_CTC_an'] = CTCcalculation['eb_Total_CTC_mon'] *12;

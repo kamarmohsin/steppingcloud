@@ -35,7 +35,7 @@ var $mj = jQuery.noConflict();
 					var statutoryBonus = {
 						
 						'S': offerCtc < 506133 ? 9500 :0,
-						'E': offerCtc < 506133 ? 9500 :0,
+						'E': offerCtc < 506133 ? 7000 :0,
 						'IC':  offerCtc < 561334 ? 9500 :0,
 						'IC_1':  offerCtc < 561334 ? 9500 :0,
 						'IC_2':  offerCtc < 561334 ? 9500 :0,
@@ -106,7 +106,7 @@ var $mj = jQuery.noConflict();
 						'FM_2' : 52000,
 						'FM_3' : 60000,
 						'SM_1' : 66000,
-						'SM_2' : 66000,
+						'SM_2' : 71500,
 						'SM_3' : 71500
 					}
 
@@ -231,7 +231,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
-					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_CTC_mon'];
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_CTC_mon'] - CTCcalculation['eb_carrelated_expenses_mon'];
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
 					CTCcalculation['eb_Total_CTC_mon'] = inputeb_CTC_mon;
 					CTCcalculation['eb_Total_CTC_an'] = CTCcalculation['eb_Total_CTC_mon'] *12;
@@ -313,7 +313,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;
 					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'] ;
 					CTCcalculation['eb_subtotal_ann'] = CTCcalculation['eb_subtotal_mon'] * 12;
-					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] +  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'];
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] +  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon']+CTCcalculation['eb_bookPeriodical_mon'];
 
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
 					CTCcalculation['eb_statutory_mon'] = statutoryBonus[grade]/12;

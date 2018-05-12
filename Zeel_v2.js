@@ -44,9 +44,13 @@ var $mj = jQuery.noConflict();
 						'IC_2': (inputCTC_mon * 15)/100,
 						'IC_3': (inputCTC_mon * 15)/100,
 						'PM_1': (inputCTC_mon * 15)/100,
+						'SP_1': (inputCTC_mon * 15)/100,
 						'PM_2': (inputCTC_mon * 15)/100,
+						'SP_2': (inputCTC_mon * 15)/100,
 						'MM_1': (inputCTC_mon * 20)/100,
+						'SME_1': (inputCTC_mon * 20)/100,
 						'MM_2': (inputCTC_mon * 20)/100,
+						'SME_2': (inputCTC_mon * 20)/100,
 						'FM_1': (inputCTC_mon * 20)/100,
 						'FM_2': (inputCTC_mon * 20)/100,
 						'FM_3': (inputCTC_mon * 20)/100,
@@ -63,9 +67,13 @@ var $mj = jQuery.noConflict();
 						'IC_2': 0,
 						'IC_3': 0,
 						'PM_1': 0,
+						'SP_1': 0,
 						'PM_2': 0,
+						'SP_2': 0,
 						'MM_1': 24658,
+						'SME_1': 24658,
 						'MM_2': 32125,
+						'SME_2': 32125,
 						'FM_1': 36125,
 						'FM_2': 41459,
 						'FM_3': 46446,
@@ -84,9 +92,13 @@ var $mj = jQuery.noConflict();
 						'IC_2': 200,
 						'IC_3': 200,
 						'PM_1': 200,
+						'SP_1': 200,
 						'PM_2': 200,
+						'SP_2': 200,
 						'MM_1': 200,
+						'SME_1': 200,
 						'MM_2': 200,
+						'SME_2': 200,
 						'FM_1': 200,
 						'FM_2': 200,
 						'FM_3': 200,
@@ -101,12 +113,16 @@ var $mj = jQuery.noConflict();
 
 						
 						'IC_1': 0,
-						'IC_2': 2000,
+						'IC_2': 1000,
 						'IC_3': 2000,
 						'PM_1': 2000,
+						'SP_1': 2000,
 						'PM_2': 2000,
+						'SP_2': 2000,
 						'MM_1': 10000,
+						'SME_1': 10000,
 						'MM_2': 12000,
+						'SME_2': 12000,
 						'FM_1': 13500,
 						'FM_2': 15000,
 						'FM_3': 18000,
@@ -123,9 +139,13 @@ var $mj = jQuery.noConflict();
 						'IC_2': 1600,
 						'IC_3': 1600,
 						'PM_1': 1600,
+						'SP_1': 1600,
 						'PM_2': 1600,
+						'SP_2': 1600,
 						'MM_1': 0,
+						'SME_1': 0,
 						'MM_2': 0,
+						'SME_2': 0,
 						'FM_1': 0,
 						'FM_2': 0,
 						'FM_3': 0,
@@ -143,15 +163,43 @@ var $mj = jQuery.noConflict();
 						'IC_2': 4000,
 						'IC_3': 6000,
 						'PM_1': 7000,
+						'SP_1': 7000,
 						'PM_2': 8000,
+						'SP_2': 8000,
 						'MM_1': 0,
+						'SME_1': 0,
 						'MM_2': 0,
+						'SME_2': 0,
 						'FM_1': 0,
 						'FM_2': 0,
 						'FM_3': 0,
 						'SM_1': 0,
 						'SM_2': 0,				
 						'SM3' : 0,
+						'E'	: 0,
+						'S' : 0
+
+					}
+
+					var bookPeriodicals = {
+
+						'IC_1': 1000,
+						'IC_2': 1000,
+						'IC_3': 2000,
+						'PM_1': 3000,
+						'SP_1': 3000,
+						'PM_2': 4000,
+						'SP_2': 4000,
+						'MM_1': 5000,
+						'SME_1': 5000,
+						'MM_2': 6000,
+						'SME_2': 6000,
+						'FM_1': 7000,
+						'FM_2': 8000,
+						'FM_3': 9000,
+						'SM_1': 10000,
+						'SM_2': 10000,				
+						'SM3' : 10000,
 						'E'	: 0,
 						'S' : 0
 
@@ -179,9 +227,13 @@ var $mj = jQuery.noConflict();
 											'IC_2': (40  * CTCcalculation['BasicSal_mon'])/100,
 											'IC_3': (40  * CTCcalculation['BasicSal_mon'])/100,
 											'PM_1': (40  * CTCcalculation['BasicSal_mon'])/100,
+											'SP_1': (40  * CTCcalculation['BasicSal_mon'])/100,
 											'PM_2': (40  * CTCcalculation['BasicSal_mon'])/100,
+											'SP_2': (40  * CTCcalculation['BasicSal_mon'])/100,
 											'MM_1': (50  * CTCcalculation['BasicSal_mon'])/100,
+											'SME_1': (50  * CTCcalculation['BasicSal_mon'])/100,
 											'MM_2': (50  * CTCcalculation['BasicSal_mon'])/100,
+											'SME_2': (50  * CTCcalculation['BasicSal_mon'])/100,
 											'FM_1': (50  * CTCcalculation['BasicSal_mon'])/100,
 											'FM_2': (50  * CTCcalculation['BasicSal_mon'])/100,
 											'FM_3': (50  * CTCcalculation['BasicSal_mon'])/100,
@@ -198,24 +250,28 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['housingAllow_an'] = CTCcalculation['housingAllow_mon'] * 12;
 					CTCcalculation['childreenAllow_mon'] = childrallowance[grade];
 					CTCcalculation['childreenAllow_ann'] = CTCcalculation['childreenAllow_mon'] * 12;
-					CTCcalculation['transportAllow_mon'] = taransport[grade]; 
-					CTCcalculation['transportAllow_an']  = CTCcalculation['transportAllow_mon'] * 12
+					//CTCcalculation['transportAllow_mon'] = taransport[grade]; 
+					//CTCcalculation['transportAllow_an']  = CTCcalculation['transportAllow_mon'] * 12
 					
 					CTCcalculation['providentFund_mon'] =  (CTCcalculation['BasicSal_mon'] * 12) /100;
 					CTCcalculation['providentFund_an'] = CTCcalculation['providentFund_mon'] *12;
-					CTCcalculation['medicalreimbursement_mon'] = CTCcalculation['BasicSal_mon'] > 12500 ? 1250 : (CTCcalculation['BasicSal_mon'] *10) /100;
-					CTCcalculation['medicalreimbursement_ann'] = CTCcalculation['medicalreimbursement_mon'] * 12;
+
+					CTCcalculation['bookPeriodical_mon'] = bookPeriodicals[grade];
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+					
+					//CTCcalculation['medicalreimbursement_mon'] = CTCcalculation['BasicSal_mon'] > 12500 ? 1250 : (CTCcalculation['BasicSal_mon'] *10) /100;
+					//CTCcalculation['medicalreimbursement_ann'] = CTCcalculation['medicalreimbursement_mon'] * 12;
 					CTCcalculation['leaveTravelallowance_mon'] = (CTCcalculation['BasicSal_mon'] *10) /100;
 					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
 					CTCcalculation['conveyanceAllowance_mon'] = conveyance[grade];
 					CTCcalculation['conveyanceAllowance_an'] = CTCcalculation['conveyanceAllowance_mon'] * 12;
 					CTCcalculation['entertainment_mon'] = entertainment[grade];
 					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
-					CTCcalculation['personalAllowance_mon'] = CTCcalculation['grossSalary_mon'] - (CTCcalculation['BasicSal_mon'] +CTCcalculation['housingAllow_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['providentFund_mon'] + CTCcalculation['medicalreimbursement_mon'] + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'] + CTCcalculation['transportAllow_mon'] + CTCcalculation['conveyanceAllowance_mon']);
+					CTCcalculation['personalAllowance_mon'] = CTCcalculation['grossSalary_mon'] - (CTCcalculation['BasicSal_mon'] +CTCcalculation['housingAllow_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['providentFund_mon']  + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon']  + CTCcalculation['conveyanceAllowance_mon']+CTCcalculation['bookPeriodical_mon']);
 					CTCcalculation['personalAllowance_an'] = CTCcalculation['personalAllowance_mon'] * 12;
-					CTCcalculation['subtotal_mon'] = CTCcalculation['BasicSal_mon'] + CTCcalculation['housingAllow_mon'] + CTCcalculation['personalAllowance_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['transportAllow_mon'];
+					CTCcalculation['subtotal_mon'] = CTCcalculation['BasicSal_mon'] + CTCcalculation['housingAllow_mon'] + CTCcalculation['personalAllowance_mon'] + CTCcalculation['childreenAllow_mon'] ;
 					CTCcalculation['subtotal_ann'] = CTCcalculation['subtotal_mon'] * 12;
-					CTCcalculation['grossSalary_mon'] = CTCcalculation['subtotal_mon'] + CTCcalculation['providentFund_mon'] + CTCcalculation['medicalreimbursement_mon'] + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'] + CTCcalculation['conveyanceAllowance_mon'];
+					CTCcalculation['grossSalary_mon'] = CTCcalculation['subtotal_mon'] + CTCcalculation['providentFund_mon']  + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'] + CTCcalculation['conveyanceAllowance_mon']+CTCcalculation['bookPeriodical_mon'];
 
 					CTCcalculation['grossSalary_an'] = CTCcalculation['grossSalary_mon'] * 12;
 					CTCcalculation['carrelated_expenses_mon'] = CRE[grade];
@@ -237,7 +293,7 @@ var $mj = jQuery.noConflict();
 					var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
 					var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
 
-					num = offerCtc;
+					num = Math.round(offerCtc);
 
    					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
   					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
@@ -250,6 +306,60 @@ var $mj = jQuery.noConflict();
     
 
     					CTCcalculation['ctcWords'] = str;
+						
+				//	grossInWords	
+						
+						
+					num = Math.round(CTCcalculation['grossSalary_an']);
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    					str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    					CTCcalculation['grossInWords'] = str;
+						
+				//	grossInWords	Monthly
+						
+						
+					num = Math.round(CTCcalculation['grossSalary_mon']);
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    					str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    					CTCcalculation['grossInWords_mon'] = str;		
+						
+						
+						
+						
+				//	variablePay_an
+				
+					num = Math.round(CTCcalculation['variablePay_an']);
+
+   					 //if ((num = num.toString()).length > 9) alert('convert maximum of 9 digits');
+  					  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+   					 if (!n) return; var str = '';
+   					 str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+   					 str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+   					 str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    					str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
+    
+
+    					CTCcalculation['variableInWords'] = str;
+						
 					
 
  					
@@ -288,7 +398,7 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 
-        		if(key =='ctcWords'){
+        		if(key =='ctcWords' || key =='grossInWords'|| key =='variableInWords' || key =='grossInWords_mon'){
 
         					$mj('[name="'+key+'"]').val(sal[key]);
         				}

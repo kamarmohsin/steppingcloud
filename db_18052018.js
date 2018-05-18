@@ -472,7 +472,7 @@ var $mj = jQuery.noConflict();
 				
 				}
 
-				}
+				
 
 				
  					

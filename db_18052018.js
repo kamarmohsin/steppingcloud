@@ -500,7 +500,7 @@ var $mj = jQuery.noConflict();
 
     if($mj.isNumeric(inputCTC) )
 	{ 
-		if(Entity != 'selEntity')
+		if(Entity != 'Entity')
 		{
 			
 

@@ -35,7 +35,7 @@ var $mj = jQuery.noConflict();
 					var statutoryBonus = {
 						
 						'S': offerCtc < 506133 ? 9500 :0,
-						'E': offerCtc < 506133 ? 7000 :0,
+						'E': offerCtc < 506133 ? 9500 :0,
 						'IC':  offerCtc < 561334 ? 9500 :0,
 						'IC_1':  offerCtc < 561334 ? 9500 :0,
 						'IC_2':  offerCtc < 561334 ? 9500 :0,
@@ -106,7 +106,7 @@ var $mj = jQuery.noConflict();
 						'FM_2' : 52000,
 						'FM_3' : 60000,
 						'SM_1' : 66000,
-						'SM_2' : 71500,
+						'SM_2' : 66000,
 						'SM_3' : 71500
 					}
 
@@ -184,7 +184,7 @@ var $mj = jQuery.noConflict();
 						'FM_2' : 15000,
 						'FM_3' : 18000,
 						'SM_1' : 20000,
-						'SM_2' : 20000,
+						'SM_2' : 25000,
 						'SM_3' : 25000
 					}
 
@@ -272,7 +272,7 @@ var $mj = jQuery.noConflict();
 					//CTCcalculation['eb_transportAllow_an'] = CTCcalculation['eb_transportAllow_mon'] * 12;
 					CTCcalculation['eb_providentFund_mon'] =  (CTCcalculation['eb_BasicSal_mon'] * 12) /100;
 					CTCcalculation['eb_providentFund_an'] = CTCcalculation['eb_providentFund_mon'] *12;
-					CTCcalculation['eb_bookPeriodical_mon'] = CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :bookPeriodicals[grade];
+					CTCcalculation['eb_bookPeriodical_mon'] = CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :bookPeriodicals[grade];
 					CTCcalculation['eb_bookPeriodical_ann'] = CTCcalculation['eb_bookPeriodical_mon'] * 12;
 					
 					
@@ -281,33 +281,33 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
-						'IC':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 						
-						'IC_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'IC_2':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'IC_3':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'PM_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SP_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'PM_2':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SP_2':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'MM_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SME_1':  CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_3':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'PM_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SP_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'PM_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SP_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'MM_1':  CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SME_1':  CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 				
-						'MM_2' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SME_2' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'FM_1' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'FM_2' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'FM_3' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SM_1' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SM_2' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'SM_3' : CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100
+						'MM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SME_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_1' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_3' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_1' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_3' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100
 					
 					}
 					CTCcalculation['eb_leaveTravelallowance_mon'] = lta[grade];
 					CTCcalculation['eb_leaveTravelallowance_an'] = CTCcalculation['eb_leaveTravelallowance_mon'] *12;
-					CTCcalculation['eb_conveyanceAllowance_mon'] = CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0 :conveyance[grade];
+					CTCcalculation['eb_conveyanceAllowance_mon'] = CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :conveyance[grade];
 					CTCcalculation['eb_conveyanceAllowance_an'] = CTCcalculation['eb_conveyanceAllowance_mon'] * 12;
-					CTCcalculation['eb_entertainment_mon'] = CTCcalculation['eb_grossSalary_an'] <= 318000 ? 0: entertainment[grade];
+					CTCcalculation['eb_entertainment_mon'] = (grade == 'IC' || grade == 'IC_1' || grade == 'IC_2' || grade == 'IC_3'|| grade == 'PM_1'||grade == 'SP_1' || grade == 'PM_2'||grade == 'SP_2') ? (CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0: entertainment[grade]) :entertainment[grade] ;
 					CTCcalculation['eb_entertainment_an'] = CTCcalculation['eb_entertainment_mon'] * 12;
 					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon']  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_bookPeriodical_mon']);
 					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;

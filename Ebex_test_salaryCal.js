@@ -34,151 +34,187 @@ var $mj = jQuery.noConflict();
 				
 					var statutoryBonus = {
 						
-						'S': offerCtc < 506133 ? 7000 :0,
-						'E': offerCtc < 506133 ? 7000 :0,
-						'M_1':  offerCtc < 561334 ? 7000 :0,
-						'M_2':  0,
-						'M_3':  0,
-						'M_4':  0,
-						'M_5':  0,
-						'M_6':  0,
-						'M_7':  0,
-						'M_8':  0,
-						'M_9':  0,
+						'S': offerCtc < 506133 ? 9500 :0,
+						'E': offerCtc < 506133 ? 9500 :0,
+						'IC':  offerCtc < 561334 ? 9500 :0,
+						'IC_1':  offerCtc < 561334 ? 9500 :0,
+						'IC_2':  offerCtc < 561334 ? 9500 :0,
+						'IC_3':  offerCtc < 561334 ? 9500 :0,
+						'PM_1':  offerCtc < 561334 ? 9500 :0,
+						'SP_1':  offerCtc < 561334 ? 9500 :0,
+						'PM_2':  offerCtc < 561334 ? 9500 :0,
+						'SP_2':  offerCtc < 506133 ? 9500 :0,
+						'MM_1':  0,
+						'SME_1':  0,
 				
-						'M_10' : 0
+						'MM_2' : 0,
+						'SME_2' : 0,
+						'FM_1' : 0,
+						'FM_2' : 0,
+						'FM_3' : 0,
+						'SM_1' : 0,
+						'SM_2' : 0,
+						'SM_3' : 0
+
 					
 					}	
 					
 					var paygrade ={
 
 						
-						'IC_1': (inputeb_CTC_mon * 15)/100,
-						'S':    0,
-						'E':    0,
-						'M_1': statutoryBonus[grade] <7001 ? ( (inputeb_CTC_mon * 10)/100 - statutoryBonus[grade] /12) : (inputeb_CTC_mon * 10)/100,
-						'M_2': (inputeb_CTC_mon * 10)/100,
-						'M_3': (inputeb_CTC_mon * 10)/100,
-						'M_4': (inputeb_CTC_mon * 10)/100,
-						'M_5': (inputeb_CTC_mon * 20)/100,
-						'M_6': (inputeb_CTC_mon * 20)/100,
-						'M_7': (inputeb_CTC_mon * 20)/100,
-						'M_8': (inputeb_CTC_mon * 25)/100,
-						'M_9': (inputeb_CTC_mon * 25)/100,
-						'M_10' : (inputeb_CTC_mon * 25)/100,
+						'S': 0,
+						'E': 0,
+						'IC':  statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'IC_1': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'IC_2': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'IC_3': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'PM_1': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'SP_1': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'PM_2': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'SP_2': statutoryBonus[grade] <9501 ? ((inputeb_CTC_mon * 10)/100) - statutoryBonus[grade]/12 : ((inputeb_CTC_mon * 10)/100),
+						'MM_1':  (inputeb_CTC_mon * 20)/100,
+						'SME_1':  (inputeb_CTC_mon * 20)/100,
+				
+						'MM_2' : (inputeb_CTC_mon * 20)/100,
+						'SME_2' : (inputeb_CTC_mon * 20)/100,
+						'FM_1' : (inputeb_CTC_mon * 20)/100,
+						'FM_2' : (inputeb_CTC_mon * 20)/100,
+						'FM_3' : (inputeb_CTC_mon * 20)/100,
+						'SM_1' : (inputeb_CTC_mon * 25)/100,
+						'SM_2' : (inputeb_CTC_mon * 25)/100,
+						'SM_3' : (inputeb_CTC_mon * 20)/100
 					}
 
 					var CRE = {
 
-						'IC_1': 0,
 						'S': 0,
 						'E': 0,
-						'M_1':  0,
-						'M_2':  0,
-						'M_3':  0,
-						'M_4':  0,
-						'M_5':  35000,
-						'M_6':  43000,
-						'M_7':  52000,
-						'M_8':  60000,
-						'M_9':  66000,
+						'IC':  0,
+						'IC_1':  0,
+						'IC_2':  0,
+						'IC_3':  0,
+						'PM_1':  0,
+						'SP_1':  0,
+						'PM_2':  0,
+						'SP_2':  0,
+						'MM_1':  35000,
+						'SME_1': 35000,
 				
-						'M_10' : 71500
+						'MM_2' : 43000,
+						'SME_2' :43000,
+						'FM_1' : 47000,
+						'FM_2' : 52000,
+						'FM_3' : 60000,
+						'SM_1' : 66000,
+						'SM_2' : 66000,
+						'SM_3' : 71500
 					}
 
 					var childrallowance = {
 
 						
-						'IC_1': 200,
 						'S': 200,
 						'E': 200,
-						'M_1': 200,
-						'M_2': 200,
-						'M_3': 200,
-						'M_4': 200,
-						'M_5': 200,
-						'M_6': 200,
-						'M_7': 200,
-						'M_8': 200,
-						'M_9': 200,				
-						'M_10' :200
+						'IC':  200,
+						'IC_1':  200,
+						'IC_2':  200,
+						'IC_3':  200,
+						'PM_1':  200,
+						'SP_1':  200,
+						'PM_2':  200,
+						'SP_2':  200,
+						'MM_1':  200,
+						'SME_1':  200,
+				
+						'MM_2' : 200,
+						'SME_2' : 200,
+						'FM_1' : 200,
+						'FM_2' : 200,
+						'FM_3' : 200,
+						'SM_1' : 200,
+						'SM_2' : 200,
+						'SM_3' : 200
 					}
 
-					var medical = {
+					var bookPeriodicals = {
 
 						
-						'IC_1': 1250,
 						'S': 0,
 						'E': 0,
-						'M_1': 1250,
-						'M_2': 1250,
-						'M_3': 1250,
-						'M_4': 1250,
-						'M_5': 1250,
-						'M_6': 1250,
-						'M_7': 1250,
-						'M_8': 1250,
-						'M_9': 1250,				
-						'M_10' :1250
+						'IC':  1000,
+						'IC_1':  1000,
+						'IC_2':  1000,
+						'IC_3':  2000,
+						'PM_1':  3000,
+						'SP_1':  3000,
+						'PM_2':  4000,
+						'SP_2':  4000,
+						'MM_1':  5000,
+						'SME_1':  5000,
+				
+						'MM_2' : 6000,
+						'SME_2' : 5000,
+						'FM_1' : 7000,
+						'FM_2' : 8000,
+						'FM_3' : 9000,
+						'SM_1' : 10000,
+						'SM_2' : 10000,
+						'SM_3' : 10000
 					}
 
 					var entertainment = {
 
 						
-						'IC_1': 0,
 						'S': 0,
 						'E': 0,
-						'M_1': 0,
-						'M_2': 1000,
-						'M_3': 2000,
-						'M_4': 5000,
-						'M_5': 10000,
-						'M_6': 12000,
-						'M_7': 15000,
-						'M_8': 18000,
-						'M_9': 20000,				
-						'M_10': 25000
+						'IC':  0,
+						'IC_1':  0,
+						'IC_2':  1000,
+						'IC_3':  2000,
+						'PM_1':  5000,
+						'SP_1':  5000,
+						'PM_2':  5000,
+						'SP_2':  5000,
+						'MM_1':  10000,
+						'SME_1': 10000,
+				
+						'MM_2' : 12000,
+						'SME_2' :12000,
+						'FM_1' : 13500,
+						'FM_2' : 15000,
+						'FM_3' : 18000,
+						'SM_1' : 20000,
+						'SM_2' : 25000,
+						'SM_3' : 25000
 					}
 
 					var conveyance ={
 
-						'IC_1': 0,
 						'S': 0,
 						'E': 0,
-						'M_1':  2500,
-						'M_2':  4000,
-						'M_3':  6000,
-						'M_4':  8000,
-						'M_5':  0,
-						'M_6':  0,
-						'M_7':  0,
-						'M_8':  0,
-						'M_9':  0,
+						'IC':  2500,
+						'IC_1':  2500,
+						'IC_2':  4000,
+						'IC_3':  6000,
+						'PM_1':  7000,
+						'SP_1':  7000,
+						'PM_2':  8000,
+						'SP_2':  8000,
+						'MM_1':  0,
+						'SME_1':  0,
 				
-						'M_10' : 0
+						'MM_2' : 0,
+						'SME_2' : 0,
+						'FM_1' : 0,
+						'FM_2' : 0,
+						'FM_3' : 0,
+						'SM_1' : 0,
+						'SM_2' : 0,
+						'SM_3' : 0
 					
 					}
 
 
-					var transport ={
-
-						
-						'S': 1600,
-						'E': 1600,
-						'M_1':  1600,
-						'M_2':  1600,
-						'M_3':  1600,
-						'M_4':  1600,
-						'M_5':  0,
-						'M_6':  0,
-						'M_7':  0,
-						'M_8':  0,
-						'M_9':  0,
-				
-						'M_10' : 0
-					
-					}
-					
 					
 
 				
@@ -188,11 +224,17 @@ var $mj = jQuery.noConflict();
 
 					
 					
-					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : parseFloat(VariablePay_an);
+					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : (parseFloat(VariablePay_an) );
 					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
 
 					CTCcalculation['eb_CTC_mon'] = inputeb_CTC_mon - CTCcalculation['eb_variablePay_mon'] - statutoryBonus[grade]/12;
 					CTCcalculation['eb_CTC_an'] = CTCcalculation['eb_CTC_mon'] * 12;
+
+					// As discussed, for non standard VariablePay_an -statutoryBonus
+					CTCcalculation['eb_variablePay_an'] = isNaN(parseFloat(VariablePay_an))? (paygrade[grade] * 12) : (parseFloat(VariablePay_an) -statutoryBonus[grade]);
+					CTCcalculation['eb_variablePay_mon'] = CTCcalculation['eb_variablePay_an'] / 12; 
+
+
 					CTCcalculation['eb_carrelated_expenses_mon'] = CRE[grade];
 					CTCcalculation['eb_carrelated_expenses_an'] = CTCcalculation['eb_carrelated_expenses_mon'] * 12;
 					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_CTC_mon'] - CTCcalculation['eb_carrelated_expenses_mon'];
@@ -204,20 +246,27 @@ var $mj = jQuery.noConflict();
 					
 									var hra = {
 
-											'IC_1': (30  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'S': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'E':    (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_1': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_2': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_3': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_4': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_5': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_6': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_7': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_8': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_9': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
-											'M_10': (50  * CTCcalculation['eb_BasicSal_mon'])/100
-
+						'S': (20  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'E': (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'IC':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'IC_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'IC_2':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'IC_3':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'PM_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SP_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'PM_2':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SP_2':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'MM_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SME_1':  (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+				
+						'MM_2' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SME_2' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'FM_1' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'FM_2' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'FM_3' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SM_1' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SM_2' : (50  * CTCcalculation['eb_BasicSal_mon'])/100,
+						'SM_3' : (50  * CTCcalculation['eb_BasicSal_mon'])/100
 										}
 					
 
@@ -225,12 +274,12 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_housingAllow_an'] = CTCcalculation['eb_housingAllow_mon'] * 12;
 					CTCcalculation['eb_childreenAllow_mon'] = childrallowance[grade];
 					CTCcalculation['eb_childreenAllow_ann'] = CTCcalculation['eb_childreenAllow_mon'] * 12;
-					CTCcalculation['eb_transportAllow_mon'] = transport[grade];
-					CTCcalculation['eb_transportAllow_an'] = CTCcalculation['eb_transportAllow_mon'] * 12;
+					//CTCcalculation['eb_transportAllow_mon'] = transport[grade];
+					//CTCcalculation['eb_transportAllow_an'] = CTCcalculation['eb_transportAllow_mon'] * 12;
 					CTCcalculation['eb_providentFund_mon'] =  (CTCcalculation['eb_BasicSal_mon'] * 12) /100;
 					CTCcalculation['eb_providentFund_an'] = CTCcalculation['eb_providentFund_mon'] *12;
-					CTCcalculation['eb_medicalreimbursement_mon'] = medical[grade];
-					CTCcalculation['eb_medicalreimbursement_ann'] = CTCcalculation['eb_medicalreimbursement_mon'] * 12;
+					CTCcalculation['eb_bookPeriodical_mon'] = CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :bookPeriodicals[grade];
+					CTCcalculation['eb_bookPeriodical_ann'] = CTCcalculation['eb_bookPeriodical_mon'] * 12;
 					
 					
 					var lta ={
@@ -238,30 +287,57 @@ var $mj = jQuery.noConflict();
 						
 						'S': 0,
 						'E': 0,
-						'M_1':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_2':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_3':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_4':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_5':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_6':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_7':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_8':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
-						'M_9':  (CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						
+						'IC_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'IC_3':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'PM_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SP_1':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'PM_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SP_2':  CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'MM_1':  CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SME_1':  CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
 				
-						'M_10' : (CTCcalculation['eb_BasicSal_mon'] *10) /100
+						'MM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SME_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_1' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'FM_3' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_1' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_2' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100,
+						'SM_3' : CTCcalculation['eb_grossSalary_an'] <= 400000 ? 0 :(CTCcalculation['eb_BasicSal_mon'] *10) /100
 					
 					}
 					CTCcalculation['eb_leaveTravelallowance_mon'] = lta[grade];
 					CTCcalculation['eb_leaveTravelallowance_an'] = CTCcalculation['eb_leaveTravelallowance_mon'] *12;
-					CTCcalculation['eb_conveyanceAllowance_mon'] = conveyance[grade];
+					CTCcalculation['eb_conveyanceAllowance_mon'] = CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0 :conveyance[grade];
 					CTCcalculation['eb_conveyanceAllowance_an'] = CTCcalculation['eb_conveyanceAllowance_mon'] * 12;
-					CTCcalculation['eb_entertainment_mon'] = entertainment[grade];
+					CTCcalculation['eb_entertainment_mon'] = (grade == 'IC' || grade == 'IC_1' || grade == 'IC_2' || grade == 'IC_3'|| grade == 'PM_1'||grade == 'SP_1' || grade == 'PM_2'||grade == 'SP_2') ? (CTCcalculation['eb_grossSalary_an'] <= 333000 ? 0: entertainment[grade]) :entertainment[grade] ;
 					CTCcalculation['eb_entertainment_an'] = CTCcalculation['eb_entertainment_mon'] * 12;
-					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_transportAllow_mon']);
+					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon']  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_bookPeriodical_mon']);
 					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;
-					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_transportAllow_mon'];
+					
+					
+					if(CTCcalculation['eb_personalAllowance_mon'] < 0 ){
+
+					CTCcalculation['eb_housingAllow_mon'] =  (CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] );
+					CTCcalculation['eb_housingAllow_an'] = CTCcalculation['eb_housingAllow_mon'] * 12;
+
+					alert(CTCcalculation['eb_personalAllowance_mon']);
+					
+					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon']  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_bookPeriodical_mon']);
+					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;
+						
+
+
+					}
+
+					
+					
+					CTCcalculation['eb_subtotal_mon'] = CTCcalculation['eb_BasicSal_mon'] + CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] + CTCcalculation['eb_childreenAllow_mon'] ;
 					CTCcalculation['eb_subtotal_ann'] = CTCcalculation['eb_subtotal_mon'] * 12;
-					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] + CTCcalculation['eb_medicalreimbursement_mon'] + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'];
+					CTCcalculation['eb_grossSalary_mon'] = CTCcalculation['eb_subtotal_mon'] + CTCcalculation['eb_providentFund_mon'] +  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon']+CTCcalculation['eb_bookPeriodical_mon'];
 
 					CTCcalculation['eb_grossSalary_an'] = CTCcalculation['eb_grossSalary_mon'] * 12;
 					CTCcalculation['eb_statutory_mon'] = statutoryBonus[grade]/12;

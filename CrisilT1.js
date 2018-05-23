@@ -25,6 +25,7 @@ var $mj = jQuery.noConflict();
 						
 						}
 						
+				/*
 				var transport = {
 					'13AandBelow': 1600
 				}
@@ -32,14 +33,15 @@ var $mj = jQuery.noConflict();
 				var medical = {
 					'13AandBelow': 15000
 				}
+				*/
 						
 						
 						CTCcalculation['basicSal_mon'] = (inputCTC_an * 0.40)/12;
 						
 						CTCcalculation['hra_mon'] =  (inputCTC_an * 0.20)/12;
-						CTCcalculation['transport_mon'] = transport[level];
+						CTCcalculation['transport_mon'] = 1600;
 						CTCcalculation['lta_an'] = (inputCTC_an * 0.07);
-						CTCcalculation['medicalAllowance_an'] = medical[level];
+						CTCcalculation['medicalAllowance_an'] = 15000;
 						CTCcalculation['pf_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.12);
 						CTCcalculation['gratuity_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.045);
 						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] ) /12 ); 

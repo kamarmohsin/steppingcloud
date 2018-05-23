@@ -324,7 +324,7 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['eb_housingAllow_mon'] =  (CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_personalAllowance_mon'] );
 					CTCcalculation['eb_housingAllow_an'] = CTCcalculation['eb_housingAllow_mon'] * 12;
 
-					alert(CTCcalculation['eb_personalAllowance_mon']);
+					
 					
 					CTCcalculation['eb_personalAllowance_mon'] = CTCcalculation['eb_grossSalary_mon'] - (CTCcalculation['eb_BasicSal_mon'] +CTCcalculation['eb_housingAllow_mon'] + CTCcalculation['eb_childreenAllow_mon'] + CTCcalculation['eb_providentFund_mon']  + CTCcalculation['eb_leaveTravelallowance_mon'] + CTCcalculation['eb_entertainment_mon'] + CTCcalculation['eb_conveyanceAllowance_mon'] + CTCcalculation['eb_bookPeriodical_mon']);
 					CTCcalculation['eb_personalAllowance_an'] = CTCcalculation['eb_personalAllowance_mon'] * 12;

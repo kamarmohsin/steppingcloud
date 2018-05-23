@@ -15,6 +15,56 @@ var $mj = jQuery.noConflict();
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
+
+				if(level =='13A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 10).change();
+				}
+				else if(level =='12A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 9).change();
+					
+				}
+				else if(level =='11A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 8).change();
+					
+				}
+				else if(level =='10A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 7).change();
+					
+				}
+				else if(level =='9A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 6).change();
+					
+				}
+				else if(level =='8A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 5).change();
+					
+				}
+				else if(level =='7A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 4).change();
+					
+				}
+				else if(level =='6A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 3).change();
+					
+				}
+				else if(level =='5A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 2).change();
+					
+				}
+				else if(level =='4A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 1).change();
+					
+				}
 				
 
 				CTCcalculation = {

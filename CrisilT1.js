@@ -38,15 +38,15 @@ var $mj = jQuery.noConflict();
 						
 						CTCcalculation['hra_mon'] =  (inputCTC_an * 0.20)/12;
 						CTCcalculation['transport_mon'] = transport[level];
-						CTCcalculation['lta_ann'] = (inputCTC_an * 0.07);
-						CTCcalculation['medicalAllowance_ann'] = medical[level];
-						CTCcalculation['pf_ann'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.12);
+						CTCcalculation['lta_an'] = (inputCTC_an * 0.07);
+						CTCcalculation['medicalAllowance_an'] = medical[level];
+						CTCcalculation['pf_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.12);
 						CTCcalculation['gratuity_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.045);
-						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_ann'] - CTCcalculation['medicalAllowance_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_an'] ) /12 ); 
+						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] ) /12 ); 
 						
 						CTCcalculation['totalSalary_mon'] = (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] + CTCcalculation['consolidatedAllow_mon']);
 						CTCcalculation['totalSalary_an'] =	CTCcalculation['totalSalary_mon'] * 12;
-						CTCcalculation['totalFixedCompensation_an'] = CTCcalculation['gratuity_an'] + CTCcalculation['pf_ann'] + CTCcalculation['totalSalary_an'] + CTCcalculation['lta_ann'] + CTCcalculation['medicalAllowance_ann'];
+						CTCcalculation['totalFixedCompensation_an'] = CTCcalculation['gratuity_an'] + CTCcalculation['pf_an'] + CTCcalculation['totalSalary_an'] + CTCcalculation['lta_an'] + CTCcalculation['medicalAllowance_an'];
 
 				
 			     return CTCcalculation;

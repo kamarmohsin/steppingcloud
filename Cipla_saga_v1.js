@@ -24,7 +24,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						}
 
 
-				if(salStruct == 'nonManufacture') 
+				if(salStruct == 'manufacture') 
 
 				{
 						var basic = isNaN(parseFloat($mj('[name="basic"]').val()))? 0 : parseFloat($mj('[name="basic"]').val());
@@ -43,13 +43,17 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var ded_vitality = isNaN(parseFloat($mj('[name="ded_vitality"]').val()))? 0 : parseFloat($mj('[name="ded_vitality"]').val());
 				
 				var vitality = isNaN(parseFloat($mj('[name="vitality"]').val()))? 0 : parseFloat($mj('[name="vitality"]').val());
+				
+				var pf_manfct =  isNaN(parseFloat($mj('[id="pf_manfct"]').val()))? 9 : parseFloat($mj('[id="pf_manfct"]').val());
+				
+
 						
 				CTCComponents['subtotal'] = basic + TravelAllowance+ fuelCardestimate+maintenanceAllow+dailyAllow+cellAllowance;
 				CTCComponents['groupLife'] = (basic * 0.9)/100;
 				CTCComponents['disability'] = (basic * 0.95)/100;
 				CTCComponents['admedGap'] = 49.50;
 				CTCComponents['funeral'] = 16.05;
-				CTCComponents['pensionFund'] = (basic * 9)/100;
+				CTCComponents['pensionFund'] = (basic * pf_manfct)/100;
 				//CTCComponents['medicalAid'] = 2109.50;
 				CTCComponents['ded_admedGap'] = CTCComponents['admedGap'];
 				CTCComponents['uif'] = 148.72;

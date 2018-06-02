@@ -310,7 +310,7 @@ var $mj = jQuery.noConflict();
 
 		if(inputCTC >= min && inputCTC <= max) {
 
-			alert(min);
+			
 
 			if (inputlevel != 'selectlevel' ) {
 

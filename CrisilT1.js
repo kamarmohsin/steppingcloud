@@ -16,7 +16,27 @@ var $mj = jQuery.noConflict();
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
 
-				if(level =='13A'){
+				 if(level =='18A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 15).change();
+				}
+				else if(level =='17A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 14).change();
+				}
+				else if(level =='16A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 13).change();
+				}
+				else if(level =='15A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 12).change();
+				}
+				else if(level =='14A'){
+
+				$mj('[name="calculateForGrade"]').prop('selectedIndex', 11).change();
+				}
+				else if(level =='13A'){
 
 				$mj('[name="calculateForGrade"]').prop('selectedIndex', 10).change();
 				}
@@ -65,11 +85,24 @@ var $mj = jQuery.noConflict();
 				$mj('[name="calculateForGrade"]').prop('selectedIndex', 1).change();
 					
 				}
+
+				
 				
 
 				CTCcalculation = {
 					
 						'basicSal_mon':0,
+						'hra_mon':0,
+						'consolidatedAllow_mon':0,
+						'transport_mon':0,
+						'totalSalary_mon':0,
+						'totalSalary_an':0,
+						'lta_an':0,
+						'medicalAllowance_an':0,
+						'variablePay_an':0,
+						'pf_an':0,
+						'gratuity_an':0,
+						'totalFixedCompensation_an':0
 						
 						
 						
@@ -87,7 +120,7 @@ var $mj = jQuery.noConflict();
 
 				var basic = {
 
-							'7A': Math.round((inputCTC_an * 0.40)/12),
+							'7A': Math.round((inputCTC_an * 0.10)/12),
 							'8A':Math.round((inputCTC_an * 0.40)/12),
 							'9A':Math.round((inputCTC_an * 0.40)/12),
 							'10A':Math.round((inputCTC_an * 0.40)/12),
@@ -121,7 +154,7 @@ var $mj = jQuery.noConflict();
 
 				var transport = {
 
-							'7A': 1600,
+							'7A': 0,
 							'8A':1600,
 							'9A':1600,
 							'10A':1600,
@@ -138,7 +171,7 @@ var $mj = jQuery.noConflict();
 
 				var lta = {
 
-							'7A': (inputCTC_an * 0.07),
+							'7A': 0,
 							'8A':(inputCTC_an * 0.07),
 							'9A':(inputCTC_an * 0.07),
 							'10A':(inputCTC_an * 0.07),
@@ -156,7 +189,7 @@ var $mj = jQuery.noConflict();
 
 				var medical  = {
 
-							'7A': 15000,
+							'7A': 0,
 							'8A':15000,
 							'9A':15000,
 							'10A':15000,
@@ -205,6 +238,24 @@ var $mj = jQuery.noConflict();
 							'17A':( (basic[level] * 12) * 0.045),
 							'18A':( (basic[level] * 12) * 0.045),
 				}
+
+				var variablePay = {
+
+							'7A': (inputCTC_an * 0.8333) / 100,
+							'8A':0,
+							'9A':0,
+							'10A':0,
+							'11A':0,
+							'12A':0,
+							'13A':0,
+
+							'14A':0,
+							'15A':0,
+							'16A':0,
+							'17A':0,
+							'18A':0,
+
+				}
 						
 						
 						CTCcalculation['basicSal_mon'] = Math.round(basic[level]);
@@ -213,9 +264,10 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['transport_mon'] = transport[level];
 						CTCcalculation['lta_an'] = Math.round(lta[level]);
 						CTCcalculation['medicalAllowance_an'] = medical[level];
+						CTCcalculation['variablePay_an'] = variablePay[level]
 						CTCcalculation['pf_an'] = Math.round(pf[level]);
 						CTCcalculation['gratuity_an'] = Math.round(gratuity[level]);
-						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] ) /12 ); 
+						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] -CTCcalculation['variablePay_an'] ) /12 ); 
 						
 						CTCcalculation['totalSalary_mon'] = (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] + CTCcalculation['consolidatedAllow_mon']);
 						CTCcalculation['totalSalary_an'] =	CTCcalculation['totalSalary_mon'] * 12;
@@ -241,6 +293,11 @@ var $mj = jQuery.noConflict();
 
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#Level').val();
+
+		var min = parseFloat($mj('[name="proposedFixedMin"]').val() );
+		var max = parseFloat($mj('[name="proposedFixedMax"]').val() );
+
+
 		
 		
 
@@ -250,7 +307,12 @@ var $mj = jQuery.noConflict();
     if($mj.isNumeric(inputCTC) )
 	{ 
 
-		if (inputlevel != 'selectlevel' ) {
+
+		if(inputCTC >= min && inputCTC <= max) {
+
+			alert(min);
+
+			if (inputlevel != 'selectlevel' ) {
 
 
 		
@@ -282,6 +344,14 @@ var $mj = jQuery.noConflict();
 			alert("Please Select Level");
 		}
 	
+		}
+
+		else {
+
+			alert('Please enter CTC between Min and Max value');
+		}
+
+		
 
 	}		 
 	else

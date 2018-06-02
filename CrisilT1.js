@@ -84,16 +84,137 @@ var $mj = jQuery.noConflict();
 					'13AandBelow': 15000
 				}
 				*/
+
+				var basic = {
+
+							'7A': Math.round((inputCTC_an * 0.40)/12),
+							'8A':Math.round((inputCTC_an * 0.40)/12),
+							'9A':Math.round((inputCTC_an * 0.40)/12),
+							'10A':Math.round((inputCTC_an * 0.40)/12),
+							'11A':Math.round((inputCTC_an * 0.40)/12),
+							'12A':Math.round((inputCTC_an * 0.40)/12),
+							'13A':Math.round((inputCTC_an * 0.40)/12),
+
+							'14A':Math.round((inputCTC_an * 0.25)/12),
+							'15A':Math.round((inputCTC_an * 0.25)/12),
+							'16A':Math.round((inputCTC_an * 0.25)/12),
+							'17A':Math.round((inputCTC_an * 0.25)/12),
+							'18A':Math.round((inputCTC_an * 0.25)/12),
+				}
+
+				var hra = {
+
+							'7A': Math.round((inputCTC_an * 0.20)/12),
+							'8A':Math.round((inputCTC_an * 0.20)/12),
+							'9A':Math.round((inputCTC_an * 0.20)/12),
+							'10A':Math.round((inputCTC_an * 0.20)/12),
+							'11A':Math.round((inputCTC_an * 0.20)/12),
+							'12A':Math.round((inputCTC_an * 0.20)/12),
+							'13A':Math.round((inputCTC_an * 0.20)/12),
+
+							'14A':Math.round((inputCTC_an * 0.15)/12),
+							'15A':Math.round((inputCTC_an * 0.15)/12),
+							'16A':Math.round((inputCTC_an * 0.15)/12),
+							'17A':Math.round((inputCTC_an * 0.15)/12),
+							'18A':Math.round((inputCTC_an * 0.15)/12),
+				}
+
+				var transport = {
+
+							'7A': 1600,
+							'8A':1600,
+							'9A':1600,
+							'10A':1600,
+							'11A':1600,
+							'12A':1600,
+							'13A':1600,
+
+							'14A':1600,
+							'15A':1600,
+							'16A':1600,
+							'17A':1600,
+							'18A':1600,
+				}
+
+				var lta = {
+
+							'7A': (inputCTC_an * 0.07),
+							'8A':(inputCTC_an * 0.07),
+							'9A':(inputCTC_an * 0.07),
+							'10A':(inputCTC_an * 0.07),
+							'11A':(inputCTC_an * 0.07),
+							'12A':(inputCTC_an * 0.07),
+							'13A':(inputCTC_an * 0.07),
+
+							'14A':(inputCTC_an * 0.03),
+							'15A':(inputCTC_an * 0.03),
+							'16A':(inputCTC_an * 0.03),
+							'17A':(inputCTC_an * 0.03),
+							'18A':(inputCTC_an * 0.03),
+
+				}
+
+				var medical  = {
+
+							'7A': 15000,
+							'8A':15000,
+							'9A':15000,
+							'10A':15000,
+							'11A':15000,
+							'12A':15000,
+							'13A':15000,
+
+							'14A':15000,
+							'15A':15000,
+							'16A':15000,
+							'17A':15000,
+							'18A':15000,
+				}
+
+				var pf = {
+
+							'7A': ( (basic[level] * 12) * 0.12),
+							'8A':( (basic[level] * 12) * 0.12),
+							'9A':( (basic[level] * 12) * 0.12),
+							'10A':( (basic[level] * 12) * 0.12),
+							'11A':( (basic[level] * 12) * 0.12),
+							'12A':( (basic[level] * 12) * 0.12),
+							'13A':( (basic[level] * 12) * 0.12),
+
+							'14A':( (basic[level] * 12) * 0.12),
+							'15A':( (basic[level] * 12) * 0.12),
+							'16A':( (basic[level] * 12) * 0.12),
+							'17A':( (basic[level] * 12) * 0.12),
+							'18A':( (basic[level] * 12) * 0.12),
+
+				}
+
+				var gratuity = {
+
+							'7A': ( (basic[level] * 12) * 0.045),
+							'8A':( (basic[level] * 12) * 0.045),
+							'9A':( (basic[level] * 12) * 0.045),
+							'10A':( (basic[level] * 12) * 0.045),
+							'11A':( (basic[level] * 12) * 0.045),
+							'12A':( (basic[level] * 12) * 0.045),
+							'13A':( (basic[level] * 12) * 0.045),
+
+							'14A':( (basic[level] * 12) * 0.045),
+							'15A':( (basic[level] * 12) * 0.045),
+							'16A':( (basic[level] * 12) * 0.045),
+							'17A':( (basic[level] * 12) * 0.045),
+							'18A':( (basic[level] * 12) * 0.045),
+				}
 						
 						
-						CTCcalculation['basicSal_mon'] = (inputCTC_an * 0.40)/12;
+						CTCcalculation['basicSal_mon'] = Math.round(basic[level]);
 						
-						CTCcalculation['hra_mon'] =  (inputCTC_an * 0.20)/12;
-						CTCcalculation['transport_mon'] = 1600;
-						CTCcalculation['lta_an'] = (inputCTC_an * 0.07);
-						CTCcalculation['medicalAllowance_an'] = 15000;
-						CTCcalculation['pf_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.12);
-						CTCcalculation['gratuity_an'] = ( (CTCcalculation['basicSal_mon'] * 12) * 0.045);
+						CTCcalculation['hra_mon'] =  Math.round(hra[level]);
+						CTCcalculation['transport_mon'] = transport[level];
+						CTCcalculation['lta_an'] = Math.round(lta[level]);
+						CTCcalculation['medicalAllowance_an'] = medical[level];
+						CTCcalculation['pf_an'] = Math.round(pf[level]);
+						CTCcalculation['gratuity_an'] = Math.round(gratuity[level]);
 						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] ) /12 ); 
 						
 						CTCcalculation['totalSalary_mon'] = (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] + CTCcalculation['consolidatedAllow_mon']);

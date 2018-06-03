@@ -86,6 +86,16 @@ var $mj = jQuery.noConflict();
 					
 				}
 
+
+				
+		var arrayOfElem = ['proposedFixedMin','proposedFixedMax'];
+
+			for (var l=0; l < arrayOfElem.length; l++) {
+
+				$mj('[name="'+ arrayOfElem[l]+'"]').prop("readonly", true);
+
+};
+
 				
 				
 
@@ -272,7 +282,16 @@ var $mj = jQuery.noConflict();
 						CTCcalculation['totalSalary_mon'] = (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] + CTCcalculation['consolidatedAllow_mon']);
 						CTCcalculation['totalSalary_an'] =	CTCcalculation['totalSalary_mon'] * 12;
 						CTCcalculation['totalFixedCompensation_an'] = CTCcalculation['gratuity_an'] + CTCcalculation['pf_an'] + CTCcalculation['totalSalary_an'] + CTCcalculation['lta_an'] + CTCcalculation['medicalAllowance_an'];
+						
+						var diff = inputCTC_an - CTCcalculation['totalFixedCompensation_an'];
 
+						CTCcalculation['gratuity_an'] = Math.round(gratuity[level])+ diff;
+						CTCcalculation['consolidatedAllow_mon'] = Math.round((inputCTC_an - ( (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] ) * 12) - CTCcalculation['lta_an'] - CTCcalculation['medicalAllowance_an'] - CTCcalculation['pf_an'] - CTCcalculation['gratuity_an'] -CTCcalculation['variablePay_an'] ) /12 ); 
+						
+						CTCcalculation['totalSalary_mon'] = (CTCcalculation['basicSal_mon'] + CTCcalculation['hra_mon'] + CTCcalculation['transport_mon'] + CTCcalculation['consolidatedAllow_mon']);
+						CTCcalculation['totalSalary_an'] =	CTCcalculation['totalSalary_mon'] * 12;
+						CTCcalculation['totalFixedCompensation_an'] = CTCcalculation['gratuity_an'] + CTCcalculation['pf_an'] + CTCcalculation['totalSalary_an'] + CTCcalculation['lta_an'] + CTCcalculation['medicalAllowance_an'];
+						
 				
 			     return CTCcalculation;
 				

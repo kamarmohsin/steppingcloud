@@ -514,10 +514,20 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 			 	//document.getElementById(key).innerHTML = Math.round(sal[key]);
+		
+					if(key =='ctcinwords'){
 
-			 	var salComponent = Math.round(sal[key]);
+        					$mj('[name="'+key+'"]').val(sal[key]);
+        				}
+		
+					else {
+						
+
+			 			var salComponent = Math.round(sal[key]);
 			 			//var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(salComponent);
+						
+					}
 
 
 				var baseId_mon = $mj('[name="'+key+'"]').attr("id");

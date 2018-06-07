@@ -256,19 +256,98 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['providentFund_mon'] =  (CTCcalculation['BasicSal_mon'] * 12) /100;
 					CTCcalculation['providentFund_an'] = CTCcalculation['providentFund_mon'] *12;
 
-					CTCcalculation['bookPeriodical_mon'] = bookPeriodicals[grade];
-					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+					
+					
 					
 					//CTCcalculation['medicalreimbursement_mon'] = CTCcalculation['BasicSal_mon'] > 12500 ? 1250 : (CTCcalculation['BasicSal_mon'] *10) /100;
 					//CTCcalculation['medicalreimbursement_ann'] = CTCcalculation['medicalreimbursement_mon'] * 12;
+					
+					if(grade == 'IC_1' && offerCtc <= 360000){
+
+					CTCcalculation['leaveTravelallowance_mon'] = 0;
+					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
+
+					CTCcalculation['bookPeriodical_mon'] = 0;
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+
+					CTCcalculation['conveyanceAllowance_mon'] = 0;
+					CTCcalculation['conveyanceAllowance_an'] = CTCcalculation['conveyanceAllowance_mon'] * 12;
+					}
+					else if(grade == 'IC_1' && (offerCtc >= 360001 && offerCtc <= 390000)){
+					CTCcalculation['leaveTravelallowance_mon'] = 0;
+					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
+
+					CTCcalculation['bookPeriodical_mon'] = 0;
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+						
+					}
+					else if(grade == 'IC_2' && offerCtc <= 380000){
+
+					CTCcalculation['leaveTravelallowance_mon'] = 0;
+					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
+
+					CTCcalculation['bookPeriodical_mon'] = 0;
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+
+					CTCcalculation['conveyanceAllowance_mon'] = 0;
+					CTCcalculation['conveyanceAllowance_an'] = CTCcalculation['conveyanceAllowance_mon'] * 12;
+
+					CTCcalculation['entertainment_mon'] = 0;
+					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
+					}
+					else if(grade == 'IC_2' && (offerCtc >= 380001 || offerCtc <= 430000)){
+					CTCcalculation['leaveTravelallowance_mon'] = 0;
+					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
+
+					CTCcalculation['bookPeriodical_mon'] = 0;
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+
+					CTCcalculation['entertainment_mon'] = 0;
+					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
+						
+					}
+
+
+					else{
 					CTCcalculation['leaveTravelallowance_mon'] = (CTCcalculation['BasicSal_mon'] *10) /100;
 					CTCcalculation['leaveTravelallowance_an'] = CTCcalculation['leaveTravelallowance_mon'] *12;
+
+					CTCcalculation['bookPeriodical_mon'] = bookPeriodicals[grade];
+					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
+
 					CTCcalculation['conveyanceAllowance_mon'] = conveyance[grade];
 					CTCcalculation['conveyanceAllowance_an'] = CTCcalculation['conveyanceAllowance_mon'] * 12;
+
 					CTCcalculation['entertainment_mon'] = entertainment[grade];
 					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
+					}
+
+					
+					
 					CTCcalculation['personalAllowance_mon'] = CTCcalculation['grossSalary_mon'] - (CTCcalculation['BasicSal_mon'] +CTCcalculation['housingAllow_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['providentFund_mon']  + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon']  + CTCcalculation['conveyanceAllowance_mon']+CTCcalculation['bookPeriodical_mon']);
 					CTCcalculation['personalAllowance_an'] = CTCcalculation['personalAllowance_mon'] * 12;
+					
+
+					// Negative Personal Allowance
+
+
+
+					if(CTCcalculation['personalAllowance_mon'] < 0 ){
+
+					CTCcalculation['housingAllow_mon'] =  (CTCcalculation['housingAllow_mon'] + CTCcalculation['personalAllowance_mon'] );
+					CTCcalculation['housingAllow_an'] = CTCcalculation['housingAllow_mon'] * 12;
+
+
+
+					
+					
+					CTCcalculation['personalAllowance_mon'] = CTCcalculation['grossSalary_mon'] - (CTCcalculation['BasicSal_mon'] +CTCcalculation['housingAllow_mon'] + CTCcalculation['childreenAllow_mon'] + CTCcalculation['providentFund_mon']  + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'] + CTCcalculation['conveyanceAllowance_mon'] + CTCcalculation['bookPeriodical_mon']);
+					CTCcalculation['personalAllowance_an'] = CTCcalculation['personalAllowance_mon'] * 12;
+						
+
+
+					}
+
 					CTCcalculation['subtotal_mon'] = CTCcalculation['BasicSal_mon'] + CTCcalculation['housingAllow_mon'] + CTCcalculation['personalAllowance_mon'] + CTCcalculation['childreenAllow_mon'] ;
 					CTCcalculation['subtotal_ann'] = CTCcalculation['subtotal_mon'] * 12;
 					CTCcalculation['grossSalary_mon'] = CTCcalculation['subtotal_mon'] + CTCcalculation['providentFund_mon']  + CTCcalculation['leaveTravelallowance_mon'] + CTCcalculation['entertainment_mon'] + CTCcalculation['conveyanceAllowance_mon']+CTCcalculation['bookPeriodical_mon'];

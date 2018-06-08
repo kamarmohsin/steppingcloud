@@ -271,6 +271,10 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['bookPeriodical_mon'] = 0;
 					CTCcalculation['bookPeriodical_ann'] = CTCcalculation['bookPeriodical_mon'] * 12;
 					
+					CTCcalculation['entertainment_mon'] = 0;
+					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
+						
+					
 					}
 
 					else if(grade == 'IC_1' && (offerCtc >= 360001 && offerCtc <= 390000) ){
@@ -284,7 +288,9 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['conveyanceAllowance_mon'] = conveyance[grade];
 					CTCcalculation['conveyanceAllowance_an'] = CTCcalculation['conveyanceAllowance_mon'] * 12;
 					
-
+					CTCcalculation['entertainment_mon'] = 0;
+					CTCcalculation['entertainment_an'] = CTCcalculation['entertainment_mon'] * 12;
+					
 					}
 
 					else if(grade == 'IC_2' && offerCtc <= 380000){

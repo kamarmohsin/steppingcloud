@@ -93,9 +93,9 @@ var $mj = jQuery.noConflict();
 
 		}
 
-		else(
-				alert("Please Select Pay Grade!");
-		)
+		else{alert("Please Select Pay Grade!");}
+				
+		
 	}
         	 
 	else

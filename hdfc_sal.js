@@ -31,13 +31,14 @@ var $mj = jQuery.noConflict();
 					CTCcalculation['hdfc_HRA_an'] = (50 *CTCcalculation['hdfc_BasicSal_an']) /100;
 					CTCcalculation['hdfc_HRA_mon'] = CTCcalculation['hdfc_HRA_an']/12;
 					CTCcalculation['hdfc_Bonus_an'] = CTCcalculation['hdfc_BasicSal_mon'] < 21000 ?24000:0;
-					CTCcalculation['hdfc_Bonus_mon'] = CTCcalculation['hdfc_Bonus_an']/12;
+					CTCcalculation['hdfc_Bonus_mon'] = (CTCcalculation['hdfc_BasicSal_mon'] < 21000 ?24000:0)/12;
 					CTCcalculation['hdfc_Provident_Fund_an'] = (12 * CTCcalculation['hdfc_BasicSal_an'])/100;
 					CTCcalculation['hdfc_Provident_Fund_mon'] = CTCcalculation['hdfc_Provident_Fund_an'] /12;
 					CTCcalculation['hdfc_Gratuity_an']=  (4.83 * CTCcalculation['hdfc_BasicSal_an'])/100;
 					CTCcalculation['hdfc_ESIC_an']= (4.75 * CTCcalculation['hdfc_BasicSal_an'])/100;
 					CTCcalculation['hdfc_specialAllowance_an'] = inputFctc - (CTCcalculation['hdfc_BasicSal_an']+ CTCcalculation['hdfc_HRA_an']+CTCcalculation['hdfc_Bonus_an']+ CTCcalculation['hdfc_Provident_Fund_an']+CTCcalculation['hdfc_ESIC_an']+CTCcalculation['hdfc_Gratuity_an']);
-					CTCcalculation['hdfc_Gross_mon'] = CTCcalculation['hdfc_BasicSal_mon'] + CTCcalculation['hdfc_HRA_mon'] + CTCcalculation['hdfc_Bonus_mon']+CTCcalculation['hdfc_specialAllowance_an'];
+					CTCcalculation['hdfc_specialAllowance_mon']= CTCcalculation['hdfc_specialAllowance_an']/12;
+				       CTCcalculation['hdfc_Gross_mon'] = CTCcalculation['hdfc_BasicSal_mon'] + CTCcalculation['hdfc_HRA_mon'] + CTCcalculation['hdfc_Bonus_mon']+CTCcalculation['hdfc_specialAllowance_an'];
 					
 					CTCcalculation['hdfc_FixCost_an']=inputFctc;
 					CTCcalculation['hdfc_Total_FixCost_an'] = inputFctc;

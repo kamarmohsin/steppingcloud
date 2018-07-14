@@ -41,6 +41,9 @@ var $mj = jQuery.noConflict();
 					
 					CTCcalculation['hdfc_FixCost_an']=inputFctc;
 					CTCcalculation['hdfc_Total_FixCost_an'] = inputFctc;
+					CTCcalculation['hdfc_FixCost_mon']= CTCcalculation['hdfc_Total_FixCost_an']/12;
+					CTCcalculation['hdfc_Total_FixCost_mon']= CTCcalculation['hdfc_Total_FixCost_an']/12
+					CTCcalculation['hdfc_grade']= grade;
 					
  					
 				return CTCcalculation;
@@ -74,15 +77,18 @@ var $mj = jQuery.noConflict();
         for( var key in sal){
 
 
+					if(key =='hdfc_grade' ){
 
+        					$mj('[name="'+key+'"]').val(sal[key]);
+        				}
 			 	
-        			
-        			
-        				//document.getElementById(key).innerHTML = Math.round(sal[key]).toLocaleString('en-IN');
-						var salComponent = Math.round(sal[key]);
+        			else{
+							var salComponent = Math.round(sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
-						
+					}
+        			
+        				
 					var baseId_mon = $mj('[name="'+key+'"]').attr("id");
 					
 					$mj('[name="'+key+'"]').addClass('unsaved');

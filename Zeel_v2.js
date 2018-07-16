@@ -9,7 +9,7 @@ var $mj = jQuery.noConflict();
 
 	$mj(document).ready(function(){
 
-			var arrayOfElem = ['variablePay_mon', 'variablePay_an', 'BasicSal_mon', 'BasicSal_an', 'personalAllowance_mon', 'personalAllowance_an', 'housingAllow_mon', 'housingAllow_an', 'childreenAllow_mon', 'childreenAllow_ann', 'subtotal_mon', 'subtotal_ann', 'providentFund_mon', 'providentFund_an', 'medicalreimbursement_mon', 'medicalreimbursement_ann', 'leaveTravelallowance_mon', 'leaveTravelallowance_an', 'conveyance_mon', 'conveyance_an', 'entertainment_mon', 'entertainment_an', 'grossSalary_mon', 'grossSalary_an', 'carrelated_expenses_mon', 'carrelated_expenses_an', 'CTC_mon', 'CTC_an', 'Total_CTC_mon', 'Total_CTC_an', 'incrementPercent', 'fixedSalary', 'varSalary'];
+			var arrayOfElem = ['variableInWords', 'variablePay_mon', 'variablePay_an', 'BasicSal_mon', 'BasicSal_an', 'personalAllowance_mon', 'personalAllowance_an', 'housingAllow_mon', 'housingAllow_an', 'childreenAllow_mon', 'childreenAllow_ann', 'subtotal_mon', 'subtotal_ann', 'providentFund_mon', 'providentFund_an', 'medicalreimbursement_mon', 'medicalreimbursement_ann', 'leaveTravelallowance_mon', 'leaveTravelallowance_an', 'conveyance_mon', 'conveyance_an', 'entertainment_mon', 'entertainment_an', 'grossSalary_mon', 'grossSalary_an', 'carrelated_expenses_mon', 'carrelated_expenses_an', 'CTC_mon', 'CTC_an', 'Total_CTC_mon', 'Total_CTC_an', 'incrementPercent', 'fixedSalary', 'varSalary'];
 
 			for (var l=0; l < arrayOfElem.length; l++) {
 
@@ -461,7 +461,7 @@ var $mj = jQuery.noConflict();
     					str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]])  : '';
     
 
-    					CTCcalculation['variableInWords'] = str;
+    					CTCcalculation['variableInWords'] = CTCcalculation['variablePay_an'] == '0' ? 'Zero':str;
 						
 					
 

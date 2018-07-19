@@ -135,13 +135,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10b': 0,
 							'l10c': 0,
 							'l7m': ( 10 * ( inputCTC_an * .30 ))/100,
-							'l5m' :(12 * (( 24 * inputCTC_an)/100) ) /100,
-							'l6m' : (10 * (( 24 * inputCTC_an)/100) ) /100,
-							'l5dh' : (12 * (( 24 * inputCTC_an)/100) ) /100,
-							'l4dh' : (15 * (( 24 * inputCTC_an)/100) ) /100,
-							'l3dh' : (15 * (( 24 * inputCTC_an)/100) ) /100,
-							'l3e' : (15 * (( 24 * inputCTC_an)/100) ) /100,
-							'l2e' : (15 * (( 24 * inputCTC_an)/100) ) /100
+							'l5m' :(12 * (( 30 * inputCTC_an)/100) ) /100,
+							'l6m' : (10 * (( 30 * inputCTC_an)/100) ) /100,
+							'l5dh' : (12 * (( 30 * inputCTC_an)/100) ) /100,
+							'l4dh' : (15 * (( 30 * inputCTC_an)/100) ) /100,
+							'l3dh' : (15 * (( 30 * inputCTC_an)/100) ) /100,
+							'l3e' : (15 * (( 30 * inputCTC_an)/100) ) /100,
+							'l2e' : (15 * (( 30 * inputCTC_an)/100) ) /100
 
 						}
 
@@ -155,13 +155,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10b': ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l10c': ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l7m': ( ( inputCTC_an * .30 ) /12) * 15 / 26,
-							'l5m' : ( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l6m' :( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l5dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l4dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l3dh' :( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l3e' :( 4.81 * ( inputCTC_an * .24 ))/100,
-							'l2e' :( 4.81 * ( inputCTC_an * .24 ))/100
+							'l5m' : ( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l6m' :( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l5dh' :( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l4dh' :( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l3dh' :( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l3e' :( 4.81 * ( inputCTC_an * .30 ))/100,
+							'l2e' :( 4.81 * ( inputCTC_an * .30 ))/100
 						}
 
 						var carvalue = {
@@ -174,14 +174,14 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10b': 0,
 							'l10c': 0,
 							'l7m' : 0,
-							'l5m' : 250000,
-							'l6m' : 125000
+							'l5m' : 0,
+							'l6m' : 0
 
 						}
 
 						if (level == 'l5m' || level == 'l6m' || level == 'l5dh' || level == 'l4dh' || level == 'l3dh' || level == 'l3e' || level == 'l2e') 
 						{
-							CTCcalculation['fixedPay_ann'] = ( 24 * inputCTC_an)/100;
+							CTCcalculation['fixedPay_ann'] = ( 30 * inputCTC_an)/100;
 							CTCcalculation['fixedPay_mon'] = CTCcalculation['fixedPay_ann'] / 12;
 							
 							/*
@@ -235,21 +235,21 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							*/
 
 							CTCcalculation['ctc_an'] = inputCTC_an;
-							CTCcalculation['ctc_mon'] =  ( CTCcalculation['ctc_an'] - CTCcalculation['performancePay_an']) /12;
+							CTCcalculation['ctc_mon'] =  ( CTCcalculation['ctc_an']) /12;
 
 							
 
 						}
 
-						else{
+						else if(level == 'l7m' || level == 'l7o' || level == 'l8o' || level == 'l9o'|| level == 'l10a' || level == 'l10b' || level == 'l10c'){
 
 							CTCcalculation['BasicSal_an'] = ( 30 * inputCTC_an)/100;
 							CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an']/12;
 							CTCcalculation['hra_an'] = (50 * CTCcalculation['BasicSal_an'])/ 100;
 							CTCcalculation['hra_mon'] = CTCcalculation['hra_an'] /12;
-							CTCcalculation['conveyance_an'] =  19200;
+							CTCcalculation['conveyance_an'] =  0;
 							CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an'] /12;
-							CTCcalculation['medicalReimbursment_ann'] = medical[level];
+							CTCcalculation['medicalReimbursment_ann'] = 0;
 							CTCcalculation['medicalReimbursment_mon'] = CTCcalculation['medicalReimbursment_ann'] /12;
 							CTCcalculation['pf_ann'] = ( 12* CTCcalculation['BasicSal_an'])/100;
 							CTCcalculation['pf_mon'] =  CTCcalculation['pf_ann'] /12;

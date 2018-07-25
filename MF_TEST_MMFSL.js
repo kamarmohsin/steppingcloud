@@ -54,7 +54,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'flexi_mon':0,
 						'flexi_an':0,
 						'ctc_mon':0,
-						'ctc_an':0
+						'ctc_an':0,
+						'pp_3rating':0,
+						'ctc_pp3':0,
+						'pp_4rating':0,
+						'ctc_pp4':0,
+						'pp_5rating':0,
+						'ctc_pp5':0
 						
 						};	
 

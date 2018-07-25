@@ -67,6 +67,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'l10a': 0,
 						'l10b': 0,
 						'l10c': 0,
+
+						'l7oClusterMng': ( ( ( inputCTC_an * .30 ) /12 ) * 1.5 ),
+						'l7mClusterMng': ( ( ( inputCTC_an * .30 ) /12 ) * 1.5 ),
 						'l7m' : ( ( ( inputCTC_an * .30 ) /12 ) * 1.5 ),
 						'l5m' : 0,
 						'l6m' :0
@@ -82,6 +85,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10a': 0,
 							'l10b': 0,
 							'l10c': 0,
+
+							'l7oClusterMng': 0,
+							'l7mClusterMng': 0,
 							'l7m': ( 80 * inputCTC_an)/100,
 							'l5m' : 0,
 							'l6m' :0
@@ -97,6 +103,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10a': 0,
 							'l10b': 0,
 							'l10c': 0,
+
+							'l7oClusterMng': 0,
+							'l7mClusterMng': 0,
 							'l7m': (20 * inputCTC_an) /100,
 							'l5m' : (20 * inputCTC_an) /100,
 							'l6m' :(20 * inputCTC_an) /100,
@@ -134,6 +143,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10a': 0,
 							'l10b': 0,
 							'l10c': 0,
+
+							'l7oClusterMng': ( 10 * ( inputCTC_an * .30 ))/100,
+							'l7mClusterMng': ( 10 * ( inputCTC_an * .30 ))/100,
 							'l7m': ( 10 * ( inputCTC_an * .30 ))/100,
 							'l5m' :(12 * (( 30 * inputCTC_an)/100) ) /100,
 							'l6m' : (10 * (( 30 * inputCTC_an)/100) ) /100,
@@ -154,6 +166,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10a':  ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l10b': ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l10c': ( 4.81 * ( inputCTC_an * .30 ))/100,
+
+							'l7oClusterMng': ( ( inputCTC_an * .30 ) /12) * 15 / 26,
+							'l7mClusterMng': ( ( inputCTC_an * .30 ) /12) * 15 / 26,
 							'l7m': ( ( inputCTC_an * .30 ) /12) * 15 / 26,
 							'l5m' : ( 4.81 * ( inputCTC_an * .30 ))/100,
 							'l6m' :( 4.81 * ( inputCTC_an * .30 ))/100,
@@ -173,6 +188,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'l10a': 0,
 							'l10b': 0,
 							'l10c': 0,
+							'l7oClusterMng': 0,
+							'l7mClusterMng': 0,
 							'l7m' : 0,
 							'l5m' : 0,
 							'l6m' : 0
@@ -236,6 +253,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							CTCcalculation['ctc_an'] = inputCTC_an;
 							CTCcalculation['ctc_mon'] =  ( CTCcalculation['ctc_an']) /12;
+
+							CTCcalculation['pp_3rating'] = CTCcalculation['performancePay_an'];
+							CTCcalculation['ctc_pp3'] = 0;
+							CTCcalculation['pp_4rating'] = (CTCcalculation['performancePay_an'] * 133)/100;
+							CTCcalculation['ctc_pp4'] = 0;
+							CTCcalculation['pp_5rating'] = (CTCcalculation['performancePay_an'] * 166)/100;
+							CTCcalculation['ctc_pp5'] =0;
 
 							
 
@@ -302,6 +326,70 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 						}
+
+				
+						else if (level == 'l7oClusterMng' || level == 'l7mClusterMng'){
+
+							CTCcalculation['BasicSal_an'] = ( 30 * inputCTC_an)/100;
+							CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an']/12;
+							CTCcalculation['hra_an'] = (50 * CTCcalculation['BasicSal_an'])/ 100;
+							CTCcalculation['hra_mon'] = CTCcalculation['hra_an'] /12;
+							CTCcalculation['conveyance_an'] =  0;
+							CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an'] /12;
+							CTCcalculation['medicalReimbursment_ann'] = 0;
+							CTCcalculation['medicalReimbursment_mon'] = CTCcalculation['medicalReimbursment_ann'] /12;
+							CTCcalculation['pf_ann'] = ( 12* CTCcalculation['BasicSal_an'])/100;
+							CTCcalculation['pf_mon'] =  CTCcalculation['pf_ann'] /12;
+							CTCcalculation['gratuity_ann'] = gratuity[level];
+							CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann'] /12;
+							CTCcalculation['superannuation_an'] = superannuation[level];
+							CTCcalculation['superannuation_mon'] = CTCcalculation['superannuation_an'] /12;
+							CTCcalculation['lta_an'] = lta[level];
+							CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] / 12;
+							CTCcalculation['grossFixedCTC_an'] = grossfixed[level];
+							CTCcalculation['grossFixedCTC_mon'] = CTCcalculation['grossFixedCTC_an'] /12;
+							
+
+
+							var personalAllowance = {
+
+								'mt': ( CTCcalculation['grossFixedCTC_an'] - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),    
+
+								'l7o': ( CTCcalculation['grossFixedCTC_an'] - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l8o': ( CTCcalculation['grossFixedCTC_an'] - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l9o': ( CTCcalculation['grossFixedCTC_an'] - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l10a': (inputCTC_an - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l10b': (inputCTC_an - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l10c': (inputCTC_an - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l7m': ( CTCcalculation['grossFixedCTC_an'] - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l7mClusterMng': (inputCTC_an - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+								'l7oClusterMng': (inputCTC_an - CTCcalculation['BasicSal_an'] - CTCcalculation['hra_an'] - CTCcalculation['conveyance_an'] - CTCcalculation['medicalReimbursment_ann'] - CTCcalculation['pf_ann'] - CTCcalculation['gratuity_ann'] - CTCcalculation['superannuation_an'] - CTCcalculation['lta_an']),
+
+							}	
+							
+
+							CTCcalculation['personalAllowance_ann'] = personalAllowance[level];
+							CTCcalculation['personalAllowance_mon'] = CTCcalculation['personalAllowance_ann'] /12;
+							CTCcalculation['annualGross_ann'] =  CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['medicalReimbursment_ann'] + CTCcalculation['personalAllowance_ann'];
+
+							CTCcalculation['annualGross_mon'] = CTCcalculation['annualGross_ann'] /12;
+							CTCcalculation['performancePay_an'] = pp[level];
+							CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] /12;
+							CTCcalculation['carValue_an'] = carvalue[level];
+							CTCcalculation['carValue_mon'] = CTCcalculation['carValue_an'] /12;
+							CTCcalculation['ctc_an'] = inputCTC_an;
+							CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an'] /12;
+
+
+						}		
 							
 							var fixedSalary = isNaN(parseFloat($mj('[name="currentFixed"]').val()))? 0 : parseFloat($mj('[name="currentFixed"]').val());
 							var varSalary = isNaN(parseFloat($mj('[name="currentVariable"]').val()))? 0 : parseFloat($mj('[name="currentVariable"]').val());

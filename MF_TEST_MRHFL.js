@@ -45,7 +45,14 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'flexi_mon':0,
 						'flexi_an':0,
 						'ctc_mon':0,
-						'ctc_an':0
+						'ctc_an':0,
+						'grossFixedCTC_an':0,
+						'pp_3rating':0,
+						'ctc_pp3':0,
+						'pp_4rating':0,
+						'ctc_pp4':0,
+						'pp_5rating':0,
+						'ctc_pp5':0
 						
 						};
 
@@ -85,8 +92,12 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['flexi_mon'] = CTCcalculation['flexi_an']/12;
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
-
-					
+					CTCcalculation['pp_3rating'] = Math.round((CTCcalculation['performancePay_an'] *3)/3);
+					CTCcalculation['ctc_pp3']= CTCcalculation['BasicSal_an'] + CTCcalculation['retirals_an'] + CTCcalculation['flexi_an'] + CTCcalculation['pp_3rating'];
+					CTCcalculation['pp_4rating'] = Math.round((CTCcalculation['performancePay_an'] *4)/3);
+					CTCcalculation['ctc_pp4'] = CTCcalculation['BasicSal_an'] + CTCcalculation['retirals_an'] + CTCcalculation['flexi_an'] + CTCcalculation['pp_4rating'];
+					CTCcalculation['pp_5rating'] = Math.round((CTCcalculation['performancePay_an'] *5)/3);
+					CTCcalculation['ctc_pp5'] = CTCcalculation['BasicSal_an'] + CTCcalculation['retirals_an'] + CTCcalculation['flexi_an'] + CTCcalculation['pp_5rating'];
 
 					
 
@@ -130,8 +141,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an']/12;
 					CTCcalculation['medicalReimbursment_ann'] = 0;
 					CTCcalculation['medicalReimbursment_mon'] = CTCcalculation['medicalReimbursment_ann'] / 12;
-					alert(PP);
-					CTCcalculation['performancePay_an'] = parseFloat((PP == 'qip')? (( 20 * inputCTC_an)/100) : (PP == 'pbmr')? 0 : Math.round(( inputPP_per * inputCTC_an)/100));
+					
+					CTCcalculation['performancePay_an'] = ( level == 'L10' || level == 'L10A'|| level == 'L10B'|| level == 'L10C') ? 0:  parseFloat((PP == 'qip')? (( 20 * inputCTC_an)/100) : (PP == 'pbmr')? 0 : Math.round(( inputPP_per * inputCTC_an)/100));
 					CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] / 12;
 					CTCcalculation['lta_an'] =  0;
 					CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] /12;
@@ -143,6 +154,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann'] / 12;
 					CTCcalculation['personalAllowance_an'] = inputCTC_an -( CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['medicalReimbursment_ann'] + CTCcalculation['performancePay_an'] + CTCcalculation['lta_an'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann']);
 					CTCcalculation['personalAllowance_mon'] = CTCcalculation['personalAllowance_an'] /12;
+
+					CTCcalculation['grossFixedCTC_an'] = CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['personalAllowance_an'];
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
 
@@ -182,7 +195,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 		var inputPP = $mj('#performancePay').val();
 		var inputPP_per = $mj('#pp_percentage').val();
 
-		alert(inputPP);
+		
 
 
 		
@@ -233,6 +246,19 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 			
       
        });
+
+
+      		 $mj('#performancePay').on('change', function(){
+				   //console.log($mj('#typeOfGlass').val());
+				    $mj('#pp_percentage').html('');
+				    if($mj('#performancePay').val()=='pp'){
+				    	$mj('#pp_percentage').append('<option value="selectPP_Per">Annual PP(%)</option>');
+				    	$mj('#pp_percentage').append('<option value="10">10</option>');
+				    	$mj('#pp_percentage').append('<option value="15">15</option>');
+				    	$mj('#pp_percentage').append('<option value="20">20</option>');
+
+				    }
+      		 });
 	
 
 	

@@ -10,6 +10,16 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 	$mj(document).ready(function(){
 
 
+		var arrayOfElem = ['percentHike'];
+
+			for (var l=0; l < arrayOfElem.length; l++) {
+
+				$mj('[name="'+ arrayOfElem[l]+'"]').prop("readonly", true);
+
+				};
+
+
+
 		var calcCTC =  function(offerCtc, inputlevel, inputPP, inputPP_per){
 
 				var inputCTC_an = offerCtc;

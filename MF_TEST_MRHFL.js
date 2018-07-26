@@ -10,11 +10,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 	$mj(document).ready(function(){
 
 
-		var calcCTC =  function(offerCtc, inputlevel, inputSuperann, inputPP, inputPP_per){
+		var calcCTC =  function(offerCtc, inputlevel, inputPP, inputPP_per){
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
-				var Supernn = inputSuperann;
+				//var Supernn = inputSuperann;
 				var PP = inputPP;
 				var pp_perc =  inputPP_per;
 
@@ -54,7 +54,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				{	
 
 
-					if (inputPP_per !='selectPP_Per') {
+					
 
 					var superannuation = {
 
@@ -69,11 +69,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					'L6M': 0.10
 					}		
 
-					CTCcalculation['BasicSal_an'] = Math.round(( 24 * inputCTC_an)/100);
+					CTCcalculation['BasicSal_an'] = Math.round(( 30 * inputCTC_an)/100);
 					CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an'] / 12;
 					CTCcalculation['pf_ann'] = ( 12 * CTCcalculation['BasicSal_an'] )/100;
 					CTCcalculation['pf_mon'] = CTCcalculation['pf_ann']/12;
-					CTCcalculation['superannuation_an'] = (Supernn == 'yes') ? (CTCcalculation['BasicSal_an'] * superannuation[level]) : 0;
+					CTCcalculation['superannuation_an'] = (CTCcalculation['BasicSal_an'] * superannuation[level]);
 					CTCcalculation['superannuation_mon'] = CTCcalculation['superannuation_an'] /12;
 					CTCcalculation['gratuity_ann'] = ( CTCcalculation['BasicSal_an'] * 4.81)/100;
 					CTCcalculation['gratuity_mon'] = CTCcalculation['gratuity_ann'] / 12;
@@ -86,23 +86,16 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
 
-					}
+					
 
-					else
-					{
-
-						alert('Please select Annual PP(%) \n It is applicable for Level L6M - L1S ')
-
-
-					}
-
+					
 
 
 				
 			}
 
 
-				else if (level == 'L7M' || level == 'L7O' || level == 'L8O' || level == 'L9O') 
+				else if (level == 'L7M' || level == 'L7O' || level == 'L8O' || level == 'L9O' || level == 'L10' || level == 'L10A'|| level == 'L10B'|| level == 'L10C') 
 				{	
 
 					var medical = {
@@ -110,7 +103,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'L7M': 15000,
 						'L7O': 15000,
 						'L8O': 9000,
-						'L9O': 0
+						'L9O': 0,
+						'L10':0,
+						'L10A':0,
+						'L10B':0,
+						'L10C':0,
 					}
 
 					var superannuation = {
@@ -118,20 +115,25 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'L7M': 0.10,
 						'L7O': 0.10,
 						'L8O': 0.10,
-						'L9O': 0.10
+						'L9O': 0,
+						'L10':0,
+						'L10A':0,
+						'L10B':0,
+						'L10C':0,
 					}
 
 					CTCcalculation['BasicSal_an'] = Math.round(( 30 * inputCTC_an)/100);
 					CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an'] / 12;
 					CTCcalculation['hra_an'] = CTCcalculation['BasicSal_an'] /2;
 					CTCcalculation['hra_mon'] = CTCcalculation['hra_an'] /12;
-					CTCcalculation['conveyance_an'] = 19200;
+					CTCcalculation['conveyance_an'] = 0;
 					CTCcalculation['conveyance_mon'] = CTCcalculation['conveyance_an']/12;
-					CTCcalculation['medicalReimbursment_ann'] = medical[level];
+					CTCcalculation['medicalReimbursment_ann'] = 0;
 					CTCcalculation['medicalReimbursment_mon'] = CTCcalculation['medicalReimbursment_ann'] / 12;
-					CTCcalculation['performancePay_an'] = (PP == 'qip')? (( 20 * inputCTC_an)/100) : 0;
+					alert(PP);
+					CTCcalculation['performancePay_an'] = parseFloat((PP == 'qip')? (( 20 * inputCTC_an)/100) : (PP == 'pbmr')? 0 : Math.round(( inputPP_per * inputCTC_an)/100));
 					CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] / 12;
-					CTCcalculation['lta_an'] = (level == 'L7M' || level == 'L7O') ? ( 	(CTCcalculation['BasicSal_an'] / 12) * 1.5) : 0;
+					CTCcalculation['lta_an'] =  0;
 					CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] /12;
 					CTCcalculation['pf_ann'] = ( 12 * CTCcalculation['BasicSal_an'])/100;
 					CTCcalculation['pf_mon'] = CTCcalculation['pf_ann']/12;
@@ -176,21 +178,23 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#selectLevel').val();
-		var inputSuperann = $mj('#Superann').val();
+		//var inputSuperann = $mj('#Superann').val();
 		var inputPP = $mj('#performancePay').val();
 		var inputPP_per = $mj('#pp_percentage').val();
+
+		alert(inputPP);
 
 
 		
     if($mj.isNumeric(inputCTC) )
 	{ 
 
-		if (inputlevel != 'selectlevel' && inputSuperann != 'selectSuper' && inputPP != 'selectPP' ) {
+		if (inputlevel != 'selectlevel'  && inputPP != 'selectPP' ) {
 
 
 		
 
-        var sal  = calcCTC(inputCTC,inputlevel, inputSuperann, inputPP,inputPP_per);
+        var sal  = calcCTC(inputCTC,inputlevel, inputPP,inputPP_per);
 
         for( var key in sal){
 
@@ -217,7 +221,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 		else
 		{
-			alert("Please Select Level, Superannuation & Performance Pay");
+			alert("Please Select Level & Performance Pay");
 		}
 	
 

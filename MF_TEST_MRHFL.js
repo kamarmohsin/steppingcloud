@@ -56,7 +56,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'flexi_an':0,
 						'ctc_mon':0,
 						'ctc_an':0,
-						'grossFixedCTC_an':0,
+						'annualGross_ann':0,
 						'pp_3rating':0,
 						'ctc_pp3':0,
 						'pp_4rating':0,
@@ -250,7 +250,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['personalAllowance_ann'] = inputCTC_an -( CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['conveyance_an'] + CTCcalculation['medicalReimbursment_ann'] + CTCcalculation['performancePay_an'] + CTCcalculation['lta_an'] + CTCcalculation['pf_ann'] + CTCcalculation['superannuation_an'] + CTCcalculation['gratuity_ann']);
 					CTCcalculation['personalAllowance_mon'] = CTCcalculation['personalAllowance_ann'] /12;
 
-					CTCcalculation['grossFixedCTC_an'] = CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['personalAllowance_ann'];
+					CTCcalculation['annualGross_ann'] = CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['personalAllowance_ann'];
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
 					CTCcalculation['grp_med_Insurance'] = mediclaimInsurance[level];

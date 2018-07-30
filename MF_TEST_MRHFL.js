@@ -239,7 +239,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					
 					CTCcalculation['performancePay_an'] = ( level == 'L10' || level == 'L10A'|| level == 'L10B'|| level == 'L10C') ? 0:  parseFloat((PP == 'qip')? (( 20 * inputCTC_an)/100) : (PP == 'pbmr')? 0 : Math.round(( inputPP_per * inputCTC_an)/100));
 					CTCcalculation['performancePay_mon'] = CTCcalculation['performancePay_an'] / 12;
-					CTCcalculation['lta_an'] =  0;
+					CTCcalculation['lta_an'] =  ( level == 'L7M' || level == 'L7O') ?(CTCcalculation['BasicSal_mon'] * 1.5) :0;
 					CTCcalculation['lta_mon'] = CTCcalculation['lta_an'] /12;
 					CTCcalculation['pf_ann'] = ( 12 * CTCcalculation['BasicSal_an'])/100;
 					CTCcalculation['pf_mon'] = CTCcalculation['pf_ann']/12;

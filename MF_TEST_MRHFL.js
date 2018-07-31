@@ -56,6 +56,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'flexi_an':0,
 						'ctc_mon':0,
 						'ctc_an':0,
+						'grossFixedCTC_an':0,
 						'annualGross_ann':0,
 						'pp_3rating':0,
 						'ctc_pp3':0,
@@ -251,6 +252,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 					CTCcalculation['personalAllowance_mon'] = CTCcalculation['personalAllowance_ann'] /12;
 
 					CTCcalculation['annualGross_ann'] = CTCcalculation['BasicSal_an'] + CTCcalculation['hra_an'] + CTCcalculation['personalAllowance_ann'];
+					
+					CTCcalculation['grossFixedCTC_an'] = (( level == 'L7M' || level == 'L7O'|| level == 'L8O' || level == 'L9O' ) && (PP == 'qip') )? (CTCcalculation['annualGross_ann'] + CTCcalculation['pf_ann'] + CTCcalculation['gratuity_ann'] +CTCcalculation['lta_an'] + CTCcalculation['superannuation_an'] ) :0;
+					
 					CTCcalculation['ctc_an'] = inputCTC_an;
 					CTCcalculation['ctc_mon'] = CTCcalculation['ctc_an']/12;
 					CTCcalculation['grp_med_Insurance'] = mediclaimInsurance[level];

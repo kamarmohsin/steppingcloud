@@ -1720,6 +1720,29 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
 						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
 					}
+				else if(loc == 'banglore' && qualf == 'Bsc202320' && design =='trainee' ){
+
+						CTCComponents['BasicSal_mon'] = 8000;
+						CTCComponents['BasicSal_an'] = CTCComponents['BasicSal_mon'] *12;
+						CTCComponents['housingAlMonthly'] = 2100;
+						CTCComponents['housingAllowance_an'] = CTCComponents['housingAlMonthly'] *12;
+						
+						CTCComponents['foodAllowance_mon'] = 600;
+						CTCComponents['foodAllowance_an'] = CTCComponents['foodAllowance_mon'] *12;
+						CTCComponents['conveyance_mon'] = 1300;
+						CTCComponents['conveyance_an'] = CTCComponents['conveyance_mon'] * 12;
+						CTCComponents['additionalAllow_mon'] = 2500;
+						CTCComponents['additionalAllow_an'] = CTCComponents['additionalAllow_mon'] * 12;
+						//CTCComponents['RLA_mon'] = 4500;
+						CTCComponents['totalA_mon'] = CTCComponents['BasicSal_mon']+ CTCComponents['housingAlMonthly'] + CTCComponents['foodAllowance_mon'] + CTCComponents['conveyance_mon'] + CTCComponents['additionalAllow_mon']  ;
+						CTCComponents['totalA_an'] = CTCComponents['totalA_mon'] * 12;
+						CTCComponents['providentFundMonth'] = 960;
+						CTCComponents['providentFund_an'] = CTCComponents['providentFundMonth'] * 12;
+						CTCComponents['exgratia2_mon'] = 1400;
+						CTCComponents['exgratia2_ann'] = CTCComponents['exgratia2_mon'] *12;
+						CTCComponents['totalB_mon'] = CTCComponents['totalA_mon'] + CTCComponents['providentFundMonth'] + CTCComponents['exgratia2_mon'];
+						CTCComponents['totalB_an'] = CTCComponents['totalB_mon'] * 12;
+					}
 
 					else if(loc == 'banglore' && (qualf == 'pgdca'  ) && design =='trainee' ){
 
@@ -2713,6 +2736,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				        
 				        $mj('#qualification').append('<option value="pgdca">PGDCA</option>');
 				        $mj('#qualification').append('<option value="BscBaBcom">B.sc/B.A/B.Com</option>');
+					$mj('#qualification').append('<option value="Bsc202320">B.sc(202320)</option>');   
 				        $mj('#qualification').append('<option value="diplomaChemical">Diploma in Chemical</option>');
 				        $mj('#qualification').append('<option value="diplomaExceptChemical">Diploma Trainee (Except Chemical)</option>');
 				        

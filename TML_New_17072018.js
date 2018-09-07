@@ -11,11 +11,13 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 
-				var calcCTC =  function(offerCtc, inputlevel){
+				var calcCTC =  function(offerCtc, inputlevel,inputStruct){
 
 				var inputCTC_an = offerCtc;
 				var level = inputlevel;
 				var text = $mj("#Level option:selected").text(); 	
+				var struct = inputStruct;
+
 				
 						
 				CTCcalculation = {
@@ -57,7 +59,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						
 						}
 
+				if(struct == 'withoutIncentive') 
+
+				{	
 						
+					
 						CTCcalculation['totalfixedPayMonth'] = (inputCTC_an * 100000)/12;
 						CTCcalculation['totalfixedPay'] = CTCcalculation['totalfixedPayMonth'] * 12;
 						
@@ -223,6 +229,10 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCcalculation['MarketCompaRatio'] = (level == 'L5' || level == 'L6') ? ( CTCcalculation['AnnualtargetPerformance'] / 100000) / TMLMarket[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLMarket[level];
 						CTCcalculation['OfferdGrade'] = text;
 
+				}
+
+						
+						
 			     return CTCcalculation;
 				
 
@@ -242,13 +252,15 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 		var inputCTC = $mj("#inputCTC").val();
 		var inputlevel = $mj('#Level').val();
+		var inputStruct = $mj('#salaryStruct').val();
+
+
 	
 		
 
-		
-	
-		
-    if($mj.isNumeric(inputCTC) )
+if(inputStruct != 'selectStruct')
+{
+		 if($mj.isNumeric(inputCTC) )
 	{ 
 
 		if (inputlevel != 'selectlevel' ) {
@@ -256,7 +268,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 		
 
-        var sal  = calcCTC(inputCTC,inputlevel);
+        var sal  = calcCTC(inputCTC,inputlevel,inputStruct);
 
         for( var key in sal){
 
@@ -318,7 +330,16 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 		{
 			alert("Please enter a numeric value!");
 		}
-			
+	
+}	
+
+else
+{
+	alert("Please select Structure from DropDown");
+}	
+	
+		
+   		
       
        });
 	

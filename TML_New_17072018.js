@@ -364,7 +364,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'L1': 73.875/100,
 							'L2': 44.805/100,							
 							'L3': 30.75/100,
-							'L4': 25/100,
+							'L4': 22.5/100,
 							'L5': 14.85/100,
 							'L6': 14.85/100,
 						}

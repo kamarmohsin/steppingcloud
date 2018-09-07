@@ -56,10 +56,14 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						'fuelReimbersment_an':0,
 						'AnnualtargetPerformance_carbenifit':0,
 						'AnnualtargetPerformance_carbenifit_max':0,
+						'SIAnnualAmmount':0,
+						'SIAnnualAmount_max':0
 						
 						}
 
-				if(struct == 'withoutIncentive') 
+						
+
+				if(struct == 'incentive') 
 
 				{	
 						
@@ -181,20 +185,208 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 							'L1': 122.6,
 							'L2': 76.72,							
-							'L3': 45.82,
-							'L4': 22.95,
+							'L3': 39.62,
+							'L4': 21.74,
 							'L5': 10.82,
-							'L6': 7.39,
+							'L6': 7.28,
 						}
 
 						var TMLMarket = {
 
 							'L1': 122.38,
 							'L2': 73.73,							
-							'L3': 38.61,
-							'L4': 21,
-							'L5': 12.85,
-							'L6': 7.62,	
+							'L3': 35.99,
+							'L4': 20.21,
+							'L5': 11.72,
+							'L6': 7.19,	
+						}
+
+						var SI_SIAnnualAmmount = {
+
+							'L1': 0,
+							'L2': 0,							
+							'L3': 1100000,
+							'L4': 800000,
+							'L5': 400000,
+							'L6': 400000,
+						}
+
+						var SI_SIAnnualAmount_max = {
+
+							'L1': 0,
+							'L2': 0,							
+							'L3': 2000000,
+							'L4': 1400000,
+							'L5': 800000,
+							'L6': 800000,
+						}
+
+						CTCcalculation['housingAlMonthly'] = hra[level];
+						CTCcalculation['housingAllowance'] = CTCcalculation['housingAlMonthly'] * 12;
+						CTCcalculation['conveyance_mon'] = conveyance[level];
+						CTCcalculation['conveyance_an'] = CTCcalculation['conveyance_mon'] * 12;
+						CTCcalculation['LTA_mon'] = LTA[level];
+						CTCcalculation['LTA_an'] = CTCcalculation['LTA_mon'] * 12;
+						CTCcalculation['Superanuuation_mon'] = supper[level];
+						CTCcalculation['Superanuuation_an'] = CTCcalculation['Superanuuation_mon'] * 12;
+						CTCcalculation['providentFundMonth'] = (CTCcalculation['BasicSal_mon'] * 12 )/100;
+						CTCcalculation['providentFund'] = CTCcalculation['providentFundMonth'] * 12;
+						CTCcalculation['gratuityMonthly'] = (CTCcalculation['BasicSal_mon'] * 4.81 )/100;
+						CTCcalculation['gratuity'] = CTCcalculation['gratuityMonthly'] * 12;
+						CTCcalculation['specialAllMonthly'] = CTCcalculation['totalfixedPayMonth'] - CTCcalculation['BasicSal_mon'] - CTCcalculation['housingAlMonthly'] - CTCcalculation['conveyance_mon'] - CTCcalculation['LTA_mon'] - CTCcalculation['Superanuuation_mon'] - CTCcalculation['providentFundMonth'] - CTCcalculation['gratuityMonthly'];
+						CTCcalculation['specialAllowance'] = CTCcalculation['specialAllMonthly'] * 12;
+						
+						CTCcalculation['PerquisiteCar_an'] = PerquisiteCar[level];
+						CTCcalculation['PerquisiteCar_mon'] = CTCcalculation['PerquisiteCar_an'] / 12;
+						CTCcalculation['driversalary_an'] = driverSalary[level];
+						CTCcalculation['driversalary_mon'] = CTCcalculation['driversalary_an'] /12;
+						CTCcalculation['fuelReimbersment_an'] = fuel[level];
+						CTCcalculation['fuelReimbersment_mon'] = CTCcalculation['fuelReimbersment_an'] /12;
+						CTCcalculation['SIAnnualAmmount'] = SI_SIAnnualAmmount[level];
+						CTCcalculation['SIAnnualAmount_max'] = SI_SIAnnualAmount_max[level]
+						CTCcalculation['AnnualtargetPerformance'] = CTCcalculation['totalfixedPay'] + CTCcalculation['SIAnnualAmmount'];
+						CTCcalculation['AnnualtargetPerformance_max'] = CTCcalculation['totalfixedPay'] + CTCcalculation['SIAnnualAmount_max'];
+						CTCcalculation['AnnualtargetPerformance_carbenifit'] = (level == 'L5' || level == 'L6') ? 0 : CTCcalculation['AnnualtargetPerformance'] + CTCcalculation['PerquisiteCar_an'] + CTCcalculation['driversalary_an'] + CTCcalculation['fuelReimbersment_an'];
+						CTCcalculation['AnnualtargetPerformance_carbenifit_max'] = (level == 'L5' || level == 'L6') ? 0 :  CTCcalculation['AnnualtargetPerformance_max'] + CTCcalculation['PerquisiteCar_an'] + CTCcalculation['driversalary_an'] + CTCcalculation['fuelReimbersment_an'];
+						CTCcalculation['TMLCompaRatio'] =  inputCTC_an/ TMLCompa[level];
+						CTCcalculation['MarketCompaRatio'] = inputCTC_an / TMLMarket[level];
+						CTCcalculation['OfferdGrade'] = text;
+
+				}
+
+				else if( struct == 'withoutIncentive')
+				{
+					CTCcalculation['totalfixedPayMonth'] = (inputCTC_an * 100000)/12;
+						CTCcalculation['totalfixedPay'] = CTCcalculation['totalfixedPayMonth'] * 12;
+						
+
+
+						var basic = {
+
+							'L1': (CTCcalculation['totalfixedPayMonth'] * 35)/100,
+							'L2': (CTCcalculation['totalfixedPayMonth'] * 35)/100,
+							'L3': (CTCcalculation['totalfixedPayMonth'] * 35)/100,
+							'L4': (CTCcalculation['totalfixedPayMonth'] * 35)/100,							
+							'L5': (CTCcalculation['totalfixedPayMonth'] * 35)/100,
+							'L6': (CTCcalculation['totalfixedPayMonth'] * 35)/100,
+						}
+
+						CTCcalculation['BasicSal_mon'] = basic[level];
+						CTCcalculation['BasicSal_an'] = CTCcalculation['BasicSal_mon'] * 12;
+
+						var hra = {
+
+							'L1' : (CTCcalculation['BasicSal_mon'] * 50 )/100,
+							'L2' : (CTCcalculation['BasicSal_mon'] * 50 )/100,							
+							'L3' : (CTCcalculation['BasicSal_mon'] * 50 )/100,
+							'L4' : (CTCcalculation['BasicSal_mon'] * 50 )/100,
+							'L5' : (CTCcalculation['BasicSal_mon'] * 50 )/100,
+							'L6' : (CTCcalculation['BasicSal_mon'] * 50 )/100,
+						}
+
+						var conveyance = {
+
+							'L1': 0,
+							'L2': 0,							
+							'L3': 6000,
+							'L4': 4000,													
+							'L5': 1600,
+							'L6': 1600,
+						}
+
+						var LTA = {
+
+							'L1': (CTCcalculation['BasicSal_mon'] * 8 )/100,
+							'L2': (CTCcalculation['BasicSal_mon'] * 8 )/100,							
+							'L3': (CTCcalculation['BasicSal_mon'] * 8 )/100,
+							'L4': (CTCcalculation['BasicSal_mon'] * 8 )/100,
+							'L5': (CTCcalculation['BasicSal_mon'] * 8 )/100,
+							'L6': (CTCcalculation['BasicSal_mon'] * 8 )/100,
+						}
+
+						var supper = {
+
+							'L1': (CTCcalculation['BasicSal_mon'] * 15 )/100,
+							'L2': (CTCcalculation['BasicSal_mon'] * 15 )/100,							
+							'L3': (CTCcalculation['BasicSal_mon'] * 15 )/100,
+							'L4': (CTCcalculation['BasicSal_mon'] * 15 )/100,														
+							'L5': (CTCcalculation['BasicSal_mon'] * 15 )/100,
+							'L6': (CTCcalculation['BasicSal_mon'] * 15 )/100,
+						}
+
+						
+						var PerquisiteCar = {
+
+							'L1': 736250,
+							'L2': 356250,							
+							'L3': 190000,
+							'L4': 118750,
+							'L5': 0,
+							'L6': 0,
+						}
+
+
+						var driverSalary = {
+
+							'L1': 120000,
+							'L2': 96000,							
+							'L3': 0,
+							'L4': 0,
+							'L5': 0,
+							'L6': 0,
+						}
+
+						var fuel = {
+
+
+							'L1': 150000,
+							'L2': 120000,							
+							'L3': 0,
+							'L4': 0,
+							'L5': 0,
+							'L6': 0,
+						}
+
+						var PPannualamount = {
+
+							
+							'L1': 49.25/100,
+							'L2': 29.87/100,							
+							'L3': 20.5/100,
+							'L4': 15/100,
+							'L5': 9.9/100,
+							'L6': 9.9/100,
+						}
+
+						var PPannualamount_max = {
+
+							
+							'L1': 73.875/100,
+							'L2': 44.805/100,							
+							'L3': 30.75/100,
+							'L4': 25/100,
+							'L5': 14.85/100,
+							'L6': 14.85/100,
+						}
+
+						var TMLCompa = {
+
+							'L1': 122.6,
+							'L2': 76.72,							
+							'L3': 50.51,
+							'L4': 26.76,
+							'L5': 12.15,
+							'L6': 8.01,
+						}
+
+						var TMLMarket = {
+
+							'L1': 122.38,
+							'L2': 73.73,							
+							'L3': 43.13,
+							'L4': 23.52,
+							'L5': 13.18,
+							'L6': 7.93,	
 						}
 
 						CTCcalculation['housingAlMonthly'] = hra[level];
@@ -228,7 +420,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 						CTCcalculation['TMLCompaRatio'] = (level == 'L5' || level == 'L6') ? ( CTCcalculation['AnnualtargetPerformance'] / 100000) / TMLCompa[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLCompa[level];
 						CTCcalculation['MarketCompaRatio'] = (level == 'L5' || level == 'L6') ? ( CTCcalculation['AnnualtargetPerformance'] / 100000) / TMLMarket[level] : ( CTCcalculation['AnnualtargetPerformance_carbenifit'] / 100000) / TMLMarket[level];
 						CTCcalculation['OfferdGrade'] = text;
-
 				}
 
 						

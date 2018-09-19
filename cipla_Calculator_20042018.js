@@ -31,17 +31,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 			var calcCTC =  function(offerCtc, perforamnceB, fieldoption){
 
-				if (fieldoption =='nonfield')
-				{
-				
-				var rla = isNaN(parseFloat($mj('#rla_sikkim').val()))?0:parseFloat($mj('#rla_sikkim').val());
-				
-				var inputctc = (offerCtc)/12;
-				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
-				 var foodAllowance =600;
-				 
-				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
-			
 				var CTCComponents = {
 
 							
@@ -94,10 +83,25 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'performaneBonus_mon':0,
 							'performanceBonus_an':0,
 							'totalC_mon':0,
-							'totalC_an':0
+							'totalC_an':0,
+							'basketAllowance_an':0,
+							'basketAllowance_mon':0
 
 
 						}
+				
+
+				if (fieldoption =='nonfield')
+				{
+				
+				var rla = isNaN(parseFloat($mj('#rla_sikkim').val()))?0:parseFloat($mj('#rla_sikkim').val());
+				
+				var inputctc = (offerCtc)/12;
+				 var perfomancePercantage =  isNaN(parseFloat(perforamnceB))? 0 : parseFloat(perforamnceB);
+				 var foodAllowance =600;
+				 
+				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
+			
 						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
 						CTCComponents['fixedSalary_ann'] = 12 * CTCComponents['fixedSalary_mon'];
@@ -173,62 +177,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				 
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
-				var CTCComponents = {
-
-							
-							//'BasicSal_an': 0,
-							'stipend_pm':0,
-							'stipend_an':0,
-							'perfomance':0,
-							'fixedSalary_mon':0,
-							'fixedSalary_ann':0,
-							'vPay_mon':0,
-							'vPay_ann':0,
-							'adjustment_mon':0,
-							'CTC_mon':0,
-							
-							'BasicSal_mon': 0,
-							'BasicSal_an':0,
-							'housingAlMonthly':0,
-							'housingAllowance_an': 0,
-							'conveyance_mon':0,
-							'conveyance_an':0,
-							'education_mon':0,
-							'education_an':0,
-							'medical_mon':0,
-							'medical_an': 0,
-							'city_mon':0,
-							'city_an': 0,
-							'foodAllowance_mon':0,
-							'foodAllowance_an':0,
-							'LTA_mon':0,
-							'RLA_mon':0,
-							'RLA_an':0,
-							'LTA_an':0,							
-							'fwr_mon':0,
-							'fwr_ann':0,
-							'additionalAllow_mon':0,
-							'additionalAllow_an':0,
-							'exgratia1_mon':0,
-							'exgratia1_ann':0,
-							'totalA_mon':0,
-							'totalA_an': 0,
-							'providentFundMonth':0,
-							'providentFund_an':0,
-							'exgratia2_mon':0,
-							'exgratia2_ann':0,
-							//'JoiningBonus_mon':0,
-							'totalB_mon':0,
-							'totalB_an':0,
-							'HRATotalB_mon':0,
-							'adjustmentHRA_mon':0,
-							'performaneBonus_mon':0,
-							'performanceBonus_an':0,
-							'totalC_mon':0,
-							'totalC_an':0
-
-
-						}
 						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
 						CTCComponents['fixedSalary_ann'] = 12 * CTCComponents['fixedSalary_mon'];
@@ -443,62 +391,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				 
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
-				var CTCComponents = {
-
-							
-							//'BasicSal_an': 0,
-							'stipend_pm':0,
-							'stipend_an':0,
-							'perfomance':0,
-							'fixedSalary_mon':0,
-							'fixedSalary_ann':0,
-							'vPay_mon':0,
-							'vPay_ann':0,
-							'adjustment_mon':0,
-							'CTC_mon':0,
-							
-							'BasicSal_mon': 0,
-							'BasicSal_an':0,
-							'housingAlMonthly':0,
-							'housingAllowance_an': 0,
-							'conveyance_mon':0,
-							'conveyance_an':0,
-							'education_mon':0,
-							'education_an':0,
-							'medical_mon':0,
-							'medical_an': 0,
-							'city_mon':0,
-							'city_an': 0,
-							'foodAllowance_mon':0,
-							'foodAllowance_an':0,
-							'LTA_mon':0,
-							'RLA_mon':0,
-							'RLA_an':0,
-							'LTA_an':0,							
-							'fwr_mon':0,
-							'fwr_ann':0,
-							'additionalAllow_mon':0,
-							'additionalAllow_an':0,
-							'exgratia1_mon':0,
-							'exgratia1_ann':0,
-							'totalA_mon':0,
-							'totalA_an': 0,
-							'providentFundMonth':0,
-							'providentFund_an':0,
-							'exgratia2_mon':0,
-							'exgratia2_ann':0,
-							//'JoiningBonus_mon':0,
-							'totalB_mon':0,
-							'totalB_an':0,
-							'HRATotalB_mon':0,
-							'adjustmentHRA_mon':0,
-							'performaneBonus_mon':0,
-							'performanceBonus_an':0,
-							'totalC_mon':0,
-							'totalC_an':0
-
-
-						}
 						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						//CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
 						CTCComponents['fixedSalary_ann'] = Math.round((offerCtc/(100 +CTCComponents['perfomance'] ) )*100);
@@ -553,7 +445,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 
 				}
-				
+
 				else if (fieldoption =='oncologyV2')
 				{
 					
@@ -565,62 +457,6 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				 
 				// var joiningbonus = Number (isNaN(joiningbonus) ?0 :joiningbonus );
 			
-				var CTCComponents = {
-
-							
-							//'BasicSal_an': 0,
-							'stipend_pm':0,
-							'stipend_an':0,
-							'perfomance':0,
-							'fixedSalary_mon':0,
-							'fixedSalary_ann':0,
-							'vPay_mon':0,
-							'vPay_ann':0,
-							'adjustment_mon':0,
-							'CTC_mon':0,
-							
-							'BasicSal_mon': 0,
-							'BasicSal_an':0,
-							'housingAlMonthly':0,
-							'housingAllowance_an': 0,
-							'conveyance_mon':0,
-							'conveyance_an':0,
-							'education_mon':0,
-							'education_an':0,
-							'medical_mon':0,
-							'medical_an': 0,
-							'city_mon':0,
-							'city_an': 0,
-							'foodAllowance_mon':0,
-							'foodAllowance_an':0,
-							'LTA_mon':0,
-							'RLA_mon':0,
-							'RLA_an':0,
-							'LTA_an':0,							
-							'fwr_mon':0,
-							'fwr_ann':0,
-							'additionalAllow_mon':0,
-							'additionalAllow_an':0,
-							'exgratia1_mon':0,
-							'exgratia1_ann':0,
-							'totalA_mon':0,
-							'totalA_an': 0,
-							'providentFundMonth':0,
-							'providentFund_an':0,
-							'exgratia2_mon':0,
-							'exgratia2_ann':0,
-							//'JoiningBonus_mon':0,
-							'totalB_mon':0,
-							'totalB_an':0,
-							'HRATotalB_mon':0,
-							'adjustmentHRA_mon':0,
-							'performaneBonus_mon':0,
-							'performanceBonus_an':0,
-							'totalC_mon':0,
-							'totalC_an':0
-
-
-						}
 						CTCComponents['perfomance'] = perfomancePercantage; //Basic Monthly
 						//CTCComponents['fixedSalary_mon'] = Math.round((inputctc/(100 +CTCComponents['perfomance'] ) )*100);
 						CTCComponents['fixedSalary_ann'] = Math.round((offerCtc/(100 +CTCComponents['perfomance'] ) )*100);
@@ -680,6 +516,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 				}
 
+
+
+				
 
 				
 				

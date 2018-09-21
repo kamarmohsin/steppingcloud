@@ -85,7 +85,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 							'totalC_mon':0,
 							'totalC_an':0,
 							'basketAllowance_an':0,
-							'basketAllowance_mon':0
+							'basketAllowance_mon':0,	
+					                'totalCompTempAllow_an':0,
+							'totalCompTempAllow_mon':0
 
 
 						}

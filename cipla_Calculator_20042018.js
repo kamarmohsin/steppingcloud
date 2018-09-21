@@ -508,6 +508,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						CTCComponents['additionalAllow_an'] = additionalAllow;
 						CTCComponents['additionalAllow_mon'] = CTCComponents['additionalAllow_an']/12; 
+					        CTCComponents['totalCompTempAllow_an'] = CTCComponents['totalC_an'] + CTCComponents['additionalAllow_an'];
+						CTCComponents['totalCompTempAllow_mon'] = CTCComponents['totalC_mon'] + CTCComponents['additionalAllow_mon']; 
+						
 						
 
 

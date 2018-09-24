@@ -17,6 +17,36 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 				var level = inputlevel;
 				var text = $mj("#Level option:selected").text(); 	
 				var struct = inputStruct;
+                                
+					var band = $mj('[name="jobBand"]').val();
+
+				
+				 if(level == 'L1' && (band != '121722' && band != '121723' && band != '121724'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
+
+				else if(level == 'L2' && (band != '121725' && band != '121726' && band != '121727'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
+
+				else if(level == 'L3' && (band != '121728' && band != '121729' && band != '121730'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
+				else if(level == 'L4' && (band != '121731' && band != '121732' && band != '121733'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
+				else if(level == 'L5' && (band != '121734' && band != '121735' && band != '121736'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
+				else if(level == 'L6' && (band != '121737' && band != '121738' && band != '121739'))
+				{
+					alert('Please Select Correct Job Band as per Selected Grade in calculator');
+				}
 
 				
 						

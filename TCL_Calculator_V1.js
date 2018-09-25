@@ -1206,7 +1206,7 @@ var calcCTC =  function(InputOTE,inputcountry,InputBand ,InputselectedPlan)
 			
 			ctcCalculation['transportAllow'] = (selectedCountry=='SaudiArabia' ) ? transportAllowance_saudi[selectedSubBand] : (selectedCountry=='Qatar' )? transportAllowance_qatar[selectedSubBand]: (selectedCountry=='UAE' )? transportAllowance_UAE[selectedSubBand] : (selectedCountry=='Oman' )? transportAllowance_Oman[selectedSubBand] :0;
 			
-			ctcCalculation['Retirals'] = (selectedCountry=='INDIA') ? (16.81 * ctcCalculation['annualBasic'])/100 : (selectedCountry =='SriLanka' ) ? (16.53 * ctcCalculation['annualBasic'])/100 :0 ;
+			ctcCalculation['Retirals'] = (selectedCountry=='INDIA') ? (12 * ctcCalculation['annualBasic'])/100 : (selectedCountry =='SriLanka' ) ? (16.53 * ctcCalculation['annualBasic'])/100 :0 ;
 			
 			ctcCalculation['lta'] = (selectedCountry=='SaudiArabia' ) ? lta_saudi[selectedSubBand] : (selectedCountry=='Qatar' )? lta_qatar[selectedSubBand]: (selectedCountry=='UAE' )? lta_uae[selectedSubBand] : (selectedCountry=='Oman' )? lta_oman[selectedSubBand] :0;
 			

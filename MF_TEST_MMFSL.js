@@ -271,7 +271,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
 						}
 
-						else if(level == 'l7m' || level == 'l7o' || level == 'l8o' || level == 'l9o'|| level == 'l10a' || level == 'l10b' || level == 'l10c'){
+						else if(level == 'mt'|| level == 'l7m' || level == 'l7o' || level == 'l8o' || level == 'l9o'|| level == 'l10a' || level == 'l10b' || level == 'l10c'){
 
 							CTCcalculation['BasicSal_an'] = ( 30 * inputCTC_an)/100;
 							CTCcalculation['BasicSal_mon'] = CTCcalculation['BasicSal_an']/12;

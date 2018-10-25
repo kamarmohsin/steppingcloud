@@ -1989,7 +1989,7 @@ var $mj = jQuery.noConflict();
         	else
         	{
         		
-			 	var salComponent = Math.round(sal[key]);
+			 	var salComponent = (sal[key]);
 			 			var round = salComponent.toLocaleString('en-IN');
 						$mj('[name="'+key+'"]').val(round);
 
